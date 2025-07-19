@@ -5,63 +5,67 @@ import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 
 const PageLoader = () => {
-  const [showLoader, setShowLoader] = useState(true)
+  const [showLoader, setShowLoader] = useState(false)
   const [hasAnimated, setHasAnimated] = useState(false)
   const fadeOutDuration = 500
   const displayDuration = 2000
 
   useEffect(() => {
-    setShowLoader(true)
-    setHasAnimated(false) 
+    const alreadyShown = sessionStorage.getItem("page-loader-shown")
 
-    const timer = setTimeout(() => {
-      setShowLoader(false) 
-    }, displayDuration)
+    if (!alreadyShown) {
+      setShowLoader(true)
+      sessionStorage.setItem("page-loader-shown", "true")
 
-    const markAnimatedTimer = setTimeout(() => {
+      const timer = setTimeout(() => {
+        setShowLoader(false)
+      }, displayDuration)
+
+      const markAnimatedTimer = setTimeout(() => {
+        setHasAnimated(true)
+      }, displayDuration + fadeOutDuration)
+
+      return () => {
+        clearTimeout(timer)
+        clearTimeout(markAnimatedTimer)
+      }
+    } else {
       setHasAnimated(true)
-    }, displayDuration + fadeOutDuration)
-
-    return () => {
-      clearTimeout(timer)
-      clearTimeout(markAnimatedTimer)
     }
-  }, []) 
+  }, [])
 
-  if (hasAnimated) {
-    return null
-  }
+  if (hasAnimated) return null
 
   return (
-    <AnimatePresence onExitComplete={() => setHasAnimated(true)}>
+    <AnimatePresence>
       {showLoader && (
         <motion.div
           key="page-loader"
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          exit={{ 
-            opacity: 0, 
-            transition: { 
-              duration: fadeOutDuration / 1000, 
-              ease: "easeOut" 
-            } 
-          }} 
-          transition={{ duration: 0.3, ease: "easeOut" }} 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{
+            opacity: 0,
+            transition: {
+              duration: fadeOutDuration / 1000,
+              ease: "easeOut"
+            }
+          }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1a1c1e]"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ 
-              opacity: 0, 
+            exit={{
+              opacity: 0,
               scale: 0.8,
-              transition: { 
-                duration: fadeOutDuration / 1000, 
-                ease: "easeOut" 
+              transition: {
+                duration: fadeOutDuration / 1000,
+                ease: "easeOut"
               }
             }}
-            transition={{ duration: 0.4, ease: "easeOut" }} 
-            className="relative w-102 h-102" 
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="relative w-102 h-102"
           >
             <Image
               src="/images/logo.png"

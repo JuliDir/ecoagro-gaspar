@@ -107,7 +107,6 @@ export default function Hero({ slides }: HeroProps) {
         }
     }
 
-    // Función para obtener las clases del botón según el tipo de producto
     const getButtonClasses = (slide: Slide) => {
         switch (slide.productType) {
             case 'cobrestable':
@@ -121,7 +120,6 @@ export default function Hero({ slides }: HeroProps) {
         }
     }
 
-    // Función para obtener el color para elementos inline
     const getBrandColor = (slide: Slide) => {
         switch (slide.productType) {
             case 'cobrestable':
@@ -136,7 +134,7 @@ export default function Hero({ slides }: HeroProps) {
     }
 
     return (
-        <section className="w-screen h-screen overflow-hidden relative">
+        <section className="w-screen h-screen overflow-hidden relative" id="hero">
             <Carousel
                 className="w-full h-full"
                 plugins={[Autoplay({ delay: 5000, stopOnInteraction: false })]}
@@ -153,15 +151,13 @@ export default function Hero({ slides }: HeroProps) {
                                 className="object-cover"
                                 priority={index === 0}
                             />
-                            {/* Overlay con gradiente de color de marca */}
                             <div
-                                className="absolute inset-0 flex flex-col items-center justify-center text-center p-10"
+                                className="absolute inset-0 flex flex-col items-center justify-center text-center p-6"
                                 style={{
                                     background: `linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, ${getBrandColor(slide)}20 100%)`
                                 }}
                             >
                                 {index === 0 ? (
-                                    // Animated content for first slide
                                     <motion.div
                                         variants={containerVariants}
                                         initial="hidden"
@@ -185,7 +181,6 @@ export default function Hero({ slides }: HeroProps) {
                                         >
                                             <span
                                                 style={{ color: getBrandColor(slide) }}
-                                                className="drop-shadow-lg"
                                             >
                                                 {slide.title.split(':')[0]}:
                                             </span>

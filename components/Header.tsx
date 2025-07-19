@@ -13,11 +13,11 @@ export default function Header() {
     const lastScrollY = useRef(0)
 
     const navItems = useMemo(() => [
-        { name: "Cultivos", href: "#cultivos", id: "cultivos" },
         { name: "Productos", href: "#productos", id: "productos" },
+        { name: "Cultivos", href: "#cultivos", id: "cultivos" },
         { name: "Testimonios", href: "#testimonios", id: "testimonios" },
         { name: "Contacto", href: "#contacto", id: "contacto" },
-        { name: "Quienes somos", href: "#quienes-somos", id: "quienes-somos" },
+        { name: "Nosotros", href: "#about-us", id: "about-us" },
     ], [])
 
     useEffect(() => {
@@ -39,19 +39,24 @@ export default function Header() {
 
     useEffect(() => {
         const observers: IntersectionObserver[] = []
-        navItems.forEach((item) => {
-            const section = document.getElementById(item.id)
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "-80px 0px -40% 0px"
+        }
+
+        const idsToObserve = [...navItems.map(i => i.id), "hero"]
+
+        idsToObserve.forEach((id) => {
+            const section = document.getElementById(id)
             if (section) {
-                const observer = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                setActiveSection(item.id)
-                            }
-                        })
-                    },
-                    { threshold: 0.1, rootMargin: "-50% 0px -50% 0px" },
-                )
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            setActiveSection(id === "hero" ? "" : id)
+                        }
+                    })
+                }, observerOptions)
                 observer.observe(section)
                 observers.push(observer)
             }
@@ -78,10 +83,9 @@ export default function Header() {
             animate={{ y: isVisible ? 0 : "-100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className={cn(
-                "w-full fixed top-0 z-50 flex items-center justify-between px-4 py-4 md:px-10 md:py-5 lg:px-64",
+                "w-full fixed top-0 z-50 flex items-center justify-between px-4 py-4 md:px-8 lg:px-60",
                 scrolledPastHero ? "bg-dark-gray shadow-lg" : "bg-transparent",
-                scrolledPastHero ? "text-white" : "text-white",
-                "transition-all duration-500 ease-in-out",
+                "text-white transition-all duration-500 ease-in-out"
             )}
         >
             <div className="relative h-12 w-48">
@@ -94,10 +98,10 @@ export default function Header() {
                         <a
                             href={item.href}
                             className={cn(
-                                "relative transition-colors",
-                                scrolledPastHero ? "hover:text-brand-green" : "hover:text-gray-300",
-                                "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-current after:transition-all after:duration-300",
-                                activeSection === item.id ? "after:w-full" : "after:w-0",
+                                "relative transition-colors duration-300",
+                                "hover:text-gray-300",
+                                "after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-white after:transition-all after:duration-500 after:ease-out",
+                                activeSection === item.id ? "after:w-full" : "after:w-0"
                             )}
                         >
                             {item.name}
@@ -108,10 +112,7 @@ export default function Header() {
 
             <div className="md:hidden relative">
                 <motion.button
-                    className={cn(
-                        "relative z-50 flex h-8 w-8 items-center justify-center rounded-full",
-                        "text-white",
-                    )}
+                    className="relative z-50 flex h-8 w-8 items-center justify-center rounded-full text-white"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     animate={isMobileMenuOpen ? "open" : "closed"}
                     variants={hamburgerVariants}
@@ -136,7 +137,7 @@ export default function Header() {
                                 className={cn(
                                     "relative px-6 py-3 transition-colors hover:bg-gray-700",
                                     "after:absolute after:bottom-0 after:left-6 after:h-[2px] after:bg-current after:transition-all after:duration-300",
-                                    activeSection === item.id ? "after:w-[calc(100%-3rem)]" : "after:w-0",
+                                    activeSection === item.id ? "after:w-[calc(100%-3rem)] text-white" : "after:w-0"
                                 )}
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
