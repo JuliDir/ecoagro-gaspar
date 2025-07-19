@@ -58,8 +58,7 @@ export default function Contact() {
       whileInView="visible"
       viewport={{ 
         once: true, 
-        amount: 0.2,
-        margin: "-100px" 
+        amount: 0.1,
       }}
       variants={containerVariants}
     >

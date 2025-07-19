@@ -1,5 +1,4 @@
 import { Phone, MapPin, Clock } from 'lucide-react';
-import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -7,8 +6,8 @@ export default function Footer() {
             <div className="max-w-6xl mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Logo y descripción */}
-                    <div className="space-y-4">
-                        <Image
+                    <div className="space-y-4 mt-2.5">
+                        <img
                             src="/images/logo.png" 
                             alt="Ecoagro Gaspar" 
                             className="h-12 w-auto"

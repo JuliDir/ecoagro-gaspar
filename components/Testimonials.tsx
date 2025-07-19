@@ -1,11 +1,10 @@
 "use client";
 
 import { easeOut, motion } from 'framer-motion';
-import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 
 export default function Testimonials() {
-    const [hasAnimated, setHasAnimated] = useState(false); // Nuevo estado para controlar si ya animó
+    const [hasAnimated, setHasAnimated] = useState(false);
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const [videoLoading, setVideoLoading] = useState(true);
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -244,7 +243,7 @@ export default function Testimonials() {
                                     <div className="flex items-center space-x-4">
                                         {/* Client Image */}
                                         <div className="relative">
-                                            <Image
+                                            <img
                                                 src={testimonials[currentTestimonial].image}
                                                 alt={testimonials[currentTestimonial].name}
                                                 className="w-16 h-16 rounded-full object-cover border-3 border-green-100 shadow-lg animate-slide-up"
