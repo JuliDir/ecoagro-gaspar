@@ -46,7 +46,7 @@ const PageLoader = () => {
               ease: "easeOut" 
             } 
           }} 
-          transition={{ duration: 0.4, ease: "easeOut" }} 
+          transition={{ duration: 0.3, ease: "easeOut" }} 
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#1a1c1e]"
         >
           <motion.div
@@ -67,8 +67,7 @@ const PageLoader = () => {
               src="/images/logo.png"
               alt="Logo"
               className="w-full h-full object-contain"
-              layout="fill"
-              objectFit="contain"
+              fill
             />
           </motion.div>
         </motion.div>

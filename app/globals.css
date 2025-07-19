@@ -41,6 +41,24 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Colores personalizados */
+  --color-brand-green: var(--brand-green);
+  --color-dark-gray: var(--dark-gray);
+  --color-cobrestable: var(--cobrestable);
+  --color-bordocald: var(--bordocald);
+  --color-trikkoper: var(--trikkoper);
+
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
 }
 
 @media (prefers-color-scheme: light) {
@@ -58,8 +76,22 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+
+  /* Primary color actualizado a tu verde */
+  --primary: #00663b;
   --primary-foreground: oklch(0.985 0 0);
+
+  --color-primary-50: #f0f9f4;
+  --color-primary-100: #dcf4e3;
+  --color-primary-200: #bbe8cc;
+  --color-primary-300: #86d5a6;
+  --color-primary-400: #4abe7a;
+  --color-primary-500: #22a05a;
+  --color-primary-600: #00663b;
+  --color-primary-700: #155a42;
+  --color-primary-800: #164a37;
+  --color-primary-900: #143d30;
+
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -83,6 +115,16 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Colores personalizados */
+  --brand-green: #00663b;
+  --dark-gray: #1a1c1e;
+  --cobrestable: #06b6d4;
+  /* Celeste/Cyan */
+  --bordocald: #8b5cf6;
+  /* Violeta */
+  --trikkoper: #10b981;
+  /* Verde esmeralda */
 }
 
 .dark {
@@ -92,8 +134,22 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+
+  /* Primary color en modo oscuro también actualizado */
+  --primary: #00663b;
+  --primary-foreground: oklch(0.985 0 0);
+
+  --color-primary-50: #f0f9f4;
+  --color-primary-100: #dcf4e3;
+  --color-primary-200: #bbe8cc;
+  --color-primary-300: #86d5a6;
+  --color-primary-400: #4abe7a;
+  --color-primary-500: #22a05a;
+  --color-primary-600: #00663b;
+  --color-primary-700: #155a42;
+  --color-primary-800: #164a37;
+  --color-primary-900: #143d30;
+
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -117,12 +173,20 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Los colores personalizados se mantienen igual en modo oscuro */
+  --brand-green: #00663b;
+  --dark-gray: #1a1c1e;
+  --cobrestable: #0098da;
+  --bordocald: #9a3388;
+  --trikkoper: #00a859;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -130,4 +194,88 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Clases de utilidad personalizadas para tus colores */
+@layer utilities {
+  .bg-brand-green {
+    background-color: var(--brand-green);
+  }
+
+  .text-brand-green {
+    color: var(--brand-green);
+  }
+
+  .border-brand-green {
+    border-color: var(--brand-green);
+  }
+
+  .bg-dark-gray {
+    background-color: var(--dark-gray);
+  }
+
+  .text-dark-gray {
+    color: var(--dark-gray);
+  }
+
+  .border-dark-gray {
+    border-color: var(--dark-gray);
+  }
+
+  .bg-cobrestable {
+    background-color: var(--cobrestable);
+  }
+
+  .text-cobrestable {
+    color: var(--cobrestable);
+  }
+
+  .border-cobrestable {
+    border-color: var(--cobrestable);
+  }
+
+  .bg-bordocald {
+    background-color: var(--bordocald);
+  }
+
+  .text-bordocald {
+    color: var(--bordocald);
+  }
+
+  .border-bordocald {
+    border-color: var(--bordocald);
+  }
+
+  .bg-trikkoper {
+    background-color: var(--trikkoper);
+  }
+
+  .text-trikkoper {
+    color: var(--trikkoper);
+  }
+
+  .border-trikkoper {
+    border-color: var(--trikkoper);
+  }
+
+  /* Variantes con hover */
+  .hover\:bg-brand-green:hover {
+    background-color: color-mix(in srgb, var(--brand-green) 85%, black);
+  }
+
+  .hover\:bg-dark-gray:hover {
+    background-color: color-mix(in srgb, var(--dark-gray) 85%, white);
+  }
+
+  .hover\:bg-cobrestable:hover {
+    background-color: color-mix(in srgb, var(--cobrestable) 85%, black);
+  }
+
+  .hover\:bg-bordocald:hover {
+    background-color: color-mix(in srgb, var(--bordocald) 85%, black);
+  }
+
+  .hover\:bg-trikkoper:hover {
+    background-color: color-mix(in srgb, var(--trikkoper) 85%, black);
+  }
 }

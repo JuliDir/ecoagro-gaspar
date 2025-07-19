@@ -15,6 +15,7 @@ interface Slide {
     description: string
     ctaText: string
     ctaLink: string
+    productType?: 'cobrestable' | 'bordocald' | 'trikkoper' | 'default'
 }
 
 interface HeroProps {
@@ -28,25 +29,28 @@ export default function Hero({ slides }: HeroProps) {
 
     const defaultSlides: Slide[] = [
         {
-            imageSrc: "/images/hero-1.jpeg",
+            imageSrc: "/images/hero/hero-1.jpeg",
             title: "Cobrestable: Protección Total",
             description: "Fungicida y bactericida con triple acción para cultivos saludables.",
             ctaText: "Descubre Cobrestable",
             ctaLink: "/cobrestable",
+            productType: "cobrestable"
         },
         {
-            imageSrc: "/images/hero-2.webp",
+            imageSrc: "/images/hero/hero-2.webp",
             title: "Bordocald: Innovación Segura",
             description: "Fungicida avanzado, efectivo y respetuoso con el ambiente.",
             ctaText: "Conoce Bordocald",
             ctaLink: "/bordocald",
+            productType: "bordocald"
         },
         {
-            imageSrc: "/images/hero-3.jpeg",
-            title: "NutriFit: Potencia Natural",
+            imageSrc: "/images/hero/hero-3.jpeg",
+            title: "Trikkoper 50: Potencia Natural",
             description: "Bioestimulante que mejora defensa y resistencia al estrés.",
-            ctaText: "Aprende sobre NutriFit",
-            ctaLink: "/nutrifit",
+            ctaText: "Aprende sobre Trikkoper 50",
+            ctaLink: "/trikkoper-50",
+            productType: "trikkoper"
         },
     ]
 
@@ -56,7 +60,7 @@ export default function Hero({ slides }: HeroProps) {
         hidden: {},
         visible: {
             transition: {
-                staggerChildren: 0.10, 
+                staggerChildren: 0.10,
                 delayChildren: 0.10,
             },
         },
@@ -71,8 +75,8 @@ export default function Hero({ slides }: HeroProps) {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.4, 
-                ease: easeOut, 
+                duration: 0.4,
+                ease: easeOut,
             },
         },
     }
@@ -103,6 +107,34 @@ export default function Hero({ slides }: HeroProps) {
         }
     }
 
+    // Función para obtener las clases del botón según el tipo de producto
+    const getButtonClasses = (slide: Slide) => {
+        switch (slide.productType) {
+            case 'cobrestable':
+                return "bg-cobrestable hover:bg-cobrestable text-white"
+            case 'bordocald':
+                return "bg-bordocald hover:bg-bordocald text-white"
+            case 'trikkoper':
+                return "bg-trikkoper hover:bg-trikkoper text-white"
+            default:
+                return "bg-brand-green hover:bg-brand-green text-white"
+        }
+    }
+
+    // Función para obtener el color para elementos inline
+    const getBrandColor = (slide: Slide) => {
+        switch (slide.productType) {
+            case 'cobrestable':
+                return '#06b6d4'
+            case 'bordocald':
+                return '#8b5cf6'
+            case 'trikkoper':
+                return '#10b981'
+            default:
+                return '#00663b'
+        }
+    }
+
     return (
         <section className="w-screen h-screen overflow-hidden relative">
             <Carousel
@@ -121,8 +153,13 @@ export default function Hero({ slides }: HeroProps) {
                                 className="object-cover"
                                 priority={index === 0}
                             />
-                            {/* Overlay */}
-                            <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center p-4">
+                            {/* Overlay con gradiente de color de marca */}
+                            <div
+                                className="absolute inset-0 flex flex-col items-center justify-center text-center p-10"
+                                style={{
+                                    background: `linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, ${getBrandColor(slide)}20 100%)`
+                                }}
+                            >
                                 {index === 0 ? (
                                     // Animated content for first slide
                                     <motion.div
@@ -141,17 +178,40 @@ export default function Hero({ slides }: HeroProps) {
                                         )}
                                         <motion.h2
                                             variants={itemVariants}
-                                            className="text-white text-4xl md:text-6xl font-bold leading-tight"
+                                            className="text-4xl md:text-6xl font-bold leading-tight relative"
                                             style={{
                                                 textShadow: "2px 2px 6px rgba(0, 0, 0, 0.8)",
                                             }}
                                         >
-                                            {slide.title}
+                                            <span
+                                                style={{ color: getBrandColor(slide) }}
+                                                className="drop-shadow-lg"
+                                            >
+                                                {slide.title.split(':')[0]}:
+                                            </span>
+                                            <span className="text-white">
+                                                {slide.title.split(':')[1]}
+                                            </span>
+                                            <motion.div
+                                                className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 h-1 rounded-full"
+                                                style={{
+                                                    backgroundColor: getBrandColor(slide),
+                                                    width: "0rem",
+                                                }}
+                                                animate={{
+                                                    width: startAnimation ? "20rem" : "0rem",
+                                                }}
+                                                transition={{
+                                                    duration: 0.7,
+                                                    delay: 0.5,
+                                                    ease: "easeOut",
+                                                }}
+                                            />
                                         </motion.h2>
                                         {slide.description && (
                                             <motion.p
                                                 variants={itemVariants}
-                                                className="text-white text-lg md:text-xl mt-4 mb-8"
+                                                className="text-white text-lg md:text-xl mt-6 mb-8"
                                                 style={{ textShadow: "1px 1px 4px rgba(0, 0, 0, 0.7)" }}
                                             >
                                                 {slide.description}
@@ -159,7 +219,12 @@ export default function Hero({ slides }: HeroProps) {
                                         )}
                                         <motion.div variants={itemVariants}>
                                             <Link href={slide.ctaLink} passHref>
-                                                <Button className="cursor-pointer px-8 py-6 text-lg bg-green-600 hover:bg-green-700 text-white shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold">
+                                                <Button
+                                                    className={`cursor-pointer px-8 py-6 text-lg shadow-lg transition-all ease-in-out transform font-semibold ${getButtonClasses(slide)}`}
+                                                    style={{
+                                                        boxShadow: `0 4px 15px ${getBrandColor(slide)}40`
+                                                    }}
+                                                >
                                                     {slide.ctaText}
                                                 </Button>
                                             </Link>
@@ -177,23 +242,41 @@ export default function Hero({ slides }: HeroProps) {
                                             </p>
                                         )}
                                         <h2
-                                            className="text-white text-4xl md:text-6xl font-bold leading-tight"
+                                            className="text-4xl md:text-6xl font-bold leading-tight relative"
                                             style={{
                                                 textShadow: "2px 2px 6px rgba(0, 0, 0, 0.8)",
                                             }}
                                         >
-                                            {slide.title}
+                                            <span
+                                                style={{ color: getBrandColor(slide) }}
+                                                className="drop-shadow-lg"
+                                            >
+                                                {slide.title.split(':')[0]}:
+                                            </span>
+                                            <span className="text-white">
+                                                {slide.title.split(':')[1]}
+                                            </span>
+                                            {/* Línea decorativa con color de marca */}
+                                            <div
+                                                className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 h-1 w-[20rem] rounded-full"
+                                                style={{ backgroundColor: getBrandColor(slide) }}
+                                            />
                                         </h2>
                                         {slide.description && (
                                             <p
-                                                className="text-white text-lg md:text-xl mt-4 mb-8"
+                                                className="text-white text-lg md:text-xl mt-6 mb-8"
                                                 style={{ textShadow: "1px 1px 4px rgba(0, 0, 0, 0.7)" }}
                                             >
                                                 {slide.description}
                                             </p>
                                         )}
                                         <Link href={slide.ctaLink} passHref>
-                                            <Button className="cursor-pointer px-8 py-6 text-lg bg-green-600 hover:bg-green-700 text-white shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 font-semibold">
+                                            <Button
+                                                className={`cursor-pointer px-8 py-6 text-lg shadow-lg transition-all ease-in-out transform font-semibold ${getButtonClasses(slide)}`}
+                                                style={{
+                                                    boxShadow: `0 4px 15px ${getBrandColor(slide)}40`
+                                                }}
+                                            >
                                                 {slide.ctaText}
                                             </Button>
                                         </Link>
@@ -213,8 +296,14 @@ export default function Hero({ slides }: HeroProps) {
                                 className="flex items-center space-x-3 group focus:outline-none cursor-pointer"
                             >
                                 <div
-                                    className={`w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-colors duration-300 ${current === index + 1 ? "bg-white text-green-800" : "bg-white/30 text-white group-hover:bg-white/50"
+                                    className={`w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 ${current === index + 1
+                                            ? "text-white shadow-lg transform scale-110"
+                                            : "bg-white/30 text-white group-hover:bg-white/50"
                                         }`}
+                                    style={current === index + 1 ? {
+                                        backgroundColor: getBrandColor(slide),
+                                        boxShadow: `0 2px 10px ${getBrandColor(slide)}60`
+                                    } : {}}
                                 >
                                     {index + 1}
                                 </div>
