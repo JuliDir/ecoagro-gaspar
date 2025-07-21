@@ -17,7 +17,7 @@ export default function Header() {
         { name: "Cultivos", href: "#cultivos", id: "cultivos" },
         { name: "Testimonios", href: "#testimonios", id: "testimonios" },
         { name: "Contacto", href: "#contacto", id: "contacto" },
-        { name: "Nosotros", href: "#about-us", id: "about-us" },
+        { name: "Nosotros", href: "/about-us", id: "about-us" },
     ], [])
 
     useEffect(() => {

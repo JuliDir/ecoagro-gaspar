@@ -3,7 +3,7 @@ import { Phone, MapPin, Clock } from 'lucide-react';
 export default function Footer() {
     return (
         <footer className="w-full py-10 bg-dark-gray text-white">
-            <div className="max-w-6xl mx-auto px-4">
+            <div className="w-full px-4 py-4 md:px-8 lg:px-60">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Logo y descripción */}
                     <div className="space-y-4 mt-2.5">
