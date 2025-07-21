@@ -1,7 +1,15 @@
-import Link from "next/link";
+"use client";
+
 import Image from "next/image";
 
 export default function CTA() {
+    const handleContactClick = () => {
+        const contactSection = document.getElementById("contacto");
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <div className="w-full bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white py-16 px-4 md:px-10 lg:px-64 relative overflow-hidden">
             {/* Decorative background elements */}
@@ -54,15 +62,15 @@ export default function CTA() {
                     
                     {/* Right side - CTA and trust element */}
                     <div className="flex flex-col gap-4 items-center text-left lg:text-right">
-                        <Link 
-                            href="/contacto" 
-                            className="group inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-4 py-2 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-white hover:text-primary-600 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-30"
+                        <button 
+                            onClick={handleContactClick}
+                            className="group inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-4 py-2 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-white hover:text-primary-600 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-30 cursor-pointer"
                         >
                             Contáctanos
                             <svg className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                        </Link>
+                        </button>
                         
                         <div className="flex items-center text-sm opacity-75">
                             <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">

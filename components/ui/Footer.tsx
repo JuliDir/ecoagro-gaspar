@@ -1,4 +1,5 @@
 import { Phone, MapPin, Clock } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
     return (
@@ -22,19 +23,19 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold text-primary-500">Productos</h3>
                         <ul className="space-y-2 text-sm text-gray-300">
                             <li>
-                                <a href="/productos/cobrestable" className="hover:text-primary-500 transition-colors">
-                                    Cobrestable
-                                </a>
+                                <Link href="/products/cobrestable" className="hover:text-primary-500 transition-colors">
+                                    Cobrestable®
+                                </Link>
                             </li>
                             <li>
-                                <a href="/productos/bordocold" className="hover:text-primary-500 transition-colors">
-                                    Bordocold
-                                </a>
+                                <Link href="/products/bordocald" className="hover:text-primary-500 transition-colors">
+                                    Bordocald®
+                                </Link>
                             </li>
                             <li>
-                                <a href="/productos/trikopper-50" className="hover:text-primary-500 transition-colors">
-                                    Trikopper 50
-                                </a>
+                                <Link href="/products/trikkoper-50" className="hover:text-primary-500 transition-colors">
+                                    Trikkoper 50®
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -43,9 +44,9 @@ export default function Footer() {
                     <div className="space-y-4">
                         <h3 className="text-lg font-semibold text-primary-500">Nosotros</h3>
                         <div className="text-sm">
-                            <a href="/about-us" className="text-gray-300 hover:text-primary-500 transition-colors">
+                            <Link href="/about-us" className="text-gray-300 hover:text-primary-500 transition-colors">
                                 ¿Quiénes somos?
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -64,7 +65,12 @@ export default function Footer() {
                                 <Phone className="w-4 h-4 mt-0.5 text-primary-500 flex-shrink-0" />
                                 <div>
                                     <h4 className="text-white font-medium mb-1">Teléfono</h4>
-                                    <p>+54 9 261 399 0081</p>
+                                    <a 
+                                        href="tel:+542613990081"
+                                        className="hover:text-primary-500 transition-colors"
+                                    >
+                                        +54 9 261 399 0081
+                                    </a>
                                 </div>
                             </div>
                             <div className="flex items-start space-x-2">

@@ -1,6 +1,7 @@
 // components/ProductCard.tsx
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Product } from "@/lib/types/Product";
 import { ProductFeatureList } from "./ProductFeatureList";
 import { ProductImage } from "./ProductImage";
@@ -13,6 +14,17 @@ interface ProductCardProps {
   windowWidth: number;
 }
 
+// Mapping de nombres de productos a sus slugs
+const getProductSlug = (productName: string): string => {
+  const slugMap: { [key: string]: string } = {
+    "COBRESTABLE": "cobrestable",
+    "BORDOCALD": "bordocald", 
+    "TRIKOPPER 50": "trikkoper-50"
+  };
+  
+  return slugMap[productName] || productName.toLowerCase().replace(/\s+/g, '-');
+};
+
 export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   index,
@@ -20,6 +32,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   setHoveredProduct,
   windowWidth
 }) => {
+  const productSlug = getProductSlug(product.name);
+
   return (
     <motion.div
       onHoverStart={() => setHoveredProduct(product.id)}
@@ -87,20 +101,22 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 index={index}
               />
 
-              {/* Botón */}
-              <motion.button
-                className="cursor-pointer mt-8 py-4 px-8 rounded-xl bg-white/20 backdrop-blur-sm text-white font-bold text-lg border-2 border-white/30 transition-all duration-300 hover:bg-white/30"
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: "rgba(255, 255, 255, 0.25)"
-                }}
-                whileTap={{ scale: 0.98 }}
-                animate={{
-                  y: hoveredProduct === product.id ? -3 : 0
-                }}
-              >
-                Más Información
-              </motion.button>
+              {/* Botón con Link */}
+              <Link href={`/products/${productSlug}`}>
+                <motion.button
+                  className="cursor-pointer mt-8 py-4 px-8 rounded-xl bg-white/20 backdrop-blur-sm text-white font-bold text-lg border-2 border-white/30 transition-all duration-300 hover:bg-white/30"
+                  whileHover={{
+                    scale: 1.05,
+                    backgroundColor: "rgba(255, 255, 255, 0.25)"
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{
+                    y: hoveredProduct === product.id ? -3 : 0
+                  }}
+                >
+                  Más Información
+                </motion.button>
+              </Link>
             </motion.div>
 
             <ProductImage 

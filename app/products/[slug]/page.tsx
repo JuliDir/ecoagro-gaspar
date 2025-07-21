@@ -27,7 +27,7 @@ const productsData = {
       },
       {
         title: "Acción bactericida y fungicida",
-        description: "Efectivo contra bacterias y enfermedades policiclicas (como mildius, tizones, rabia del garbanzo).",
+        description: "Efectivo contra bacterias y enfermedades policíclicas (como mildius, tizones, rabia del garbanzo).",
         details: "Especialmente útil en estrategias que buscan controlar las bacteriosis donde pocas herramientas están disponibles."
       },
       {
@@ -73,11 +73,11 @@ const productsData = {
       {
         title: "Tecnología Ultramicronizada",
         description: "Partículas de ≈1 µm que garantizan máxima cobertura y penetración foliar.",
-        details: "La micronización ultra-fina permite una distribución homogénea y mayor superficie de contacto con el patógeno."
+        details: "La micronización ultra‑fina permite una distribución homogénea y mayor superficie de contacto con el patógeno."
       },
       {
-        title: "Alta Adherencia Post-Lluvia",
-        description: "Mantiene efectividad incluso con precipitaciones de hasta 30mm después de la aplicación.",
+        title: "Alta Adherencia Post‑Lluvia",
+        description: "Mantiene efectividad incluso con precipitaciones de hasta 30 mm después de la aplicación.",
         details: "Formulación especial con adherentes naturales que resisten el lavado por lluvia, extendiendo la protección."
       },
       {
@@ -105,7 +105,7 @@ const productsData = {
   },
   "trikkoper-50": {
     name: "Trikkoper 50®",
-    description: "Cobre tribásico coloidal (50%) con partículas <1.5 µm y adherente siliconado. Alta residualidad hasta 40 días.",
+    description: "Cobre tribásico coloidal (50 %) con partículas <1.5 µm y adherente siliconado. Alta residualidad hasta 40 días.",
     color: "trikkoper",
     cssColor: "#10b981",
     gradient: "from-emerald-400 to-emerald-600",
@@ -156,8 +156,9 @@ const productsData = {
 };
 
 // Generar metadata dinámica
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const product = productsData[params.slug as keyof typeof productsData];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const product = productsData[slug as keyof typeof productsData];
   
   if (!product) {
     return {
@@ -171,7 +172,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: `${product.name} | Ecoagro Gaspar`,
       description: product.description,
-      url: `https://ecoagrogaspar.com.ar/products/${params.slug}`,
+      url: `https://ecoagrogaspar.com.ar/products/${slug}`,
       siteName: "Ecoagro Gaspar",
     },
   };
@@ -184,8 +185,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = productsData[params.slug as keyof typeof productsData];
+export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const product = productsData[slug as keyof typeof productsData];
 
   if (!product) {
     notFound();
