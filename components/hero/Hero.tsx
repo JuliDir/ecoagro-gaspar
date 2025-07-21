@@ -33,7 +33,7 @@ export default function Hero({ slides }: HeroProps) {
             title: "Cobrestable: Protección Total",
             description: "Fungicida y bactericida con triple acción para cultivos saludables.",
             ctaText: "Descubre Cobrestable",
-            ctaLink: "/cobrestable",
+            ctaLink: "/products/cobrestable",
             productType: "cobrestable"
         },
         {
@@ -41,7 +41,7 @@ export default function Hero({ slides }: HeroProps) {
             title: "Bordocald: Innovación Segura",
             description: "Fungicida avanzado, efectivo y respetuoso con el ambiente.",
             ctaText: "Conoce Bordocald",
-            ctaLink: "/bordocald",
+            ctaLink: "/products/bordocald",
             productType: "bordocald"
         },
         {
@@ -49,7 +49,7 @@ export default function Hero({ slides }: HeroProps) {
             title: "Trikkoper 50: Potencia Natural",
             description: "Bioestimulante que mejora defensa y resistencia al estrés.",
             ctaText: "Aprende sobre Trikkoper 50",
-            ctaLink: "/trikkoper-50",
+            ctaLink: "/products/trikkoper-50",
             productType: "trikkoper"
         },
     ]
