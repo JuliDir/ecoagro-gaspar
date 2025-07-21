@@ -166,6 +166,33 @@ export default function Contact() {
                 </motion.div>
               </div>
             </div>
+
+            {/* Visítanos Section */}
+            <motion.div 
+              className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
+              variants={itemVariants}
+            >
+              <h3 className="text-2xl font-semibold text-white mb-6">Visítanos</h3>
+              <div className="relative w-full h-80 rounded-xl overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.4757293729547!2d-68.8536287!3d-32.8978129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e09297b3e6111%3A0x4e8b2a63a5b4f123!2sArist%C3%B3bulo%20del%20Valle%20465%2C%20M5500%20Mendoza%2C%20Argentina!5e0!3m2!1sen!2sus!4v1672934123456!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación de Ecoagro Gaspar"
+                  className="rounded-xl"
+                ></iframe>
+                
+                {/* Overlay con información */}
+                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+                  <h4 className="font-semibold text-gray-800 text-sm">Ecoagro Gaspar</h4>
+                  <p className="text-gray-600 text-xs">Mendoza, Argentina</p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
@@ -261,7 +288,7 @@ export default function Contact() {
               <motion.button
                 type="button"
                 onClick={() => {}}
-                className="w-full py-4 px-6 rounded-lg font-semibold text-white bg-primary-600 hover:bg-primary-700 cursor-pointer"
+                className="w-full py-4 px-6 rounded-lg font-semibold text-white bg-primary-600 hover:bg-primary-700 transition-colors"
                 variants={itemVariants}
               >
                 Enviar Mensaje

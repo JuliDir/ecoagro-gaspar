@@ -43,7 +43,7 @@ export default function Footer() {
                     <div className="space-y-4">
                         <h3 className="text-lg font-semibold text-primary-500">Nosotros</h3>
                         <div className="text-sm">
-                            <a href="/nosotros" className="text-gray-300 hover:text-primary-500 transition-colors">
+                            <a href="/about-us" className="text-gray-300 hover:text-primary-500 transition-colors">
                                 ¿Quiénes somos?
                             </a>
                         </div>

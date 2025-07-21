@@ -94,11 +94,17 @@ export default function Hero({ slides }: HeroProps) {
     }, [api])
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setStartAnimation(true)
-        }, 1800)
+        const alreadyShown = sessionStorage.getItem("page-loader-shown")
 
-        return () => clearTimeout(timer)
+        if (!alreadyShown) {
+            const timer = setTimeout(() => {
+                setStartAnimation(true)
+            }, 1800)
+
+            return () => clearTimeout(timer)
+        } else {
+            setStartAnimation(true)
+        }
     }, [])
 
     const handleDotClick = (index: number) => {
@@ -292,8 +298,8 @@ export default function Hero({ slides }: HeroProps) {
                             >
                                 <div
                                     className={`w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 ${current === index + 1
-                                            ? "text-white shadow-lg transform scale-110"
-                                            : "bg-white/30 text-white group-hover:bg-white/50"
+                                        ? "text-white shadow-lg transform scale-110"
+                                        : "bg-white/30 text-white group-hover:bg-white/50"
                                         }`}
                                     style={current === index + 1 ? {
                                         backgroundColor: getBrandColor(slide),

@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 export default function Header() {
     const [scrolledPastHero, setScrolledPastHero] = useState(false)
@@ -88,9 +89,9 @@ export default function Header() {
                 "text-white transition-all duration-500 ease-in-out"
             )}
         >
-            <div className="relative h-12 w-48">
+            <Link className="relative h-12 w-48" href="/">
                 <Image src="/images/logo.png" alt="Ecoagro Gaspar Logo" fill className="object-contain" />
-            </div>
+            </Link>
 
             <ul className="hidden md:flex space-x-6 text-lg">
                 {navItems.map((item) => (

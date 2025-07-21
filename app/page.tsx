@@ -1,7 +1,6 @@
 import Contact from "@/components/contact/Contact";
 import Crops from "@/components/crops/Crops";
 import CTA from "@/components/ui/CTA";
-import Footer from "@/components/ui/Footer";
 import Hero from "@/components/hero/Hero";
 import Products from "@/components/product/Producst";
 import Stats from "@/components/testimonials/Stats";
@@ -31,7 +30,6 @@ export default function Home() {
         <Testimonials />
         <Stats />
         <Contact />
-        <Footer />
       </main>
   );
 }
