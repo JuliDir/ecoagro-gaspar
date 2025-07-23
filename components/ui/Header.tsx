@@ -19,7 +19,7 @@ export default function Header() {
     const products = [
         { name: "Cobrestable", href: "/products/cobrestable" },
         { name: "Bordocald", href: "/products/bordocald" },
-        { name: "Trikkoper 50", href: "/products/trikkoper-50" },
+        { name: "Trikopper 50", href: "/products/trikkoper-50" },
     ]
 
     const navItems = useMemo(() => [

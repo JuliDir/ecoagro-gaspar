@@ -104,7 +104,7 @@ const productsData = {
     ]
   },
   "trikkoper-50": {
-    name: "Trikkoper 50®",
+    name: "Trikopper 50®",
     description: "Cobre tribásico coloidal (50 %) con partículas <1.5 µm y adherente siliconado. Alta residualidad hasta 40 días.",
     color: "trikkoper",
     cssColor: "#10b981",

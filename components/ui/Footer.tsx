@@ -34,7 +34,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <Link href="/products/trikkoper-50" className="hover:text-primary-500 transition-colors">
-                                    Trikkoper 50®
+                                    Trikopper 50®
                                 </Link>
                             </li>
                         </ul>

@@ -5,6 +5,7 @@ import Header from "@/components/ui/Header";
 import PageLoader from "@/components/ui/PageLoader";
 import WhatsappButton from "@/components/ui/WhatsappButton";
 import Footer from "@/components/ui/Footer";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,6 +56,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <WhatsappButton />
+        <ScrollToTopButton />
       </body>
     </html>
   );
