@@ -58,7 +58,7 @@ export default function Footer() {
                                 <Clock className="w-4 h-4 mt-0.5 text-primary-500 flex-shrink-0" />
                                 <div>
                                     <h4 className="text-white font-medium mb-1">Horario de Atención de Administración</h4>
-                                    <p>Lunes a Viernes de 8:30 a 14:00 hs</p>
+                                    <p>Lunes a Viernes de 8:00 a 16:00 hs</p>
                                 </div>
                             </div>
                             <div className="flex items-start space-x-2">
@@ -77,9 +77,9 @@ export default function Footer() {
                                 <MapPin className="w-4 h-4 mt-0.5 text-primary-500 flex-shrink-0" />
                                 <div>
                                     <h4 className="text-white font-medium mb-1">Dirección</h4>
-                                    <p>Aristóbulo del Valle 465 - Of. 3<br />
-                                       Ciudad Capital, Mendoza, Argentina<br />
-                                       CP 5500
+                                    <p>PARQUE INDUSTRIAL LAS HERAS<br />
+                                       Calle 12 eje Norte RT Lote 4<br />
+                                       Las Heras, Mendoza, Argentina
                                     </p>
                                 </div>
                             </div>

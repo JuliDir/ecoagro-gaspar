@@ -196,12 +196,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               className="relative flex items-center justify-center"
               variants={sectionVariants}
             >
-              <div className="relative w-80 h-80 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
+              <div className="relative h-80 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
                 <Image
                   src={product.icon}
                   alt={product.name}
-                  width={300}
-                  height={300}
+                  width={500}
+                  height={500}
                   className="object-contain"
                 />
               </div>
@@ -341,7 +341,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   >
                     <Sprout className="w-8 h-8" />
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-800">Cultivos Recomendados</h3>
+                  <h3 className="text-3xl font-bold text-gray-800">Cultivos</h3>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   {product.cultivos.map((cultivo, index) => (

@@ -78,7 +78,7 @@
   --popover-foreground: oklch(0.145 0 0);
 
   /* Primary color actualizado a tu verde */
-  --primary: #00663b;
+  --primary: #266d35;
   --primary-foreground: oklch(0.985 0 0);
 
   --color-primary-50: #f0f9f4;
@@ -119,11 +119,11 @@
   /* Colores personalizados */
   --brand-green: #00663b;
   --dark-gray: #1a1c1e;
-  --cobrestable: #06b6d4;
+  --cobrestable: #0098da;
   /* Celeste/Cyan */
-  --bordocald: #8b5cf6;
+  --bordocald: #9a3388;
   /* Violeta */
-  --trikkoper: #10b981;
+  --trikkoper: #00a859;
   /* Verde esmeralda */
 }
 

@@ -120,10 +120,10 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white mb-1">
-                      Horario de Atención de Administración
+                      Horario de atención
                     </h4>
                     <p className="text-gray-300">
-                      Lunes a Viernes de 8:30 a 14:00 hs
+                      Lunes a Viernes de 8:00 a 16:00 hs
                     </p>
                   </div>
                 </motion.div>
@@ -158,9 +158,9 @@ export default function Contact() {
                   <div>
                     <h4 className="font-semibold text-white mb-1">Dirección</h4>
                     <p className="text-gray-300">
-                      Aristóbulo del Valle 465 - Of. 3<br />
-                      Ciudad Capital, Mendoza, Argentina<br />
-                      CP 5500
+                      PARQUE INDUSTRIAL LAS HERAS<br />
+                      Calle 12 eje Norte RT Lote 4<br />
+                      Las Heras, Mendoza, Argentina
                     </p>
                   </div>
                 </motion.div>
@@ -175,7 +175,7 @@ export default function Contact() {
               <h3 className="text-2xl font-semibold text-white mb-6">Visítanos</h3>
               <div className="relative w-full h-80 rounded-xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.4757293729547!2d-68.8536287!3d-32.8978129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e09297b3e6111%3A0x4e8b2a63a5b4f123!2sArist%C3%B3bulo%20del%20Valle%20465%2C%20M5500%20Mendoza%2C%20Argentina!5e0!3m2!1sen!2sus!4v1672934123456!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.8!2d-68.8!3d-32.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDUxJzAwLjAiUyA2OMKwNDgnMDAuMCJX!5e0!3m2!1sen!2sar!4v1672934123456!5m2!1sen!2sar"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -189,7 +189,7 @@ export default function Contact() {
                 {/* Overlay con información */}
                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg">
                   <h4 className="font-semibold text-gray-800 text-sm">Ecoagro Gaspar</h4>
-                  <p className="text-gray-600 text-xs">Mendoza, Argentina</p>
+                  <p className="text-gray-600 text-xs">Las Heras, Mendoza</p>
                 </div>
               </div>
             </motion.div>
