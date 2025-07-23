@@ -21,12 +21,12 @@ export const ProductImage: React.FC<ProductImageProps> = ({
       }}
       transition={{ duration: 0.5 }}
     >
-      <div className="w-64 h-64 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20">
+      <div className="rounded-full flex items-center justify-center backdrop-blur-sm">
         <Image 
           src={product.icon} 
           alt={product.name} 
-          width={240} 
-          height={240} 
+          width={540} 
+          height={540} 
         />
       </div>
 
