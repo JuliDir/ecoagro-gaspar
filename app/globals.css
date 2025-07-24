@@ -1,6 +1,22 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: 'SOFTHITS';
+  src: url('/fonts/SOFTHITS.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirNextLTPro-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -8,6 +24,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-softhits: 'SOFTHITS', var(--font-geist-sans), sans-serif;
+  --font-avenir: 'Avenir Next LT Pro', var(--font-geist-sans), sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -47,7 +65,7 @@
   --color-dark-gray: var(--dark-gray);
   --color-cobrestable: var(--cobrestable);
   --color-bordocald: var(--bordocald);
-  --color-trikkoper: var(--trikkoper);
+  --color-trikopper: var(--trikopper);
 
   --color-primary-50: var(--color-primary-50);
   --color-primary-100: var(--color-primary-100);
@@ -123,7 +141,7 @@
   /* Celeste/Cyan */
   --bordocald: #9a3388;
   /* Violeta */
-  --trikkoper: #00a859;
+  --trikopper: #00a859;
   /* Verde esmeralda */
 }
 
@@ -136,7 +154,7 @@
   --popover-foreground: oklch(0.985 0 0);
 
   /* Primary color en modo oscuro también actualizado */
-  --primary: #00663b;
+  --primary: #266d35;
   --primary-foreground: oklch(0.985 0 0);
 
   --color-primary-50: #f0f9f4;
@@ -174,12 +192,12 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 
-  /* Los colores personalizados se mantienen igual en modo oscuro */
+  /* Colores personalizados */
   --brand-green: #00663b;
   --dark-gray: #1a1c1e;
   --cobrestable: #0098da;
   --bordocald: #9a3388;
-  --trikkoper: #00a859;
+  --trikopper: #00a859;
 }
 
 @layer base {
@@ -246,16 +264,16 @@ html {
     border-color: var(--bordocald);
   }
 
-  .bg-trikkoper {
-    background-color: var(--trikkoper);
+  .bg-trikopper {
+    background-color: var(--trikopper);
   }
 
-  .text-trikkoper {
-    color: var(--trikkoper);
+  .text-trikopper {
+    color: var(--trikopper);
   }
 
-  .border-trikkoper {
-    border-color: var(--trikkoper);
+  .border-trikopper {
+    border-color: var(--trikopper);
   }
 
   /* Variantes con hover */
@@ -275,7 +293,7 @@ html {
     background-color: color-mix(in srgb, var(--bordocald) 85%, black);
   }
 
-  .hover\:bg-trikkoper:hover {
-    background-color: color-mix(in srgb, var(--trikkoper) 85%, black);
+  .hover\:bg-trikopper:hover {
+    background-color: color-mix(in srgb, var(--trikopper) 85%, black);
   }
 }

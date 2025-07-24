@@ -49,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="es-AR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+        className={`font-avenir antialiased overflow-x-hidden`}
       >
         <PageLoader /> 
         <Header />

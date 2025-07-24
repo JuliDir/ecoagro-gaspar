@@ -33,7 +33,7 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/products/trikkoper-50" className="hover:text-primary-500 transition-colors">
+                                <Link href="/products/trikopper-50" className="hover:text-primary-500 transition-colors">
                                     Trikopper 50®
                                 </Link>
                             </li>

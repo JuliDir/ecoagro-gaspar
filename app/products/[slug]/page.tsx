@@ -7,8 +7,8 @@ const productsData = {
     name: "Cobrestable®",
     description: "Cobre complejo con fosfitos que actúa como bactericida, fungicida y bioestimulante. Controla enfermedades y refuerza las defensas naturales de la planta.",
     color: "cobrestable",
-    cssColor: "#06b6d4",
-    gradient: "from-cyan-400 to-cyan-600",
+    cssColor: "#0098da", 
+    gradient: "from-sky-400 to-blue-600", 
     icon: "/images/products/cobrestable.png",
     registro: "SENASA AR #16.899",
     composicion: {
@@ -57,8 +57,8 @@ const productsData = {
     name: "Bordocald®",
     description: "Caldo bordelés ultramicronizado (≈1 µm), listo para usar. Máxima adherencia post-lluvia, ideal para agricultura orgánica.",
     color: "bordocald",
-    cssColor: "#8b5cf6",
-    gradient: "from-violet-400 to-violet-600",
+    cssColor: "#9a3388",
+    gradient: "from-fuchsia-400 to-purple-600", 
     icon: "/images/products/bordocald.png",
     registro: "SENASA AR #17.245",
     composicion: {
@@ -103,12 +103,12 @@ const productsData = {
       "Protocolos para agricultura orgánica"
     ]
   },
-  "trikkoper-50": {
+  "trikopper-50": {
     name: "Trikopper 50®",
     description: "Cobre tribásico coloidal (50 %) con partículas <1.5 µm y adherente siliconado. Alta residualidad hasta 40 días.",
-    color: "trikkoper",
-    cssColor: "#10b981",
-    gradient: "from-emerald-400 to-emerald-600",
+    color: "trikopper",
+    cssColor: "#00a859", 
+    gradient: "from-green-400 to-emerald-600", 
     icon: "/images/products/trikopper.png",
     registro: "SENASA AR #18.156",
     composicion: {

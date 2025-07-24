@@ -86,7 +86,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     const iconMap = {
       cobrestable: [Shield, Zap, Sprout],
       bordocald: [Target, Droplets, Award],
-      trikkoper: [FlaskConical, Shield, Leaf]
+      trikopper: [FlaskConical, Shield, Leaf]
     };
     
     const icons = iconMap[productColor as keyof typeof iconMap] || [Shield, Zap, Sprout];
@@ -146,7 +146,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </>
           )}
           
-          {product.color === 'trikkoper' && (
+          {product.color === 'trikopper' && (
             <>
               <Image 
                 src="/icons/soy.svg" 
@@ -171,7 +171,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             {/* Contenido de texto */}
             <motion.div variants={sectionVariants}>
               <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6"
+                className="text-4xl md:text-6xl font-bold mb-6 font-softhits"
                 variants={sectionVariants}
               >
                 {product.name}

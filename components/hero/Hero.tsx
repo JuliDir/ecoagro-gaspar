@@ -15,7 +15,7 @@ interface Slide {
     description: string
     ctaText: string
     ctaLink: string
-    productType?: 'cobrestable' | 'bordocald' | 'trikkoper' | 'default'
+    productType?: 'cobrestable' | 'bordocald' | 'trikopper' | 'default'
 }
 
 interface HeroProps {
@@ -49,8 +49,8 @@ export default function Hero({ slides }: HeroProps) {
             title: "Trikopper 50",
             description: "Bioestimulante que mejora defensa y resistencia al estrés.",
             ctaText: "Aprende sobre Trikopper 50",
-            ctaLink: "/products/trikkoper-50",
-            productType: "trikkoper"
+            ctaLink: "/products/trikopper-50",
+            productType: "trikopper"
         },
     ]
 
@@ -175,8 +175,8 @@ export default function Hero({ slides }: HeroProps) {
                 return "bg-cobrestable hover:bg-cobrestable text-white"
             case 'bordocald':
                 return "bg-bordocald hover:bg-bordocald text-white"
-            case 'trikkoper':
-                return "bg-trikkoper hover:bg-trikkoper text-white"
+            case 'trikopper':
+                return "bg-trikopper hover:bg-trikopper text-white"
             default:
                 return "bg-brand-green hover:bg-brand-green text-white"
         }
@@ -185,13 +185,13 @@ export default function Hero({ slides }: HeroProps) {
     const getBrandColor = (slide: Slide) => {
         switch (slide.productType) {
             case 'cobrestable':
-                return '#06b6d4'
+                return '#0098da'
             case 'bordocald':
-                return '#8b5cf6'
-            case 'trikkoper':
-                return '#10b981'
+                return '#9a3388'
+            case 'trikopper':
+                return '#00a859'
             default:
-                return '#00663b'
+                return '#266d35'
         }
     }
 
@@ -273,7 +273,7 @@ export default function Hero({ slides }: HeroProps) {
                                             >
                                                 <span
                                                     style={{ color: getBrandColor(slide) }}
-                                                    className="drop-shadow-lg"
+                                                    className="drop-shadow-lg font-softhits"
                                                 >
                                                     {slide.title}
                                                 </span>

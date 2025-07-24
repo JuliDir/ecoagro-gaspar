@@ -19,7 +19,7 @@ const getProductSlug = (productName: string): string => {
   const slugMap: { [key: string]: string } = {
     "COBRESTABLE": "cobrestable",
     "BORDOCALD": "bordocald", 
-    "TRIKOPPER 50": "trikkoper-50"
+    "TRIKOPPER 50": "trikopper-50"
   };
   
   return slugMap[productName] || productName.toLowerCase().replace(/\s+/g, '-');
@@ -81,7 +81,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               transition={{ duration: 0.3 }}
             >
               <motion.h3
-                className="text-4xl lg:text-5xl font-bold text-white mb-4"
+                className="text-4xl lg:text-5xl font-bold text-white mb-4 font-softhits"
                 animate={{
                   scale: hoveredProduct === product.id ? 1.05 : 1
                 }}
