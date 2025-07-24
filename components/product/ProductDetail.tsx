@@ -186,7 +186,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2"
                 variants={sectionVariants}
               >
-                <Award className="w-5 h-5" />
+                <Award className="w-5 h-5"/>
                 <span className="font-medium">{product.registro}</span>
               </motion.div>
             </motion.div>

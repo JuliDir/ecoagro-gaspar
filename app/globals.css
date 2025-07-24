@@ -22,7 +22,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  /* Cambiar la fuente principal a Avenir */
+  --font-sans: 'Avenir Next LT Pro', var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-geist-mono);
   --font-softhits: 'SOFTHITS', var(--font-geist-sans), sans-serif;
   --font-avenir: 'Avenir Next LT Pro', var(--font-geist-sans), sans-serif;
@@ -143,6 +144,10 @@
   /* Violeta */
   --trikopper: #00a859;
   /* Verde esmeralda */
+
+  /* Variables de fuente para Geist */
+  --font-geist-sans: 'Avenir Next LT Pro', system-ui, -apple-system, sans-serif;
+  --font-geist-mono: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
 }
 
 .dark {
@@ -295,5 +300,10 @@ html {
 
   .hover\:bg-trikopper:hover {
     background-color: color-mix(in srgb, var(--trikopper) 85%, black);
+  }
+
+  /* Clase para forzar SOFTHITS en títulos */
+  .font-softhits {
+    font-family: 'SOFTHITS', var(--font-geist-sans), sans-serif !important;
   }
 }

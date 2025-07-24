@@ -4,7 +4,7 @@ import ProductDetail from "@/components/product/ProductDetail";
 
 const productsData = {
   cobrestable: {
-    name: "Cobrestable®",
+    name: "Cobrestable",
     description: "Cobre complejo con fosfitos que actúa como bactericida, fungicida y bioestimulante. Controla enfermedades y refuerza las defensas naturales de la planta.",
     color: "cobrestable",
     cssColor: "#0098da", 
@@ -31,7 +31,7 @@ const productsData = {
         details: "Especialmente útil en estrategias que buscan controlar las bacteriosis donde pocas herramientas están disponibles."
       },
       {
-        title: "Bioestimulación NutriFit®",
+        title: "Bioestimulación NutriFit",
         description: "Contiene fosfitos de cobre, potasio y amonio que inducen respuestas de defensa.",
         details: "Síntesis de fitoalexinas y lignina, fortaleciendo paredes celulares y aumentando la tolerancia al estrés (sequía, frío). En leguminosas, mejora la nodulación, la fijación de N y el crecimiento radicular."
       }
@@ -54,7 +54,7 @@ const productsData = {
     ]
   },
   bordocald: {
-    name: "Bordocald®",
+    name: "Bordocald",
     description: "Caldo bordelés ultramicronizado (≈1 µm), listo para usar. Máxima adherencia post-lluvia, ideal para agricultura orgánica.",
     color: "bordocald",
     cssColor: "#9a3388",
@@ -104,7 +104,7 @@ const productsData = {
     ]
   },
   "trikopper-50": {
-    name: "Trikopper 50®",
+    name: "Trikopper 50",
     description: "Cobre tribásico coloidal (50 %) con partículas <1.5 µm y adherente siliconado. Alta residualidad hasta 40 días.",
     color: "trikopper",
     cssColor: "#00a859", 

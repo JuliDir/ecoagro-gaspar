@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/Header";
 import PageLoader from "@/components/ui/PageLoader";
 import WhatsappButton from "@/components/ui/WhatsappButton";
 import Footer from "@/components/ui/Footer";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -49,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="es-AR">
       <body
-        className={`font-avenir antialiased overflow-x-hidden`}
+        className={`${geistMono.variable} font-avenir antialiased overflow-x-hidden`}
       >
         <PageLoader /> 
         <Header />
