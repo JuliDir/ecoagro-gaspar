@@ -145,12 +145,12 @@ export default function Header() {
             animate={{ y: isVisible ? 0 : "-100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className={cn(
-                "w-full fixed top-0 z-50 flex items-center justify-between px-4 py-4 md:px-8 lg:px-60",
+                "w-full fixed top-0 z-50 flex items-center justify-between px-4 py-1 md:px-8 lg:px-60",
                 scrolledPastHero ? "bg-dark-gray shadow-lg" : "bg-transparent",
                 "text-white transition-all duration-500 ease-in-out"
             )}
         >
-            <Link className="relative h-12 w-48" href="/">
+            <Link className="relative h-20 w-60" href="/">
                 <Image src="/images/logo.png" alt="Ecoagro Gaspar Logo" fill className="object-contain" />
             </Link>
 

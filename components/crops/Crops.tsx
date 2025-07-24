@@ -196,15 +196,15 @@ export default function Crops() {
                 <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center text-white">
                   <h4 className="text-2xl font-bold mb-3">{crop.name}</h4>
                   <p className="text-sm leading-relaxed mb-4">{crop.description}</p>
-                  <Link
-                    href={`/cultivos/${crop.name}`}
+                    <Link
+                    href={`/crops/${crop.name.toLowerCase()}`}
                     className="relative z-20 inline-block bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 text-sm"
                     onClick={(e) => {
-                      e.stopPropagation(); // Evita que el click del link cierre la card
+                      e.stopPropagation(); 
                     }}
-                  >
+                    >
                     Conocer Más
-                  </Link>
+                    </Link>
                 </div>
               </div>
 
