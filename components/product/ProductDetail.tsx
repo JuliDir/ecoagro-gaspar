@@ -3,12 +3,12 @@
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  CheckCircle, 
-  Download, 
-  Leaf, 
-  Shield, 
-  Zap, 
+import {
+  CheckCircle,
+  Download,
+  Leaf,
+  Shield,
+  Zap,
   Target,
   FlaskConical,
   Sprout,
@@ -88,7 +88,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       bordocald: [Target, Droplets, Award],
       trikopper: [FlaskConical, Shield, Leaf]
     };
-    
+
     const icons = iconMap[productColor as keyof typeof iconMap] || [Shield, Zap, Sprout];
     return icons[index] || Shield;
   };
@@ -96,7 +96,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className={`relative bg-gradient-to-br ${product.gradient} text-white py-20 md:py-32 overflow-hidden`}
         initial="hidden"
         animate="visible"
@@ -106,60 +106,60 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full"></div>
           <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/5 rounded-full"></div>
-          
+
           {/* Decoraciones específicas por producto */}
           {product.color === 'cobrestable' && (
             <>
-              <Image 
-                src="/icons/wheat.svg" 
-                alt="" 
-                width={120} 
-                height={120} 
+              <Image
+                src="/icons/wheat.svg"
+                alt=""
+                width={120}
+                height={120}
                 className="absolute top-16 right-16 opacity-10 invert rotate-12"
               />
-              <Image 
-                src="/icons/leaf.svg" 
-                alt="" 
-                width={80} 
-                height={80} 
+              <Image
+                src="/icons/leaf.svg"
+                alt=""
+                width={80}
+                height={80}
                 className="absolute bottom-20 left-20 opacity-15 invert -rotate-45"
               />
             </>
           )}
-          
+
           {product.color === 'bordocald' && (
             <>
-              <Image 
-                src="/icons/corn.svg" 
-                alt="" 
-                width={100} 
-                height={100} 
+              <Image
+                src="/icons/corn.svg"
+                alt=""
+                width={100}
+                height={100}
                 className="absolute top-20 right-20 opacity-12 invert rotate-45"
               />
-              <Image 
-                src="/icons/potato.svg" 
-                alt="" 
-                width={90} 
-                height={90} 
+              <Image
+                src="/icons/potato.svg"
+                alt=""
+                width={90}
+                height={90}
                 className="absolute bottom-16 left-16 opacity-10 invert -rotate-30"
               />
             </>
           )}
-          
+
           {product.color === 'trikopper' && (
             <>
-              <Image 
-                src="/icons/soy.svg" 
-                alt="" 
-                width={110} 
-                height={110} 
+              <Image
+                src="/icons/soy.svg"
+                alt=""
+                width={110}
+                height={110}
                 className="absolute top-12 right-12 opacity-15 invert rotate-30"
               />
-              <Image 
-                src="/icons/garlic.svg" 
-                alt="" 
-                width={70} 
-                height={70} 
+              <Image
+                src="/icons/garlic.svg"
+                alt=""
+                width={70}
+                height={70}
                 className="absolute bottom-24 left-24 opacity-12 invert -rotate-60"
               />
             </>
@@ -170,13 +170,16 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Contenido de texto */}
             <motion.div variants={sectionVariants}>
-              <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6 font-softhits"
+              <motion.h1
+                className="text-4xl md:text-6xl font-bold mb-6 font-softhits relative"
                 variants={sectionVariants}
               >
                 {product.name}
+                <span className="align-super text-[0.4em] ml-1 relative top-[-0.2em] font-sans font-normal border border-white/80 border-2 px-[0.2em]">
+                  R
+                </span>
               </motion.h1>
-              <motion.p 
+              <motion.p
                 className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8"
                 variants={sectionVariants}
               >
@@ -186,13 +189,13 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2"
                 variants={sectionVariants}
               >
-                <Award className="w-5 h-5"/>
+                <Award className="w-5 h-5" />
                 <span className="font-medium">{product.registro}</span>
               </motion.div>
             </motion.div>
 
             {/* Imagen del producto */}
-            <motion.div 
+            <motion.div
               className="relative flex items-center justify-center"
               variants={sectionVariants}
             >
@@ -211,7 +214,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       </motion.section>
 
       {/* Triple Pilar de Acción */}
-      <motion.section 
+      <motion.section
         className="py-20 bg-white"
         initial="hidden"
         whileInView="visible"
@@ -219,7 +222,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             variants={sectionVariants}
           >
@@ -241,7 +244,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   variants={cardVariants}
                   whileHover={{ y: -5 }}
                 >
-                  <div 
+                  <div
                     className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 mx-auto text-white"
                     style={{ backgroundColor: product.cssColor }}
                   >
@@ -264,7 +267,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       </motion.section>
 
       {/* Composición y Modo de Acción */}
-      <motion.section 
+      <motion.section
         className="py-20 bg-gray-50"
         initial="hidden"
         whileInView="visible"
@@ -277,7 +280,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             <motion.div variants={cardVariants}>
               <div className="bg-white rounded-2xl p-8 h-full border-l-4" style={{ borderColor: product.cssColor }}>
                 <div className="flex items-center mb-6">
-                  <div 
+                  <div
                     className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 text-white"
                     style={{ backgroundColor: product.cssColor }}
                   >
@@ -322,7 +325,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       </motion.section>
 
       {/* Cultivos y Aplicación */}
-      <motion.section 
+      <motion.section
         className="py-20 bg-white"
         initial="hidden"
         whileInView="visible"
@@ -335,7 +338,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             <motion.div variants={cardVariants}>
               <div className="bg-gray-50 rounded-2xl p-8">
                 <div className="flex items-center mb-6">
-                  <div 
+                  <div
                     className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 text-white"
                     style={{ backgroundColor: product.cssColor }}
                   >
@@ -387,7 +390,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       </motion.section>
 
       {/* Documentación y Contacto */}
-      <motion.section 
+      <motion.section
         className={`py-20 bg-gradient-to-br ${product.gradient} text-white`}
         initial="hidden"
         whileInView="visible"
@@ -431,7 +434,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     <span>contacto@ecoagrogaspar.com.ar</span>
                   </div>
                 </div>
-                <Link 
+                <Link
                   href="/contact"
                   className="inline-block mt-6 bg-white/20 border-2 border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/30 transition-colors"
                 >
