@@ -13,6 +13,7 @@ export default function Header() {
     const [activeSection, setActiveSection] = useState("")
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false)
+    const [isCropsDropdownOpen, setIsCropsDropdownOpen] = useState(false)
     const lastScrollY = useRef(0)
     const pathname = usePathname()
 
@@ -22,14 +23,30 @@ export default function Header() {
         { name: "Trikopper 50", href: "/products/trikopper-50" },
     ]
 
+    const crops = [
+        { name: "Soja", href: "/crops/soja" },
+        { name: "Trigo", href: "/crops/trigo" },
+        { name: "Papa", href: "/crops/papa" },
+        { name: "Maíz", href: "/crops/maíz" },
+        { name: "Ajo", href: "/crops/ajo" },
+        { name: "Ver Otros", href: "/crops/ver-otros" },
+    ]
+
     const navItems = useMemo(() => [
         { 
             name: "Productos", 
             href: "#productos", 
             id: "productos",
-            hasDropdown: true
+            hasDropdown: true,
+            dropdownType: "products"
         },
-        { name: "Cultivos", href: "#cultivos", id: "cultivos" },
+        { 
+            name: "Cultivos", 
+            href: "#cultivos", 
+            id: "cultivos",
+            hasDropdown: true,
+            dropdownType: "crops"
+        },
         { name: "Testimonios", href: "#testimonios", id: "testimonios" },
         { name: "Contacto", href: "#contacto", id: "contacto" },
         { name: "Nosotros", href: "/about-us", id: "about-us" },
@@ -62,6 +79,12 @@ export default function Header() {
         // Check if we're on a product page
         if (pathname.startsWith("/products/")) {
             setActiveSection("productos")
+            return
+        }
+
+        // Check if we're on a crops page
+        if (pathname.startsWith("/crops/")) {
+            setActiveSection("cultivos")
             return
         }
 
@@ -139,6 +162,33 @@ export default function Header() {
         }
     }
 
+    const renderDropdown = (item: any, isOpen: boolean, items: any[], onClose: () => void) => (
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    variants={dropdownVariants}
+                    className="absolute top-full left-0 mt-2 min-w-48 bg-dark-gray text-white rounded-lg shadow-xl border border-gray-700 overflow-hidden"
+                >
+                    <div className="py-2">
+                        {items.map((dropdownItem) => (
+                            <Link
+                                key={dropdownItem.href}
+                                href={dropdownItem.href}
+                                className="block px-4 py-3 text-sm hover:bg-gray-700 transition-colors"
+                                onClick={onClose}
+                            >
+                                {dropdownItem.name}
+                            </Link>
+                        ))}
+                    </div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    )
+
     return (
         <motion.header
             initial={{ y: 0 }}
@@ -160,11 +210,23 @@ export default function Header() {
                         {item.hasDropdown ? (
                             <div
                                 className="relative"
-                                onMouseEnter={() => setIsProductsDropdownOpen(true)}
-                                onMouseLeave={() => setIsProductsDropdownOpen(false)}
+                                onMouseEnter={() => {
+                                    if (item.dropdownType === "products") {
+                                        setIsProductsDropdownOpen(true)
+                                    } else if (item.dropdownType === "crops") {
+                                        setIsCropsDropdownOpen(true)
+                                    }
+                                }}
+                                onMouseLeave={() => {
+                                    if (item.dropdownType === "products") {
+                                        setIsProductsDropdownOpen(false)
+                                    } else if (item.dropdownType === "crops") {
+                                        setIsCropsDropdownOpen(false)
+                                    }
+                                }}
                             >
                                 <button
-                                    onClick={(e) => handleSectionClick(e, "productos")}
+                                    onClick={(e) => handleSectionClick(e, item.id)}
                                     className={cn(
                                         "flex items-center space-x-1 px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer",
                                         "hover:bg-white/10",
@@ -176,34 +238,25 @@ export default function Header() {
                                     <span>{item.name}</span>
                                     <ChevronDown className={cn(
                                         "w-4 h-4 transition-transform duration-200",
-                                        isProductsDropdownOpen ? "rotate-180" : ""
+                                        (item.dropdownType === "products" && isProductsDropdownOpen) ||
+                                        (item.dropdownType === "crops" && isCropsDropdownOpen)
+                                            ? "rotate-180" : ""
                                     )} />
                                 </button>
 
-                                <AnimatePresence>
-                                    {isProductsDropdownOpen && (
-                                        <motion.div
-                                            initial="closed"
-                                            animate="open"
-                                            exit="closed"
-                                            variants={dropdownVariants}
-                                            className="absolute top-full left-0 mt-2 min-w-48 bg-dark-gray text-white rounded-lg shadow-xl border border-gray-700 overflow-hidden"
-                                        >
-                                            <div className="py-2">
-                                                {products.map((product) => (
-                                                    <Link
-                                                        key={product.href}
-                                                        href={product.href}
-                                                        className="block px-4 py-3 text-sm hover:bg-gray-700 transition-colors"
-                                                        onClick={() => setIsProductsDropdownOpen(false)}
-                                                    >
-                                                        {product.name}
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
+                                {item.dropdownType === "products" && renderDropdown(
+                                    item, 
+                                    isProductsDropdownOpen, 
+                                    products, 
+                                    () => setIsProductsDropdownOpen(false)
+                                )}
+
+                                {item.dropdownType === "crops" && renderDropdown(
+                                    item, 
+                                    isCropsDropdownOpen, 
+                                    crops, 
+                                    () => setIsCropsDropdownOpen(false)
+                                )}
                             </div>
                         ) : item.href.startsWith("/") ? (
                             // Para enlaces a páginas (como /about-us), usar Link
@@ -261,11 +314,12 @@ export default function Header() {
                     <div className="flex flex-col py-2">
                         {navItems.map((item) => {
                             if (item.hasDropdown) {
+                                const dropdownItems = item.dropdownType === "products" ? products : crops
                                 return (
                                     <div key={item.id}>
                                         <button
                                             onClick={(e) => {
-                                                handleSectionClick(e, "productos")
+                                                handleSectionClick(e, item.id)
                                                 setIsMobileMenuOpen(false)
                                             }}
                                             className={cn(
@@ -275,14 +329,14 @@ export default function Header() {
                                         >
                                             {item.name}
                                         </button>
-                                        {products.map((product) => (
+                                        {dropdownItems.map((dropdownItem) => (
                                             <Link
-                                                key={product.href}
-                                                href={product.href}
-                                                className="block px-8 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white"
+                                                key={dropdownItem.href}
+                                                href={dropdownItem.href}
+                                                className="block px-8 py-2 text-sm text-gray-400 hover:bg-gray-700/50 hover:text-gray-200 transition-colors"
                                                 onClick={() => setIsMobileMenuOpen(false)}
                                             >
-                                                {product.name}
+                                                {dropdownItem.name}
                                             </Link>
                                         ))}
                                     </div>

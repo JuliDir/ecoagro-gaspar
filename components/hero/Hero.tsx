@@ -266,7 +266,7 @@ export default function Hero({ slides }: HeroProps) {
                                             
                                             <motion.h2
                                                 variants={itemVariants}
-                                                className="text-5xl md:text-7xl font-bold leading-tight relative"
+                                                className="text-[2.7rem] md:text-[3.8rem] font-bold leading-tight relative"
                                                 style={{
                                                     textShadow: "2px 2px 6px rgba(0, 0, 0, 0.8)",
                                                 }}
