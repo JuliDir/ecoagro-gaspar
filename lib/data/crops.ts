@@ -1146,3 +1146,105 @@ export const cultivosData = {
     }
   }
 };
+
+export const allCrops = [
+  {
+    name: "Soja",
+    scientificName: "Glycine max",
+    description: "Leguminosa de gran importancia económica, rica en proteínas y aceites. Fija nitrógeno atmosférico y es fundamental en la rotación de cultivos.",
+    iconFilename: "soy.svg",
+    backgroundImage: "/images/crops/soja.jpg",
+    slug: "soja",
+    category: "Leguminosas"
+  },
+  {
+    name: "Papa",
+    scientificName: "Solanum tuberosum", 
+    description: "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje.",
+    iconFilename: "potato.svg",
+    backgroundImage: "/images/crops/papas.jpg",
+    slug: "papa",
+    category: "Tubérculos"
+  },
+  {
+    name: "Vid",
+    scientificName: "Vitis vinifera",
+    description: "Cultivo fundamental para producción de uvas de mesa y vinificación. Requiere manejo sanitario específico para prevenir enfermedades fúngicas.",
+    iconFilename: "vid.svg",
+    backgroundImage: "/images/crops/vid.jpg",
+    slug: "vid",
+    category: "Frutales"
+  },
+  {
+    name: "Garbanzo",
+    scientificName: "Cicer arietinum",
+    description: "Leguminosa de grano seco con alta demanda nutricional. Sensible a excesos de humedad y requiere manejo preventivo de enfermedades foliares.",
+    iconFilename: "bean.svg",
+    backgroundImage: "/images/crops/garbanzo.jpg",
+    slug: "garbanzo",
+    category: "Leguminosas"
+  },
+  {
+    name: "Poroto",
+    scientificName: "Phaseolus vulgaris",
+    description: "Leguminosa de grano con alto valor proteico. Susceptible a diversas enfermedades foliares y bacterianas que requieren manejo preventivo.",
+    iconFilename: "bean.svg",
+    backgroundImage: "/images/crops/poroto.jpg",
+    slug: "poroto",
+    category: "Leguminosas"
+  },
+  {
+    name: "Maní",
+    scientificName: "Arachis hypogaea",
+    description: "Oleaginosa de ciclo estival con frutos subterráneos. Requiere manejo específico de enfermedades foliares para mantener área foliar activa.",
+    iconFilename: "peanut.svg",
+    backgroundImage: "/images/crops/mani.jpg",
+    slug: "mani",
+    category: "Oleaginosas"
+  },
+  {
+    name: "Limón",
+    scientificName: "Citrus limon",
+    description: "Cítrico perenne de gran valor comercial, rico en vitamina C y aceites esenciales. Requiere climas cálidos y suelos bien drenados.",
+    iconFilename: "lemon.svg",
+    backgroundImage: "/images/crops/limon.jpg",
+    slug: "limon",
+    category: "Cítricos"
+  },
+  {
+    name: "Naranja",
+    scientificName: "Citrus sinensis",
+    description: "Cítrico de mayor consumo mundial, rico en vitamina C y fibra. Requiere climas subtropicales y manejo sanitario intensivo.",
+    iconFilename: "tangerine.svg",
+    backgroundImage: "/images/crops/naranja.jpg",
+    slug: "naranja",
+    category: "Cítricos"
+  },
+  {
+    name: "Mandarina",
+    scientificName: "Citrus reticulata",
+    description: "Cítrico de fácil pelado y consumo directo. Más susceptible a enfermedades que otros cítricos, requiere manejo preventivo intensivo.",
+    iconFilename: "tangerine.svg",
+    backgroundImage: "/images/crops/mandarina.jpg",
+    slug: "mandarina",
+    category: "Cítricos"
+  },
+  {
+    name: "Pomelo",
+    scientificName: "Citrus paradisi",
+    description: "Cítrico de gran tamaño con propiedades nutricionales destacadas. Requiere temperaturas cálidas y manejo sanitario específico.",
+    iconFilename: "tangerine.svg",
+    backgroundImage: "/images/crops/pomelo.jpg",
+    slug: "pomelo",
+    category: "Cítricos"
+  },
+  {
+    name: "Oliva",
+    scientificName: "Olea europaea",
+    description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
+    iconFilename: "olive.svg",
+    backgroundImage: "/images/crops/oliva.jpg",
+    slug: "oliva",
+    category: "Frutales"
+  }
+];

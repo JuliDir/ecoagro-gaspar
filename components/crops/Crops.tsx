@@ -9,44 +9,50 @@ const crops = [
   {
     name: "Soja",
     description:
-      "Leguminosa rica en proteínas, ideal para rotación de cultivos. Fija nitrógeno naturalmente y requiere suelos bien drenados.",
+      "Leguminosa de gran importancia económica, rica en proteínas y aceites. Fija nitrógeno atmosférico y es fundamental en la rotación de cultivos.",
     iconFilename: "soy.svg",
     backgroundImage: "/images/crops/soja.jpg",
-  },
-  {
-    name: "Trigo",
-    description:
-      "Cereal fundamental para la alimentación mundial. Se adapta a diversos climas y suelos, con ciclo de crecimiento invernal.",
-    iconFilename: "wheat.svg",
-    backgroundImage: "/images/crops/trigo.jpg",
+    slug: "soja"
   },
   {
     name: "Papa",
     description:
-      "Tubérculo versátil y nutritivo. Requiere suelos sueltos y buen drenaje. Rica en carbohidratos y vitaminas.",
+      "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje.",
     iconFilename: "potato.svg",
     backgroundImage: "/images/crops/papas.jpg",
+    slug: "papa"
   },
   {
-    name: "Maíz",
+    name: "Vid",
     description:
-      "Cereal de alto rendimiento y múltiples usos. Requiere abundante agua y nutrientes durante su desarrollo.",
-    iconFilename: "corn.svg",
-    backgroundImage: "/images/crops/maiz.jpg",
+      "Cultivo fundamental para producción de uvas de mesa y vinificación. Requiere manejo sanitario específico para prevenir enfermedades fúngicas.",
+    iconFilename: "vid.svg",
+    backgroundImage: "/images/crops/vid.jpg",
+    slug: "vid"
   },
   {
-    name: "Ajo",
+    name: "Garbanzo",
     description:
-      "Bulbo aromático con propiedades medicinales. Prefiere climas frescos y suelos bien drenados con materia orgánica.",
-    iconFilename: "garlic.svg",
-    backgroundImage: "/images/crops/ajo.jpg",
+      "Leguminosa de grano seco con alta demanda nutricional. Sensible a excesos de humedad y requiere manejo preventivo de enfermedades foliares.",
+    iconFilename: "bean.svg",
+    backgroundImage: "/images/crops/garbanzo.jpg",
+    slug: "garbanzo"
   },
   {
-    name: "Ver Otros",
+    name: "Limón",
+    description:
+      "Cítrico perenne de gran valor comercial, rico en vitamina C y aceites esenciales. Requiere climas cálidos y suelos bien drenados.",
+    iconFilename: "lemon.svg",
+    backgroundImage: "/images/crops/limon.jpg",
+    slug: "limon"
+  },
+  {
+    name: "Ver otros",
     description:
       "Descubre nuestra amplia gama de cultivos especializados y soluciones nutricionales personalizadas para tu producción.",
     iconFilename: "leaf.svg",
     backgroundImage: "/images/crops/ver-otros.jpeg",
+    slug: "todos-los-cultivos"
   },
 ];
 
@@ -196,8 +202,19 @@ export default function Crops() {
                 <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center text-white">
                   <h4 className="text-2xl font-bold mb-3">{crop.name}</h4>
                   <p className="text-sm leading-relaxed mb-4">{crop.description}</p>
+                  {crop.name === "Ver otros" ? (
                     <Link
-                      href={`/crops/${crop.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
+                      href="/crops"
+                      className="relative z-20 inline-block bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 text-sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      Ver Todos
+                    </Link>
+                  ) : (
+                    <Link
+                      href={`/crops/${crop.slug}`}
                       className="relative z-20 inline-block bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 text-sm"
                       onClick={(e) => {
                         e.stopPropagation();
@@ -205,6 +222,7 @@ export default function Crops() {
                     >
                       Conocer Más
                     </Link>
+                  )}
                 </div>
               </div>
 
