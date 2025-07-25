@@ -419,42 +419,44 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </motion.section>
 
-      {/* Documentación y Contacto */}
+      {/* CTA Final - Unificada con CropDetail y AllCrops */}
       <motion.section
-        className={`py-20 bg-gradient-to-br ${product.gradient} text-white`}
+        className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 text-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center">
-            {/* Contacto */}
-            <motion.div variants={cardVariants} className="max-w-2xl">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold mb-6">¿Necesitas más información?</h3>
-                <p className="text-white/90 mb-6">
-                  Nuestro equipo técnico está disponible para asesorarte sobre el uso específico de {product.name} en tus cultivos.
-                </p>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5" />
-                    <span>+54 9 261 399 0081</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5" />
-                    <span>contacto@ecoagrogaspar.com.ar</span>
-                  </div>
-                </div>
-                <Link
-                  href="/#contacto"
-                  className="inline-block mt-6 bg-white/20 border-2 border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/30 transition-colors"
-                >
-                  Contactar Ahora
-                </Link>
+          <motion.div 
+            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-2xl mx-auto text-center"
+            variants={sectionVariants}
+          >
+            <h2 className="text-3xl font-bold mb-4">¿Necesitas más información?</h2>
+            <p className="text-white/90 mb-6">
+              Nuestro equipo técnico está disponible para asesorarte sobre el uso específico de {product.name} en tus cultivos.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-center justify-center space-x-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span>+54 9 261 399 0081</span>
               </div>
-            </motion.div>
-          </div>
+              <div className="flex items-center justify-center space-x-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span>contacto@ecoagrogaspar.com.ar</span>
+              </div>
+            </div>
+            <Link
+              href="/#contacto"
+              className="inline-block mt-6 bg-white/20 border-2 border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/30 transition-colors"
+            >
+              Contactar Ahora
+            </Link>
+          </motion.div>
         </div>
       </motion.section>
     </div>
