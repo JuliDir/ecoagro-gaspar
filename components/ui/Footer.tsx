@@ -13,6 +13,8 @@ export default function Footer() {
                             src="/images/logo.png" 
                             alt="Ecoagro Gaspar" 
                             className="h-12 w-auto"
+                            width={150}
+                            height={50}
                         />
                         <p className="text-gray-300 text-sm">
                             Soluciones agrícolas especializadas para el cuidado y protección de cultivos.
