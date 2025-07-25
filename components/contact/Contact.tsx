@@ -50,30 +50,30 @@ export default function Contact() {
   };
 
   return (
-    <motion.section 
+    <motion.section
       className="w-full py-20"
       style={{ backgroundColor: '#28292d' }}
       id="contacto"
       initial="hidden"
       whileInView="visible"
-      viewport={{ 
-        once: true, 
+      viewport={{
+        once: true,
         amount: 0.1,
       }}
       variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           variants={headerVariants}
         >
-          <motion.h2 
+          <motion.h2
             className="text-4xl font-bold mb-4 text-primary-500"
             variants={{
               hidden: { opacity: 0, y: 20 },
-              visible: { 
-                opacity: 1, 
+              visible: {
+                opacity: 1,
                 y: 0,
                 transition: { duration: 0.6, ease: easeOut }
               }
@@ -81,18 +81,18 @@ export default function Contact() {
           >
             CONTACTO
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-lg text-gray-300 max-w-2xl mx-auto"
             variants={{
               hidden: { opacity: 0, y: 15 },
-              visible: { 
-                opacity: 1, 
+              visible: {
+                opacity: 1,
                 y: 0,
                 transition: { duration: 0.6, delay: 0.2, ease: easeOut }
               }
             }}
           >
-            Estamos aquí para ayudarte. Contáctanos para cualquier consulta sobre 
+            Estamos aquí para ayudarte. Contáctanos para cualquier consulta sobre
             nuestros servicios y productos.
           </motion.p>
         </motion.div>
@@ -100,7 +100,7 @@ export default function Contact() {
         {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Information */}
-          <motion.div 
+          <motion.div
             className="space-y-8"
             variants={itemVariants}
           >
@@ -108,10 +108,10 @@ export default function Contact() {
               <h3 className="text-2xl font-semibold text-white mb-6">
                 Información de Contacto
               </h3>
-              
+
               <div className="space-y-6">
                 {/* Horario */}
-                <motion.div 
+                <motion.div
                   className="flex items-start gap-4"
                   variants={itemVariants}
                 >
@@ -129,7 +129,7 @@ export default function Contact() {
                 </motion.div>
 
                 {/* Teléfono */}
-                <motion.div 
+                <motion.div
                   className="flex items-start gap-4"
                   variants={itemVariants}
                 >
@@ -138,8 +138,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white mb-1">Teléfono</h4>
-                    <a 
-                      href="tel:+542613990081" 
+                    <a
+                      href="tel:+542613990081"
                       className="text-gray-300 hover:text-white transition-colors"
                     >
                       +54 9 261 399 0081
@@ -148,7 +148,7 @@ export default function Contact() {
                 </motion.div>
 
                 {/* Dirección */}
-                <motion.div 
+                <motion.div
                   className="flex items-start gap-4"
                   variants={itemVariants}
                 >
@@ -168,7 +168,7 @@ export default function Contact() {
             </div>
 
             {/* Visítanos Section */}
-            <motion.div 
+            <motion.div
               className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
               variants={itemVariants}
             >
@@ -185,7 +185,7 @@ export default function Contact() {
                   title="Ubicación de Ecoagro Gaspar"
                   className="rounded-xl"
                 ></iframe>
-                
+
                 {/* Overlay con información */}
                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg">
                   <h4 className="font-semibold text-gray-800 text-sm">Ecoagro Gaspar</h4>
@@ -203,7 +203,7 @@ export default function Contact() {
             <h3 className="text-2xl font-semibold text-white mb-6">
               Envíanos un Mensaje
             </h3>
-            
+
             <div className="space-y-6">
               {/* Nombre */}
               <motion.div variants={itemVariants}>
@@ -287,8 +287,30 @@ export default function Contact() {
               {/* Submit Button */}
               <motion.button
                 type="button"
-                onClick={() => {}}
-                className="w-full py-4 px-6 rounded-lg font-semibold text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+                onClick={() => {
+                  const { name, email, phone, message } = formData;
+
+                  // Armar el texto del mensaje
+                  const text = `📬 Nuevo contacto desde la web:
+                  👤 Nombre: ${name}
+                  📧 Email: ${email}
+                  📱 Teléfono: ${phone || 'No especificado'}
+                  💬 Mensaje: ${message}`.trim();
+
+                  // Codificar y abrir WhatsApp
+                  const encodedText = encodeURIComponent(text);
+                  const whatsappURL = `https://wa.me/5492613990081?text=${encodedText}`;
+                  window.open(whatsappURL, '_blank');
+
+                  // Limpiar formulario
+                  setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    message: ''
+                  });
+                }}
+                className="cursor-pointer w-full py-4 px-6 rounded-lg font-semibold text-white bg-primary-600 hover:bg-primary-700 transition-colors"
                 variants={itemVariants}
               >
                 Enviar Mensaje

@@ -33,11 +33,11 @@ export default function Header() {
 
     const crops = [
         { name: "Soja", href: "/crops/soja" },
-        { name: "Trigo", href: "/crops/trigo" },
         { name: "Papa", href: "/crops/papa" },
-        { name: "Maíz", href: "/crops/maíz" },
-        { name: "Ajo", href: "/crops/ajo" },
-        { name: "Ver Otros", href: "/crops/ver-otros" },
+        { name: "Vid", href: "/crops/vid" },
+        { name: "Garbanzo", href: "/crops/garbanzo" },
+        { name: "Limón", href: "/crops/limon" },
+        { name: "Ver otros", href: "/crops" },
     ]
 
     const navItems = useMemo(() => [

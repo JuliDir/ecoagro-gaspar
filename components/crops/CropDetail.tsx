@@ -161,8 +161,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
             <motion.section
                 className="py-20 bg-white"
                 initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
+                animate="visible"
                 variants={containerVariants}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -222,20 +221,20 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         variants={sectionVariants}
                     >
                         <h2 className="text-4xl font-bold text-primary-800 mb-4">
-                            Productos Recomendados
+                            Productos recomendados
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Soluciones específicas para el manejo sanitario del cultivo
                         </p>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="flex items-center justify-center">
                         {cultivo.productosRecomendados.map((producto, index) => {
                             const productColors = getProductColor(producto.nombre);
                             return (
                                 <motion.div
                                     key={index}
-                                    className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4"
+                                    className="bg-white min-w-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4"
                                     style={{ borderColor: productColors.color }}
                                     variants={cardVariants}
                                     whileHover={{ x: 5 }}
@@ -470,7 +469,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         </p>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div className="flex flex-col w-full md:flex-row items-center justify-center gap-6 max-w-4xl mx-auto">
                         {cultivo.documentosDescargables.map((doc, index) => (
                             <motion.div
                                 key={index}
@@ -534,7 +533,6 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                             href="#contacto"
                             onClick={(e) => {
                                 e.preventDefault();
-                                // Si estamos en una página de cultivo, navegar a home y luego hacer scroll
                                 window.location.href = "/#contacto";
                             }}
                             className="inline-block mt-6 bg-white/20 border-2 border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/30 transition-colors"

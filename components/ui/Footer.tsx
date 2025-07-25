@@ -6,7 +6,7 @@ export default function Footer() {
     return (
         <footer className="w-full py-10 bg-gray-100 text-gray-800 border-t border-gray-200">
             <div className="w-full py-4 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
                     {/* Logo y descripción */}
                     <div className="space-y-4 mt-2.5">
                         <Image
@@ -37,6 +37,43 @@ export default function Footer() {
                             <li>
                                 <Link href="/products/trikopper-50" className="hover:text-primary-600 transition-colors">
                                     Trikopper 50®
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Cultivos */}
+                    <div className="space-y-4">
+                        <h3 className="text-lg font-semibold text-primary-600">Cultivos</h3>
+                        <ul className="space-y-2 text-sm text-gray-600">
+                            <li>
+                                <Link href="/crops/soja" className="hover:text-primary-600 transition-colors">
+                                    Soja
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/crops/papa" className="hover:text-primary-600 transition-colors">
+                                    Papa
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/crops/vid" className="hover:text-primary-600 transition-colors">
+                                    Vid
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/crops/garbanzo" className="hover:text-primary-600 transition-colors">
+                                    Garbanzo
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/crops/limon" className="hover:text-primary-600 transition-colors">
+                                    Limón
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/crops" className="hover:text-primary-600 transition-colors">
+                                    Ver otros
                                 </Link>
                             </li>
                         </ul>

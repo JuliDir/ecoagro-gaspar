@@ -5,16 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   CheckCircle,
-  Download,
   Leaf,
   Shield,
   Zap,
   Target,
   FlaskConical,
   Sprout,
-  Phone,
-  Mail,
-  FileText,
   Award,
   Clock,
   Droplets
@@ -243,8 +239,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       <motion.section
         className="py-20 bg-white"
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        animate="visible"
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

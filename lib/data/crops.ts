@@ -316,7 +316,7 @@ export const cultivosData = {
     scientificName: "Citrus paradisi",
     description: "Cítrico de gran tamaño con propiedades nutricionales destacadas. Requiere temperaturas cálidas y manejo sanitario específico por su lento desarrollo.",
     backgroundImage: "/images/crops/pomelo.jpg",
-    icon: "/icons/grapefruit.svg",
+    icon: "/icons/tangerine.svg",
     
     caracteristicas: {
       ciclo: "Perenne - cosecha tardía",
@@ -637,7 +637,7 @@ export const cultivosData = {
     scientificName: "Cicer arietinum",
     description: "Leguminosa de grano seco con alta demanda nutricional. Sensible a excesos de humedad y requiere manejo preventivo de enfermedades foliares.",
     backgroundImage: "/images/crops/garbanzo.jpg",
-    icon: "/icons/chickpea.svg",
+    icon: "/icons/bean.svg",
     
     caracteristicas: {
       ciclo: "120-150 días",
