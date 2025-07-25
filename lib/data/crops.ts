@@ -1,4 +1,943 @@
 export const cultivosData = {
+  limon: {
+    name: "Limón",
+    scientificName: "Citrus limon",
+    description: "Cítrico perenne de gran valor comercial, rico en vitamina C y aceites esenciales. Requiere climas cálidos y suelos bien drenados para un óptimo desarrollo.",
+    backgroundImage: "/images/crops/limon.jpg",
+    icon: "/icons/lemon.svg",
+    
+    caracteristicas: {
+      ciclo: "Perenne - producción todo el año",
+      temperatura: "15-30°C óptima",
+      suelo: "pH 5.5-6.5, bien drenados",
+      agua: "800-1200 mm anuales",
+      siembra: "Primavera",
+      cosecha: "Todo el año con picos"
+    },
+
+    enfermedadesComunes: [
+      {
+        nombre: "Cancrosis cítrica",
+        sintomas: "Lesiones corchosas en hojas, ramas y frutos",
+        condiciones: "Temperaturas de 20-30°C con alta humedad y lluvias"
+      },
+      {
+        nombre: "Melanosis",
+        sintomas: "Manchas negras rugosas en corteza del fruto",
+        condiciones: "Humedad alta durante brotación y desarrollo del fruto"
+      },
+      {
+        nombre: "Antracnosis",
+        sintomas: "Manchas necróticas en hojas y caída de frutos",
+        condiciones: "Temperaturas moderadas con humedad prolongada"
+      }
+    ],
+
+    productosRecomendados: [
+      {
+        nombre: "Trikopper 50",
+        slug: "trikopper-50",
+        aplicacion: "Control preventivo y curativo de enfermedades fúngicas y bacterianas",
+        dosis: "150-200 g/100 L de agua",
+        momento: "Brotación, cuajado y desarrollo del fruto"
+      }
+    ],
+
+    guiaAplicacion: {
+      etapasClaves: [
+        {
+          etapa: "Brotación primaveral",
+          descripcion: "Primera aplicación preventiva",
+          productos: ["Trikopper 50 150 g/100 L"],
+          objetivo: "Protección de brotes nuevos y flores"
+        },
+        {
+          etapa: "Cuajado del fruto",
+          descripcion: "Protección crítica",
+          productos: ["Trikopper 50 180 g/100 L"],
+          objetivo: "Prevenir infecciones en frutos jóvenes"
+        },
+        {
+          etapa: "Desarrollo del fruto",
+          descripcion: "Mantenimiento de sanidad",
+          productos: ["Trikopper 50 200 g/100 L"],
+          objetivo: "Calidad comercial del fruto"
+        }
+      ],
+      
+      recomendacionesGenerales: [
+        "Aplicar cada 21-28 días según presión de enfermedad",
+        "Usar volúmenes de 1000-1500 L/ha para buena cobertura",
+        "Evitar aplicaciones en floración plena",
+        "Integrar con podas sanitarias",
+        "Monitorear condiciones climáticas predisponentes"
+      ],
+
+      condicionesOptimas: {
+        temperatura: "18-25°C",
+        humedad: "Mayor al 60%",
+        viento: "Menor a 15 km/h",
+        horario: "Temprano en la mañana o tardecita"
+      }
+    },
+
+    documentosDescargables: [
+      {
+        titulo: "Manejo sanitario de cítricos",
+        tipo: "PDF",
+        tamaño: "3.2 MB",
+        url: "/docs/manejo-citricos.pdf"
+      },
+      {
+        titulo: "Protocolo Trikopper 50 en limón",
+        tipo: "PDF",
+        tamaño: "1.8 MB",
+        url: "/docs/protocolo-trikopper-limon.pdf"
+      }
+    ],
+
+    beneficiosEconomicos: {
+      incrementoRendimiento: "15-25% con manejo sanitario adecuado",
+      reduccionPerdidas: "Hasta 40% menos pérdidas por enfermedades",
+      roi: "3.5:1 en programas preventivos"
+    }
+  },
+
+  naranja: {
+    name: "Naranja",
+    scientificName: "Citrus sinensis",
+    description: "Cítrico de mayor consumo mundial, rico en vitamina C y fibra. Requiere climas subtropicales y manejo sanitario intensivo para mantener calidad exportable.",
+    backgroundImage: "/images/crops/naranja.jpg",
+    icon: "/icons/orange.svg",
+    
+    caracteristicas: {
+      ciclo: "Perenne - cosecha anual",
+      temperatura: "16-30°C óptima",
+      suelo: "pH 6.0-7.0, profundos y fértiles",
+      agua: "900-1300 mm anuales",
+      siembra: "Primavera",
+      cosecha: "Abril - Agosto"
+    },
+
+    enfermedadesComunes: [
+      {
+        nombre: "Cancrosis cítrica",
+        sintomas: "Lesiones elevadas en hojas, ramas y frutos",
+        condiciones: "Temperaturas cálidas con lluvia y viento"
+      },
+      {
+        nombre: "Sarna cítrica",
+        sintomas: "Verrugas en frutos y deformaciones",
+        condiciones: "Humedad alta durante cuajado"
+      },
+      {
+        nombre: "Mancha grasienta",
+        sintomas: "Manchas aceitosas en el envés de hojas",
+        condiciones: "Temperaturas de 25-30°C con rocío"
+      }
+    ],
+
+    productosRecomendados: [
+      {
+        nombre: "Trikopper 50",
+        slug: "trikopper-50",
+        aplicacion: "Protección integral contra patógenos cítricos",
+        dosis: "150-250 g/100 L de agua",
+        momento: "Brotación, floración y desarrollo frutal"
+      }
+    ],
+
+    guiaAplicacion: {
+      etapasClaves: [
+        {
+          etapa: "Brotación (Septiembre)",
+          descripcion: "Inicio del programa sanitario",
+          productos: ["Trikopper 50 150 g/100 L"],
+          objetivo: "Protección de brotes tiernos"
+        },
+        {
+          etapa: "Floración y cuajado",
+          descripcion: "Período crítico",
+          productos: ["Trikopper 50 200 g/100 L"],
+          objetivo: "Prevenir caída de frutos"
+        },
+        {
+          etapa: "Crecimiento del fruto",
+          descripcion: "Protección hasta cosecha",
+          productos: ["Trikopper 50 250 g/100 L"],
+          objetivo: "Calidad y sanidad del fruto"
+        }
+      ],
+      
+      recomendacionesGenerales: [
+        "Programa preventivo cada 3-4 semanas",
+        "Alternar con otros modos de acción",
+        "Podar para mejorar aireación",
+        "Eliminar frutos momificados",
+        "Desinfectar herramientas de poda"
+      ],
+
+      condicionesOptimas: {
+        temperatura: "20-28°C",
+        humedad: "Mayor al 65%",
+        viento: "Menor a 12 km/h",
+        horario: "Evitar horas de máximo calor"
+      }
+    },
+
+    documentosDescargables: [
+      {
+        titulo: "Guía completa naranja dulce",
+        tipo: "PDF",
+        tamaño: "4.1 MB",
+        url: "/docs/guia-naranja-dulce.pdf"
+      },
+      {
+        titulo: "Calendario fitosanitario cítricos",
+        tipo: "PDF",
+        tamaño: "2.3 MB",
+        url: "/docs/calendario-citricos.pdf"
+      }
+    ],
+
+    beneficiosEconomicos: {
+      incrementoRendimiento: "20-30% con manejo integrado",
+      reduccionPerdidas: "Hasta 35% menos descarte",
+      roi: "4:1 en plantaciones comerciales"
+    }
+  },
+
+  mandarina: {
+    name: "Mandarina",
+    scientificName: "Citrus reticulata",
+    description: "Cítrico de fácil pelado y consumo directo. Más susceptible a enfermedades que otros cítricos, requiere manejo preventivo intensivo.",
+    backgroundImage: "/images/crops/mandarina.jpg",
+    icon: "/icons/mandarin.svg",
+    
+    caracteristicas: {
+      ciclo: "Perenne - cosecha invernal",
+      temperatura: "15-28°C óptima",
+      suelo: "pH 5.8-6.8, bien drenados",
+      agua: "800-1100 mm anuales",
+      siembra: "Primavera",
+      cosecha: "Mayo - Agosto"
+    },
+
+    enfermedadesComunes: [
+      {
+        nombre: "Alternaria",
+        sintomas: "Manchas negras en frutos maduros",
+        condiciones: "Humedad alta en pre-cosecha"
+      },
+      {
+        nombre: "Cancrosis cítrica",
+        sintomas: "Lesiones corchosas características",
+        condiciones: "Lluvias con viento en brotación"
+      },
+      {
+        nombre: "Antracnosis",
+        sintomas: "Podredumbre de frutos en desarrollo",
+        condiciones: "Temperaturas moderadas con humedad"
+      }
+    ],
+
+    productosRecomendados: [
+      {
+        nombre: "Trikopper 50",
+        slug: "trikopper-50",
+        aplicacion: "Control específico para mandarina",
+        dosis: "150-200 g/100 L de agua",
+        momento: "Brotación, cuajado y pre-cosecha"
+      }
+    ],
+
+    guiaAplicacion: {
+      etapasClaves: [
+        {
+          etapa: "Brotación temprana",
+          descripcion: "Protección inicial",
+          productos: ["Trikopper 50 150 g/100 L"],
+          objetivo: "Prevenir infecciones en brotes"
+        },
+        {
+          etapa: "Floración - cuajado",
+          descripcion: "Momento crítico",
+          productos: ["Trikopper 50 180 g/100 L"],
+          objetivo: "Asegurar cuajado y sanidad inicial"
+        },
+        {
+          etapa: "Pre-cosecha",
+          descripcion: "Protección final",
+          productos: ["Trikopper 50 200 g/100 L"],
+          objetivo: "Calidad post-cosecha"
+        }
+      ],
+      
+      recomendacionesGenerales: [
+        "Monitoreo semanal en épocas críticas",
+        "Cosecha oportuna para evitar sobremaduración",
+        "Manejo cuidadoso para evitar heridas",
+        "Aplicaciones cada 20-25 días",
+        "Integrar con nutrición balanceada"
+      ],
+
+      condicionesOptimas: {
+        temperatura: "18-25°C",
+        humedad: "Mayor al 60%",
+        viento: "Menor a 10 km/h",
+        horario: "Mañana temprano preferiblemente"
+      }
+    },
+
+    documentosDescargables: [
+      {
+        titulo: "Manejo sanitario mandarina",
+        tipo: "PDF",
+        tamaño: "2.9 MB",
+        url: "/docs/manejo-mandarina.pdf"
+      },
+      {
+        titulo: "Control post-cosecha cítricos",
+        tipo: "PDF",
+        tamaño: "2.1 MB",
+        url: "/docs/postcosecha-citricos.pdf"
+      }
+    ],
+
+    beneficiosEconomicos: {
+      incrementoRendimiento: "18-28% con programa completo",
+      reduccionPerdidas: "Hasta 45% menos pérdidas post-cosecha",
+      roi: "3.8:1 en manejo preventivo"
+    }
+  },
+
+  pomelo: {
+    name: "Pomelo",
+    scientificName: "Citrus paradisi",
+    description: "Cítrico de gran tamaño con propiedades nutricionales destacadas. Requiere temperaturas cálidas y manejo sanitario específico por su lento desarrollo.",
+    backgroundImage: "/images/crops/pomelo.jpg",
+    icon: "/icons/grapefruit.svg",
+    
+    caracteristicas: {
+      ciclo: "Perenne - cosecha tardía",
+      temperatura: "18-32°C óptima",
+      suelo: "pH 6.0-7.5, profundos",
+      agua: "1000-1400 mm anuales",
+      siembra: "Primavera",
+      cosecha: "Junio - Septiembre"
+    },
+
+    enfermedadesComunes: [
+      {
+        nombre: "Melanosis",
+        sintomas: "Manchas negras en corteza",
+        condiciones: "Humedad prolongada en desarrollo"
+      },
+      {
+        nombre: "Cancrosis cítrica",
+        sintomas: "Lesiones en frutos grandes",
+        condiciones: "Vulnerabilidad por lento crecimiento"
+      },
+      {
+        nombre: "Podredumbre parda",
+        sintomas: "Podredumbre en frutos maduros",
+        condiciones: "Heridas y humedad alta"
+      }
+    ],
+
+    productosRecomendados: [
+      {
+        nombre: "Trikopper 50",
+        slug: "trikopper-50",
+        aplicacion: "Protección específica para pomelo",
+        dosis: "180-250 g/100 L de agua",
+        momento: "Cuajado, desarrollo y pre-cosecha"
+      }
+    ],
+
+    guiaAplicacion: {
+      etapasClaves: [
+        {
+          etapa: "Cuajado del fruto",
+          descripcion: "Inicio protección frutal",
+          productos: ["Trikopper 50 180 g/100 L"],
+          objetivo: "Prevenir caída y deformaciones"
+        },
+        {
+          etapa: "Desarrollo del fruto",
+          descripcion: "Crecimiento protegido",
+          productos: ["Trikopper 50 220 g/100 L"],
+          objetivo: "Mantener sanidad durante largo desarrollo"
+        },
+        {
+          etapa: "Pre-cosecha",
+          descripcion: "Protección final",
+          productos: ["Trikopper 50 250 g/100 L"],
+          objetivo: "Calidad y vida post-cosecha"
+        }
+      ],
+      
+      recomendacionesGenerales: [
+        "Aplicaciones cada 4-5 semanas por largo ciclo",
+        "Especial atención en heridas de poda",
+        "Manejo cuidadoso por fragilidad del fruto",
+        "Monitoreo continuo por lento desarrollo",
+        "Integrar con raleo para mejor calidad"
+      ],
+
+      condicionesOptimas: {
+        temperatura: "20-30°C",
+        humedad: "Mayor al 65%",
+        viento: "Menor a 15 km/h",
+        horario: "Evitar aplicaciones en máximo calor"
+      }
+    },
+
+    documentosDescargables: [
+      {
+        titulo: "Cultivo técnico de pomelo",
+        tipo: "PDF",
+        tamaño: "3.7 MB",
+        url: "/docs/cultivo-pomelo.pdf"
+      },
+      {
+        titulo: "Manejo post-cosecha pomelo",
+        tipo: "PDF",
+        tamaño: "2.4 MB",
+        url: "/docs/postcosecha-pomelo.pdf"
+      }
+    ],
+
+    beneficiosEconomicos: {
+      incrementoRendimiento: "25-35% con manejo adecuado",
+      reduccionPerdidas: "Hasta 40% menos descarte",
+      roi: "4.2:1 en plantaciones establecidas"
+    }
+  },
+
+  // CULTIVOS PARA BORDOCALD: Vid y oliva
+  vid: {
+    name: "Vid",
+    scientificName: "Vitis vinifera",
+    description: "Cultivo fundamental para la producción de uvas de mesa y vinificación. Requiere manejo sanitario específico para prevenir enfermedades fúngicas típicas.",
+    backgroundImage: "/images/crops/vid.jpg",
+    icon: "/icons/grape.svg",
+    
+    caracteristicas: {
+      ciclo: "Perenne - cosecha anual",
+      temperatura: "15-30°C según variedad",
+      suelo: "pH 6.0-8.0, bien drenados",
+      agua: "400-600 mm durante vegetación",
+      siembra: "Invierno (implantación)",
+      cosecha: "Enero - Marzo"
+    },
+
+    enfermedadesComunes: [
+      {
+        nombre: "Mildiu",
+        sintomas: "Manchas aceitosas y esporulación blanca",
+        condiciones: "Temperaturas de 20-25°C con humedad alta"
+      },
+      {
+        nombre: "Oídio",
+        sintomas: "Polvo blanco en hojas y racimos",
+        condiciones: "Temperaturas de 25-30°C, humedad moderada"
+      },
+      {
+        nombre: "Botritis",
+        sintomas: "Podredumbre gris en racimos",
+        condiciones: "Humedad alta en pre-cosecha"
+      }
+    ],
+
+    productosRecomendados: [
+      {
+        nombre: "Bordocald",
+        slug: "bordocald",
+        aplicacion: "Control preventivo certificado para vid orgánica",
+        dosis: "3-5 L/ha",
+        momento: "Brotación hasta pre-cosecha"
+      },
+      {
+        nombre: "Cobrestable",
+        slug: "cobrestable",
+        aplicacion: "Complemento para control de bacteriosis",
+        dosis: "200-300 cc/100 L de agua",
+        momento: "Según presión de enfermedad"
+      }
+    ],
+
+    guiaAplicacion: {
+      etapasClaves: [
+        {
+          etapa: "Brotación",
+          descripcion: "Primera aplicación preventiva",
+          productos: ["Bordocald 3 L/ha"],
+          objetivo: "Protección inicial contra mildiu"
+        },
+        {
+          etapa: "Pre-floración",
+          descripcion: "Intensificación del programa",
+          productos: ["Bordocald 4 L/ha"],
+          objetivo: "Proteger inflorescencias"
+        },
+        {
+          etapa: "Cuajado - envero",
+          descripcion: "Protección de racimos",
+          productos: ["Bordocald 5 L/ha alternado con Cobrestable"],
+          objetivo: "Sanidad hasta cosecha"
+        }
+      ],
+      
+      recomendacionesGenerales: [
+        "Aplicaciones cada 10-15 días según clima",
+        "Usar equipos de alta presión para penetración",
+        "Alternar con fungicidas sistémicos",
+        "Manejo cultural: poda, conducción, raleo",
+        "Suspender 21 días antes de cosecha"
+      ],
+
+      condicionesOptimas: {
+        temperatura: "15-25°C",
+        humedad: "Mayor al 60%",
+        viento: "Menor a 10 km/h",
+        horario: "Temprano en la mañana"
+      }
+    },
+
+    documentosDescargables: [
+      {
+        titulo: "Manejo sanitario de la vid",
+        tipo: "PDF",
+        tamaño: "4.3 MB",
+        url: "/docs/manejo-vid.pdf"
+      },
+      {
+        titulo: "Programa Bordocald en viticultura orgánica",
+        tipo: "PDF",
+        tamaño: "2.8 MB",
+        url: "/docs/bordocald-vid-organica.pdf"
+      }
+    ],
+
+    beneficiosEconomicos: {
+      incrementoRendimiento: "20-30% en años con presión de mildiu",
+      reduccionPerdidas: "Hasta 50% menos pérdidas por botritis",
+      roi: "5:1 en viticultura de calidad"
+    }
+  },
+
+  oliva: {
+    name: "Oliva",
+    scientificName: "Olea europaea",
+    description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
+    backgroundImage: "/images/crops/oliva.jpg",
+    icon: "/icons/olive.svg",
+    
+    caracteristicas: {
+      ciclo: "Perenne - producción bianual",
+      temperatura: "15-25°C óptima",
+      suelo: "pH 6.5-8.0, bien drenados",
+      agua: "300-600 mm anuales",
+      siembra: "Invierno (implantación)",
+      cosecha: "Marzo - Mayo"
+    },
+
+    enfermedadesComunes: [
+      {
+        nombre: "Repilo",
+        sintomas: "Manchas circulares con halo amarillo",
+        condiciones: "Temperaturas de 18-24°C con humedad alta"
+      },
+      {
+        nombre: "Antracnosis",
+        sintomas: "Manchas deprimidas en frutos",
+        condiciones: "Humedad prolongada en otoño"
+      },
+      {
+        nombre: "Tuberculosis del olivo",
+        sintomas: "Agallas en ramas y tronco",
+        condiciones: "Heridas de poda con humedad"
+      }
+    ],
+
+    productosRecomendados: [
+      {
+        nombre: "Bordocald",
+        slug: "bordocald",
+        aplicacion: "Control preventivo integral para olivicultura orgánica",
+        dosis: "3-4 L/ha",
+        momento: "Otoño, brotación y cuajado"
+      }
+    ],
+
+    guiaAplicacion: {
+      etapasClaves: [
+        {
+          etapa: "Otoño (post-cosecha)",
+          descripcion: "Aplicación sanitizante",
+          productos: ["Bordocald 3 L/ha"],
+          objetivo: "Desinfección y protección invernal"
+        },
+        {
+          etapa: "Brotación primaveral",
+          descripcion: "Protección de brotes",
+          productos: ["Bordocald 3.5 L/ha"],
+          objetivo: "Prevenir infecciones en hojas nuevas"
+        },
+        {
+          etapa: "Cuajado del fruto",
+          descripcion: "Protección frutal",
+          productos: ["Bordocald 4 L/ha"],
+          objetivo: "Sanidad durante desarrollo del fruto"
+        }
+      ],
+      
+      recomendacionesGenerales: [
+        "Podas sanitarias en época seca",
+        "Aplicaciones cada 30-45 días",
+        "Desinfección de herramientas",
+        "Eliminación de restos vegetales",
+        "Manejo del suelo para reducir humedad"
+      ],
+
+      condicionesOptimas: {
+        temperatura: "15-22°C",
+        humedad: "Mayor al 65%",
+        viento: "Menor a 12 km/h",
+        horario: "Primeras horas del día"
+      }
+    },
+
+    documentosDescargables: [
+      {
+        titulo: "Manejo sanitario del olivar",
+        tipo: "PDF",
+        tamaño: "3.8 MB",
+        url: "/docs/manejo-olivar.pdf"
+      },
+      {
+        titulo: "Olivicultura orgánica con Bordocald",
+        tipo: "PDF",
+        tamaño: "2.6 MB",
+        url: "/docs/olivar-organico.pdf"
+      }
+    ],
+
+    beneficiosEconomicos: {
+      incrementoRendimiento: "15-25% con manejo preventivo",
+      reduccionPerdidas: "Hasta 35% menos pérdidas por repilo",
+      roi: "3.2:1 en olivares intensivos"
+    }
+  },
+
+  // CULTIVOS PARA COBRESTABLE: Garbanzo, poroto, maní, soja, papa, cítricos y vid
+  garbanzo: {
+    name: "Garbanzo",
+    scientificName: "Cicer arietinum",
+    description: "Leguminosa de grano seco con alta demanda nutricional. Sensible a excesos de humedad y requiere manejo preventivo de enfermedades foliares.",
+    backgroundImage: "/images/crops/garbanzo.jpg",
+    icon: "/icons/chickpea.svg",
+    
+    caracteristicas: {
+      ciclo: "120-150 días",
+      temperatura: "15-25°C óptima",
+      suelo: "pH 6.0-7.5, bien drenados",
+      agua: "300-400 mm durante el ciclo",
+      siembra: "Junio - Agosto",
+      cosecha: "Noviembre - Diciembre"
+    },
+
+    enfermedadesComunes: [
+      {
+        nombre: "Antracnosis",
+        sintomas: "Manchas necróticas en vainas y tallos",
+        condiciones: "Temperaturas de 20-25°C con humedad alta"
+      },
+      {
+        nombre: "Roya",
+        sintomas: "Pústulas anaranjadas en hojas",
+        condiciones: "Temperaturas frescas con rocío"
+      },
+      {
+        nombre: "Bacteriosis",
+        sintomas: "Manchas acuosas y marchitez",
+        condiciones: "Heridas y alta humedad"
+      }
+    ],
+
+    productosRecomendados: [
+      {
+        nombre: "Cobrestable",
+        slug: "cobrestable",
+        aplicacion: "Control integral de patógenos en leguminosas",
+        dosis: "200-300 cc/100 L de agua",
+        momento: "Desde 6 hojas hasta llenado de vainas"
+      }
+    ],
+
+    guiaAplicacion: {
+      etapasClaves: [
+        {
+          etapa: "6-8 hojas",
+          descripcion: "Primera aplicación preventiva",
+          productos: ["Cobrestable 200 cc/100 L"],
+          objetivo: "Protección temprana del cultivo"
+        },
+        {
+          etapa: "Floración",
+          descripcion: "Período crítico",
+          productos: ["Cobrestable 250 cc/100 L"],
+          objetivo: "Prevenir caída de flores"
+        },
+        {
+          etapa: "Llenado de vainas",
+          descripcion: "Protección final",
+          productos: ["Cobrestable 300 cc/100 L"],
+          objetivo: "Calidad de grano"
+        }
+      ],
+      
+      recomendacionesGenerales: [
+        "Monitoreo semanal desde floración",
+        "Evitar aplicaciones en horas de calor",
+        "Usar adherentes en condiciones secas",
+        "Integrar con manejo de malezas",
+        "Cosechar con humedad adecuada"
+      ],
+
+      condicionesOptimas: {
+        temperatura: "18-25°C",
+        humedad: "Mayor al 60%",
+        viento: "Menor a 15 km/h",
+        horario: "Temprano en la mañana"
+      }
+    },
+
+    documentosDescargables: [
+      {
+        titulo: "Manejo del cultivo de garbanzo",
+        tipo: "PDF",
+        tamaño: "2.7 MB",
+        url: "/docs/manejo-garbanzo.pdf"
+      }
+    ],
+
+    beneficiosEconomicos: {
+      incrementoRendimiento: "18-25% con manejo sanitario",
+      reduccionPerdidas: "Hasta 30% menos pérdidas por antracnosis",
+      roi: "3:1 en condiciones favorables"
+    }
+  },
+
+  poroto: {
+    name: "Poroto",
+    scientificName: "Phaseolus vulgaris",
+    description: "Leguminosa de grano con alto valor proteico. Susceptible a diversas enfermedades foliares y bacterianas que requieren manejo preventivo.",
+    backgroundImage: "/images/crops/poroto.jpg",
+    icon: "/icons/bean.svg",
+    
+    caracteristicas: {
+      ciclo: "90-120 días según variedad",
+      temperatura: "18-24°C óptima",
+      suelo: "pH 6.0-7.0, sueltos y fértiles",
+      agua: "400-500 mm durante el ciclo",
+      siembra: "Octubre - Diciembre",
+      cosecha: "Febrero - Abril"
+    },
+
+    enfermedadesComunes: [
+      {
+        nombre: "Antracnosis",
+        sintomas: "Manchas hundidas en vainas",
+        condiciones: "Temperaturas de 20-24°C con humedad"
+      },
+      {
+        nombre: "Bacteriosis común",
+        sintomas: "Manchas acuosas en hojas",
+        condiciones: "Temperaturas altas con lluvia"
+      },
+      {
+        nombre: "Roya",
+        sintomas: "Pústulas rojizas en envés",
+        condiciones: "Humedad alta con temperaturas moderadas"
+      }
+    ],
+
+    productosRecomendados: [
+      {
+        nombre: "Cobrestable",
+        slug: "cobrestable",
+        aplicacion: "Control específico para poroto",
+        dosis: "200-300 cc/100 L de agua",
+        momento: "V3 hasta R6 según monitoreo"
+      }
+    ],
+
+    guiaAplicacion: {
+      etapasClaves: [
+        {
+          etapa: "V3-V4 (3-4 hojas trifoliadas)",
+          descripcion: "Inicio del programa",
+          productos: ["Cobrestable 200 cc/100 L"],
+          objetivo: "Protección vegetativa inicial"
+        },
+        {
+          etapa: "R1-R3 (Floración)",
+          descripcion: "Período crítico",
+          productos: ["Cobrestable 250 cc/100 L"],
+          objetivo: "Prevenir infecciones durante floración"
+        },
+        {
+          etapa: "R5-R6 (Llenado de vainas)",
+          descripcion: "Protección final",
+          productos: ["Cobrestable 300 cc/100 L"],
+          objetivo: "Calidad del grano y sanidad de vainas"
+        }
+      ],
+      
+      recomendacionesGenerales: [
+        "Aplicaciones cada 15-20 días según clima",
+        "Monitorear desde primera hoja trifoliada",
+        "Usar volúmenes altos para buena cobertura",
+        "Evitar encharcamientos",
+        "Rotar con otros principios activos"
+      ],
+
+      condicionesOptimas: {
+        temperatura: "20-26°C",
+        humedad: "Mayor al 65%",
+        viento: "Menor a 12 km/h",
+        horario: "Mañana temprano o tardecita"
+      }
+    },
+
+    documentosDescargables: [
+      {
+        titulo: "Cultivo técnico del poroto",
+        tipo: "PDF",
+        tamaño: "2.4 MB",
+        url: "/docs/cultivo-poroto.pdf"
+      },
+      {
+        titulo: "Control de enfermedades en poroto",
+        tipo: "PDF",
+        tamaño: "1.9 MB",
+        url: "/docs/enfermedades-poroto.pdf"
+      }
+    ],
+
+    beneficiosEconomicos: {
+      incrementoRendimiento: "20-30% con programa completo",
+      reduccionPerdidas: "Hasta 40% menos pérdidas por antracnosis",
+      roi: "3.5:1 en manejo preventivo"
+    }
+  },
+
+  mani: {
+    name: "Maní",
+    scientificName: "Arachis hypogaea",
+    description: "Oleaginosa de ciclo estival con frutos subterráneos. Requiere manejo específico de enfermedades foliares para mantener área foliar activa hasta cosecha.",
+    backgroundImage: "/images/crops/mani.jpg",
+    icon: "/icons/peanut.svg",
+    
+    caracteristicas: {
+      ciclo: "120-140 días",
+      temperatura: "25-30°C óptima",
+      suelo: "pH 5.8-6.5, sueltos y bien drenados",
+      agua: "500-600 mm durante el ciclo",
+      siembra: "Octubre - Diciembre",
+      cosecha: "Marzo - Mayo"
+    },
+
+    enfermedadesComunes: [
+      {
+        nombre: "Viruela temprana",
+        sintomas: "Manchas circulares con halo amarillo",
+        condiciones: "Temperaturas de 25-30°C con humedad"
+      },
+      {
+        nombre: "Viruela tardía",
+        sintomas: "Manchas grandes irregulares",
+        condiciones: "Fin de ciclo con humedad alta"
+      },
+      {
+        nombre: "Bacteriosis",
+        sintomas: "Manchas acuosas y defoliación",
+        condiciones: "Lluvias con temperaturas altas"
+      }
+    ],
+
+    productosRecomendados: [
+      {
+        nombre: "Cobrestable",
+        slug: "cobrestable",
+        aplicacion: "Control integral en maní",
+        dosis: "250-350 cc/100 L de agua",
+        momento: "V4 hasta R6 según presión"
+      }
+    ],
+
+    guiaAplicacion: {
+      etapasClaves: [
+        {
+          etapa: "V4-V6 (4-6 nudos)",
+          descripcion: "Primera aplicación",
+          productos: ["Cobrestable 250 cc/100 L"],
+          objetivo: "Protección temprana del follaje"
+        },
+        {
+          etapa: "R1-R3 (Floración-fructificación)",
+          descripcion: "Período crítico",
+          productos: ["Cobrestable 300 cc/100 L"],
+          objetivo: "Mantener área foliar durante clavado"
+        },
+        {
+          etapa: "R5-R6 (Llenado)",
+          descripcion: "Protección hasta cosecha",
+          productos: ["Cobrestable 350 cc/100 L"],
+          objetivo: "Prevenir defoliación prematura"
+        }
+      ],
+      
+      recomendacionesGenerales: [
+        "Aplicaciones cada 20-25 días",
+        "Priorizar protección del tercio superior",
+        "Usar adherentes para mejor persistencia",
+        "Monitorear semanalmente desde R1",
+        "Integrar con manejo nutricional"
+      ],
+
+      condicionesOptimas: {
+        temperatura: "22-28°C",
+        humedad: "Mayor al 60%",
+        viento: "Menor a 15 km/h",
+        horario: "Evitar horas de máximo calor"
+      }
+    },
+
+    documentosDescargables: [
+      {
+        titulo: "Manejo sanitario del maní",
+        tipo: "PDF",
+        tamaño: "3.1 MB",
+        url: "/docs/manejo-mani.pdf"
+      },
+      {
+        titulo: "Control de viruelas en maní",
+        tipo: "PDF",
+        tamaño: "2.2 MB",
+        url: "/docs/viruelas-mani.pdf"
+      }
+    ],
+
+    beneficiosEconomicos: {
+      incrementoRendimiento: "15-25% manteniendo área foliar",
+      reduccionPerdidas: "Hasta 35% menos defoliación",
+      roi: "2.8:1 en programas preventivos"
+    }
+  },
+
   soja: {
     name: "Soja",
     scientificName: "Glycine max",
@@ -40,13 +979,6 @@ export const cultivosData = {
         aplicacion: "Preventivo y curativo para enfermedades bacterianas y fúngicas",
         dosis: "200-300 cc/100 L de agua",
         momento: "Desde V3 hasta R5, cada 15-20 días según presión de enfermedad"
-      },
-      {
-        nombre: "Bordocald",
-        slug: "bordocald",
-        aplicacion: "Control preventivo de enfermedades foliares",
-        dosis: "2-3 L/ha",
-        momento: "Aplicaciones preventivas desde etapas vegetativas"
       }
     ],
 
@@ -61,7 +993,7 @@ export const cultivosData = {
         {
           etapa: "R1-R3 (Inicio floración - formación de vainas)",
           descripcion: "Período crítico de protección",
-          productos: ["Cobrestable 250 cc/100 L o Bordocald 2.5 L/ha"],
+          productos: ["Cobrestable 250 cc/100 L"],
           objetivo: "Control de enfermedades foliares y bacteriosis"
         },
         {
@@ -100,12 +1032,6 @@ export const cultivosData = {
         tipo: "PDF",
         tamaño: "1.2 MB",
         url: "/docs/protocolo-cobrestable-soja.pdf"
-      },
-      {
-        titulo: "Calendario de aplicaciones preventivas",
-        tipo: "PDF",
-        tamaño: "800 KB",
-        url: "/docs/calendario-soja.pdf"
       }
     ],
 
@@ -113,123 +1039,6 @@ export const cultivosData = {
       incrementoRendimiento: "15-25% con manejo sanitario adecuado",
       reduccionPerdidas: "Hasta 30% menos pérdidas por enfermedades",
       roi: "3:1 relación beneficio/costo en aplicaciones preventivas"
-    }
-  },
-
-  trigo: {
-    name: "Trigo",
-    scientificName: "Triticum aestivum",
-    description: "Cereal fundamental para la alimentación mundial. Se adapta a diversos climas y suelos, con ciclo de crecimiento invernal que permite la rotación con cultivos de verano.",
-    backgroundImage: "/images/crops/trigo.jpg",
-    icon: "/icons/wheat.svg",
-    
-    caracteristicas: {
-      ciclo: "120-150 días según variedad",
-      temperatura: "12-25°C óptima",
-      suelo: "pH 6.0-7.5, francos a franco-arcillosos",
-      agua: "400-600 mm durante el ciclo",
-      siembra: "Mayo - Julio",
-      cosecha: "Noviembre - Diciembre"
-    },
-
-    enfermedadesComunes: [
-      {
-        nombre: "Roya de la hoja",
-        sintomas: "Pústulas anaranjadas en el haz de las hojas",
-        condiciones: "Temperaturas de 15-22°C con rocío"
-      },
-      {
-        nombre: "Mancha amarilla",
-        sintomas: "Manchas ovales con halo amarillo",
-        condiciones: "Alta humedad y restos de cultivo en superficie"
-      },
-      {
-        nombre: "Bacteriosis de la espiga",
-        sintomas: "Estrías acuosas en hojas y glumas",
-        condiciones: "Lluvias durante floración y llenado"
-      }
-    ],
-
-    productosRecomendados: [
-      {
-        nombre: "Cobrestable",
-        slug: "cobrestable",
-        aplicacion: "Control de bacteriosis y complemento fungicida",
-        dosis: "150-250 cc/100 L de agua",
-        momento: "Desde macollaje hasta grano lechoso"
-      },
-      {
-        nombre: "Trikopper 50",
-        slug: "trikopper-50",
-        aplicacion: "Protección residual contra enfermedades foliares",
-        dosis: "100-150 g/100 L de agua",
-        momento: "Aplicación preventiva en hoja bandera"
-      }
-    ],
-
-    guiaAplicacion: {
-      etapasClaves: [
-        {
-          etapa: "Z21-29 (Macollaje)",
-          descripcion: "Primera aplicación preventiva",
-          productos: ["Cobrestable 150 cc/100 L"],
-          objetivo: "Control temprano de enfermedades foliares"
-        },
-        {
-          etapa: "Z37-39 (Hoja bandera)",
-          descripcion: "Aplicación crítica de protección",
-          productos: ["Trikopper 50 150 g/100 L + fungicida específico"],
-          objetivo: "Proteger hoja bandera y espiga"
-        },
-        {
-          etapa: "Z65-71 (Floración - grano lechoso)",
-          descripcion: "Protección de espiga",
-          productos: ["Cobrestable 200 cc/100 L"],
-          objetivo: "Control de bacteriosis y fusarium"
-        }
-      ],
-      
-      recomendacionesGenerales: [
-        "Monitorear desde emergencia hasta grano pastoso",
-        "Priorizar protección de hojas superiores",
-        "Considerar condiciones climáticas para decisión de aplicación",
-        "Alternar principios activos para manejo de resistencia",
-        "Usar coadyuvantes en condiciones de baja humedad"
-      ],
-
-      condicionesOptimas: {
-        temperatura: "10-25°C",
-        humedad: "Mayor al 50%",
-        viento: "Menor a 10 km/h",
-        horario: "Mañana temprano con rocío o tarde"
-      }
-    },
-
-    documentosDescargables: [
-      {
-        titulo: "Manual de enfermedades del Trigo",
-        tipo: "PDF",
-        tamaño: "3.1 MB",
-        url: "/docs/manual-trigo-enfermedades.pdf"
-      },
-      {
-        titulo: "Protocolo Trikopper 50 en cereales",
-        tipo: "PDF",
-        tamaño: "1.5 MB",
-        url: "/docs/protocolo-trikopper-cereales.pdf"
-      },
-      {
-        titulo: "Guía de monitoreo y umbrales",
-        tipo: "PDF",
-        tamaño: "950 KB",
-        url: "/docs/guia-monitoreo-trigo.pdf"
-      }
-    ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "10-20% con manejo integrado",
-      reduccionPerdidas: "Hasta 25% menos pérdidas por enfermedades",
-      roi: "2.5:1 en aplicaciones estratégicas"
     }
   },
 
@@ -269,25 +1078,11 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Bordocald",
-        slug: "bordocald",
-        aplicacion: "Control preventivo de tizones",
-        dosis: "3-4 L/ha",
-        momento: "Aplicaciones cada 7-10 días según presión"
-      },
-      {
         nombre: "Cobrestable",
         slug: "cobrestable",
         aplicacion: "Control curativo y activación de defensas",
         dosis: "250-350 cc/100 L de agua",
         momento: "Al detectar primeros síntomas o preventivo"
-      },
-      {
-        nombre: "Trikopper 50",
-        slug: "trikopper-50",
-        aplicacion: "Alta residualidad en condiciones difíciles",
-        dosis: "150-200 g/100 L de agua",
-        momento: "Condiciones predisponentes para tizón tardío"
       }
     ],
 
@@ -296,7 +1091,7 @@ export const cultivosData = {
         {
           etapa: "Emergencia - 15 cm altura",
           descripcion: "Inicio del programa preventivo",
-          productos: ["Bordocald 3 L/ha"],
+          productos: ["Cobrestable 250 cc/100 L"],
           objetivo: "Protección inicial del cultivo"
         },
         {
@@ -308,7 +1103,7 @@ export const cultivosData = {
         {
           etapa: "Tuberización - madurez",
           descripcion: "Mantenimiento de sanidad",
-          productos: ["Trikopper 50 200 g/100 L o Bordocald 4 L/ha"],
+          productos: ["Cobrestable 350 cc/100 L"],
           objetivo: "Protección hasta cosecha"
         }
       ],
@@ -337,16 +1132,10 @@ export const cultivosData = {
         url: "/docs/manejo-tizon-papa.pdf"
       },
       {
-        titulo: "Programa Bordocald para papa orgánica",
+        titulo: "Programa Cobrestable para papa",
         tipo: "PDF",
         tamaño: "1.6 MB",
-        url: "/docs/bordocald-papa-organica.pdf"
-      },
-      {
-        titulo: "Calendario fenológico y aplicaciones",
-        tipo: "PDF",
-        tamaño: "1.1 MB",
-        url: "/docs/calendario-papa.pdf"
+        url: "/docs/cobrestable-papa.pdf"
       }
     ],
 
@@ -354,371 +1143,6 @@ export const cultivosData = {
       incrementoRendimiento: "20-35% con control efectivo de tizón",
       reduccionPerdidas: "Hasta 50% menos pérdidas en años epidémicos",
       roi: "4:1 en programas preventivos"
-    }
-  },
-
-  maiz: {
-    name: "Maíz",
-    scientificName: "Zea mays",
-    description: "Cereal de alto rendimiento y múltiples usos. Requiere abundante agua y nutrientes durante su desarrollo, especialmente en floración y llenado de granos.",
-    backgroundImage: "/images/crops/maiz.jpeg",
-    icon: "/icons/corn.svg",
-    
-    caracteristicas: {
-      ciclo: "120-150 días según híbrido",
-      temperatura: "25-30°C óptima",
-      suelo: "pH 5.8-7.0, profundos y fértiles",
-      agua: "500-800 mm durante el ciclo",
-      siembra: "Septiembre - Noviembre",
-      cosecha: "Marzo - Mayo"
-    },
-
-    enfermedadesComunes: [
-      {
-        nombre: "Roya común",
-        sintomas: "Pústulas herrumbrosas en ambas caras de la hoja",
-        condiciones: "Temperaturas de 16-25°C con alta humedad"
-      },
-      {
-        nombre: "Tizón foliar",
-        sintomas: "Lesiones elípticas gris-verdosas",
-        condiciones: "Temperaturas moderadas con rocío prolongado"
-      },
-      {
-        nombre: "Bacteriosis",
-        sintomas: "Estrías acuosas y marchitez",
-        condiciones: "Transmitida por insectos, favorecida por calor"
-      }
-    ],
-
-    productosRecomendados: [
-      {
-        nombre: "Cobrestable",
-        slug: "cobrestable",
-        aplicacion: "Control de bacteriosis y complemento fungicida",
-        dosis: "200-300 cc/100 L de agua",
-        momento: "V6-V8 y prefloración"
-      },
-      {
-        nombre: "Trikopper 50",
-        slug: "trikopper-50",
-        aplicacion: "Protección foliar de larga duración",
-        dosis: "100-150 g/100 L de agua",
-        momento: "Aplicación preventiva en V10-VT"
-      }
-    ],
-
-    guiaAplicacion: {
-      etapasClaves: [
-        {
-          etapa: "V6-V8 (6-8 hojas)",
-          descripcion: "Primera aplicación preventiva",
-          productos: ["Cobrestable 200 cc/100 L"],
-          objetivo: "Control temprano y bioestimulación"
-        },
-        {
-          etapa: "V10-VT (Pre-floración)",
-          descripcion: "Protección del tercio superior",
-          productos: ["Trikopper 50 150 g/100 L o Cobrestable 250 cc/100 L"],
-          objetivo: "Mantener sanidad en período crítico"
-        },
-        {
-          etapa: "R1-R2 (Floración-ampolla)",
-          descripcion: "Protección de espiga",
-          productos: ["Cobrestable 300 cc/100 L"],
-          objetivo: "Prevenir infecciones en grano"
-        }
-      ],
-      
-      recomendacionesGenerales: [
-        "Priorizar híbridos con resistencia genética",
-        "Monitorear desde V4 hasta grano lechoso",
-        "Considerar aplicación aérea en cultivos altos",
-        "Manejar rastrojos para reducir inóculo",
-        "Coordinar con control de plagas"
-      ],
-
-      condicionesOptimas: {
-        temperatura: "Menor a 30°C",
-        humedad: "Mayor al 55%",
-        viento: "Menor a 12 km/h",
-        horario: "Mañana temprano o tardecita"
-      }
-    },
-
-    documentosDescargables: [
-      {
-        titulo: "Guía de sanidad en Maíz tardío",
-        tipo: "PDF",
-        tamaño: "2.2 MB",
-        url: "/docs/guia-maiz-tardio.pdf"
-      },
-      {
-        titulo: "Manejo de bacteriosis con Cobrestable",
-        tipo: "PDF",
-        tamaño: "1.4 MB",
-        url: "/docs/bacteriosis-maiz-cobrestable.pdf"
-      },
-      {
-        titulo: "Estrategias de aplicación foliar",
-        tipo: "PDF",
-        tamaño: "1.8 MB",
-        url: "/docs/aplicacion-foliar-maiz.pdf"
-      }
-    ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "8-15% con manejo preventivo",
-      reduccionPerdidas: "Hasta 20% menos pérdidas por enfermedades",
-      roi: "2:1 en años con presión moderada"
-    }
-  },
-
-  ajo: {
-    name: "Ajo",
-    scientificName: "Allium sativum",
-    description: "Bulbo aromático con propiedades medicinales y culinarias. Prefiere climas frescos durante su desarrollo y requiere suelos bien drenados con buena materia orgánica.",
-    backgroundImage: "/images/crops/ajo.jpg",
-    icon: "/icons/garlic.svg",
-    
-    caracteristicas: {
-      ciclo: "150-180 días",
-      temperatura: "12-20°C óptima desarrollo",
-      suelo: "pH 6.0-7.0, sueltos, ricos en MO",
-      agua: "400-500 mm bien distribuidos",
-      siembra: "Marzo - Abril",
-      cosecha: "Octubre - Noviembre"
-    },
-
-    enfermedadesComunes: [
-      {
-        nombre: "Mancha púrpura",
-        sintomas: "Manchas ovales púrpuras con halo amarillo",
-        condiciones: "Temperaturas de 20-25°C con rocío"
-      },
-      {
-        nombre: "Roya del ajo",
-        sintomas: "Pústulas anaranjadas en hojas",
-        condiciones: "Temperaturas frescas con alta humedad"
-      },
-      {
-        nombre: "Bacteriosis",
-        sintomas: "Podredumbre blanda del bulbo",
-        condiciones: "Exceso de humedad y heridas"
-      }
-    ],
-
-    productosRecomendados: [
-      {
-        nombre: "Cobrestable",
-        slug: "cobrestable",
-        aplicacion: "Control de bacteriosis y hongos foliares",
-        dosis: "150-250 cc/100 L de agua",
-        momento: "Aplicaciones cada 15-20 días desde 4 hojas"
-      },
-      {
-        nombre: "Bordocald",
-        slug: "bordocald",
-        aplicacion: "Programa preventivo certificado orgánico",
-        dosis: "2-3 L/ha",
-        momento: "Desde emergencia hasta 30 días pre-cosecha"
-      },
-      {
-        nombre: "Trikopper 50",
-        slug: "trikopper-50",
-        aplicacion: "Alta persistencia en bulbificación",
-        dosis: "100-150 g/100 L de agua",
-        momento: "Etapa de 6-8 hojas y bulbificación"
-      }
-    ],
-
-    guiaAplicacion: {
-      etapasClaves: [
-        {
-          etapa: "4-5 hojas",
-          descripcion: "Inicio programa sanitario",
-          productos: ["Bordocald 2 L/ha"],
-          objetivo: "Prevención temprana de enfermedades"
-        },
-        {
-          etapa: "6-8 hojas (pre-bulbificación)",
-          descripcion: "Protección intensiva",
-          productos: ["Cobrestable 200 cc/100 L + adherente"],
-          objetivo: "Evitar infecciones en período crítico"
-        },
-        {
-          etapa: "Bulbificación",
-          descripcion: "Protección del bulbo",
-          productos: ["Trikopper 50 150 g/100 L"],
-          objetivo: "Sanidad para llenado de bulbo"
-        }
-      ],
-      
-      recomendacionesGenerales: [
-        "Usar semilla sana y desinfectada",
-        "Evitar excesos de nitrógeno",
-        "Mantener cultivo libre de malezas",
-        "Aplicar con equipos de baja presión",
-        "Suspender aplicaciones 30 días antes de cosecha"
-      ],
-
-      condicionesOptimas: {
-        temperatura: "15-22°C",
-        humedad: "60-80%",
-        viento: "Menor a 10 km/h",
-        horario: "Primeras horas de la mañana"
-      }
-    },
-
-    documentosDescargables: [
-      {
-        titulo: "Manual técnico del cultivo de Ajo",
-        tipo: "PDF",
-        tamaño: "3.5 MB",
-        url: "/docs/manual-tecnico-ajo.pdf"
-      },
-      {
-        titulo: "Programa sanitario para ajo orgánico",
-        tipo: "PDF",
-        tamaño: "1.9 MB",
-        url: "/docs/ajo-organico-programa.pdf"
-      },
-      {
-        titulo: "Control de enfermedades en postcosecha",
-        tipo: "PDF",
-        tamaño: "1.3 MB",
-        url: "/docs/postcosecha-ajo.pdf"
-      }
-    ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "20-30% con manejo sanitario integral",
-      reduccionPerdidas: "Hasta 40% menos descarte por calidad",
-      roi: "3.5:1 en producción para exportación"
-    }
-  },
-
-  "ver-otros": {
-    name: "Otros Cultivos",
-    scientificName: "Diversos",
-    description: "Además de los cultivos principales, nuestros productos son efectivos en una amplia gama de cultivos especializados incluyendo hortalizas, frutales, vid y cultivos industriales.",
-    backgroundImage: "/images/crops/ver-otros.jpeg",
-    icon: "/icons/leaf.svg",
-    
-    caracteristicas: {
-      ciclo: "Variable según especie",
-      temperatura: "Según requerimientos específicos",
-      suelo: "Adaptable a diversos tipos",
-      agua: "Según cultivo",
-      siembra: "Variable",
-      cosecha: "Según ciclo productivo"
-    },
-
-    enfermedadesComunes: [
-      {
-        nombre: "Enfermedades fúngicas diversas",
-        sintomas: "Manchas foliares, tizones, mildius",
-        condiciones: "Alta humedad y temperaturas moderadas"
-      },
-      {
-        nombre: "Bacteriosis varias",
-        sintomas: "Manchas acuosas, cancros, marchitez",
-        condiciones: "Heridas, alta humedad, temperaturas cálidas"
-      },
-      {
-        nombre: "Complejos de patógenos",
-        sintomas: "Síntomas variados según interacción",
-        condiciones: "Estrés del cultivo y condiciones predisponentes"
-      }
-    ],
-
-    productosRecomendados: [
-      {
-        nombre: "Cobrestable",
-        slug: "cobrestable",
-        aplicacion: "Amplio espectro para diversos cultivos",
-        dosis: "150-350 cc/100 L según cultivo",
-        momento: "Preventivo y curativo según monitoreo"
-      },
-      {
-        nombre: "Bordocald",
-        slug: "bordocald",
-        aplicacion: "Ideal para producción orgánica",
-        dosis: "2-5 L/ha según cultivo y presión",
-        momento: "Aplicaciones preventivas regulares"
-      },
-      {
-        nombre: "Trikopper 50",
-        slug: "trikopper-50",
-        aplicacion: "Especial para frutales y vid",
-        dosis: "100-250 g/100 L según fenología",
-        momento: "Brotación, floración y desarrollo de frutos"
-      }
-    ],
-
-    guiaAplicacion: {
-      etapasClaves: [
-        {
-          etapa: "Establecimiento/Brotación",
-          descripcion: "Protección inicial",
-          productos: ["Según análisis de riesgo del cultivo"],
-          objetivo: "Prevenir infecciones tempranas"
-        },
-        {
-          etapa: "Desarrollo vegetativo/Floración",
-          descripcion: "Período de mayor susceptibilidad",
-          productos: ["Productos según patógenos prevalentes"],
-          objetivo: "Mantener sanidad en etapas críticas"
-        },
-        {
-          etapa: "Fructificación/Pre-cosecha",
-          descripcion: "Protección de órganos comerciales",
-          productos: ["Considerar períodos de carencia"],
-          objetivo: "Calidad comercial y sanidad"
-        }
-      ],
-      
-      recomendacionesGenerales: [
-        "Consultar recomendaciones específicas por cultivo",
-        "Realizar diagnóstico correcto de patógenos",
-        "Integrar con otras prácticas de manejo",
-        "Considerar certificaciones requeridas",
-        "Ajustar dosis según estado fenológico"
-      ],
-
-      condicionesOptimas: {
-        temperatura: "Evitar extremos térmicos",
-        humedad: "Óptima para absorción foliar",
-        viento: "Mínimo para buena cobertura",
-        horario: "Consultar recomendaciones específicas por cultivo"
-      }
-    },
-
-    documentosDescargables: [
-      {
-        titulo: "Catálogo de aplicaciones por cultivo",
-        tipo: "PDF",
-        tamaño: "4.2 MB",
-        url: "/docs/catalogo-aplicaciones.pdf"
-      },
-      {
-        titulo: "Guía de dosis para cultivos especiales",
-        tipo: "PDF",
-        tamaño: "2.7 MB",
-        url: "/docs/dosis-cultivos-especiales.pdf"
-      },
-      {
-        titulo: "Fichas técnicas productos Ecoagro",
-        tipo: "PDF",
-        tamaño: "5.1 MB",
-        url: "/docs/fichas-tecnicas-completas.pdf"
-      }
-    ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "Variable según cultivo y manejo",
-      reduccionPerdidas: "Significativa con programa adecuado",
-      roi: "Consultar análisis específico por cultivo"
     }
   }
 };
