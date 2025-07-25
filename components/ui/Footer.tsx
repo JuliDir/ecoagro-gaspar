@@ -59,7 +59,7 @@ export default function Footer() {
                             <div className="flex items-start space-x-2">
                                 <Clock className="w-4 h-4 mt-0.5 text-primary-600 flex-shrink-0" />
                                 <div>
-                                    <h4 className="text-gray-800 font-medium mb-1">Horario de Atención de Administración</h4>
+                                    <h4 className="text-gray-800 font-medium mb-1">Horario de atención</h4>
                                     <p>Lunes a Viernes de 8:00 a 16:00 hs</p>
                                 </div>
                             </div>

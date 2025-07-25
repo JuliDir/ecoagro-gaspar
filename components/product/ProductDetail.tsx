@@ -93,6 +93,32 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     return icons[index] || Shield;
   };
 
+  // Mapping de cultivos a sus slugs
+  const getCultivoSlug = (cultivo: string): string => {
+    const cultivoMap: { [key: string]: string } = {
+      "garbanzo": "garbanzo",
+      "poroto": "poroto", 
+      "maní": "mani",
+      "soja": "soja",
+      "papa": "papa",
+      "cítricos": "citricos",
+      "vid": "vid",
+      "trigo": "trigo",
+      "tomate": "tomate",
+      "frutales de pepita": "frutales-pepita",
+      "hortalizas": "hortalizas",
+      "frutales de carozo": "frutales-carozo",
+      "olivo": "olivo",
+      "palto": "palto",
+      "kiwi": "kiwi",
+      "maíz": "maiz",
+      "maiz": "maiz",
+      "ajo": "ajo"
+    };
+
+    return cultivoMap[cultivo.toLowerCase()] || cultivo.toLowerCase().replace(/\s+/g, '-');
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -240,7 +266,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               return (
                 <motion.div
                   key={index}
-                  className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300"
+                  className="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200"
                   variants={cardVariants}
                   whileHover={{ y: -5 }}
                 >
@@ -278,7 +304,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Composición */}
             <motion.div variants={cardVariants}>
-              <div className="bg-white rounded-2xl p-8 h-full border-l-4" style={{ borderColor: product.cssColor }}>
+              <div className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-shadow duration-300" style={{ borderColor: product.cssColor }}>
                 <div className="flex items-center mb-6">
                   <div
                     className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 text-white"
@@ -301,7 +327,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
             {/* Modo de Acción */}
             <motion.div variants={cardVariants}>
-              <div className="bg-white rounded-2xl p-8 h-full border-l-4 border-gray-400">
+              <div className="bg-white rounded-2xl p-8 h-full border-l-4 border-gray-400 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center mb-6">
                   <div className="w-16 h-16 bg-gray-600 rounded-xl flex items-center justify-center mr-4">
                     <Target className="w-8 h-8 text-white" />
@@ -336,7 +362,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Cultivos Recomendados */}
             <motion.div variants={cardVariants}>
-              <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
                 <div className="flex items-center mb-6">
                   <div
                     className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 text-white"
@@ -346,12 +372,16 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   </div>
                   <h3 className="text-3xl font-bold text-gray-800">Cultivos</h3>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3">
                   {product.cultivos.map((cultivo, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5" style={{ color: product.cssColor }} />
-                      <span className="text-gray-700 capitalize">{cultivo}</span>
-                    </div>
+                    <Link
+                      key={index}
+                      href={`/crops/${getCultivoSlug(cultivo)}`}
+                      className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white transition-colors duration-200 group"
+                    >
+                      <CheckCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" style={{ color: product.cssColor }} />
+                      <span className="text-gray-700 capitalize group-hover:text-gray-900 transition-colors duration-200">{cultivo}</span>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -359,7 +389,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
             {/* Información de Aplicación */}
             <motion.div variants={cardVariants}>
-              <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
                 <div className="flex items-center mb-6">
                   <div className="w-16 h-16 bg-gray-600 rounded-xl flex items-center justify-center mr-4">
                     <Droplets className="w-8 h-8 text-white" />
@@ -401,7 +431,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           <div className="flex items-center justify-center">
             {/* Contacto */}
             <motion.div variants={cardVariants} className="max-w-2xl">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-2xl font-bold mb-6">¿Necesitas más información?</h3>
                 <p className="text-white/90 mb-6">
                   Nuestro equipo técnico está disponible para asesorarte sobre el uso específico de {product.name} en tus cultivos.
@@ -417,7 +447,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   </div>
                 </div>
                 <Link
-                  href="/contact"
+                  href="/#contacto"
                   className="inline-block mt-6 bg-white/20 border-2 border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/30 transition-colors"
                 >
                   Contactar Ahora

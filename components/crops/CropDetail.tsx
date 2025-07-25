@@ -18,66 +18,7 @@ import {
     Clock,
     Wind
 } from "lucide-react";
-
-interface CultivoData {
-    name: string;
-    scientificName: string;
-    description: string;
-    backgroundImage: string;
-    icon: string;
-
-    caracteristicas: {
-        ciclo: string;
-        temperatura: string;
-        suelo: string;
-        agua: string;
-        siembra: string;
-        cosecha: string;
-    };
-
-    enfermedadesComunes: Array<{
-        nombre: string;
-        sintomas: string;
-        condiciones: string;
-    }>;
-
-    productosRecomendados: Array<{
-        nombre: string;
-        slug: string;
-        aplicacion: string;
-        dosis: string;
-        momento: string;
-    }>;
-
-    guiaAplicacion: {
-        etapasClaves: Array<{
-            etapa: string;
-            descripcion: string;
-            productos: string[];
-            objetivo: string;
-        }>;
-        recomendacionesGenerales: string[];
-        condicionesOptimas: {
-            temperatura: string;
-            humedad: string;
-            viento: string;
-            horario: string;
-        };
-    };
-
-    documentosDescargables: Array<{
-        titulo: string;
-        tipo: string;
-        tamaño: string;
-        url: string;
-    }>;
-
-    beneficiosEconomicos: {
-        incrementoRendimiento: string;
-        reduccionPerdidas: string;
-        roi: string;
-    };
-}
+import { CultivoData } from "@/lib/types/Crop";
 
 interface CultivoDetailProps {
     cultivo: CultivoData;
@@ -113,6 +54,28 @@ const cardVariants = {
 };
 
 export default function CropDetail({ cultivo }: CultivoDetailProps) {
+    const getProductColor = (productName: string) => {
+        const productColors: { [key: string]: { color: string; gradient: string } } = {
+            "Cobrestable": { 
+                color: "#0098da", 
+                gradient: "from-sky-400 to-blue-600" 
+            },
+            "Bordocald": { 
+                color: "#9a3388", 
+                gradient: "from-fuchsia-400 to-purple-600" 
+            },
+            "Trikopper 50": { 
+                color: "#00a859", 
+                gradient: "from-green-400 to-emerald-600" 
+            }
+        };
+        
+        return productColors[productName] || { 
+            color: "#266d35", 
+            gradient: "from-primary-400 to-primary-600" 
+        };
+    };
+
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section con imagen de fondo del cultivo */}
@@ -155,7 +118,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
 
                         {/* Características rápidas */}
                         <motion.div
-                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20"
+                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300"
                             variants={sectionVariants}
                         >
                             <h3 className="text-2xl font-bold mb-6">Características del Cultivo</h3>
@@ -219,7 +182,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         {cultivo.enfermedadesComunes.map((enfermedad, index) => (
                             <motion.div
                                 key={index}
-                                className="bg-red-50 rounded-2xl p-8 border border-red-200"
+                                className="bg-red-50 rounded-2xl p-8 border border-red-200 shadow-lg hover:shadow-xl transition-shadow duration-300"
                                 variants={cardVariants}
                                 whileHover={{ y: -5 }}
                             >
@@ -267,38 +230,50 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 gap-8">
-                        {cultivo.productosRecomendados.map((producto, index) => (
-                            <motion.div
-                                key={index}
-                                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-primary-600"
-                                variants={cardVariants}
-                                whileHover={{ x: 5 }}
-                            >
-                                <div className="flex items-center justify-between mb-6">
-                                    <h3 className="text-2xl font-bold text-primary-800">{producto.nombre}</h3>
-                                    <Link
-                                        href={`/products/${producto.slug}`}
-                                        className="text-primary-600 hover:text-primary-700 transition-colors"
-                                    >
-                                        <ChevronRight className="w-6 h-6" />
-                                    </Link>
-                                </div>
-                                <div className="space-y-4">
-                                    <div>
-                                        <p className="text-sm font-semibold text-gray-700">Aplicación:</p>
-                                        <p className="text-gray-600">{producto.aplicacion}</p>
+                        {cultivo.productosRecomendados.map((producto, index) => {
+                            const productColors = getProductColor(producto.nombre);
+                            return (
+                                <motion.div
+                                    key={index}
+                                    className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4"
+                                    style={{ borderColor: productColors.color }}
+                                    variants={cardVariants}
+                                    whileHover={{ x: 5 }}
+                                >
+                                    <div className="flex items-center justify-between mb-6">
+                                        <h3 
+                                            className="text-2xl font-bold font-softhits"
+                                            style={{ color: productColors.color }}
+                                        >
+                                            {producto.nombre}
+                                        </h3>
+                                        <Link
+                                            href={`/products/${producto.slug}`}
+                                            className="transition-colors"
+                                            style={{ color: productColors.color }}
+                                        >
+                                            <ChevronRight className="w-6 h-6 hover:scale-110 transition-transform" />
+                                        </Link>
                                     </div>
-                                    <div>
-                                        <p className="text-sm font-semibold text-gray-700">Dosis:</p>
-                                        <p className="text-primary-600 font-medium">{producto.dosis}</p>
+                                    <div className="space-y-4">
+                                        <div>
+                                            <p className="text-sm font-semibold text-gray-700">Aplicación:</p>
+                                            <p className="text-gray-600">{producto.aplicacion}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-sm font-semibold text-gray-700">Dosis:</p>
+                                            <p className="font-medium" style={{ color: productColors.color }}>
+                                                {producto.dosis}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p className="text-sm font-semibold text-gray-700">Momento:</p>
+                                            <p className="text-gray-600">{producto.momento}</p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p className="text-sm font-semibold text-gray-700">Momento:</p>
-                                        <p className="text-gray-600">{producto.momento}</p>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             </motion.section>
@@ -331,7 +306,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                             {cultivo.guiaAplicacion.etapasClaves.map((etapa, index) => (
                                 <motion.div
                                     key={index}
-                                    className="bg-gradient-to-r from-primary-50 to-white rounded-xl p-6 border border-primary-200"
+                                    className="bg-gradient-to-r from-primary-50 to-white rounded-xl p-6 border border-primary-200 shadow-lg hover:shadow-xl transition-shadow duration-300"
                                     variants={cardVariants}
                                     whileHover={{ scale: 1.02 }}
                                 >
@@ -363,7 +338,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                     {/* Condiciones Óptimas de Aplicación */}
                     <div className="grid md:grid-cols-2 gap-12">
                         <motion.div variants={cardVariants}>
-                            <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200">
+                            <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                                     <Shield className="w-6 h-6 mr-3 text-blue-600" />
                                     Condiciones Óptimas
@@ -402,7 +377,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         </motion.div>
 
                         <motion.div variants={cardVariants}>
-                            <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
+                            <div className="bg-green-50 rounded-2xl p-8 border border-green-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
                                 <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                                     <FileText className="w-6 h-6 mr-3 text-green-600" />
                                     Recomendaciones Generales
@@ -442,7 +417,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         <motion.div
-                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center"
+                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                             variants={cardVariants}
                             whileHover={{ scale: 1.05 }}
                         >
@@ -452,7 +427,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         </motion.div>
 
                         <motion.div
-                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center"
+                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                             variants={cardVariants}
                             whileHover={{ scale: 1.05 }}
                         >
@@ -462,7 +437,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         </motion.div>
 
                         <motion.div
-                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center"
+                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
                             variants={cardVariants}
                             whileHover={{ scale: 1.05 }}
                         >
@@ -499,7 +474,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         {cultivo.documentosDescargables.map((doc, index) => (
                             <motion.div
                                 key={index}
-                                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-gray-200"
+                                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-200"
                                 variants={cardVariants}
                                 whileHover={{ y: -3 }}
                             >
@@ -512,7 +487,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                                     </span>
                                 </div>
                                 <h4 className="font-semibold text-gray-800 mb-4">{doc.titulo}</h4>
-                                <button className="w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <button className="cursor-pointer w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center justify-center gap-2">
                                     <Download className="w-4 h-4" />
                                     Descargar
                                 </button>
@@ -555,4 +530,3 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
         </div>
     );
 }
-
