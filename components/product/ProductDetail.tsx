@@ -398,27 +398,9 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Documentación */}
-            <motion.div variants={cardVariants}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <div className="flex items-center mb-6">
-                  <FileText className="w-8 h-8 mr-4" />
-                  <h3 className="text-2xl font-bold">Documentación Disponible</h3>
-                </div>
-                <div className="space-y-3">
-                  {product.documentacion.map((doc, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
-                      <span>{doc}</span>
-                      <Download className="w-5 h-5 cursor-pointer hover:scale-110 transition-transform" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
+          <div className="flex items-center justify-center">
             {/* Contacto */}
-            <motion.div variants={cardVariants}>
+            <motion.div variants={cardVariants} className="max-w-2xl">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <h3 className="text-2xl font-bold mb-6">¿Necesitas más información?</h3>
                 <p className="text-white/90 mb-6">
