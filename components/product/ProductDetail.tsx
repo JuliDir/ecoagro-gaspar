@@ -97,7 +97,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <motion.section
-        className={`relative bg-gradient-to-br ${product.gradient} text-white py-28 md:py-32 overflow-hidden`}
+        className={`relative bg-gradient-to-br ${product.gradient} text-white py-28 md:py-32 overflow-hidden w-full`}
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -166,7 +166,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           )}
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Contenido de texto */}
             <motion.div variants={sectionVariants}>
