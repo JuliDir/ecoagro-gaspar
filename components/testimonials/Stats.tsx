@@ -122,7 +122,7 @@ export default function Stats() {
                 observer.unobserve(currentSectionRef);
             }
         };
-    }, [isVisible, stats, animateCounter]);
+    }, [isVisible, animateCounter]);
 
     const containerVariants = {
         hidden: { opacity: 0 },

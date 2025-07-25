@@ -3,6 +3,7 @@
 import { easeOut, motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { testimonials } from '@/lib/data/testimonials';
+import Image from 'next/image';
 
 export default function Testimonials() {
     const [hasAnimated, setHasAnimated] = useState(false);
@@ -12,6 +13,8 @@ export default function Testimonials() {
     const sectionRef = useRef(null);
 
     useEffect(() => {
+        const section = sectionRef.current; 
+
         const observer = new IntersectionObserver(
             ([entry]) => {                
                 if (entry.isIntersecting && !hasAnimated) {
@@ -34,13 +37,13 @@ export default function Testimonials() {
             }
         );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+        if (section) {
+            observer.observe(section);
         }
 
         return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
+            if (section) {
+                observer.unobserve(section);
             }
         };
     }, [hasAnimated]);
@@ -207,10 +210,12 @@ export default function Testimonials() {
                                     <div className="flex items-center space-x-4">
                                         {/* Client Image */}
                                         <div className="relative">
-                                            <img
+                                            <Image
                                                 src={testimonials[currentTestimonial].image}
                                                 alt={testimonials[currentTestimonial].name}
                                                 className="w-16 h-16 rounded-full object-cover border-3 border-green-100 shadow-lg animate-slide-up"
+                                                width={64}
+                                                height={64}
                                             />
                                             <div className="absolute inset-0 rounded-full ring-2 ring-primary-500/20"></div>
                                         </div>

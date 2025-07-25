@@ -7,6 +7,11 @@ import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
+type DropdownItem = {
+    name: string
+    href: string
+}
+
 export default function Header() {
     const [scrolledPastHero, setScrolledPastHero] = useState(false)
     const [isVisible, setIsVisible] = useState(true)
@@ -33,16 +38,16 @@ export default function Header() {
     ]
 
     const navItems = useMemo(() => [
-        { 
-            name: "Productos", 
-            href: "#productos", 
+        {
+            name: "Productos",
+            href: "#productos",
             id: "productos",
             hasDropdown: true,
             dropdownType: "products"
         },
-        { 
-            name: "Cultivos", 
-            href: "#cultivos", 
+        {
+            name: "Cultivos",
+            href: "#cultivos",
             id: "cultivos",
             hasDropdown: true,
             dropdownType: "crops"
@@ -128,8 +133,8 @@ export default function Header() {
     }
 
     const dropdownVariants = {
-        open: { 
-            opacity: 1, 
+        open: {
+            opacity: 1,
             y: 0,
             transition: {
                 type: "spring" as const,
@@ -137,8 +142,8 @@ export default function Header() {
                 damping: 30
             }
         },
-        closed: { 
-            opacity: 0, 
+        closed: {
+            opacity: 0,
             y: -10,
             transition: {
                 duration: 0.2
@@ -148,7 +153,7 @@ export default function Header() {
 
     const handleSectionClick = (e: React.MouseEvent, sectionId: string) => {
         e.preventDefault()
-        
+
         // Si estamos en about-us u otra página que no es home, navegar primero a home
         if (pathname !== "/") {
             // Navegar a home con el hash de la sección
@@ -162,7 +167,11 @@ export default function Header() {
         }
     }
 
-    const renderDropdown = (item: any, isOpen: boolean, items: any[], onClose: () => void) => (
+    const renderDropdown = (
+        isOpen: boolean,
+        items: DropdownItem[],
+        onClose: () => void
+    ) => (
         <AnimatePresence>
             {isOpen && (
                 <motion.div
@@ -230,8 +239,8 @@ export default function Header() {
                                     className={cn(
                                         "flex items-center space-x-1 px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer",
                                         "hover:bg-white/10",
-                                        activeSection === item.id 
-                                            ? "bg-white/20 text-white shadow-lg" 
+                                        activeSection === item.id
+                                            ? "bg-white/20 text-white shadow-lg"
                                             : "text-white/90 hover:text-white"
                                     )}
                                 >
@@ -239,22 +248,20 @@ export default function Header() {
                                     <ChevronDown className={cn(
                                         "w-4 h-4 transition-transform duration-200",
                                         (item.dropdownType === "products" && isProductsDropdownOpen) ||
-                                        (item.dropdownType === "crops" && isCropsDropdownOpen)
+                                            (item.dropdownType === "crops" && isCropsDropdownOpen)
                                             ? "rotate-180" : ""
                                     )} />
                                 </button>
 
                                 {item.dropdownType === "products" && renderDropdown(
-                                    item, 
-                                    isProductsDropdownOpen, 
-                                    products, 
+                                    isProductsDropdownOpen,
+                                    products,
                                     () => setIsProductsDropdownOpen(false)
                                 )}
 
                                 {item.dropdownType === "crops" && renderDropdown(
-                                    item, 
-                                    isCropsDropdownOpen, 
-                                    crops, 
+                                    isCropsDropdownOpen,
+                                    crops,
                                     () => setIsCropsDropdownOpen(false)
                                 )}
                             </div>
@@ -265,8 +272,8 @@ export default function Header() {
                                 className={cn(
                                     "px-3 py-2 rounded-full transition-all duration-300",
                                     "hover:bg-white/10",
-                                    activeSection === item.id 
-                                        ? "bg-white/20 text-white shadow-lg" 
+                                    activeSection === item.id
+                                        ? "bg-white/20 text-white shadow-lg"
                                         : "text-white/90 hover:text-white"
                                 )}
                             >
@@ -279,8 +286,8 @@ export default function Header() {
                                 className={cn(
                                     "px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer",
                                     "hover:bg-white/10",
-                                    activeSection === item.id 
-                                        ? "bg-white/20 text-white shadow-lg" 
+                                    activeSection === item.id
+                                        ? "bg-white/20 text-white shadow-lg"
                                         : "text-white/90 hover:text-white"
                                 )}
                             >
@@ -342,7 +349,7 @@ export default function Header() {
                                     </div>
                                 )
                             }
-                            
+
                             // Para items que son enlaces a /about-us, usar Link normal
                             if (item.href.startsWith("/")) {
                                 return (
@@ -359,7 +366,7 @@ export default function Header() {
                                     </Link>
                                 )
                             }
-                            
+
                             // Para secciones (#contacto, #cultivos, etc), usar handleSectionClick
                             return (
                                 <button

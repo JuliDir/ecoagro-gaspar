@@ -3,6 +3,7 @@ import { Users, Briefcase, Phone, Mail, QrCode as QrCodeIcon, Map } from 'lucide
 import QRCode from 'qrcode';
 import { useState, useEffect } from 'react';
 import { teamMembers } from '@/lib/data/team-members';
+import Image from 'next/image';
 
 const TeamMembers = () => {
   const [qrCodes, setQrCodes] = useState<{ [phone: string]: string }>({});
@@ -135,7 +136,7 @@ const TeamMembers = () => {
                   
                   {qrCodes[member.phone] && (
                     <div className="bg-white rounded-xl shadow-lg border border-primary-100 mb-4 relative">
-                      <img 
+                      <Image 
                         src={qrCodes[member.phone]} 
                         alt={`QR WhatsApp ${member.name}`}
                         className="w-32 h-32"
@@ -143,7 +144,7 @@ const TeamMembers = () => {
                       {/* Logo en el centro del QR */}
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-9 h-9 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-200">
-                          <img 
+                          <Image 
                             src="/images/logo-leaf.png" 
                             alt="Logo"
                             className="w-full h-full object-contain"

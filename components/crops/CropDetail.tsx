@@ -16,8 +16,7 @@ import {
     TrendingUp,
     DollarSign,
     Clock,
-    Wind,
-    ChartBar
+    Wind
 } from "lucide-react";
 
 interface CultivoData {
