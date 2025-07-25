@@ -32,7 +32,7 @@ const crops = [
     description:
       "Cereal de alto rendimiento y múltiples usos. Requiere abundante agua y nutrientes durante su desarrollo.",
     iconFilename: "corn.svg",
-    backgroundImage: "/images/crops/maiz.jpeg",
+    backgroundImage: "/images/crops/maiz.jpg",
   },
   {
     name: "Ajo",
@@ -197,13 +197,13 @@ export default function Crops() {
                   <h4 className="text-2xl font-bold mb-3">{crop.name}</h4>
                   <p className="text-sm leading-relaxed mb-4">{crop.description}</p>
                     <Link
-                    href={`/crops/${crop.name.toLowerCase()}`}
-                    className="relative z-20 inline-block bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 text-sm"
-                    onClick={(e) => {
-                      e.stopPropagation(); 
-                    }}
+                      href={`/crops/${crop.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
+                      className="relative z-20 inline-block bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 text-sm"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
                     >
-                    Conocer Más
+                      Conocer Más
                     </Link>
                 </div>
               </div>

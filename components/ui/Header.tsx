@@ -179,14 +179,14 @@ export default function Header() {
                     animate="open"
                     exit="closed"
                     variants={dropdownVariants}
-                    className="absolute top-full left-0 mt-2 min-w-48 bg-dark-gray text-white rounded-lg shadow-xl border border-gray-700 overflow-hidden"
+                    className="absolute top-full left-0 mt-2 min-w-48 bg-white text-gray-800 rounded-lg shadow-xl border border-gray-200 overflow-hidden"
                 >
                     <div className="py-2">
                         {items.map((dropdownItem) => (
                             <Link
                                 key={dropdownItem.href}
                                 href={dropdownItem.href}
-                                className="block px-4 py-3 text-sm hover:bg-gray-700 transition-colors"
+                                className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors"
                                 onClick={onClose}
                             >
                                 {dropdownItem.name}
@@ -205,15 +205,17 @@ export default function Header() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className={cn(
                 "w-full fixed top-0 z-50 flex items-center justify-between px-4 py-1 md:px-8 lg:px-60",
-                scrolledPastHero ? "bg-dark-gray shadow-lg" : "bg-transparent",
-                "text-white transition-all duration-500 ease-in-out"
+                scrolledPastHero 
+                    ? "bg-white shadow-lg border-b border-gray-100 text-gray-800" 
+                    : "bg-white/95 backdrop-blur-sm text-gray-800",
+                "transition-all duration-500 ease-in-out"
             )}
         >
             <Link className="relative h-20 w-60" href="/">
                 <Image src="/images/logo.png" alt="Ecoagro Gaspar Logo" fill className="object-contain" />
             </Link>
 
-            <ul className="hidden md:flex space-x-6 text-lg items-center">
+            <ul className="hidden md:flex space-x-6 text-lg font-semibold items-center">
                 {navItems.map((item) => (
                     <li key={item.id} className="relative">
                         {item.hasDropdown ? (
@@ -238,10 +240,10 @@ export default function Header() {
                                     onClick={(e) => handleSectionClick(e, item.id)}
                                     className={cn(
                                         "flex items-center space-x-1 px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer",
-                                        "hover:bg-white/10",
+                                        "hover:bg-primary-100",
                                         activeSection === item.id
-                                            ? "bg-white/20 text-white shadow-lg"
-                                            : "text-white/90 hover:text-white"
+                                            ? "bg-primary-100 text-primary-700 shadow-lg"
+                                            : "text-gray-700 hover:text-primary-600"
                                     )}
                                 >
                                     <span>{item.name}</span>
@@ -271,10 +273,10 @@ export default function Header() {
                                 href={item.href}
                                 className={cn(
                                     "px-3 py-2 rounded-full transition-all duration-300",
-                                    "hover:bg-white/10",
+                                    "hover:bg-primary-100",
                                     activeSection === item.id
-                                        ? "bg-white/20 text-white shadow-lg"
-                                        : "text-white/90 hover:text-white"
+                                        ? "bg-primary-100 text-primary-700 shadow-lg"
+                                        : "text-gray-700 hover:text-primary-600"
                                 )}
                             >
                                 {item.name}
@@ -285,10 +287,10 @@ export default function Header() {
                                 onClick={(e) => handleSectionClick(e, item.id)}
                                 className={cn(
                                     "px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer",
-                                    "hover:bg-white/10",
+                                    "hover:bg-primary-100",
                                     activeSection === item.id
-                                        ? "bg-white/20 text-white shadow-lg"
-                                        : "text-white/90 hover:text-white"
+                                        ? "bg-primary-100 text-primary-700 shadow-lg"
+                                        : "text-gray-700 hover:text-primary-600"
                                 )}
                             >
                                 {item.name}
@@ -301,7 +303,7 @@ export default function Header() {
             {/* Mobile Menu */}
             <div className="md:hidden relative">
                 <motion.button
-                    className="relative z-50 flex h-8 w-8 items-center justify-center rounded-full text-white"
+                    className="relative z-50 flex h-8 w-8 items-center justify-center rounded-full text-gray-700"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     animate={isMobileMenuOpen ? "open" : "closed"}
                     variants={hamburgerVariants}
@@ -315,7 +317,7 @@ export default function Header() {
                     animate={isMobileMenuOpen ? "open" : "closed"}
                     variants={mobileMenuVariants}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="absolute top-12 right-0 min-w-48 bg-dark-gray text-white rounded-lg shadow-lg overflow-hidden"
+                    className="absolute top-12 right-0 min-w-48 bg-white text-gray-800 rounded-lg shadow-lg border border-gray-200 overflow-hidden"
                     style={{ pointerEvents: isMobileMenuOpen ? "auto" : "none" }}
                 >
                     <div className="flex flex-col py-2">
@@ -330,8 +332,8 @@ export default function Header() {
                                                 setIsMobileMenuOpen(false)
                                             }}
                                             className={cn(
-                                                "w-full text-left px-6 py-3 transition-colors hover:bg-gray-700 cursor-pointer",
-                                                activeSection === item.id ? "bg-gray-600 text-white" : ""
+                                                "w-full text-left px-6 py-3 transition-colors hover:bg-gray-50 cursor-pointer",
+                                                activeSection === item.id ? "bg-primary-50 text-primary-700" : ""
                                             )}
                                         >
                                             {item.name}
@@ -340,7 +342,7 @@ export default function Header() {
                                             <Link
                                                 key={dropdownItem.href}
                                                 href={dropdownItem.href}
-                                                className="block px-8 py-2 text-sm text-gray-400 hover:bg-gray-700/50 hover:text-gray-200 transition-colors"
+                                                className="block px-8 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-800 transition-colors"
                                                 onClick={() => setIsMobileMenuOpen(false)}
                                             >
                                                 {dropdownItem.name}
@@ -357,8 +359,8 @@ export default function Header() {
                                         key={item.id}
                                         href={item.href}
                                         className={cn(
-                                            "px-6 py-3 transition-colors hover:bg-gray-700",
-                                            activeSection === item.id ? "bg-gray-600 text-white" : ""
+                                            "px-6 py-3 transition-colors hover:bg-gray-50",
+                                            activeSection === item.id ? "bg-primary-50 text-primary-700" : ""
                                         )}
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
@@ -376,8 +378,8 @@ export default function Header() {
                                         setIsMobileMenuOpen(false)
                                     }}
                                     className={cn(
-                                        "w-full text-left px-6 py-3 transition-colors hover:bg-gray-700 cursor-pointer",
-                                        activeSection === item.id ? "bg-gray-600 text-white" : ""
+                                        "w-full text-left px-6 py-3 transition-colors hover:bg-gray-50 cursor-pointer",
+                                        activeSection === item.id ? "bg-primary-50 text-primary-700" : ""
                                     )}
                                 >
                                     {item.name}
