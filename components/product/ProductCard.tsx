@@ -1,10 +1,11 @@
-// components/ProductCard.tsx
+// components/ProductCard.tsx (Optimizado)
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/lib/types/Product";
 import { ProductFeatureList } from "./ProductFeatureList";
 import { ProductImage } from "./ProductImage";
+import { memo, useMemo } from "react";
 
 interface ProductCardProps {
   product: Product;
@@ -14,48 +15,60 @@ interface ProductCardProps {
   windowWidth: number;
 }
 
-// Mapping de nombres de productos a sus slugs
-const getProductSlug = (productName: string): string => {
-  const slugMap: { [key: string]: string } = {
-    "COBRESTABLE": "cobrestable",
-    "BORDOCALD": "bordocald", 
-    "TRIKOPPER 50": "trikopper-50"
-  };
-  
-  return slugMap[productName] || productName.toLowerCase().replace(/\s+/g, '-');
+// Mapping de nombres de productos a sus slugs (memoizado)
+const PRODUCT_SLUG_MAP: { [key: string]: string } = {
+  "COBRESTABLE": "cobrestable",
+  "BORDOCALD": "bordocald", 
+  "TRIKOPPER 50": "trikopper-50"
 };
 
-export const ProductCard: React.FC<ProductCardProps> = ({
+const getProductSlug = (productName: string): string => {
+  return PRODUCT_SLUG_MAP[productName] || productName.toLowerCase().replace(/\s+/g, '-');
+};
+
+// Memoizar el componente para evitar re-renders innecesarios
+export const ProductCard = memo<ProductCardProps>(function ProductCard({
   product,
   index,
   hoveredProduct,
   setHoveredProduct,
   windowWidth
-}) => {
-  const productSlug = getProductSlug(product.name);
+}) {
+  const productSlug = useMemo(() => getProductSlug(product.name), [product.name]);
+  const isHovered = hoveredProduct === product.id;
+
+  // Optimización: reducir animaciones complejas
+  const handleMouseEnter = () => setHoveredProduct(product.id);
+  const handleMouseLeave = () => setHoveredProduct(null);
 
   return (
     <motion.div
-      onHoverStart={() => setHoveredProduct(product.id)}
-      onHoverEnd={() => setHoveredProduct(null)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className="relative w-full overflow-hidden"
+      // Simplificar las animaciones de entrada
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.3, delay: index * 0.1 }}
     >
       <motion.div
         className={`relative w-full bg-gradient-to-r ${product.gradient} py-16 lg:py-20`}
+        // Reducir la intensidad de la animación de hover
         animate={{
-          scale: hoveredProduct === product.id ? 1.02 : 1,
+          scale: isHovered ? 1.01 : 1, // Reducido de 1.02 a 1.01
         }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.3, ease: "easeOut" }} // Reducido de 0.5 a 0.3
       >
-        {/* Ícono de fondo */}
+        {/* Ícono de fondo - Optimizado */}
         <motion.div
           className="absolute inset-0 flex items-center justify-end pr-20 overflow-hidden"
           animate={{
-            scale: hoveredProduct === product.id ? 1.1 : 1,
-            rotate: hoveredProduct === product.id ? 5 : 0,
-            x: hoveredProduct === product.id ? -20 : 0,
+            scale: isHovered ? 1.05 : 1, // Reducido de 1.1 a 1.05
+            rotate: isHovered ? 2 : 0,
+            x: isHovered ? -10 : 0, // Reducido de -20 a -10
           }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }} // Reducido de 0.6 a 0.3
         >
           <Image
             src={product.bgIcon}
@@ -63,6 +76,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             width={300}
             height={300}
             className="opacity-10 brightness-0 invert lg:w-80 lg:h-80"
+            priority={index === 0} // Solo priority para el primer producto
+            loading={index === 0 ? "eager" : "lazy"} // Lazy loading para productos no visibles
           />
         </motion.div>
 
@@ -76,14 +91,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             <motion.div
               className="space-y-6"
               animate={{
-                x: hoveredProduct === product.id ? 10 : 0,
+                x: isHovered ? 5 : 0, // Reducido de 10 a 5
               }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }} // Reducido de 0.3 a 0.2
             >
               <motion.h3
                 className="text-4xl lg:text-5xl font-bold text-white mb-4 font-softhits"
                 animate={{
-                  scale: hoveredProduct === product.id ? 1.05 : 1
+                  scale: isHovered ? 1.02 : 1 // Reducido de 1.05 a 1.02
                 }}
                 transition={{ duration: 0.2 }}
               >
@@ -101,18 +116,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                 index={index}
               />
 
-              {/* Botón con Link */}
+              {/* Botón con Link - Simplificado */}
               <Link href={`/products/${productSlug}`}>
                 <motion.button
                   className="cursor-pointer mt-8 py-4 px-8 rounded-xl bg-white/20 backdrop-blur-sm text-white font-bold text-lg border-2 border-white/30 transition-all duration-300 hover:bg-white/30"
                   whileHover={{
-                    scale: 1.05,
-                    backgroundColor: "rgba(255, 255, 255, 0.25)"
+                    scale: 1.02, // Reducido de 1.05 a 1.02
                   }}
                   whileTap={{ scale: 0.98 }}
                   animate={{
-                    y: hoveredProduct === product.id ? -3 : 0
+                    y: isHovered ? -2 : 0 // Reducido de -3 a -2
                   }}
+                  transition={{ duration: 0.2 }}
                 >
                   Más Información
                 </motion.button>
@@ -126,17 +141,19 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
         </div>
 
-        {/* Efecto de brillo en hover */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-          initial={{ x: -200, opacity: 0 }}
-          animate={{
-            x: hoveredProduct === product.id ? [windowWidth] : -200,
-            opacity: hoveredProduct === product.id ? [0, 0.3, 0] : 0
-          }}
-          transition={{ duration: 1 }}
-        />
+        {/* Efecto de brillo en hover - Condicional para mejor performance */}
+        {isHovered && (
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            initial={{ x: -200, opacity: 0 }}
+            animate={{
+              x: [windowWidth],
+              opacity: [0, 0.3, 0]
+            }}
+            transition={{ duration: 0.8 }} // Reducido de 1 a 0.8
+          />
+        )}
       </motion.div>
     </motion.div>
   );
-};
+});

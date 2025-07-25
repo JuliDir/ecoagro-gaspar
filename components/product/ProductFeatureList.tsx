@@ -1,4 +1,6 @@
+// components/ProductFeatureList.tsx (Optimizado)
 import { motion } from "framer-motion";
+import { memo } from "react";
 
 interface ProductFeatureListProps {
   features: string[];
@@ -7,18 +9,22 @@ interface ProductFeatureListProps {
   index: number;
 }
 
-export const ProductFeatureList: React.FC<ProductFeatureListProps> = ({
+// Memoizar para evitar re-renders innecesarios
+export const ProductFeatureList = memo<ProductFeatureListProps>(function ProductFeatureList({
   features,
   hoveredProduct,
   productId,
   index
-}) => {
+}) {
+  const isHovered = hoveredProduct === productId;
+
   return (
     <motion.div
       className="space-y-4"
       animate={{
-        opacity: hoveredProduct === productId ? 1 : 0.9
+        opacity: isHovered ? 1 : 0.95 // Reducir la diferencia de opacidad
       }}
+      transition={{ duration: 0.2 }} // Más rápido
     >
       {features.map((feature, featureIndex) => (
         <motion.div
@@ -27,21 +33,21 @@ export const ProductFeatureList: React.FC<ProductFeatureListProps> = ({
           initial={{ x: -20, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ 
-            delay: featureIndex * 0.1 + (index * 0.3), 
-            duration: 0.5 
+            delay: featureIndex * 0.05 + (index * 0.1), // Reducir delays
+            duration: 0.3 // Reducir duración
           }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.8 }}
         >
           <motion.div
             className="w-3 h-3 bg-white rounded-full mt-1 flex-shrink-0"
             animate={{
-              scale: hoveredProduct === productId ? [1, 1.3, 1] : 1,
-              opacity: hoveredProduct === productId ? [0.8, 1, 0.8] : 0.8
+              scale: isHovered ? [1, 1.2, 1] : 1,
+              opacity: isHovered ? [0.8, 1, 0.8] : 0.8
             }}
             transition={{
-              duration: 0.8,
-              repeat: hoveredProduct === productId ? Infinity : 0,
-              delay: featureIndex * 0.2
+              duration: 0.6, // Reducir duración
+              repeat: isHovered ? Infinity : 0,
+              delay: featureIndex * 0.1 // Reducir delay
             }}
           />
           <span className="text-lg font-medium text-white/95">
@@ -51,4 +57,4 @@ export const ProductFeatureList: React.FC<ProductFeatureListProps> = ({
       ))}
     </motion.div>
   );
-};
+});
