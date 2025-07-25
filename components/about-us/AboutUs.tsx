@@ -39,7 +39,7 @@ export default function AboutUs() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <motion.section
-        className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20 md:py-32 overflow-hidden"
+        className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-28 md:py-32 overflow-hidden"
         initial="hidden"
         animate="visible"
         variants={containerVariants}

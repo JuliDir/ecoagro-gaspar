@@ -80,7 +80,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section con imagen de fondo del cultivo */}
             <motion.section
-                className="relative text-white py-20 md:py-32 overflow-hidden"
+                className="relative text-white py-28 md:py-32 overflow-hidden"
                 style={{
                     backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${cultivo.backgroundImage})`,
                     backgroundSize: 'cover',
@@ -106,7 +106,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                                     height={48}
                                     className="brightness-0 invert"
                                 />
-                                <h1 className="text-4xl md:text-6xl font-bold font-softhits">
+                                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-softhits">
                                     {cultivo.name}
                                 </h1>
                             </div>
@@ -234,7 +234,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                             return (
                                 <motion.div
                                     key={index}
-                                    className="bg-white min-w-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4"
+                                    className="bg-white sm:min-w-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4"
                                     style={{ borderColor: productColors.color }}
                                     variants={cardVariants}
                                     whileHover={{ x: 5 }}

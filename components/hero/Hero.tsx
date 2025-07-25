@@ -257,7 +257,7 @@ export default function Hero({ slides }: HeroProps) {
                                             {slide.subtitle && (
                                                 <motion.p
                                                     variants={itemVariants}
-                                                    className="text-white text-lg md:text-xl font-medium mb-2"
+                                                    className="text-white text-md sm:text-lg md:text-xl font-medium mb-2"
                                                     style={{ textShadow: "1px 1px 4px rgba(0, 0, 0, 0.7)" }}
                                                 >
                                                     {slide.subtitle}
@@ -266,7 +266,7 @@ export default function Hero({ slides }: HeroProps) {
                                             
                                             <motion.h2
                                                 variants={itemVariants}
-                                                className="text-[2.7rem] md:text-[3.8rem] font-bold leading-tight relative"
+                                                className="text-[2rem] sm:text-[2.7rem] md:text-[3.8rem] font-bold leading-tight relative"
                                                 style={{
                                                     textShadow: "2px 2px 6px rgba(0, 0, 0, 0.8)",
                                                 }}

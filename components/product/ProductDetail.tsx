@@ -193,7 +193,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             {/* Contenido de texto */}
             <motion.div variants={sectionVariants}>
               <motion.h1
-                className="text-4xl md:text-6xl font-bold mb-6 font-softhits relative"
+                className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 font-softhits relative"
                 variants={sectionVariants}
               >
                 {product.name}

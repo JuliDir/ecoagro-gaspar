@@ -96,7 +96,7 @@ export const ProductCard = memo<ProductCardProps>(function ProductCard({
               transition={{ duration: 0.2 }} // Reducido de 0.3 a 0.2
             >
               <motion.h3
-                className="text-4xl lg:text-5xl font-bold text-white mb-4 font-softhits"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-softhits"
                 animate={{
                   scale: isHovered ? 1.02 : 1 // Reducido de 1.05 a 1.02
                 }}
