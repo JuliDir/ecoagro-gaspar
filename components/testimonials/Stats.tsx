@@ -44,8 +44,8 @@ const stats: Stat[] = [
     },
     {
         id: 'experience',
-        finalValue: 50,
-        label: 'Años de Experiencia',
+        finalValue: 60,
+        label: 'Años de actividad',
         suffix: '+',
         icon: (
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">

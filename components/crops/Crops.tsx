@@ -201,7 +201,6 @@ export default function Crops() {
                 <div className="absolute inset-0 bg-black/70" />
                 <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center text-white">
                   <h4 className="text-2xl font-bold mb-3">{crop.name}</h4>
-                  <p className="text-sm leading-relaxed mb-4">{crop.description}</p>
                   {crop.name === "Ver otros" ? (
                     <Link
                       href="/crops"

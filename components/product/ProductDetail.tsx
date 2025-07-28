@@ -296,30 +296,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Composición */}
-            <motion.div variants={cardVariants}>
-              <div className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-shadow duration-300" style={{ borderColor: product.cssColor }}>
-                <div className="flex items-center mb-6">
-                  <div
-                    className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 text-white"
-                    style={{ backgroundColor: product.cssColor }}
-                  >
-                    <FlaskConical className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-800">Composición</h3>
-                </div>
-                <div className="space-y-3">
-                  {Object.entries(product.composicion).map(([key, value]) => (
-                    <div key={key} className="flex justify-between items-center py-2 border-b border-gray-100">
-                      <span className="text-gray-700 capitalize">{key.replace(/([A-Z])/g, ' $1').toLowerCase()}</span>
-                      <span className="font-semibold" style={{ color: product.cssColor }}>{value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-
+          <div>
             {/* Modo de Acción */}
             <motion.div variants={cardVariants}>
               <div className="bg-white rounded-2xl p-8 h-full border-l-4 border-gray-400 shadow-lg hover:shadow-xl transition-shadow duration-300">

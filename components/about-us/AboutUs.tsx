@@ -111,11 +111,9 @@ export default function AboutUs() {
                   <h2 className="text-3xl font-bold text-primary-800">Misión</h2>
                 </div>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Brindar <strong>soluciones fitosanitarias y nutricionales de alta tecnología</strong>,
-                  diseñadas para el manejo sustentable de enfermedades foliares. Nuestro objetivo es
-                  optimizar el rendimiento de los cultivos, reduciendo al
-                  mismo tiempo el impacto ambiental y contribuyendo a
-                  una agricultura más responsable.
+                  Ofrecer <strong>soluciones fitosanitarias y nutricionales innovadoras</strong>.
+                  Que impulsen la productividad de los cultivos, minimizando el impacto ambiental
+                  y promoviendo una agricultura sustentable.
                 </p>
               </div>
             </motion.div>
@@ -134,11 +132,9 @@ export default function AboutUs() {
                   <h2 className="text-3xl font-bold text-emerald-800">Visión</h2>
                 </div>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Aspiramos a ser <strong>referentes en el desarrollo de soluciones fitosanitarias y nutricionales sustentables</strong>,
-                  capaces de potenciar el control de enfermedades
-                  foliares y disminuir la aparición de resistencias,
-                  promoviendo una agricultura más eficiente, segura y
-                  con visión de largo plazo.
+                  Ser <strong>referentes clave en soluciones fitosanitarias y nutricionales</strong> que impulsen el máximo
+                  potencial productivo de los cultivos integrando estrategias de prevención y manejo de
+                  enfermedades con la optimización avanzada de sus procesos fisiológicos.
                 </p>
               </div>
             </motion.div>

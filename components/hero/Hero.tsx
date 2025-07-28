@@ -31,7 +31,7 @@ export default function Hero({ slides }: HeroProps) {
         {
             imageSrc: "/images/hero/hero-1.jpeg",
             title: "Cobrestable",
-            description: "Fungicida y bactericida con triple acción para cultivos saludables.",
+            description: "Fungicida, bactericida, triple acción.",
             ctaText: "Descubre Cobrestable",
             ctaLink: "/products/cobrestable",
             productType: "cobrestable"
@@ -39,7 +39,7 @@ export default function Hero({ slides }: HeroProps) {
         {
             imageSrc: "/images/hero/hero-2.webp",
             title: "Bordocald",
-            description: "Fungicida avanzado, efectivo y respetuoso con el ambiente.",
+            description: "Caldo bordelés coloidal listo para usar.",
             ctaText: "Conoce Bordocald",
             ctaLink: "/products/bordocald",
             productType: "bordocald"
@@ -47,7 +47,7 @@ export default function Hero({ slides }: HeroProps) {
         {
             imageSrc: "/images/hero/hero-3.jpeg",
             title: "Trikopper 50",
-            description: "Bioestimulante que mejora defensa y resistencia al estrés.",
+            description: "Fungicida, ultra micronizado, máxima adherencia y tenacidad.",
             ctaText: "Aprende sobre Trikopper 50",
             ctaLink: "/products/trikopper-50",
             productType: "trikopper"
@@ -154,7 +154,7 @@ export default function Hero({ slides }: HeroProps) {
         api.on("select", () => {
             setIsTransitioning(true)
             setCurrent(api.selectedScrollSnap())
-            
+
             // Reset transition state after animation completes
             setTimeout(() => {
                 setIsTransitioning(false)
@@ -200,9 +200,9 @@ export default function Hero({ slides }: HeroProps) {
             <Carousel
                 className="w-full h-full"
                 plugins={[Autoplay({ delay: 10000, stopOnInteraction: false })]}
-                opts={{ 
+                opts={{
                     loop: true,
-                    duration: 50, 
+                    duration: 50,
                 }}
                 setApi={setApi}
             >
@@ -235,7 +235,7 @@ export default function Hero({ slides }: HeroProps) {
                             <motion.div
                                 className="absolute inset-0"
                                 animate={{
-                                    background: current === index 
+                                    background: current === index
                                         ? `linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, ${getBrandColor(slide)}20 100%)`
                                         : `linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, ${getBrandColor(slide)}10 100%)`
                                 }}
@@ -263,53 +263,34 @@ export default function Hero({ slides }: HeroProps) {
                                                     {slide.subtitle}
                                                 </motion.p>
                                             )}
-                                            
+
                                             <motion.h2
                                                 variants={itemVariants}
-                                                className="text-[2rem] sm:text-[2.7rem] md:text-[3.8rem] font-bold leading-tight relative"
+                                                className="text-[2rem] relative sm:text-[2.7rem] md:text-[3.8rem] font-bold leading-tight relative px-8 py-4 rounded-lg font-softhits"
                                                 style={{
-                                                    textShadow: "2px 2px 6px rgba(0, 0, 0, 0.8)",
+                                                    backgroundColor: getBrandColor(slide),
+                                                    color: 'white',
                                                 }}
                                             >
-                                                <span
-                                                    style={{ color: getBrandColor(slide) }}
-                                                    className="drop-shadow-lg font-softhits"
-                                                >
-                                                    {slide.title}
+                                                {slide.title}
+                                                <span className="align-super text-[0.4em] ml-1 relative top-[-0.2em] font-sans font-normal border border-white/80 border-2 px-[0.2em]">
+                                                    R
                                                 </span>
-                                                
-                                                {/* Línea decorativa animada */}
-                                                <motion.div
-                                                    className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 h-1 rounded-full"
-                                                    style={{
-                                                        backgroundColor: getBrandColor(slide),
-                                                    }}
-                                                    initial={{ width: 0, scaleX: 0 }}
-                                                    animate={{ 
-                                                        width: "20rem", 
-                                                        scaleX: 1,
-                                                    }}
-                                                    transition={{
-                                                        duration: 0.8,
-                                                        delay: 0.3,
-                                                        ease: easeOut,
-                                                    }}
-                                                />
                                             </motion.h2>
 
                                             {slide.description && (
                                                 <motion.p
                                                     variants={itemVariants}
-                                                    className="text-white text-lg md:text-xl mt-6 mb-8 max-w-3xl"
+                                                    className="text-white text-lg md:text-2xl mt-6 mb-8 max-w-3xl"
                                                     style={{ textShadow: "1px 1px 4px rgba(0, 0, 0, 0.7)" }}
                                                 >
                                                     {slide.description}
                                                 </motion.p>
                                             )}
 
-                                            <motion.div 
+                                            <motion.div
                                                 variants={itemVariants}
-                                                whileHover={{ 
+                                                whileHover={{
                                                     scale: 1.05,
                                                     transition: { duration: 0.2 }
                                                 }}
@@ -336,7 +317,7 @@ export default function Hero({ slides }: HeroProps) {
 
                 {/* Navegación personalizada con animaciones suaves */}
                 <div className="absolute bottom-0 left-0 right-0 bg-black/60 h-24 flex items-center justify-center px-4 md:px-8 lg:px-16">
-                    
+
                     <div className="flex space-x-8">
                         {currentSlides.map((slide, index) => (
                             <motion.button
@@ -349,11 +330,10 @@ export default function Hero({ slides }: HeroProps) {
                                 transition={{ duration: 0.2 }}
                             >
                                 <motion.div
-                                    className={`w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-500 ${
-                                        current === index
+                                    className={`w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-500 ${current === index
                                             ? "text-white shadow-lg"
                                             : "bg-white/30 text-white group-hover:bg-white/50"
-                                    }`}
+                                        }`}
                                     animate={{
                                         backgroundColor: current === index ? getBrandColor(slide) : 'rgba(255,255,255,0.3)',
                                         boxShadow: current === index ? `0 4px 20px ${getBrandColor(slide)}60` : '0 2px 10px rgba(0,0,0,0.3)',
@@ -363,7 +343,7 @@ export default function Hero({ slides }: HeroProps) {
                                 >
                                     {index + 1}
                                 </motion.div>
-                                
+
                                 <motion.span
                                     className={`text-white text-lg font-semibold transition-all duration-300 hidden md:block`}
                                     animate={{

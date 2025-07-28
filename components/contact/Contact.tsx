@@ -123,7 +123,7 @@ export default function Contact() {
                       Horario de atención
                     </h4>
                     <p className="text-gray-300">
-                      Lunes a Viernes de 8:00 a 16:00 hs
+                      Lunes a Viernes de 8:30 a 16:30 hs
                     </p>
                   </div>
                 </motion.div>
