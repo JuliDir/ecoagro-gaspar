@@ -1,364 +1,184 @@
 "use client"
 
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
-import { useEffect, useState } from "react"
-import { motion, AnimatePresence, easeOut, easeInOut } from "framer-motion"
 
-interface Slide {
-    imageSrc: string
-    subtitle?: string
-    title: string
-    description: string
-    ctaText: string
-    ctaLink: string
-    productType?: 'cobrestable' | 'bordocald' | 'trikopper' | 'default'
+interface CropSection {
+  id: number
+  name: string
+  image: string
+  clip: string
 }
 
-interface HeroProps {
-    slides?: Slide[]
-}
+const cropSections: CropSection[] = [
+  {
+    id: 1,
+    name: "Garbanzo",
+    image: "/images/crops/garbanzo.jpg",
+    clip: "polygon(0% 0%, 11.85% 0%, 31.35% 100%, 0% 100%)",
+  },
+  {
+    id: 2,
+    name: "Soja",
+    image: "/images/crops/soja.jpg",
+    clip: "polygon(12.15% 0%, 23.85% 0%, 43.35% 100%, 32.00% 100%)",
+  },
+  {
+    id: 3,
+    name: "Mani",
+    image: "/images/crops/mani.jpg",
+    clip: "polygon(24.15% 0%, 35.85% 0%, 55.35% 100%, 44.00% 100%)",
+  },
+  {
+    id: 4,
+    name: "Vid",
+    image: "/images/crops/vid.jpg",
+    clip: "polygon(36.15% 0%, 47.85% 0%, 67.35% 100%, 56.00% 100%)",
+  },
+  {
+    id: 5,
+    name: "Papa",
+    image: "/images/crops/papas.jpg",
+    clip: "polygon(48.15% 0%, 59.85% 0%, 79.35% 100%, 68.00% 100%)",
+  },
+  {
+    id: 6,
+    name: "Limón",
+    image: "/images/crops/limon.jpg",
+    clip: "polygon(60.15% 0%, 100% 0%, 100% 100%, 80.00% 100%)",
+  }
+];
 
-export default function Hero({ slides }: HeroProps) {
-    const [api, setApi] = useState<CarouselApi>()
-    const [current, setCurrent] = useState(0)
-    const [isTransitioning, setIsTransitioning] = useState(false)
+const heroTitles = [
+  "Innovación para tus cultivos",
+  "El futuro del agro hoy",
+  "Protección que marca la diferencia",
+  "Soluciones que trascienden",
+  "Crecimiento sostenible garantizado"
+]
 
-    const defaultSlides: Slide[] = [
-        {
-            imageSrc: "/images/hero/hero-1.jpeg",
-            title: "Cobrestable",
-            description: "Fungicida, bactericida, triple acción.",
-            ctaText: "Descubre Cobrestable",
-            ctaLink: "/products/cobrestable",
-            productType: "cobrestable"
-        },
-        {
-            imageSrc: "/images/hero/hero-2.webp",
-            title: "Bordocald",
-            description: "Caldo bordelés coloidal listo para usar.",
-            ctaText: "Conoce Bordocald",
-            ctaLink: "/products/bordocald",
-            productType: "bordocald"
-        },
-        {
-            imageSrc: "/images/hero/hero-3.jpeg",
-            title: "Trikopper 50",
-            description: "Fungicida, ultra micronizado, máxima adherencia y tenacidad.",
-            ctaText: "Aprende sobre Trikopper 50",
-            ctaLink: "/products/trikopper-50",
-            productType: "trikopper"
-        },
-    ]
+export default function Hero() {
+  const [hoveredSection, setHoveredSection] = useState<number | null>(null)
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0)
 
-    const currentSlides = slides && slides.length > 0 ? slides : defaultSlides
+  // Cambio automático de títulos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTitleIndex((prev) => (prev + 1) % heroTitles.length)
+    }, 3000)
 
-    // Variantes de animación para el contenido
-    const contentVariants = {
-        enter: {
-            opacity: 0,
-            y: 30,
-            scale: 0.98,
-            transition: {
-                duration: 0.8,
-                ease: easeInOut,
-            }
-        },
-        center: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: {
-                duration: 0.8,
-                ease: easeInOut,
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
-            }
-        },
-        exit: {
-            opacity: 0,
-            y: -20,
-            scale: 1.02,
-            transition: {
-                duration: 0.6,
-                ease: easeInOut,
-            }
-        }
-    }
+    return () => clearInterval(interval)
+  }, [])
 
-    // Variantes para elementos individuales
-    const itemVariants = {
-        enter: {
-            opacity: 0,
-            y: 30,
-            x: -20,
-        },
-        center: {
-            opacity: 1,
-            y: 0,
-            x: 0,
-            transition: {
-                duration: 0.5,
-                ease: easeOut,
-            },
-        },
-        exit: {
-            opacity: 0,
-            y: -20,
-            x: 20,
-            transition: {
-                duration: 0.3,
-                ease: easeInOut,
-            },
-        },
-    }
+  return (
+    <section className="relative h-[85vh] w-full overflow-hidden bg-white">
+      {/* Fondo dinámico */}
+      <AnimatePresence mode="wait">
+        {hoveredSection && (
+          <motion.div
+            key={hoveredSection}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 0.3, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="absolute inset-0 z-0"
+          >
+            <Image
+              src={cropSections.find(s => s.id === hoveredSection)?.image || ""}
+              alt="Background"
+              fill
+              className="object-cover filter blur-sm"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-    // Variantes para la imagen de fondo
-    const imageVariants = {
-        enter: {
-            scale: 1.1,
-            opacity: 0,
-            transition: {
-                duration: 0.8,
-                ease: easeInOut,
-            }
-        },
-        center: {
-            scale: 1,
-            opacity: 1,
-            transition: {
-                duration: 0.8,
-                ease: easeInOut,
-            }
-        },
-        exit: {
-            scale: 0.95,
-            opacity: 0,
-            transition: {
-                duration: 0.5,
-                ease: easeInOut,
-            }
-        }
-    }
+      {/* Fondo por defecto cuando no hay hover - cambiado a blanco para mostrar los gaps */}
+      {!hoveredSection && (
+        <div className="absolute inset-0 z-0 bg-white" />
+      )}
 
-    useEffect(() => {
-        if (!api) {
-            return
-        }
+      {/* Secciones de cultivos con clips diagonales */}
+      <div className="relative z-10 h-full">
+        {cropSections.map((section) => (
+          <motion.div
+            key={section.id}
+            className="absolute inset-0 cursor-pointer"
+            onMouseEnter={() => setHoveredSection(section.id)}
+            onMouseLeave={() => setHoveredSection(null)}
+            style={{
+              clipPath: section.clip
+            }}
+          >
+            {/* Imagen del cultivo */}
+            <div className="relative w-full h-full">
+              <Image
+                src={section.image}
+                alt={section.name}
+                fill
+                className="object-cover"
+                priority={section.id <= 3}
+              />
 
-        setCurrent(api.selectedScrollSnap())
-
-        api.on("select", () => {
-            setIsTransitioning(true)
-            setCurrent(api.selectedScrollSnap())
-
-            // Reset transition state after animation completes
-            setTimeout(() => {
-                setIsTransitioning(false)
-            }, 600)
-        })
-    }, [api])
-
-    const handleDotClick = (index: number) => {
-        if (api && !isTransitioning) {
-            setIsTransitioning(true)
-            api.scrollTo(index)
-        }
-    }
-
-    const getButtonClasses = (slide: Slide) => {
-        switch (slide.productType) {
-            case 'cobrestable':
-                return "bg-cobrestable hover:bg-cobrestable text-white"
-            case 'bordocald':
-                return "bg-bordocald hover:bg-bordocald text-white"
-            case 'trikopper':
-                return "bg-trikopper hover:bg-trikopper text-white"
-            default:
-                return "bg-brand-green hover:bg-brand-green text-white"
-        }
-    }
-
-    const getBrandColor = (slide: Slide) => {
-        switch (slide.productType) {
-            case 'cobrestable':
-                return '#0098da'
-            case 'bordocald':
-                return '#9a3388'
-            case 'trikopper':
-                return '#00a859'
-            default:
-                return '#266d35'
-        }
-    }
-
-    return (
-        <section className="w-screen h-screen overflow-hidden relative" id="hero">
-            <Carousel
-                className="w-full h-full"
-                plugins={[Autoplay({ delay: 10000, stopOnInteraction: false })]}
-                opts={{
-                    loop: true,
-                    duration: 50,
+              {/* Overlay base más oscuro */}
+              <div className="absolute inset-0 bg-black/30" />
+              
+              {/* Overlay que se aclara en hover para crear efecto de iluminación */}
+              <motion.div
+                className="absolute inset-0"
+                animate={{
+                  backgroundColor: hoveredSection === section.id 
+                    ? "rgba(0, 0, 0, 0.1)" 
+                    : "rgba(0, 0, 0, 0.3)"
                 }}
-                setApi={setApi}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              />
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Título central animado */}
+      <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none pt-14">
+        <div className="text-center px-4">
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={currentTitleIndex}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+                opacity: { duration: 0.6 }
+              }}
+              className="text-5xl md:text-6xl font-avenir-black text-white leading-tight 
+  drop-shadow-[0_0_2px_rgba(0,0,0,0.9)] 
+  drop-shadow-[0_0_6px_rgba(0,0,0,0.7)]"
             >
-                <CarouselContent className="h-full">
-                    {currentSlides.map((slide, index) => (
-                        <CarouselItem key={index} className="relative w-full h-screen">
-                            {/* Imagen de fondo con animación */}
-                            <AnimatePresence mode="wait">
-                                {current === index && (
-                                    <motion.div
-                                        key={`image-${index}`}
-                                        variants={imageVariants}
-                                        initial="enter"
-                                        animate="center"
-                                        exit="exit"
-                                        className="absolute inset-0"
-                                    >
-                                        <Image
-                                            src={slide.imageSrc || "/placeholder.svg"}
-                                            alt={slide.title}
-                                            fill
-                                            className="object-cover"
-                                            priority={index === 0}
-                                        />
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+              {heroTitles[currentTitleIndex]}
+            </motion.h1>
+          </AnimatePresence>
+        </div>
+      </div>
 
-                            {/* Overlay con gradiente animado */}
-                            <motion.div
-                                className="absolute inset-0"
-                                animate={{
-                                    background: current === index
-                                        ? `linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, ${getBrandColor(slide)}20 100%)`
-                                        : `linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, ${getBrandColor(slide)}10 100%)`
-                                }}
-                                transition={{ duration: 0.8, ease: easeInOut }}
-                            />
-
-                            {/* Contenido con animaciones */}
-                            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                                <AnimatePresence mode="wait">
-                                    {current === index && (
-                                        <motion.div
-                                            key={`content-${index}`}
-                                            variants={contentVariants}
-                                            initial="enter"
-                                            animate="center"
-                                            exit="exit"
-                                            className="flex flex-col items-center"
-                                        >
-                                            {slide.subtitle && (
-                                                <motion.p
-                                                    variants={itemVariants}
-                                                    className="text-white text-md sm:text-lg md:text-xl font-medium mb-2"
-                                                    style={{ textShadow: "1px 1px 4px rgba(0, 0, 0, 0.7)" }}
-                                                >
-                                                    {slide.subtitle}
-                                                </motion.p>
-                                            )}
-
-                                            <motion.h2
-                                                variants={itemVariants}
-                                                className="text-[2rem] relative sm:text-[2.7rem] md:text-[3.8rem] font-bold leading-tight relative px-8 py-4 rounded-lg font-softhits"
-                                                style={{
-                                                    backgroundColor: getBrandColor(slide),
-                                                    color: 'white',
-                                                }}
-                                            >
-                                                {slide.title}
-                                                <span className="align-super text-[0.4em] ml-1 relative top-[-0.2em] font-sans font-normal border border-white/80 border-2 px-[0.2em]">
-                                                    R
-                                                </span>
-                                            </motion.h2>
-
-                                            {slide.description && (
-                                                <motion.p
-                                                    variants={itemVariants}
-                                                    className="text-white text-lg md:text-2xl mt-6 mb-8 max-w-3xl"
-                                                    style={{ textShadow: "1px 1px 4px rgba(0, 0, 0, 0.7)" }}
-                                                >
-                                                    {slide.description}
-                                                </motion.p>
-                                            )}
-
-                                            <motion.div
-                                                variants={itemVariants}
-                                                whileHover={{
-                                                    scale: 1.05,
-                                                    transition: { duration: 0.2 }
-                                                }}
-                                                whileTap={{ scale: 0.95 }}
-                                            >
-                                                <Link href={slide.ctaLink} passHref>
-                                                    <Button
-                                                        className={`cursor-pointer px-8 py-6 text-lg shadow-lg transition-all duration-300 ease-in-out transform font-semibold ${getButtonClasses(slide)}`}
-                                                        style={{
-                                                            boxShadow: `0 4px 15px ${getBrandColor(slide)}40`
-                                                        }}
-                                                    >
-                                                        {slide.ctaText}
-                                                    </Button>
-                                                </Link>
-                                            </motion.div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-
-                {/* Navegación personalizada con animaciones suaves */}
-                <div className="absolute bottom-0 left-0 right-0 bg-black/60 h-24 flex items-center justify-center px-4 md:px-8 lg:px-16">
-
-                    <div className="flex space-x-8">
-                        {currentSlides.map((slide, index) => (
-                            <motion.button
-                                key={index}
-                                onClick={() => handleDotClick(index)}
-                                className="flex items-center space-x-3 group focus:outline-none cursor-pointer disabled:cursor-not-allowed"
-                                disabled={isTransitioning}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                transition={{ duration: 0.2 }}
-                            >
-                                <motion.div
-                                    className={`w-8 h-8 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-500 ${current === index
-                                            ? "text-white shadow-lg"
-                                            : "bg-white/30 text-white group-hover:bg-white/50"
-                                        }`}
-                                    animate={{
-                                        backgroundColor: current === index ? getBrandColor(slide) : 'rgba(255,255,255,0.3)',
-                                        boxShadow: current === index ? `0 4px 20px ${getBrandColor(slide)}60` : '0 2px 10px rgba(0,0,0,0.3)',
-                                        scale: current === index ? 1.1 : 1,
-                                    }}
-                                    transition={{ duration: 0.4, ease: easeInOut }}
-                                >
-                                    {index + 1}
-                                </motion.div>
-
-                                <motion.span
-                                    className={`text-white text-lg font-semibold transition-all duration-300 hidden md:block`}
-                                    animate={{
-                                        opacity: current === index ? 1 : 0.7,
-                                        x: current === index ? 0 : -5,
-                                    }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    {slide.title}
-                                </motion.span>
-                            </motion.button>
-                        ))}
-                    </div>
-                </div>
-            </Carousel>
-        </section>
-    )
+      {/* Indicador de scroll sutil */}
+      <motion.div
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-40"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
+          <motion.div
+            className="w-1 h-3 bg-white/80 rounded-full mt-2"
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+      </motion.div>
+    </section>
+  )
 }

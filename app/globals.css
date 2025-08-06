@@ -1,17 +1,124 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Configuración completa de fuentes Avenir */
 @font-face {
-  font-family: 'SOFTHITS';
-  src: url('/fonts/SOFTHITS.TTF') format('truetype');
-  font-weight: normal;
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProRegular.otf') format('opentype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Avenir Next LT Pro';
-  src: url('/fonts/AvenirNextLTPro-Regular.otf') format('opentype');
+  src: url('/fonts/AvenirLTProOblique.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProLightOblique.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProMediumOblique.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProBook.otf') format('opentype');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProBookOblique.otf') format('opentype');
+  font-weight: 350;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProRoman.otf') format('opentype');
+  font-weight: 450;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProRomanOblique.otf') format('opentype');
+  font-weight: 450;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProHeavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro';
+  src: url('/fonts/AvenirLTProHeavyOblique.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Fuente principal para títulos - Avenir Black */
+@font-face {
+  font-family: 'Avenir Next LT Pro Black';
+  src: url('/fonts/AvenirLTProBlack.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Black';
+  src: url('/fonts/AvenirLTProBlackOblique.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Fuente decorativa SOFTHITS */
+@font-face {
+  font-family: 'SOFTHITS';
+  src: url('/fonts/SOFTHITS.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -22,11 +129,14 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  /* Cambiar la fuente principal a Avenir */
-  --font-sans: 'Avenir Next LT Pro', var(--font-geist-sans), sans-serif;
-  --font-mono: var(--font-geist-mono);
-  --font-softhits: 'SOFTHITS', var(--font-geist-sans), sans-serif;
-  --font-avenir: 'Avenir Next LT Pro', var(--font-geist-sans), sans-serif;
+  
+  /* Fuentes configuradas */
+  --font-sans: 'Avenir Next LT Pro', system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  --font-softhits: 'SOFTHITS', var(--font-sans), sans-serif;
+  --font-avenir: 'Avenir Next LT Pro', system-ui, -apple-system, sans-serif;
+  --font-avenir-black: 'Avenir Next LT Pro Black', 'Avenir Next LT Pro', system-ui, -apple-system, sans-serif;
+  
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -302,8 +412,38 @@ html {
     background-color: color-mix(in srgb, var(--trikopper) 85%, black);
   }
 
-  /* Clase para forzar SOFTHITS en títulos */
+  /* Clases de fuente personalizadas */
   .font-softhits {
     font-family: 'SOFTHITS', var(--font-geist-sans), sans-serif !important;
+  }
+
+  .font-avenir-black {
+    font-family: 'Avenir Next LT Pro Black', 'Avenir Next LT Pro', system-ui, -apple-system, sans-serif !important;
+    font-weight: 900 !important;
+  }
+
+  .font-avenir-heavy {
+    font-family: 'Avenir Next LT Pro', system-ui, -apple-system, sans-serif !important;
+    font-weight: 800 !important;
+  }
+
+  .font-avenir-medium {
+    font-family: 'Avenir Next LT Pro', system-ui, -apple-system, sans-serif !important;
+    font-weight: 500 !important;
+  }
+
+  .font-avenir-light {
+    font-family: 'Avenir Next LT Pro', system-ui, -apple-system, sans-serif !important;
+    font-weight: 300 !important;
+  }
+
+  .font-avenir-book {
+    font-family: 'Avenir Next LT Pro', system-ui, -apple-system, sans-serif !important;
+    font-weight: 350 !important;
+  }
+
+  .font-avenir-roman {
+    font-family: 'Avenir Next LT Pro', system-ui, -apple-system, sans-serif !important;
+    font-weight: 450 !important;
   }
 }
