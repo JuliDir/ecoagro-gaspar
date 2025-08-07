@@ -131,8 +131,8 @@ export default function Hero() {
                 className="absolute inset-0"
                 animate={{
                   backgroundColor: hoveredSection === section.id 
-                    ? "rgba(0, 0, 0, 0.1)" 
-                    : "rgba(0, 0, 0, 0.3)"
+                    ? "rgba(0, 0, 0, 0.01)" 
+                    : "rgba(0, 0, 0, 0.5)"
                 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               />
@@ -155,7 +155,7 @@ export default function Hero() {
                 ease: "easeOut",
                 opacity: { duration: 0.6 }
               }}
-              className="text-5xl md:text-6xl font-avenir-black text-white leading-tight 
+              className="text-5xl md:text-6xl font-avenir-cyr-heavy text-white leading-tight 
   drop-shadow-[0_0_2px_rgba(0,0,0,0.9)] 
   drop-shadow-[0_0_6px_rgba(0,0,0,0.7)]"
             >

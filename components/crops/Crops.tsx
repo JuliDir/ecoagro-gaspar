@@ -69,9 +69,9 @@ const containerVariants = {
 
 // Header animation variants - igual que en products
 const headerVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 30 
+  hidden: {
+    opacity: 0,
+    y: 30
   },
   visible: {
     opacity: 1,
@@ -112,8 +112,8 @@ export default function Crops() {
   };
 
   return (
-    <motion.section 
-      className="w-full py-20 bg-white mb-10" 
+    <motion.section
+      className="w-full py-20 bg-white mb-10"
       id="cultivos"
       initial="hidden"
       whileInView="visible"
@@ -121,16 +121,16 @@ export default function Crops() {
       variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           variants={headerVariants}
         >
-          <motion.h2 
-            className="text-4xl font-bold text-primary mb-4"
+          <motion.h2
+            className="text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-4"
             variants={{
               hidden: { opacity: 0, y: 20 },
-              visible: { 
-                opacity: 1, 
+              visible: {
+                opacity: 1,
                 y: 0,
                 transition: { duration: 0.6, ease: "easeOut" }
               }
@@ -138,12 +138,12 @@ export default function Crops() {
           >
             CULTIVOS
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-lg text-gray-600 max-w-2xl mx-auto"
             variants={{
               hidden: { opacity: 0, y: 15 },
-              visible: { 
-                opacity: 1, 
+              visible: {
+                opacity: 1,
                 y: 0,
                 transition: { duration: 0.6, delay: 0.2, ease: "easeOut" }
               }
@@ -169,9 +169,8 @@ export default function Crops() {
             <motion.div
               key={index}
               variants={cardVariants}
-              className={`group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden border border-gray-100 h-64 cursor-pointer ${
-                activeCard === index ? 'scale-105 shadow-2xl' : ''
-              }`}
+              className={`group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden border border-gray-100 h-64 cursor-pointer ${activeCard === index ? 'scale-105 shadow-2xl' : ''
+                }`}
               style={{
                 backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${crop.backgroundImage})`,
                 backgroundSize: 'cover',
@@ -182,9 +181,8 @@ export default function Crops() {
               onMouseLeave={handleCardMouseLeave}
             >
               {/* Default state - Icon only */}
-              <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                activeCard === index ? 'opacity-0' : 'group-hover:opacity-0'
-              }`}>
+              <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${activeCard === index ? 'opacity-0' : 'group-hover:opacity-0'
+                }`}>
                 <Image
                   src={`/icons/${crop.iconFilename}`}
                   alt={`${crop.name} icon`}
@@ -195,9 +193,8 @@ export default function Crops() {
               </div>
 
               {/* Hover/Click Overlay with Content */}
-              <div className={`absolute inset-0 transition-opacity duration-300 ${
-                activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-              }`}>
+              <div className={`absolute inset-0 transition-opacity duration-300 ${activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                }`}>
                 <div className="absolute inset-0 bg-black/70" />
                 <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center text-white">
                   <h4 className="text-2xl font-bold mb-3">{crop.name}</h4>
@@ -226,9 +223,8 @@ export default function Crops() {
               </div>
 
               {/* Decorative border */}
-              <div className={`absolute inset-0 border-2 border-dark-gray transition-opacity duration-300 rounded-xl pointer-events-none ${
-                activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-              }`} />
+              <div className={`absolute inset-0 border-2 border-dark-gray transition-opacity duration-300 rounded-xl pointer-events-none ${activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                }`} />
             </motion.div>
           ))}
         </motion.div>
