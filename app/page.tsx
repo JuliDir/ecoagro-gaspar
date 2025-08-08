@@ -1,7 +1,6 @@
 import Contact from "@/components/contact/Contact";
 import { Metadata } from "next";
 import Hero from "@/components/hero/Hero";
-import Stats from "@/components/testimonials/Stats";
 import AboutUsHome from "@/components/about-us/AboutUsHome";
 
 export const metadata: Metadata = {
@@ -19,11 +18,12 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-      <main className="font-sans">
-        <Hero />
-        <AboutUsHome />
-        <Stats />
-        <Contact />
-      </main>
+    <main className="font-sans">
+      <Hero />
+      
+      <AboutUsHome />
+
+      <Contact />
+    </main>
   );
 }

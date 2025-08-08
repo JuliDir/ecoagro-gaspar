@@ -57,8 +57,8 @@ export default function Header() {
             dropdownType: "crops"
         },
         { name: "Testimonios", href: "/testimonials", id: "testimonials" },
+        { name: "Nosotros", href: "#nosotros", id: "nosotros" }, // Cambiar a sección dentro del home
         { name: "Contacto", href: "#contacto", id: "contacto" },
-        { name: "Nosotros", href: "/about-us", id: "about-us" },
     ], [])
 
     useEffect(() => {
@@ -79,12 +79,6 @@ export default function Header() {
     }, [])
 
     useEffect(() => {
-        // Check if we're on about-us page
-        if (pathname === "/about-us") {
-            setActiveSection("about-us")
-            return
-        }
-
         // Check if we're on a product page or products catalog
         if (pathname.startsWith("/products/") || pathname === "/products") {
             setActiveSection("productos")
@@ -118,7 +112,7 @@ export default function Header() {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
-                            setActiveSection(id === "hero" ? "" : id === "nosotros" ? "about-us" : id)
+                            setActiveSection(id === "hero" ? "" : id)
                         }
                     })
                 }, observerOptions)
@@ -186,7 +180,7 @@ export default function Header() {
     const handleSectionClick = (e: React.MouseEvent, sectionId: string) => {
         e.preventDefault()
 
-        // Si estamos en about-us u otra página que no es home, navegar primero a home
+        // Si estamos en una página que no es home, navegar primero a home
         if (pathname !== "/") {
             // Navegar a home con el hash de la sección
             window.location.href = `/#${sectionId}`
@@ -361,7 +355,7 @@ export default function Header() {
                                         {item.name}
                                     </Link>
                                 ) : (
-                                    // Para secciones (#contacto), usar button con handleSectionClick
+                                    // Para secciones (#nosotros, #contacto), usar button con handleSectionClick
                                     <button
                                         onClick={(e) => handleSectionClick(e, item.id)}
                                         className={cn(
@@ -444,7 +438,7 @@ export default function Header() {
                                         )
                                     }
 
-                                    // Para secciones (#contacto), usar handleSectionClick
+                                    // Para secciones (#nosotros, #contacto), usar handleSectionClick
                                     return (
                                         <button
                                             key={item.id}
