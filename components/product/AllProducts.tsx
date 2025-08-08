@@ -3,11 +3,12 @@
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search, Shield, FlaskConical } from "lucide-react";
 import { products } from "@/lib/data/products";
+import { useSearchParams } from "next/navigation";
 
-const categories = ["Todos", "Fungicidas"];
+const categories = ["Todos", "Fungicidas", "Fertilizantes", "Coayugantes"];
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -67,9 +68,18 @@ const getProductSlug = (productName: string): string => {
 };
 
 export default function AllProducts() {
+    const searchParams = useSearchParams();
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("Todos");
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+    // Efecto para establecer la categoría desde los parámetros de URL
+    useEffect(() => {
+        const categoryParam = searchParams.get('category');
+        if (categoryParam && categories.includes(categoryParam)) {
+            setSelectedCategory(categoryParam);
+        }
+    }, [searchParams]);
 
     // Filtrar productos basado en búsqueda y categoría
     const filteredProducts = products.filter(product => {
@@ -108,7 +118,7 @@ export default function AllProducts() {
                     />
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="relative pt-10 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         className="text-center"
                         variants={sectionVariants}
@@ -184,6 +194,11 @@ export default function AllProducts() {
                             ? `Mostrando todos los productos (${products.length})`
                             : `Mostrando ${filteredProducts.length} de ${products.length} productos`
                         }
+                        {selectedCategory !== "Todos" && (
+                            <span className="ml-2 text-primary-600 font-medium">
+                                - Categoría: {selectedCategory}
+                            </span>
+                        )}
                     </motion.div>
                 </div>
             </motion.section>
@@ -223,12 +238,17 @@ export default function AllProducts() {
 
                                     {/* Contenido */}
                                     <div className="relative z-10 h-full flex flex-col p-8 text-white">
-                                        {/* Header con registro */}
+                                        {/* Header con registro y categoría */}
                                         <div className={`transition-opacity duration-300 ${hoveredCard === index ? 'opacity-0' : 'opacity-100'
                                             }`}>
-                                            <span className="inline-block bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm border border-white/30">
-                                                Registro SENASA
-                                            </span>
+                                            <div className="flex justify-between items-start mb-4">
+                                                <span className="inline-block bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm border border-white/30">
+                                                    Registro SENASA
+                                                </span>
+                                                <span className="inline-block bg-white/30 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm border border-white/40 font-medium">
+                                                    {product.category}
+                                                </span>
+                                            </div>
                                         </div>
 
                                         {/* Título y descripción */}

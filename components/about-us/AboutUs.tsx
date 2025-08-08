@@ -92,7 +92,7 @@ export default function AboutUs() {
       <motion.section
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.05, margin: "0px 0px -30px 0px" }}
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

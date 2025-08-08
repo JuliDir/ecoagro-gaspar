@@ -25,10 +25,11 @@ export default function Header() {
     const lastScrollY = useRef(0)
     const pathname = usePathname()
 
+    // Nuevas categorías de productos
     const products = [
-        { name: "Cobrestable", href: "/products/cobrestable" },
-        { name: "Bordocald", href: "/products/bordocald" },
-        { name: "Trikopper 50", href: "/products/trikopper-50" },
+        { name: "Fungicidas", href: "/products?category=Fungicidas" },
+        { name: "Fertilizantes", href: "/products?category=Fertilizantes" },
+        { name: "Coayugantes", href: "/products?category=Coayugantes" },
         { name: "Ver todos", href: "/products" },
     ]
 
@@ -41,7 +42,9 @@ export default function Header() {
         { name: "Ver todos", href: "/crops" },
     ]
 
+    // Navegación actualizada - removido "Nosotros", agregado "Inicio"
     const navItems = useMemo(() => [
+        { name: "Inicio", href: "/", id: "inicio" },
         {
             name: "Productos",
             href: "/products",
@@ -57,7 +60,6 @@ export default function Header() {
             dropdownType: "crops"
         },
         { name: "Testimonios", href: "/testimonials", id: "testimonials" },
-        { name: "Nosotros", href: "#nosotros", id: "nosotros" }, // Cambiar a sección dentro del home
         { name: "Contacto", href: "#contacto", id: "contacto" },
     ], [])
 
@@ -79,6 +81,12 @@ export default function Header() {
     }, [])
 
     useEffect(() => {
+        // Check if we're on home page
+        if (pathname === "/") {
+            setActiveSection("inicio")
+            return
+        }
+
         // Check if we're on a product page or products catalog
         if (pathname.startsWith("/products/") || pathname === "/products") {
             setActiveSection("productos")
@@ -104,7 +112,7 @@ export default function Header() {
             rootMargin: "-80px 0px -40% 0px"
         }
 
-        const idsToObserve = [...navItems.filter(item => !item.hasDropdown && item.href.startsWith("#")).map(i => i.id), "hero", "nosotros"]
+        const idsToObserve = [...navItems.filter(item => !item.hasDropdown && item.href.startsWith("#")).map(i => i.id), "hero", "contacto"]
 
         idsToObserve.forEach((id) => {
             const section = document.getElementById(id)
@@ -112,7 +120,7 @@ export default function Header() {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
-                            setActiveSection(id === "hero" ? "" : id)
+                            setActiveSection(id === "hero" ? "inicio" : id)
                         }
                     })
                 }, observerOptions)
@@ -355,7 +363,7 @@ export default function Header() {
                                         {item.name}
                                     </Link>
                                 ) : (
-                                    // Para secciones (#nosotros, #contacto), usar button con handleSectionClick
+                                    // Para secciones (#contacto), usar button con handleSectionClick
                                     <button
                                         onClick={(e) => handleSectionClick(e, item.id)}
                                         className={cn(
@@ -438,7 +446,7 @@ export default function Header() {
                                         )
                                     }
 
-                                    // Para secciones (#nosotros, #contacto), usar handleSectionClick
+                                    // Para secciones (#contacto), usar handleSectionClick
                                     return (
                                         <button
                                             key={item.id}
