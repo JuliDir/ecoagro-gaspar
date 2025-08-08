@@ -40,15 +40,13 @@ export default function Hero() {
   const TOTAL_SECTIONS = cropSections.length
   const TOTAL_WIDTH = SECTION_WIDTH * TOTAL_SECTIONS
   
-  // Crear múltiples copias para el efecto infinito
   const multipliedSections = [
     ...cropSections,
     ...cropSections,
     ...cropSections,
-    ...cropSections // 4 copias para transición suave
+    ...cropSections 
   ]
 
-  // Animación automática de títulos
   useEffect(() => {
     if (isPaused) return
     
@@ -58,15 +56,13 @@ export default function Hero() {
     return () => clearInterval(interval)
   }, [isPaused])
 
-  // Animación automática del slider
   useEffect(() => {
     if (isDragging || isPaused) return
 
     const animate = () => {
       const currentX = x.get()
-      const newX = currentX - 0.3 // Velocidad de desplazamiento más lenta
+      const newX = currentX - 0.3 
 
-      // Reset cuando llegue al final de la primera copia
       if (Math.abs(newX) >= TOTAL_WIDTH) {
         x.set(0)
       } else {
@@ -74,7 +70,7 @@ export default function Hero() {
       }
     }
 
-    const interval = setInterval(animate, 16) // ~60fps
+    const interval = setInterval(animate, 16) 
     return () => clearInterval(interval)
   }, [isDragging, isPaused, x, TOTAL_WIDTH])
 
@@ -89,10 +85,8 @@ export default function Hero() {
     const currentX = x.get()
     const velocity = info.velocity.x
     
-    // Aplicar inercia
     const finalX = currentX + velocity * 0.1
     
-    // Manejar el loop infinito
     let constrainedX = finalX
     
     if (Math.abs(constrainedX) >= TOTAL_WIDTH) {
@@ -105,7 +99,6 @@ export default function Hero() {
     
     x.set(constrainedX)
     
-    // Reanudar después de un breve delay
     setTimeout(() => setIsPaused(false), 1000)
   }
 
@@ -120,7 +113,6 @@ export default function Hero() {
         setHoveredSection(null)
       }}
     >
-      {/* Fondo dinámico difuminado en hover */}
       <AnimatePresence mode="wait">
         {hoveredSection && (
           <motion.div
@@ -147,7 +139,6 @@ export default function Hero() {
         <div className="absolute inset-0 z-0 bg-white" />
       )}
 
-      {/* Slider infinito con drag */}
       <div ref={containerRef} className="relative z-10 h-full overflow-hidden">
         <motion.div
           className="flex h-full cursor-grab active:cursor-grabbing hover:cursor-grab"
@@ -182,7 +173,6 @@ export default function Hero() {
                   draggable={false}
                 />
                 
-                {/* Overlay oscuro que se aclara en hover */}
                 <motion.div
                   className="absolute inset-0 pointer-events-none"
                   animate={{
@@ -194,7 +184,6 @@ export default function Hero() {
                   transition={{ duration: 0.3 }}
                 />
 
-                {/* Nombre de la sección visible en hover */}
                 <AnimatePresence>
                   {hoveredSection === originalSection.id && (
                     <motion.div
@@ -215,7 +204,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Título central */}
       <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none pt-18">
         <div className="text-center px-4">
           <AnimatePresence mode="wait">
@@ -239,7 +227,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Indicador scroll mejorado */}
       <motion.div
         className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-40 flex flex-col items-center cursor-pointer"
         animate={{ y: [0, 8, 0] }}
