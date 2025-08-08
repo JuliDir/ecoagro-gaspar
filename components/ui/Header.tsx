@@ -29,6 +29,7 @@ export default function Header() {
         { name: "Cobrestable", href: "/products/cobrestable" },
         { name: "Bordocald", href: "/products/bordocald" },
         { name: "Trikopper 50", href: "/products/trikopper-50" },
+        { name: "Ver todos", href: "/products" },
     ]
 
     const crops = [
@@ -37,25 +38,25 @@ export default function Header() {
         { name: "Vid", href: "/crops/vid" },
         { name: "Garbanzo", href: "/crops/garbanzo" },
         { name: "Limón", href: "/crops/limon" },
-        { name: "Ver otros", href: "/crops" },
+        { name: "Ver todos", href: "/crops" },
     ]
 
     const navItems = useMemo(() => [
         {
             name: "Productos",
-            href: "#productos",
+            href: "/products",
             id: "productos",
             hasDropdown: true,
             dropdownType: "products"
         },
         {
             name: "Cultivos",
-            href: "#cultivos",
+            href: "/crops",
             id: "cultivos",
             hasDropdown: true,
             dropdownType: "crops"
         },
-        { name: "Testimonios", href: "#testimonios", id: "testimonios" },
+        { name: "Testimonios", href: "/testimonials", id: "testimonials" },
         { name: "Contacto", href: "#contacto", id: "contacto" },
         { name: "Nosotros", href: "/about-us", id: "about-us" },
     ], [])
@@ -84,15 +85,21 @@ export default function Header() {
             return
         }
 
-        // Check if we're on a product page
-        if (pathname.startsWith("/products/")) {
+        // Check if we're on a product page or products catalog
+        if (pathname.startsWith("/products/") || pathname === "/products") {
             setActiveSection("productos")
             return
         }
 
-        // Check if we're on a crops page
-        if (pathname.startsWith("/crops/")) {
+        // Check if we're on a crops page or crops catalog
+        if (pathname.startsWith("/crops/") || pathname === "/crops") {
             setActiveSection("cultivos")
+            return
+        }
+
+        // Check if we're on testimonials page
+        if (pathname === "/testimonials") {
+            setActiveSection("testimonials")
             return
         }
 
@@ -103,7 +110,7 @@ export default function Header() {
             rootMargin: "-80px 0px -40% 0px"
         }
 
-        const idsToObserve = [...navItems.filter(item => !item.hasDropdown && item.href.startsWith("#")).map(i => i.id), "hero"]
+        const idsToObserve = [...navItems.filter(item => !item.hasDropdown && item.href.startsWith("#")).map(i => i.id), "hero", "nosotros"]
 
         idsToObserve.forEach((id) => {
             const section = document.getElementById(id)
@@ -111,7 +118,7 @@ export default function Header() {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
-                            setActiveSection(id === "hero" ? "" : id)
+                            setActiveSection(id === "hero" ? "" : id === "nosotros" ? "about-us" : id)
                         }
                     })
                 }, observerOptions)
@@ -308,8 +315,8 @@ export default function Header() {
                                             }
                                         }}
                                     >
-                                        <button
-                                            onClick={(e) => handleSectionClick(e, item.id)}
+                                        <Link
+                                            href={item.href}
                                             className={cn(
                                                 "flex items-center space-x-1 px-2 lg:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer",
                                                 "hover:bg-primary-100",
@@ -325,7 +332,7 @@ export default function Header() {
                                                     (item.dropdownType === "crops" && isCropsDropdownOpen)
                                                     ? "rotate-180" : ""
                                             )} />
-                                        </button>
+                                        </Link>
 
                                         {item.dropdownType === "products" && renderDropdown(
                                             isProductsDropdownOpen,
@@ -340,7 +347,7 @@ export default function Header() {
                                         )}
                                     </div>
                                 ) : item.href.startsWith("/") ? (
-                                    // Para enlaces a páginas (como /about-us), usar Link
+                                    // Para enlaces a páginas, usar Link
                                     <Link
                                         href={item.href}
                                         className={cn(
@@ -354,7 +361,7 @@ export default function Header() {
                                         {item.name}
                                     </Link>
                                 ) : (
-                                    // Para secciones (#contacto, #cultivos, etc), usar button con handleSectionClick
+                                    // Para secciones (#contacto), usar button con handleSectionClick
                                     <button
                                         onClick={(e) => handleSectionClick(e, item.id)}
                                         className={cn(
@@ -420,7 +427,7 @@ export default function Header() {
                                         )
                                     }
 
-                                    // Para items que son enlaces a /about-us, usar Link normal
+                                    // Para items que son enlaces a páginas, usar Link normal
                                     if (item.href.startsWith("/")) {
                                         return (
                                             <Link
@@ -437,7 +444,7 @@ export default function Header() {
                                         )
                                     }
 
-                                    // Para secciones (#contacto, #cultivos, etc), usar handleSectionClick
+                                    // Para secciones (#contacto), usar handleSectionClick
                                     return (
                                         <button
                                             key={item.id}

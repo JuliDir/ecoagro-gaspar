@@ -7,4 +7,5 @@ export interface Product {
   features: string[];
   icon: string;
   bgIcon: string;
+  category?: string; 
 }

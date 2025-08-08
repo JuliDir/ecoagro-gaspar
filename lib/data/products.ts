@@ -16,6 +16,7 @@ export const products: Product[] = [
     ],
     icon: "/images/products/cobrestable.png",
     bgIcon: "/icons/wheat.svg",
+    category: "Fungicidas",
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ export const products: Product[] = [
     ],
     icon: "/images/products/bordocald.png",
     bgIcon: "/icons/corn.svg",
+    category: "Fungicidas",
   },
   {
     id: 3,
@@ -46,9 +48,9 @@ export const products: Product[] = [
     ],
     icon: "/images/products/trikopper.png",
     bgIcon: "/icons/soy.svg",
+    category: "Fungicidas",
   },
 ];
-
 
 export const productsData = {
   cobrestable: {

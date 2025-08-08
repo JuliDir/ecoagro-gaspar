@@ -100,6 +100,13 @@ const cardVariants = {
   }
 };
 
+const handleContactClick = () => {
+  const contactSection = document.getElementById("contacto");
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 export default function Crops() {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
@@ -112,123 +119,199 @@ export default function Crops() {
   };
 
   return (
-    <motion.section
-      className="w-full py-20 bg-white mb-10"
-      id="cultivos"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.1 }}
-      variants={containerVariants}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="text-center mb-16"
-          variants={headerVariants}
-        >
-          <motion.h2
-            className="text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-4"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.6, ease: "easeOut" }
-              }
-            }}
+    <div className="bg-white">
+      {/* Sección de cultivos */}
+      <motion.section
+        className="w-full py-20 bg-white mb-10"
+        id="cultivos"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={containerVariants}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            variants={headerVariants}
           >
-            CULTIVOS
-          </motion.h2>
-          <motion.p
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
-            variants={{
-              hidden: { opacity: 0, y: 15 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.6, delay: 0.2, ease: "easeOut" }
-              }
-            }}
-          >
-            Atendemos las necesidades de tus cultivos y te ofrecemos un plan nutricional
-            completo para optimizar la producción.
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.15,
-              },
-            },
-          }}
-        >
-          {crops.map((crop, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              className={`group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden border border-gray-100 h-64 cursor-pointer ${activeCard === index ? 'scale-105 shadow-2xl' : ''
-                }`}
-              style={{
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${crop.backgroundImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
+            <motion.h2
+              className="text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-4"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.6, ease: "easeOut" }
+                }
               }}
-              onClick={() => handleCardClick(index)}
-              onMouseLeave={handleCardMouseLeave}
             >
-              {/* Default state - Icon only */}
-              <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${activeCard === index ? 'opacity-0' : 'group-hover:opacity-0'
-                }`}>
-                <Image
-                  src={`/icons/${crop.iconFilename}`}
-                  alt={`${crop.name} icon`}
-                  width={80}
-                  height={80}
-                  className="brightness-0 invert"
-                />
-              </div>
+              CULTIVOS
+            </motion.h2>
+            <motion.p
+              className="text-lg text-gray-600 max-w-2xl mx-auto"
+              variants={{
+                hidden: { opacity: 0, y: 15 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.6, delay: 0.2, ease: "easeOut" }
+                }
+              }}
+            >
+              Atendemos las necesidades de tus cultivos y te ofrecemos un plan nutricional
+              completo para optimizar la producción.
+            </motion.p>
+          </motion.div>
 
-              {/* Hover/Click Overlay with Content */}
-              <div className={`absolute inset-0 transition-opacity duration-300 ${activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                }`}>
-                <div className="absolute inset-0 bg-black/70" />
-                <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center text-white">
-                  <h4 className="text-2xl font-bold mb-3">{crop.name}</h4>
-                  {crop.name === "Ver otros" ? (
-                    <Link
-                      href="/crops"
-                      className="relative z-20 inline-block bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 text-sm"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                      }}
-                    >
-                      Ver Todos
-                    </Link>
-                  ) : (
-                    <Link
-                      href={`/crops/${crop.slug}`}
-                      className="relative z-20 inline-block bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 text-sm"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                      }}
-                    >
-                      Conocer Más
-                    </Link>
-                  )}
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.15,
+                },
+              },
+            }}
+          >
+            {crops.map((crop, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                className={`group relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden border border-gray-100 h-64 cursor-pointer ${activeCard === index ? 'scale-105 shadow-2xl' : ''
+                  }`}
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${crop.backgroundImage})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                }}
+                onClick={() => handleCardClick(index)}
+                onMouseLeave={handleCardMouseLeave}
+              >
+                {/* Default state - Icon only */}
+                <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${activeCard === index ? 'opacity-0' : 'group-hover:opacity-0'
+                  }`}>
+                  <Image
+                    src={`/icons/${crop.iconFilename}`}
+                    alt={`${crop.name} icon`}
+                    width={80}
+                    height={80}
+                    className="brightness-0 invert"
+                  />
                 </div>
-              </div>
 
-              {/* Decorative border */}
-              <div className={`absolute inset-0 border-2 border-dark-gray transition-opacity duration-300 rounded-xl pointer-events-none ${activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                }`} />
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </motion.section>
+                {/* Hover/Click Overlay with Content */}
+                <div className={`absolute inset-0 transition-opacity duration-300 ${activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`}>
+                  <div className="absolute inset-0 bg-black/70" />
+                  <div className="relative z-10 h-full flex flex-col items-center justify-center p-6 text-center text-white">
+                    <h4 className="text-2xl font-bold mb-3">{crop.name}</h4>
+                    {crop.name === "Ver otros" ? (
+                      <Link
+                        href="/crops"
+                        className="relative z-20 inline-block bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 text-sm"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                        }}
+                      >
+                        Ver Todos
+                      </Link>
+                    ) : (
+                      <Link
+                        href={`/crops/${crop.slug}`}
+                        className="relative z-20 inline-block bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 text-sm"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                        }}
+                      >
+                        Conocer Más
+                      </Link>
+                    )}
+                  </div>
+                </div>
+
+                {/* Decorative border */}
+                <div className={`absolute inset-0 border-2 border-dark-gray transition-opacity duration-300 rounded-xl pointer-events-none ${activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* CTA Section movida desde el home */}
+      <section className="w-full bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white py-16 relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-32 translate-x-32"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full translate-y-24 -translate-x-24"></div>
+
+        {/* Wheat decorative elements */}
+        <Image
+          src="/icons/wheat.svg"
+          alt=""
+          width={120}
+          height={120}
+          className="absolute top-8 left-8 opacity-10 invert rotate-12 hidden md:block"
+        />
+        <Image
+          src="/icons/wheat.svg"
+          alt=""
+          width={80}
+          height={80}
+          className="absolute bottom-12 right-16 opacity-15 invert -rotate-45 hidden lg:block"
+        />
+        <Image
+          src="/icons/wheat.svg"
+          alt=""
+          width={60}
+          height={60}
+          className="absolute top-1/2 left-16 opacity-8 invert rotate-45 hidden xl:block"
+        />
+        <Image
+          src="/icons/wheat.svg"
+          alt=""
+          width={70}
+          height={70}
+          className="absolute top-16 right-1/3 opacity-10 invert rotate-90 hidden md:block"
+        />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex gap-8 items-center justify-between flex-col lg:flex-row">
+            {/* Left side - Text content */}
+            <div className="text-left max-w-2xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                ¿Listo para optimizar tus cultivos?
+              </h2>
+              <p className="text-base md:text-lg opacity-90 leading-relaxed">
+                Contáctanos hoy mismo y descubre cómo podemos ayudarte a
+                <strong className="font-semibold"> mejorar la salud y productividad</strong> de tus plantas.
+              </p>
+            </div>
+
+            {/* Right side - CTA and trust element */}
+            <div className="flex flex-col gap-4 items-center text-left lg:text-right">
+              <button
+                onClick={handleContactClick}
+                className="group inline-flex items-center justify-center bg-transparent border-2 border-white text-white px-4 py-2 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-white hover:text-primary-600 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-30 cursor-pointer"
+              >
+                Contáctanos
+                <svg className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
+
+              <div className="flex items-center text-sm opacity-75">
+                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                Respuesta rápida garantizada
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

@@ -1,11 +1,8 @@
 import Contact from "@/components/contact/Contact";
-import Crops from "@/components/crops/Crops";
-import CTA from "@/components/ui/CTA";
-import Hero from "@/components/hero/Hero";
-import Products from "@/components/product/Producst";
-import Stats from "@/components/testimonials/Stats";
-import Testimonials from "@/components/testimonials/Testimonials";
 import { Metadata } from "next";
+import Hero from "@/components/hero/Hero";
+import Stats from "@/components/testimonials/Stats";
+import AboutUsHome from "@/components/about-us/AboutUsHome";
 
 export const metadata: Metadata = {
   title: "Ecoagro Gaspar | Soluciones Sustentables para la Sanidad Vegetal",
@@ -24,10 +21,7 @@ export default function Home() {
   return (
       <main className="font-sans">
         <Hero />
-        <Products />
-        <Crops /> 
-        <CTA />
-        <Testimonials />
+        <AboutUsHome />
         <Stats />
         <Contact />
       </main>
