@@ -32,6 +32,7 @@ export default function Hero() {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   
   const x = useMotionValue(0)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -46,6 +47,18 @@ export default function Hero() {
     ...cropSections,
     ...cropSections 
   ]
+
+  // Detectar si es móvil
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
+    checkIfMobile()
+    window.addEventListener('resize', checkIfMobile)
+    
+    return () => window.removeEventListener('resize', checkIfMobile)
+  }, [])
 
   useEffect(() => {
     if (isPaused) return
@@ -242,14 +255,14 @@ export default function Hero() {
           DESLIZA HACIA ABAJO
         </motion.p>
 
-        <motion.div
-          className="relative"
-          whileHover={{ y: -2 }}
-        >
-          <div className="absolute inset-0 w-8 h-12 border-2 border-white rounded-full blur-sm opacity-60" />
-          <div className="relative w-8 h-12 border-2 border-white rounded-full flex justify-center bg-black/20 backdrop-blur-sm">
+        {isMobile ? (
+          // Ícono de manito para móvil
+          <motion.div
+            className="relative"
+            whileHover={{ y: -2 }}
+          >
             <motion.div
-              className="w-1.5 h-4 bg-white rounded-full mt-2 shadow-lg"
+              className="text-white text-3xl"
               animate={{
                 opacity: [0.4, 1, 0.4],
                 y: [0, 6, 0]
@@ -259,9 +272,33 @@ export default function Hero() {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-            />
-          </div>
-        </motion.div>
+            >
+              👆
+            </motion.div>
+          </motion.div>
+        ) : (
+          // Ícono de mouse para desktop
+          <motion.div
+            className="relative"
+            whileHover={{ y: -2 }}
+          >
+            <div className="absolute inset-0 w-8 h-12 border-2 border-white rounded-full blur-sm opacity-60" />
+            <div className="relative w-8 h-12 border-2 border-white rounded-full flex justify-center bg-black/20 backdrop-blur-sm">
+              <motion.div
+                className="w-1.5 h-4 bg-white rounded-full mt-2 shadow-lg"
+                animate={{
+                  opacity: [0.4, 1, 0.4],
+                  y: [0, 6, 0]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </div>
+          </motion.div>
+        )}
       </motion.div>
     </section>
   )
