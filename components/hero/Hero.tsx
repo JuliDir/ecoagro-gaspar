@@ -1,54 +1,23 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect, useRef } from "react"
+import { motion, AnimatePresence, useMotionValue, PanInfo } from "framer-motion"
 import Image from "next/image"
 
 interface CropSection {
   id: number
   name: string
   image: string
-  clip: string
 }
 
 const cropSections: CropSection[] = [
-  {
-    id: 1,
-    name: "Garbanzo",
-    image: "/images/crops/garbanzo.jpg",
-    clip: "polygon(0% 0%, 11.85% 0%, 31.35% 100%, 0% 100%)",
-  },
-  {
-    id: 2,
-    name: "Soja",
-    image: "/images/crops/soja.jpg",
-    clip: "polygon(12.15% 0%, 23.85% 0%, 43.35% 100%, 32.00% 100%)",
-  },
-  {
-    id: 3,
-    name: "Mani",
-    image: "/images/crops/mani.jpg",
-    clip: "polygon(24.15% 0%, 35.85% 0%, 55.35% 100%, 44.00% 100%)",
-  },
-  {
-    id: 4,
-    name: "Vid",
-    image: "/images/crops/vid.jpg",
-    clip: "polygon(36.15% 0%, 47.85% 0%, 67.35% 100%, 56.00% 100%)",
-  },
-  {
-    id: 5,
-    name: "Papa",
-    image: "/images/crops/papas.jpg",
-    clip: "polygon(48.15% 0%, 59.85% 0%, 79.35% 100%, 68.00% 100%)",
-  },
-  {
-    id: 6,
-    name: "Limón",
-    image: "/images/crops/limon.jpg",
-    clip: "polygon(60.15% 0%, 100% 0%, 100% 100%, 80.00% 100%)",
-  }
-];
+  { id: 1, name: "Semillas", image: "/images/hero/semillas.jpg" },
+  { id: 2, name: "Papas", image: "/images/hero/papas.jpg" },
+  { id: 3, name: "Olivos", image: "/images/hero/olivos.jpg" },
+  { id: 4, name: "Vid", image: "/images/hero/vid.jpg" },
+  { id: 5, name: "Naranjas", image: "/images/hero/naranjos.jpg" },
+  { id: 6, name: "Limones", image: "/images/hero/limones.jpg" }
+]
 
 const heroTitles = [
   "Innovación para tus cultivos",
@@ -61,19 +30,97 @@ const heroTitles = [
 export default function Hero() {
   const [hoveredSection, setHoveredSection] = useState<number | null>(null)
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
+  
+  const x = useMotionValue(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  
+  const SECTION_WIDTH = 500
+  const TOTAL_SECTIONS = cropSections.length
+  const TOTAL_WIDTH = SECTION_WIDTH * TOTAL_SECTIONS
+  
+  // Crear múltiples copias para el efecto infinito
+  const multipliedSections = [
+    ...cropSections,
+    ...cropSections,
+    ...cropSections,
+    ...cropSections // 4 copias para transición suave
+  ]
 
-  // Cambio automático de títulos
+  // Animación automática de títulos
   useEffect(() => {
+    if (isPaused) return
+    
     const interval = setInterval(() => {
       setCurrentTitleIndex((prev) => (prev + 1) % heroTitles.length)
     }, 3000)
-
     return () => clearInterval(interval)
-  }, [])
+  }, [isPaused])
+
+  // Animación automática del slider
+  useEffect(() => {
+    if (isDragging || isPaused) return
+
+    const animate = () => {
+      const currentX = x.get()
+      const newX = currentX - 0.3 // Velocidad de desplazamiento más lenta
+
+      // Reset cuando llegue al final de la primera copia
+      if (Math.abs(newX) >= TOTAL_WIDTH) {
+        x.set(0)
+      } else {
+        x.set(newX)
+      }
+    }
+
+    const interval = setInterval(animate, 16) // ~60fps
+    return () => clearInterval(interval)
+  }, [isDragging, isPaused, x, TOTAL_WIDTH])
+
+  const handleDragStart = () => {
+    setIsDragging(true)
+    setIsPaused(true)
+  }
+
+  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    setIsDragging(false)
+    
+    const currentX = x.get()
+    const velocity = info.velocity.x
+    
+    // Aplicar inercia
+    const finalX = currentX + velocity * 0.1
+    
+    // Manejar el loop infinito
+    let constrainedX = finalX
+    
+    if (Math.abs(constrainedX) >= TOTAL_WIDTH) {
+      constrainedX = constrainedX % TOTAL_WIDTH
+    }
+    
+    if (constrainedX > 0) {
+      constrainedX = constrainedX - TOTAL_WIDTH
+    }
+    
+    x.set(constrainedX)
+    
+    // Reanudar después de un breve delay
+    setTimeout(() => setIsPaused(false), 1000)
+  }
+
+  const getSectionFromIndex = (index: number) => {
+    return cropSections[index % TOTAL_SECTIONS]
+  }
 
   return (
-    <section className="relative h-[85vh] w-full overflow-hidden bg-white">
-      {/* Fondo dinámico */}
+    <section 
+      className="relative h-[75vh] w-full overflow-hidden bg-white select-none"
+      onMouseLeave={() => {
+        setHoveredSection(null)
+      }}
+    >
+      {/* Fondo dinámico difuminado en hover */}
       <AnimatePresence mode="wait">
         {hoveredSection && (
           <motion.div
@@ -96,53 +143,80 @@ export default function Hero() {
         )}
       </AnimatePresence>
 
-      {/* Fondo por defecto cuando no hay hover - cambiado a blanco para mostrar los gaps */}
       {!hoveredSection && (
         <div className="absolute inset-0 z-0 bg-white" />
       )}
 
-      {/* Secciones de cultivos con clips diagonales */}
-      <div className="relative z-10 h-full">
-        {cropSections.map((section) => (
-          <motion.div
-            key={section.id}
-            className="absolute inset-0 cursor-pointer"
-            onMouseEnter={() => setHoveredSection(section.id)}
-            onMouseLeave={() => setHoveredSection(null)}
-            style={{
-              clipPath: section.clip
-            }}
-          >
-            {/* Imagen del cultivo */}
-            <div className="relative w-full h-full">
-              <Image
-                src={section.image}
-                alt={section.name}
-                fill
-                className="object-cover"
-                priority={section.id <= 3}
-              />
-
-              {/* Overlay base más oscuro */}
-              <div className="absolute inset-0 bg-black/30" />
-              
-              {/* Overlay que se aclara en hover para crear efecto de iluminación */}
+      {/* Slider infinito con drag */}
+      <div ref={containerRef} className="relative z-10 h-full overflow-hidden">
+        <motion.div
+          className="flex h-full cursor-grab active:cursor-grabbing hover:cursor-grab"
+          style={{ x }}
+          drag="x"
+          dragConstraints={{ left: -TOTAL_WIDTH, right: 0 }}
+          dragElastic={0.1}
+          dragMomentum={true}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
+          whileDrag={{ cursor: "grabbing" }}
+        >
+          {multipliedSections.map((section, index) => {
+            const originalSection = getSectionFromIndex(index)
+            
+            return (
               <motion.div
-                className="absolute inset-0"
-                animate={{
-                  backgroundColor: hoveredSection === section.id 
-                    ? "rgba(0, 0, 0, 0.01)" 
-                    : "rgba(0, 0, 0, 0.5)"
+                key={`${section.id}-${Math.floor(index / TOTAL_SECTIONS)}`}
+                className="relative flex-shrink-0 h-full cursor-grab hover:cursor-grab"
+                style={{ 
+                  width: `${SECTION_WIDTH}px`,
+                  clipPath: "polygon(1% 0, 100% 0, 99% 100%, 0 100%)"
                 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              />
-            </div>
-          </motion.div>
-        ))}
+                onMouseEnter={() => setHoveredSection(originalSection.id)}
+              >
+                <Image
+                  src={section.image}
+                  alt={section.name}
+                  fill
+                  className="object-cover pointer-events-none"
+                  priority={index < TOTAL_SECTIONS}
+                  draggable={false}
+                />
+                
+                {/* Overlay oscuro que se aclara en hover */}
+                <motion.div
+                  className="absolute inset-0 pointer-events-none"
+                  animate={{
+                    backgroundColor:
+                      hoveredSection === originalSection.id
+                        ? "rgba(0,0,0,0.1)"
+                        : "rgba(0,0,0,0.5)"
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+
+                {/* Nombre de la sección visible en hover */}
+                <AnimatePresence>
+                  {hoveredSection === originalSection.id && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 pointer-events-none"
+                    >
+                      <h3 className="text-white text-2xl font-bold text-center drop-shadow-lg">
+                        {section.name}
+                      </h3>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            )
+          })}
+        </motion.div>
       </div>
 
-      {/* Título central animado */}
-      <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none pt-14">
+      {/* Título central */}
+      <div className="absolute inset-0 z-40 flex items-center justify-center pointer-events-none pt-18">
         <div className="text-center px-4">
           <AnimatePresence mode="wait">
             <motion.h1
@@ -155,9 +229,9 @@ export default function Hero() {
                 ease: "easeOut",
                 opacity: { duration: 0.6 }
               }}
-              className="text-5xl md:text-6xl font-avenir-cyr-heavy text-white leading-tight 
-  drop-shadow-[0_0_2px_rgba(0,0,0,0.9)] 
-  drop-shadow-[0_0_6px_rgba(0,0,0,0.7)]"
+              className="text-5xl font-avenir-cyr-heavy text-white leading-tight 
+              drop-shadow-[0_0_2px_rgba(0,0,0,0.9)] 
+              drop-shadow-[0_0_6px_rgba(0,0,0,0.7)]"
             >
               {heroTitles[currentTitleIndex]}
             </motion.h1>
@@ -165,19 +239,42 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Indicador de scroll sutil */}
+      {/* Indicador scroll mejorado */}
       <motion.div
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-40"
-        animate={{ y: [0, 10, 0] }}
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-40 flex flex-col items-center cursor-pointer"
+        animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        whileHover={{ scale: 1.1 }}
       >
-        <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
-          <motion.div
-            className="w-1 h-3 bg-white/80 rounded-full mt-2"
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
+        <motion.p
+          className="text-white/90 text-sm font-medium mb-3 tracking-wide"
+          initial={{ opacity: 0.7 }}
+          animate={{ opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          DESLIZA HACIA ABAJO
+        </motion.p>
+
+        <motion.div
+          className="relative"
+          whileHover={{ y: -2 }}
+        >
+          <div className="absolute inset-0 w-8 h-12 border-2 border-white rounded-full blur-sm opacity-60" />
+          <div className="relative w-8 h-12 border-2 border-white rounded-full flex justify-center bg-black/20 backdrop-blur-sm">
+            <motion.div
+              className="w-1.5 h-4 bg-white rounded-full mt-2 shadow-lg"
+              animate={{
+                opacity: [0.4, 1, 0.4],
+                y: [0, 6, 0]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          </div>
+        </motion.div>
       </motion.div>
     </section>
   )
