@@ -42,7 +42,7 @@ export default function Header() {
         { name: "Ver todos", href: "/crops" },
     ]
 
-    // Navegación actualizada - removido "Nosotros", agregado "Inicio"
+    // Navegación actualizada - agregando FAQs
     const navItems = useMemo(() => [
         { name: "Inicio", href: "/", id: "inicio" },
         {
@@ -60,6 +60,7 @@ export default function Header() {
             dropdownType: "crops"
         },
         { name: "Testimonios", href: "/testimonials", id: "testimonials" },
+        { name: "FAQs", href: "/faqs", id: "faqs" },
         { name: "Contacto", href: "#contacto", id: "contacto" },
     ], [])
 
@@ -102,6 +103,12 @@ export default function Header() {
         // Check if we're on testimonials page
         if (pathname === "/testimonials") {
             setActiveSection("testimonials")
+            return
+        }
+
+        // Check if we're on FAQs page
+        if (pathname === "/faqs") {
+            setActiveSection("faqs")
             return
         }
 

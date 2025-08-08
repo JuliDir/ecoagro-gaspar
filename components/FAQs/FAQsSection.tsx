@@ -3,8 +3,7 @@
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { Search, HelpCircle, Phone, Mail, MessageSquare, Leaf, Shield, Droplets } from "lucide-react";
+import { Phone, Mail, MessageSquare, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const containerVariants = {
@@ -36,148 +35,52 @@ const cardVariants = {
     }
 };
 
-// Datos de las FAQs organizadas por categorías
-const faqCategories = [
+// Lista simple de 10 FAQs
+const faqs = [
     {
-        id: "productos",
-        name: "Productos",
-        icon: Shield,
-        color: "bg-primary-600",
-        faqs: [
-            {
-                question: "¿Cuál es la diferencia entre Cobrestable, Bordocald y Trikopper 50?",
-                answer: "Cobrestable es un fungicida preventivo y curativo con acción sistémica, ideal para aplicaciones preventivas. Bordocald combina cobre con caldos bordeleses para mayor adherencia y persistencia. Trikopper 50 ofrece una concentración más alta de cobre elemental para casos de alta presión de enfermedades."
-            },
-            {
-                question: "¿Los productos de Ecoagro Gaspar son orgánicos?",
-                answer: "Sí, todos nuestros productos están basados en cobre, un elemento naturalmente presente en el suelo y aprobado para agricultura orgánica. Cuentan con certificación SENASA y son compatibles con protocolos de producción sustentable."
-            },
-            {
-                question: "¿Cuánto tiempo duran los productos almacenados?",
-                answer: "Nuestros productos tienen una vida útil de 3 años desde la fecha de fabricación si se almacenan en condiciones adecuadas: lugar seco, fresco, protegido de la luz solar directa y en su envase original cerrado."
-            },
-            {
-                question: "¿Puedo mezclar los productos de cobre con otros fitosanitarios?",
-                answer: "En general, nuestros productos son compatibles con la mayoría de fitosanitarios. Sin embargo, recomendamos realizar una prueba de compatibilidad previa y consultar la etiqueta. Evitar mezclas con productos altamente alcalinos o que contengan azufre."
-            },
-            {
-                question: "¿Qué registro SENASA tienen los productos?",
-                answer: "Todos nuestros productos cuentan con registro SENASA vigente. Cobrestable (Registro SENASA N°...), Bordocald (Registro SENASA N°...), y Trikopper 50 (Registro SENASA N°...). Los números específicos se encuentran en cada etiqueta del producto."
-            }
-        ]
+        question: "¿Cuál es la diferencia entre Cobrestable, Bordocald y Trikopper 50?",
+        answer: "Cobrestable es un fungicida preventivo y curativo con acción sistémica, ideal para aplicaciones preventivas. Bordocald combina cobre con caldos bordeleses para mayor adherencia y persistencia. Trikopper 50 ofrece una concentración más alta de cobre elemental para casos de alta presión de enfermedades."
     },
     {
-        id: "aplicacion",
-        name: "Aplicación",
-        icon: Droplets,
-        color: "bg-blue-600",
-        faqs: [
-            {
-                question: "¿Cuál es la dosis recomendada para cada cultivo?",
-                answer: "Las dosis varían según el cultivo y la presión de enfermedad. Generalmente: Soja 200-300g/100L, Papa 250-400g/100L, Vid 300-500g/100L, Cítricos 200-400g/100L. Consulte siempre la etiqueta del producto y nuestro equipo técnico para recomendaciones específicas."
-            },
-            {
-                question: "¿Cuál es el mejor momento para aplicar?",
-                answer: "Aplique en horas de menor temperatura (temprano en la mañana o al atardecer), con humedad relativa alta (>60%) y viento mínimo (<10 km/h). Para aplicaciones preventivas, inicie antes de la aparición de síntomas."
-            },
-            {
-                question: "¿Qué equipos de aplicación puedo usar?",
-                answer: "Nuestros productos son compatibles con pulverizadores terrestres, aéreos y sistemas de riego por aspersión. Use boquillas que generen gotas medianas a finas para mejor cobertura. Calibre el equipo según las recomendaciones técnicas."
-            },
-            {
-                question: "¿Cuál es el intervalo de seguridad?",
-                answer: "El intervalo de seguridad varía según el cultivo: Hortalizas 7 días, Frutales 14-21 días, Cereales 30 días. Consulte la etiqueta específica de cada producto para información detallada."
-            },
-            {
-                question: "¿Puedo aplicar con lluvia pronosticada?",
-                answer: "Evite aplicaciones si se pronostica lluvia en las próximas 4-6 horas. El producto necesita tiempo para adherirse y formar la película protectora en la superficie foliar."
-            }
-        ]
+        question: "¿Los productos de Ecoagro Gaspar son orgánicos?",
+        answer: "Sí, todos nuestros productos están basados en cobre, un elemento naturalmente presente en el suelo y aprobado para agricultura orgánica. Cuentan con certificación SENASA y son compatibles con protocolos de producción sustentable."
     },
     {
-        id: "cultivos",
-        name: "Cultivos",
-        icon: Leaf,
-        color: "bg-green-600",
-        faqs: [
-            {
-                question: "¿En qué cultivos puedo usar productos de cobre?",
-                answer: "Nuestros productos son efectivos en soja, papa, vid, cítricos, garbanzo, maní, trigo, tomate, frutales de pepita y carozo, hortalizas, olivo, palto y muchos otros cultivos. Cada producto tiene cultivos específicos autorizados en su registro."
-            },
-            {
-                question: "¿Los productos de cobre son efectivos contra todas las enfermedades?",
-                answer: "Los productos de cobre son especialmente efectivos contra enfermedades bacterianas y fúngicas como tizón tardío, antracnosis, roya, mildiu, cancrosis, bacteriosis, etc. No son efectivos contra enfermedades virales o insectos."
-            },
-            {
-                question: "¿Puedo usar cobre en cultivos hidropónicos?",
-                answer: "Sí, nuestros productos pueden usarse en sistemas hidropónicos, pero requieren ajustes en la concentración y frecuencia. Consulte con nuestro equipo técnico para protocolos específicos."
-            },
-            {
-                question: "¿Cómo afecta el cobre a la floración y fructificación?",
-                answer: "Aplicado correctamente, el cobre no afecta negativamente la floración. Durante la floración, use concentraciones menores y evite aplicaciones en horas de mayor actividad de polinizadores."
-            },
-            {
-                question: "¿El cobre puede generar fitotoxicidad?",
-                answer: "En condiciones normales de uso, nuestros productos no generan fitotoxicidad. Puede ocurrir con sobredosis, aplicaciones en condiciones de estrés hídrico extremo o en variedades muy sensibles. Siempre respete las dosis recomendadas."
-            }
-        ]
+        question: "¿Cuál es la dosis recomendada para cada cultivo?",
+        answer: "Las dosis varían según el cultivo y la presión de enfermedad. Generalmente: Soja 200-300g/100L, Papa 250-400g/100L, Vid 300-500g/100L, Cítricos 200-400g/100L. Consulte siempre la etiqueta del producto y nuestro equipo técnico para recomendaciones específicas."
     },
     {
-        id: "tecnico",
-        name: "Soporte Técnico",
-        icon: HelpCircle,
-        color: "bg-purple-600",
-        faqs: [
-            {
-                question: "¿Ofrecen asesoramiento técnico personalizado?",
-                answer: "Sí, contamos con un equipo de ingenieros agrónomos especializados que brindan asesoramiento personalizado sin costo. Pueden visitarlo en campo o atenderlo telefónicamente según sus necesidades."
-            },
-            {
-                question: "¿Tienen programas de monitoreo de cultivos?",
-                answer: "Ofrecemos programas de monitoreo preventivo para detectar tempranamente problemas fitosanitarios. Incluye visitas periódicas, recomendaciones de aplicación y seguimiento de resultados."
-            },
-            {
-                question: "¿Brindan capacitaciones sobre uso de productos?",
-                answer: "Realizamos capacitaciones regulares para productores y aplicadores sobre uso correcto de productos, calibración de equipos, y manejo integrado de enfermedades. Consulte nuestro calendario de eventos."
-            },
-            {
-                question: "¿Qué debo hacer si no obtengo los resultados esperados?",
-                answer: "Contacte inmediatamente a nuestro equipo técnico. Analizaremos las condiciones de aplicación, timing, dosis y factores ambientales para identificar las causas y ajustar el programa de tratamiento."
-            },
-            {
-                question: "¿Tienen protocolos específicos por región?",
-                answer: "Sí, desarrollamos protocolos adaptados a las condiciones climáticas y problemáticas fitosanitarias específicas de cada región productiva de Argentina."
-            }
-        ]
+        question: "¿Cuál es el mejor momento para aplicar?",
+        answer: "Aplique en horas de menor temperatura (temprano en la mañana o al atardecer), con humedad relativa alta (>60%) y viento mínimo (<10 km/h). Para aplicaciones preventivas, inicie antes de la aparición de síntomas."
+    },
+    {
+        question: "¿En qué cultivos puedo usar productos de cobre?",
+        answer: "Nuestros productos son efectivos en soja, papa, vid, cítricos, garbanzo, maní, trigo, tomate, frutales de pepita y carozo, hortalizas, olivo, palto y muchos otros cultivos. Cada producto tiene cultivos específicos autorizados en su registro."
+    },
+    {
+        question: "¿Ofrecen asesoramiento técnico personalizado?",
+        answer: "Sí, contamos con un equipo de ingenieros agrónomos especializados que brindan asesoramiento personalizado sin costo. Pueden visitarlo en campo o atenderlo telefónicamente según sus necesidades."
+    },
+    {
+        question: "¿Cuánto tiempo duran los productos almacenados?",
+        answer: "Nuestros productos tienen una vida útil de 3 años desde la fecha de fabricación si se almacenan en condiciones adecuadas: lugar seco, fresco, protegido de la luz solar directa y en su envase original cerrado."
+    },
+    {
+        question: "¿Puedo mezclar los productos de cobre con otros fitosanitarios?",
+        answer: "En general, nuestros productos son compatibles con la mayoría de fitosanitarios. Sin embargo, recomendamos realizar una prueba de compatibilidad previa y consultar la etiqueta. Evitar mezclas con productos altamente alcalinos o que contengan azufre."
+    },
+    {
+        question: "¿Cuál es el intervalo de seguridad?",
+        answer: "El intervalo de seguridad varía según el cultivo: Hortalizas 7 días, Frutales 14-21 días, Cereales 30 días. Consulte la etiqueta específica de cada producto para información detallada."
+    },
+    {
+        question: "¿El cobre puede generar fitotoxicidad?",
+        answer: "En condiciones normales de uso, nuestros productos no generan fitotoxicidad. Puede ocurrir con sobredosis, aplicaciones en condiciones de estrés hídrico extremo o en variedades muy sensibles. Siempre respete las dosis recomendadas."
     }
 ];
 
 export default function FAQsSection() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [activeCategory, setActiveCategory] = useState("todos");
-
-    // Filtrar FAQs basado en búsqueda y categoría
-    const filteredFAQs = faqCategories.filter(category => {
-        if (activeCategory !== "todos" && category.id !== activeCategory) {
-            return false;
-        }
-        
-        if (searchTerm) {
-            return category.faqs.some(faq => 
-                faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-        }
-        
-        return true;
-    }).map(category => ({
-        ...category,
-        faqs: category.faqs.filter(faq =>
-            !searchTerm || 
-            faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-    }));
+    // Mostrar todas las FAQs sin filtros
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -231,156 +134,41 @@ export default function FAQsSection() {
                 </div>
             </motion.section>
 
-            {/* Búsqueda y filtros */}
-            <motion.section
-                className="py-8 bg-white border-b border-gray-200"
-                initial="hidden"
-                animate="visible"
-                variants={containerVariants}
-            >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
-                        {/* Barra de búsqueda */}
-                        <motion.div
-                            className="relative flex-1 max-w-md"
-                            variants={sectionVariants}
-                        >
-                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                            <input
-                                type="text"
-                                placeholder="Buscar en preguntas frecuentes..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                            />
-                        </motion.div>
 
-                        {/* Filtros de categoría */}
-                        <motion.div
-                            className="flex flex-wrap gap-2"
-                            variants={sectionVariants}
-                        >
-                            <button
-                                onClick={() => setActiveCategory("todos")}
-                                className={`cursor-pointer px-4 py-2 rounded-full font-medium transition-colors ${
-                                    activeCategory === "todos"
-                                        ? "bg-primary-600 text-white"
-                                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                                }`}
-                            >
-                                Todas
-                            </button>
-                            {faqCategories.map((category) => (
-                                <button
-                                    key={category.id}
-                                    onClick={() => setActiveCategory(category.id)}
-                                    className={`cursor-pointer px-4 py-2 rounded-full font-medium transition-colors ${
-                                        activeCategory === category.id
-                                            ? "bg-primary-600 text-white"
-                                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                                    }`}
-                                >
-                                    {category.name}
-                                </button>
-                            ))}
-                        </motion.div>
-                    </div>
 
-                    {/* Contador de resultados */}
-                    <motion.div
-                        className="mt-4 text-gray-600"
-                        variants={sectionVariants}
-                    >
-                        {searchTerm ? (
-                            `Mostrando ${filteredFAQs.reduce((total, cat) => total + cat.faqs.length, 0)} resultados para "${searchTerm}"`
-                        ) : (
-                            `${faqCategories.reduce((total, cat) => total + cat.faqs.length, 0)} preguntas frecuentes disponibles`
-                        )}
-                    </motion.div>
-                </div>
-            </motion.section>
-
-            {/* FAQs por categoría */}
+            {/* FAQs */}
             <motion.section
                 className="py-20"
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    {filteredFAQs.length > 0 ? (
-                        <div className="space-y-12">
-                            {filteredFAQs.map((category) => (
-                                <motion.div
-                                    key={category.id}
-                                    variants={cardVariants}
-                                    className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
-                                >
-                                    {/* Header de categoría */}
-                                    <div className={`${category.color} px-8 py-6`}>
-                                        <div className="flex items-center space-x-4">
-                                            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                                                <category.icon className="w-6 h-6 text-white" />
-                                            </div>
-                                            <div>
-                                                <h2 className="text-2xl font-bold text-white">
-                                                    {category.name}
-                                                </h2>
-                                                <p className="text-white/80">
-                                                    {category.faqs.length} pregunta{category.faqs.length !== 1 ? 's' : ''}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {/* FAQs de la categoría */}
-                                    <div className="p-8">
-                                        <Accordion type="single" collapsible className="space-y-4">
-                                            {category.faqs.map((faq, index) => (
-                                                <AccordionItem
-                                                    key={index}
-                                                    value={`${category.id}-${index}`}
-                                                    className="border border-gray-200 rounded-lg px-6 py-2 hover:border-primary-300 transition-colors"
-                                                >
-                                                    <AccordionTrigger className="text-left hover:no-underline">
-                                                        <span className="font-semibold text-gray-900 pr-4">
-                                                            {faq.question}
-                                                        </span>
-                                                    </AccordionTrigger>
-                                                    <AccordionContent className="text-gray-700 leading-relaxed pt-4">
-                                                        {faq.answer}
-                                                    </AccordionContent>
-                                                </AccordionItem>
-                                            ))}
-                                        </Accordion>
-                                    </div>
-                                </motion.div>
-                            ))}
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
+                        variants={cardVariants}
+                    >
+                        <div className="p-8">
+                            <Accordion type="single" collapsible className="space-y-4">
+                                {faqs.map((faq, index) => (
+                                    <AccordionItem
+                                        key={index}
+                                        value={`faq-${index}`}
+                                        className="border border-gray-200 rounded-lg px-6 py-2 hover:border-primary-300 transition-colors"
+                                    >
+                                        <AccordionTrigger className="text-left hover:no-underline">
+                                            <span className="font-semibold text-gray-900 pr-4">
+                                                {faq.question}
+                                            </span>
+                                        </AccordionTrigger>
+                                        <AccordionContent className="text-gray-700 leading-relaxed pt-4">
+                                            {faq.answer}
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
                         </div>
-                    ) : (
-                        /* Estado sin resultados */
-                        <motion.div
-                            className="text-center py-16"
-                            variants={cardVariants}
-                        >
-                            <HelpCircle className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold text-gray-600 mb-2">
-                                No se encontraron preguntas
-                            </h3>
-                            <p className="text-gray-500 mb-6">
-                                Intenta ajustar tu búsqueda o selecciona una categoría diferente.
-                            </p>
-                            <button
-                                onClick={() => {
-                                    setSearchTerm("");
-                                    setActiveCategory("todos");
-                                }}
-                                className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
-                            >
-                                Limpiar filtros
-                            </button>
-                        </motion.div>
-                    )}
+                    </motion.div>
                 </div>
             </motion.section>
 
