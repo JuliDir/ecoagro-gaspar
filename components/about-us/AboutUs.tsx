@@ -2,7 +2,8 @@
 
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
-import { Leaf, Target, Eye, Handshake, Users, Award } from "lucide-react";
+import { Leaf, Handshake, Users, Award } from "lucide-react";
+import Stats from "../testimonials/Stats";
 import TeamMembers from "./TeamMembers";
 
 const containerVariants = {
@@ -36,58 +37,103 @@ const cardVariants = {
 
 export default function AboutUs() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
+    <div>
+      {/* Introducción Institucional - Texto izquierda, imagen derecha */}
       <motion.section
-        className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-28 md:py-32 overflow-hidden"
+        className="py-20 bg-white"
+        id="nosotros"
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        {/* Background decorations */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full"></div>
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/5 rounded-full"></div>
-          <Image
-            src="/icons/wheat.svg"
-            alt=""
-            width={120}
-            height={120}
-            className="absolute top-16 right-16 opacity-10 invert rotate-12"
-          />
-          <Image
-            src="/icons/leaf.svg"
-            alt=""
-            width={80}
-            height={80}
-            className="absolute bottom-20 left-20 opacity-15 invert -rotate-45"
-          />
-        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Contenido textual */}
+            <motion.div variants={sectionVariants}>
+              <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
+                Acerca Nuestro
+              </h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                En Ecoagro Gaspar, nos dedicamos a desarrollar productos derivados del cobre
+                que representan la perfecta combinación entre eficacia y respeto por el medio ambiente.
+                Nuestro compromiso es brindar soluciones que impulsen la productividad de los cultivos
+                mientras preservamos el ecosistema.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Con más de seis décadas de experiencia, hemos perfeccionado nuestras fórmulas
+                para ofrecer productos que no solo protegen los cultivos, sino que también
+                contribuyen a una agricultura más sustentable y rentable.
+              </p>
+            </motion.div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center"
-            variants={sectionVariants}
-          >
-            <motion.h1
-              className="text-4xl md:text-6xl font-bold mb-6"
+            {/* Imagen institucional */}
+            <motion.div
+              className="relative"
               variants={sectionVariants}
             >
-              <span className="text-white">Sobre</span>{" "}
-              <span className="text-primary-200">nosotros</span>
-            </motion.h1>
-            <motion.p
-              className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed"
-              variants={sectionVariants}
-            >
-              Más de 50 años desarrollando soluciones fitosanitarias y nutricionales
-              para el manejo sustentable de enfermedades foliares en cultivos.
-            </motion.p>
-          </motion.div>
+              <div className="relative h-96 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/about-us/institucional.jpg"
+                  alt="Instalaciones de Ecoagro Gaspar"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                {/* Overlay sutil para mejorar legibilidad si se necesita */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </motion.section>
 
-      {/* Misión y Visión */}
+      {/* Misión - Imagen izquierda, texto derecha */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Imagen */}
+            <motion.div
+              className="relative order-2 md:order-1"
+              variants={sectionVariants}
+            >
+              <div className="relative h-96 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/about-us/mision.jpg"
+                  alt="Productos sostenibles y agricultura responsable"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                {/* Overlay sutil */}
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/30 to-transparent"></div>
+              </div>
+            </motion.div>
+
+            {/* Contenido textual */}
+            <motion.div
+              className="order-1 md:order-2"
+              variants={sectionVariants}
+            >
+              <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-emerald-600 leading-tight mb-6">
+                Misión
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Ofrecer <strong>soluciones fitosanitarias y nutricionales innovadoras</strong>.
+                Que impulsen la productividad de los cultivos, minimizando el impacto ambiental
+                y promoviendo una agricultura sustentable.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Visión - Texto izquierda, imagen derecha */}
       <motion.section
         className="py-20 bg-white"
         initial="hidden"
@@ -96,53 +142,41 @@ export default function AboutUs() {
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Misión */}
-            <motion.div
-              className="relative"
-              variants={cardVariants}
-              whileHover={{ y: -5 }}
-            >
-              <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 h-full border border-primary-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-primary-600 rounded-xl flex items-center justify-center mr-4">
-                    <Target className="w-8 h-8 text-white" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-primary-800">Misión</h2>
-                </div>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Ofrecer <strong>soluciones fitosanitarias y nutricionales innovadoras</strong>.
-                  Que impulsen la productividad de los cultivos, minimizando el impacto ambiental
-                  y promoviendo una agricultura sustentable.
-                </p>
-              </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Contenido textual */}
+            <motion.div variants={sectionVariants}>
+              <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-blue-600 leading-tight mb-6">
+                Visión
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Ser <strong>referentes clave en soluciones fitosanitarias y nutricionales</strong> que impulsen el máximo
+                potencial productivo de los cultivos integrando estrategias de prevención y manejo de
+                enfermedades con la optimización avanzada de sus procesos fisiológicos.
+              </p>
             </motion.div>
 
-            {/* Visión */}
+            {/* Imagen */}
             <motion.div
               className="relative"
-              variants={cardVariants}
-              whileHover={{ y: -5 }}
+              variants={sectionVariants}
             >
-              <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8 h-full border border-emerald-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-emerald-600 rounded-xl flex items-center justify-center mr-4">
-                    <Eye className="w-8 h-8 text-white" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-emerald-800">Visión</h2>
-                </div>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Ser <strong>referentes clave en soluciones fitosanitarias y nutricionales</strong> que impulsen el máximo
-                  potencial productivo de los cultivos integrando estrategias de prevención y manejo de
-                  enfermedades con la optimización avanzada de sus procesos fisiológicos.
-                </p>
+              <div className="relative h-96 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/about-us/vision.jpg"
+                  alt="Futuro de la agricultura y tecnología innovadora"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                {/* Overlay sutil */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent"></div>
               </div>
             </motion.div>
           </div>
         </div>
       </motion.section>
 
-      {/* Valores */}
+      {/* Valores con imágenes */}
       <motion.section
         className="py-20 bg-gray-50"
         initial="hidden"
@@ -155,7 +189,7 @@ export default function AboutUs() {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl font-bold text-primary-800 mb-4">Nuestros Valores</h2>
+            <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary mb-4">Nuestros valores</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Aplicación de ciencia e innovación con compromiso, transparencia y sustentabilidad
             </p>
@@ -199,9 +233,12 @@ export default function AboutUs() {
         </div>
       </motion.section>
 
-      {/* Historia y Experiencia */}
+      {/* Stats con padding */}
+      <Stats />
+
+      {/* Nuestro Equipo con QR */}
       <motion.section
-        className="py-20 bg-primary-800 text-white"
+        className="py-20 bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -212,7 +249,30 @@ export default function AboutUs() {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl font-bold mb-6">Más de 50 Años de Experiencia</h2>
+            <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary mb-4">Nuestro Equipo</h2>
+            <p className="text-xl text-gray-600">
+              Liderazgo comprometido con la excelencia y la sustentabilidad
+            </p>
+          </motion.div>
+
+          <TeamMembers />
+        </div>
+      </motion.section>
+
+      {/* Historia y Experiencia */}
+      <motion.section
+        className="pt-20 pb-26 bg-primary-800 text-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-10"
+            variants={sectionVariants}
+          >
+            <h2 className="text-4xl font-bold mb-6">Más de 60 años de experiencia</h2>
             <p className="text-xl text-primary-200 max-w-3xl mx-auto">
               Décadas de dedicación al desarrollo de soluciones a base de cobre,
               con respaldo técnico y compromiso con la excelencia.
@@ -223,7 +283,7 @@ export default function AboutUs() {
             {[
               {
                 icon: Award,
-                number: "50+",
+                number: "60+",
                 label: "Años de Experiencia",
                 description: "Medio siglo perfeccionando nuestras soluciones"
               },
@@ -254,29 +314,6 @@ export default function AboutUs() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </motion.section>
-
-      {/* Nuestro Equipo */}
-      <motion.section
-        className="py-20 bg-white"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-16"
-            variants={sectionVariants}
-          >
-            <h2 className="text-4xl font-bold text-primary-800 mb-4">Nuestro Equipo</h2>
-            <p className="text-xl text-gray-600">
-              Liderazgo comprometido con la excelencia y la sustentabilidad
-            </p>
-          </motion.div>
-
-          <TeamMembers />
         </div>
       </motion.section>
     </div>

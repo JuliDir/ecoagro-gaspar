@@ -1,7 +1,7 @@
 import Contact from "@/components/contact/Contact";
 import { Metadata } from "next";
 import Hero from "@/components/hero/Hero";
-import AboutUsHome from "@/components/about-us/AboutUsHome";
+import AboutUs from "@/components/about-us/AboutUs";
 
 export const metadata: Metadata = {
   title: "Ecoagro Gaspar | Soluciones Sustentables para la Sanidad Vegetal",
@@ -20,9 +20,7 @@ export default function Home() {
   return (
     <main className="font-sans">
       <Hero />
-      
-      <AboutUsHome />
-
+      <AboutUs />
       <Contact />
     </main>
   );

@@ -327,9 +327,6 @@ export default function TestimonialsSection() {
                 </div>
             </motion.section>
 
-            {/* Stats integradas */}
-            <Stats />
-
             {/* Todos los testimonios en grid */}
             <motion.section
                 className="py-20 bg-gray-50"

@@ -99,12 +99,6 @@ const TeamMembers = () => {
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center space-x-2">
                       <div className="w-6 h-6 bg-primary-600 rounded-md flex items-center justify-center">
-                        <Map className="w-3 h-3 text-white" />
-                      </div>
-                      <span className="text-gray-600 text-sm">{member.location}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-6 h-6 bg-primary-600 rounded-md flex items-center justify-center">
                         <Mail className="w-3 h-3 text-white" />
                       </div>
                       <span className="text-gray-600 text-sm">{member.email}</span>
@@ -136,16 +130,20 @@ const TeamMembers = () => {
                   
                   {qrCodes[member.phone] && (
                     <div className="bg-white rounded-xl shadow-lg border border-primary-100 mb-4 relative">
-                      <Image 
-                        src={qrCodes[member.phone]} 
+                      <Image
+                        width={128}
+                        height={128}
+                        src={qrCodes[member.phone]}
                         alt={`QR WhatsApp ${member.name}`}
                         className="w-32 h-32"
                       />
                       {/* Logo en el centro del QR */}
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-9 h-9 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-200">
-                          <Image 
-                            src="/images/logo-leaf.png" 
+                          <Image
+                            width={36}
+                            height={36}
+                            src="/images/logo-leaf.png"
                             alt="Logo"
                             className="w-full h-full object-contain"
                           />

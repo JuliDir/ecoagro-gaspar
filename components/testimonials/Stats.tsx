@@ -155,7 +155,7 @@ export default function Stats() {
     return (
         <section
             ref={sectionRef}
-            className="pb-20 overflow-hidden"
+            className="pb-20 overflow-hidden bg-gray-50"
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 {/* Stats Grid */}
