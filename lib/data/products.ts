@@ -14,7 +14,7 @@ export const products: Product[] = [
       "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
       "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
     ],
-    icon: "/images/products/cobrestable.png",
+    icon: "/images/products/cobrestable-box.png",
     bgIcon: "/icons/wheat.svg",
     category: "Fungicidas",
   },
@@ -30,7 +30,7 @@ export const products: Product[] = [
       "Mayor eficacia con menor cantidad de cobre metálico.",
       "Certificado para agricultura orgánica.",
     ],
-    icon: "/images/products/bordocald.png",
+    icon: "/images/products/bordocald-box.png",
     bgIcon: "/icons/corn.svg",
     category: "Fungicidas",
   },
@@ -46,7 +46,7 @@ export const products: Product[] = [
       "Alta retención incluso tras lluvias fuertes",
       "Ideal para cítricos: cancrosis y mancha negra",
     ],
-    icon: "/images/products/trikopper.png",
+    icon: "/images/products/trikopper-box.png",
     bgIcon: "/icons/soy.svg",
     category: "Fungicidas",
   },
@@ -59,7 +59,7 @@ export const productsData = {
     color: "cobrestable",
     cssColor: "#0098da", 
     gradient: "from-sky-400 to-blue-600", 
-    icon: "/images/products/cobrestable.png",
+    icon: "/images/products/cobrestable-box.png",
     registro: "SENASA AR #16.899",
     composicion: {
       sulfatoTetraaminoCuprico: "29%",
@@ -115,7 +115,7 @@ export const productsData = {
     color: "bordocald",
     cssColor: "#9a3388",
     gradient: "from-fuchsia-400 to-purple-600", 
-    icon: "/images/products/bordocald.png",
+    icon: "/images/products/bordocald-box.png",
     registro: "SENASA AR #17.245",
     composicion: {
       oxicloruroCobre: "35%",
@@ -170,7 +170,7 @@ export const productsData = {
     color: "trikopper",
     cssColor: "#00a859", 
     gradient: "from-green-400 to-emerald-600", 
-    icon: "/images/products/trikopper.png",
+    icon: "/images/products/trikopper-box.png",
     registro: "SENASA AR #18.156",
     composicion: {
       cobreTributico: "50%",

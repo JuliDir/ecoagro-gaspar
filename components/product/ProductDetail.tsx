@@ -188,7 +188,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           )}
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative pt-20 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Contenido de texto */}
             <motion.div variants={sectionVariants}>
