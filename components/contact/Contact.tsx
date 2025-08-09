@@ -49,6 +49,20 @@ export default function Contact() {
     }));
   };
 
+  // Función para abrir Google Maps
+  const openGoogleMaps = () => {
+    // Coordenadas de Ecoagro Gaspar
+    const latitude = -32.85;
+    const longitude = -68.8;
+    const address = "PARQUE INDUSTRIAL LAS HERAS, Calle 12 eje Norte RT Lote 4, Las Heras, Mendoza, Argentina";
+    
+    // URL para abrir en Google Maps
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+    
+    // Abrir en una nueva pestaña
+    window.open(googleMapsUrl, '_blank');
+  };
+
   return (
     <motion.section
       className="w-full py-20"
@@ -167,29 +181,56 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Visítanos Section */}
+            {/* Visítanos Section - MAPA CLICKEABLE */}
             <motion.div
               className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
               variants={itemVariants}
             >
               <h3 className="text-2xl font-semibold text-white mb-6">Visítanos</h3>
-              <div className="relative w-full h-80 rounded-xl overflow-hidden">
+              <div 
+                className="relative w-full h-80 rounded-xl overflow-hidden cursor-pointer group"
+                onClick={openGoogleMaps}
+                title="Click para abrir en Google Maps"
+              >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.8!2d-68.8!3d-32.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDUxJzAwLjAiUyA2OMKwNDgnMDAuMCJX!5e0!3m2!1sen!2sar!4v1672934123456!5m2!1sen!2sar"
                   width="100%"
                   height="100%"
-                  style={{ border: 0 }}
+                  style={{ border: 0, pointerEvents: 'none' }} // Deshabilitamos eventos del iframe
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Ubicación de Ecoagro Gaspar"
                   className="rounded-xl"
-                ></iframe>
+                />
+
+                {/* Overlay clickeable */}
+                <div className="absolute inset-0 bg-transparent group-hover:bg-black/10 transition-colors duration-300" />
 
                 {/* Overlay con información */}
-                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                   <h4 className="font-semibold text-gray-800 text-sm">Ecoagro Gaspar</h4>
                   <p className="text-gray-600 text-xs">Las Heras, Mendoza</p>
+                  <p className="text-primary-600 text-xs mt-1 font-medium">
+                    Click para abrir en Maps
+                  </p>
+                </div>
+
+                {/* Indicador de click */}
+                <div className="absolute top-4 right-4 bg-primary-600 text-white p-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <svg 
+                    className="w-4 h-4" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                    />
+                  </svg>
                 </div>
               </div>
             </motion.div>

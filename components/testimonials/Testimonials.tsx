@@ -10,17 +10,19 @@ export default function Testimonials() {
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const [videoLoading, setVideoLoading] = useState(true);
     const videoRef = useRef<HTMLVideoElement>(null);
-    const sectionRef = useRef(null);
+    const sectionRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
-        const section = sectionRef.current; 
+        const section = sectionRef.current;
 
         const observer = new IntersectionObserver(
-            ([entry]) => {                
+            ([entry]) => {
+                // Activar animación cuando la sección sea visible
                 if (entry.isIntersecting && !hasAnimated) {
                     setHasAnimated(true);
                 }
 
+                // Manejar video independientemente
                 if (entry.isIntersecting) {
                     if (videoRef.current) {
                         videoRef.current.play().catch(e => console.log('Autoplay prevented:', e));
@@ -32,8 +34,8 @@ export default function Testimonials() {
                 }
             },
             {
-                threshold: 0.3,
-                rootMargin: '0px 0px -10% 0px'
+                threshold: 0.1, // Reducido para mejor detección
+                rootMargin: '0px 0px -5% 0px' // Menos agresivo
             }
         );
 
@@ -46,6 +48,17 @@ export default function Testimonials() {
                 observer.unobserve(section);
             }
         };
+    }, [hasAnimated]);
+
+    // Forzar animación después de un tiempo si no se detecta
+    useEffect(() => {
+        const fallbackTimer = setTimeout(() => {
+            if (!hasAnimated) {
+                setHasAnimated(true);
+            }
+        }, 1000); // Si después de 1 segundo no se animó, forzar
+
+        return () => clearTimeout(fallbackTimer);
     }, [hasAnimated]);
 
     const nextTestimonial = () => {
@@ -84,19 +97,55 @@ export default function Testimonials() {
         }
     };
 
+    const videoVariants = {
+        hidden: { 
+            opacity: 0, 
+            x: -50,
+            scale: 0.9
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            transition: {
+                duration: 0.8,
+                ease: easeOut
+            }
+        }
+    };
+
+    const contentVariants = {
+        hidden: { 
+            opacity: 0, 
+            x: 50,
+            scale: 0.9
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            transition: {
+                duration: 0.8,
+                ease: easeOut,
+                delay: 0.2
+            }
+        }
+    };
+
     return (
         <motion.section
             id="testimonios"
             ref={sectionRef}
             className="py-20 bg-white flex items-center justify-center overflow-hidden"
             initial="hidden"
-            animate={hasAnimated ? "visible" : "hidden"} 
+            animate="visible" // Siempre visible para evitar problemas
             variants={containerVariants}
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <motion.div
                     className="text-center mb-16"
                     variants={headerVariants}
+                    animate={hasAnimated ? "visible" : "hidden"}
                 >
                     <motion.h2
                         className="text-4xl font-bold text-primary mb-4"
@@ -128,9 +177,10 @@ export default function Testimonials() {
 
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     {/* Video Section */}
-                    <div className={`relative transition-all duration-1000 delay-300 transform ${
-                        hasAnimated ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
-                    }`}>
+                    <motion.div
+                        variants={videoVariants}
+                        animate={hasAnimated ? "visible" : "hidden"}
+                    >
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
                             <video
                                 ref={videoRef}
@@ -181,12 +231,13 @@ export default function Testimonials() {
                                 />
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Testimonial Content */}
-                    <div className={`relative transition-all duration-1000 delay-500 transform ${
-                        hasAnimated ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
-                    }`}>
+                    <motion.div
+                        variants={contentVariants}
+                        animate={hasAnimated ? "visible" : "hidden"}
+                    >
                         <div className="relative">
                             {/* Quote Icon */}
                             <div className="absolute -top-6 -left-2 text-primary-500/20">
@@ -197,15 +248,23 @@ export default function Testimonials() {
 
                             {/* Quote Text */}
                             <div className="relative z-10 pl-8">
-                                <blockquote
+                                <motion.blockquote
                                     key={currentTestimonial}
-                                    className="text-xl md:text-2xl lg:text-3xl font-light text-gray-900 leading-tight mb-8 animate-fade-in"
+                                    className="text-xl md:text-2xl lg:text-3xl font-light text-gray-900 leading-tight mb-8"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5 }}
                                 >
                                     &quot;{testimonials[currentTestimonial].quote}&quot;
-                                </blockquote>
+                                </motion.blockquote>
 
                                 {/* Author */}
-                                <div className="flex items-center">
+                                <motion.div 
+                                    className="flex items-center"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.2 }}
+                                >
                                     <div className="w-1 h-20 bg-primary-500 mr-6"></div>
                                     <div className="flex items-center space-x-4">
                                         {/* Client Image */}
@@ -213,29 +272,40 @@ export default function Testimonials() {
                                             <Image
                                                 src={testimonials[currentTestimonial].image}
                                                 alt={testimonials[currentTestimonial].name}
-                                                className="w-16 h-16 rounded-full object-cover border-3 border-green-100 shadow-lg animate-slide-up"
+                                                className="w-16 h-16 rounded-full object-cover border-3 border-green-100 shadow-lg"
                                                 width={64}
                                                 height={64}
+                                                loading="eager" // Carga inmediata para mejor UX
+                                                onError={(e) => {
+                                                    // Fallback en caso de error de imagen
+                                                    const target = e.target as HTMLImageElement;
+                                                    target.src = '/images/default-avatar.jpg'; // Imagen por defecto
+                                                }}
                                             />
                                             <div className="absolute inset-0 rounded-full ring-2 ring-primary-500/20"></div>
                                         </div>
 
                                         {/* Client Info */}
                                         <div>
-                                            <p className="text-xl font-medium text-gray-900 animate-slide-up">
+                                            <p className="text-xl font-medium text-gray-900">
                                                 {testimonials[currentTestimonial].name}
                                             </p>
-                                            <p className="text-green-600 font-light text-sm mt-1 animate-slide-up">
+                                            <p className="text-green-600 font-light text-sm mt-1">
                                                 {testimonials[currentTestimonial].role}
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
                         </div>
 
                         {/* Navigation Arrows */}
-                        <div className="flex justify-end mt-12 space-x-4">
+                        <motion.div 
+                            className="flex justify-end mt-12 space-x-4"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: hasAnimated ? 1 : 0, y: hasAnimated ? 0 : 20 }}
+                            transition={{ duration: 0.5, delay: 0.4 }}
+                        >
                             <button
                                 onClick={prevTestimonial}
                                 className="w-12 h-12 rounded-full border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white transition-all duration-300 flex items-center justify-center group cursor-pointer"
@@ -252,8 +322,8 @@ export default function Testimonials() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
                             </button>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
 
