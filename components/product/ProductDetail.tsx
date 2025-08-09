@@ -13,7 +13,8 @@ import {
   Sprout,
   Award,
   Clock,
-  Droplets
+  Droplets,
+  ArrowRight
 } from "lucide-react";
 
 interface ProductData {
@@ -76,6 +77,15 @@ const cardVariants = {
   }
 };
 
+const cropVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.4, ease: easeOut }
+  }
+};
+
 export default function ProductDetail({ product }: ProductDetailProps) {
   // Íconos para cada pilar según el producto
   const getPillarIcon = (index: number, productColor: string) => {
@@ -109,10 +119,53 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "kiwi": "kiwi",
       "maíz": "maiz",
       "maiz": "maiz",
-      "ajo": "ajo"
+      "ajo": "ajo",
+      "naranja": "naranja",
+      "limon": "limon",
+      "mandarina": "mandarina",
+      "pomelo": "pomelo",
+      "oliva": "oliva"
     };
 
     return cultivoMap[cultivo.toLowerCase()] || cultivo.toLowerCase().replace(/\s+/g, '-');
+  };
+
+  // Mapping de cultivos a sus imágenes
+  const getCultivoImage = (cultivo: string): string => {
+    const imageMap: { [key: string]: string } = {
+      "garbanzo": "/images/crops/garbanzo.jpg",
+      "poroto": "/images/crops/poroto.jpg",
+      "maní": "/images/crops/mani.jpg",
+      "soja": "/images/crops/soja.jpg",
+      "papa": "/images/crops/papas.jpg",
+      "vid": "/images/crops/vid.jpg",
+      "trigo": "/images/crops/trigo.jpg",
+      "tomate": "/images/crops/tomate.jpg",
+      "olivo": "/images/crops/olivo.jpg",
+      "palto": "/images/crops/palto.jpg",
+      "kiwi": "/images/crops/kiwi.jpg",
+      "maíz": "/images/crops/maiz.jpg",
+      "maiz": "/images/crops/maiz.jpg",
+      "ajo": "/images/crops/ajo.jpg",
+      "naranja": "/images/crops/naranjas.jpg",
+      "limon": "/images/crops/limon.jpg",
+      "mandarina": "/images/crops/mandarina.jpg",
+      "pomelo": "/images/crops/pomelo.jpg",
+      "oliva": "/images/crops/oliva.jpg"
+    };
+
+    return imageMap[cultivo.toLowerCase()] || "/images/crops/default.jpg";
+  };
+
+  // Mapping de logos de productos
+  const getProductLogo = (productName: string): string => {
+    const logoMap: { [key: string]: string } = {
+      "COBRESTABLE": "/images/products/cobrestable-logo.png",
+      "BORDOCALD": "/images/products/bordocald-logo.png", 
+      "TRIKOPPER 50": "/images/products/trikopper-logo.png"
+    };
+
+    return logoMap[productName] || "/images/products/default-logo.jpeg";
   };
 
   return (
@@ -192,15 +245,20 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Contenido de texto */}
             <motion.div variants={sectionVariants}>
-              <motion.h1
-                className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 font-softhits relative"
+              {/* Logo del producto */}
+              <motion.div
+                className="mb-8"
                 variants={sectionVariants}
               >
-                {product.name}
-                <span className="align-super text-[0.4em] ml-1 relative top-[-0.2em] font-sans font-normal border border-white/80 border-2 px-[0.2em]">
-                  R
-                </span>
-              </motion.h1>
+                <Image
+                  src={getProductLogo(product.name)}
+                  alt={`Logo ${product.name}`}
+                  width={700}
+                  height={380}
+                  className="object-contain"
+                />
+              </motion.div>
+              
               <motion.p
                 className="text-xl md:text-2xl text-white/90 leading-relaxed mb-8"
                 variants={sectionVariants}
@@ -247,8 +305,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl font-bold mb-4" style={{ color: product.cssColor }}>
-              Triple Pilar de Acción
+            <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ color: product.cssColor }}>
+              Triple pilar de acción
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Tecnología avanzada que combina tres mecanismos de acción para máxima efectividad
@@ -271,7 +329,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   >
                     <IconComponent className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 text-center mb-4">
+                  <h3 className="text-2xl text-gray-800 text-center mb-4 font-semibold">
                     {pilar.title}
                   </h3>
                   <p className="text-gray-600 text-center mb-4 leading-relaxed">
@@ -287,7 +345,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </motion.section>
 
-      {/* Composición y Modo de Acción */}
+      {/* Modo de Acción */}
       <motion.section
         className="py-20 bg-gray-50"
         initial="hidden"
@@ -296,33 +354,45 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div>
-            {/* Modo de Acción */}
+          <motion.div
+            className="text-center mb-16"
+            variants={sectionVariants}
+          >
+            <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ color: product.cssColor }}>Modo de acción</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Mecanismo de protección integral para tus cultivos
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
             <motion.div variants={cardVariants}>
-              <div className="bg-white rounded-2xl p-8 h-full border-l-4 border-gray-400 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-shadow duration-300" style={{ borderColor: product.cssColor }}>
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gray-600 rounded-xl flex items-center justify-center mr-4">
+                  <div className="w-16 h-16 rounded-xl flex items-center justify-center mr-4" style={{ backgroundColor: product.cssColor }}>
+                    <Shield className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl text-gray-800 font-semibold">Cobertura</h3>
+                </div>
+                <p className="text-gray-600 leading-relaxed">{product.modoAccion.cobertura}</p>
+              </div>
+            </motion.div>
+
+            <motion.div variants={cardVariants}>
+              <div className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-shadow duration-300" style={{ borderColor: product.cssColor }}>
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 rounded-xl flex items-center justify-center mr-4" style={{ backgroundColor: product.cssColor }}>
                     <Target className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-3xl font-bold text-gray-800">Modo de Acción</h3>
+                  <h3 className="text-2xl text-gray-800 font-semibold">Penetración</h3>
                 </div>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-800 mb-2">Cobertura</h4>
-                    <p className="text-gray-600 leading-relaxed">{product.modoAccion.cobertura}</p>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-800 mb-2">Penetración</h4>
-                    <p className="text-gray-600 leading-relaxed">{product.modoAccion.penetracion}</p>
-                  </div>
-                </div>
+                <p className="text-gray-600 leading-relaxed">{product.modoAccion.penetracion}</p>
               </div>
             </motion.div>
           </div>
         </div>
       </motion.section>
 
-      {/* Cultivos y Aplicación */}
+      {/* Cultivos Mejorados - Círculos visuales y clickeables */}
       <motion.section
         className="py-20 bg-white"
         initial="hidden"
@@ -331,63 +401,82 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Cultivos Recomendados */}
-            <motion.div variants={cardVariants}>
-              <div className="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                <div className="flex items-center mb-6">
-                  <div
-                    className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 text-white"
-                    style={{ backgroundColor: product.cssColor }}
-                  >
-                    <Sprout className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-800">Cultivos</h3>
-                </div>
-                <div className="grid grid-cols-1 gap-3">
-                  {product.cultivos.map((cultivo, index) => (
-                    <Link
-                      key={index}
-                      href={`/crops/${getCultivoSlug(cultivo)}`}
-                      className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white transition-colors duration-200 group"
-                    >
-                      <CheckCircle className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" style={{ color: product.cssColor }} />
-                      <span className="text-gray-700 capitalize group-hover:text-gray-900 transition-colors duration-200">{cultivo}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+          <motion.div
+            className="text-center mb-16"
+            variants={sectionVariants}
+          >
+            <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ color: product.cssColor }}>
+              Cultivos Recomendados
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Descubre todos los cultivos donde puedes aplicar {product.name} para obtener los mejores resultados
+            </p>
+          </motion.div>
 
-            {/* Información de Aplicación */}
-            <motion.div variants={cardVariants}>
-              <div className="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gray-600 rounded-xl flex items-center justify-center mr-4">
-                    <Droplets className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-800">Aplicación</h3>
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-800 mb-2">Equipos</h4>
-                    <p className="text-gray-600">{product.aplicacion.equipos}</p>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-800 mb-2">Compatibilidad</h4>
-                    <p className="text-gray-600">{product.aplicacion.compatibilidad}</p>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-800 mb-2">Intervalo de Seguridad</h4>
-                    <div className="flex items-center space-x-2">
-                      <Clock className="w-5 h-5" style={{ color: product.cssColor }} />
-                      <span className="text-gray-600">{product.aplicacion.intervaloSeguridad}</span>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center">
+            {product.cultivos.map((cultivo, index) => (
+              <motion.div
+                key={index}
+                variants={cropVariants}
+                className="group cursor-pointer"
+              >
+                <Link
+                  href={`/crops/${getCultivoSlug(cultivo)}`}
+                  className="block"
+                >
+                  <div className="relative">
+                    {/* Círculo con imagen de fondo */}
+                    <motion.div 
+                      className="w-24 h-24 md:w-28 md:h-28 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-300 border-4 border-white overflow-hidden relative"
+                      style={{
+                        backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${getCultivoImage(cultivo)})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        y: -5
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {/* Overlay con ícono en hover */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                        <ArrowRight className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+
+                      {/* Anillo de color del producto */}
+                      <div 
+                        className="absolute inset-0 rounded-full border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{ borderColor: product.cssColor }}
+                      ></div>
+                    </motion.div>
+
+                    {/* Nombre del cultivo */}
+                    <div className="text-center mt-3">
+                      <h4 className="font-semibold text-gray-800 capitalize text-sm md:text-base transition-colors duration-300">
+                        {cultivo}
+                      </h4>
                     </div>
                   </div>
-                </div>
-              </div>
-            </motion.div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
+
+          {/* Call to action para ver más cultivos */}
+          <motion.div
+            className="text-center mt-12"
+            variants={sectionVariants}
+          >
+            <Link
+              href="/crops"
+              className="inline-flex items-center space-x-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              style={{ backgroundColor: product.cssColor }}
+            >
+              <span>Ver todos los cultivos</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </motion.section>
 
