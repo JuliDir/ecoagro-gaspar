@@ -147,7 +147,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "maíz": "/images/crops/maiz.jpg",
       "maiz": "/images/crops/maiz.jpg",
       "ajo": "/images/crops/ajo.jpg",
-      "naranja": "/images/crops/naranjas.jpg",
+      "naranja": "/images/crops/naranja.jpg",
       "limon": "/images/crops/limon.jpg",
       "mandarina": "/images/crops/mandarina.jpg",
       "pomelo": "/images/crops/pomelo.jpg",
