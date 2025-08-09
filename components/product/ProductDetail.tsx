@@ -4,7 +4,6 @@ import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  CheckCircle,
   Leaf,
   Shield,
   Zap,
@@ -12,7 +11,6 @@ import {
   FlaskConical,
   Sprout,
   Award,
-  Clock,
   Droplets,
   ArrowRight
 } from "lucide-react";
@@ -136,6 +134,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "garbanzo": "/images/crops/garbanzo.jpg",
       "poroto": "/images/crops/poroto.jpg",
       "maní": "/images/crops/mani.jpg",
+      "mani": "/images/crops/mani.jpg",
       "soja": "/images/crops/soja.jpg",
       "papa": "/images/crops/papas.jpg",
       "vid": "/images/crops/vid.jpg",
@@ -293,16 +292,16 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </motion.section>
 
-      {/* Triple Pilar de Acción */}
+      {/* Triple Pilar de Acción - Diseño en Triángulo */}
       <motion.section
-        className="py-20 bg-white"
+        className="py-20 bg-white relative overflow-hidden"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-8"
             variants={sectionVariants}
           >
             <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ color: product.cssColor }}>
@@ -313,34 +312,168 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {product.triplePilar.map((pilar, index) => {
-              const IconComponent = getPillarIcon(index, product.color);
-              return (
-                <motion.div
-                  key={index}
-                  className="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200"
-                  variants={cardVariants}
-                  whileHover={{ y: -5 }}
-                >
-                  <div
-                    className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 mx-auto text-white"
-                    style={{ backgroundColor: product.cssColor }}
+          {/* Contenedor del triángulo */}
+          <div className="relative max-w-2xl mx-auto">
+            {/* SVG para las líneas conectoras */}
+            <svg 
+              className="absolute inset-0 w-full h-full pointer-events-none z-0"
+              viewBox="0 0 800 600"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              {/* Líneas del triángulo */}
+              <motion.line
+                x1="400" y1="80"
+                x2="200" y2="400"
+                stroke={product.cssColor}
+                strokeWidth="25"
+                strokeDasharray="5,5"
+                className="opacity-30"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2, delay: 0.5 }}
+              />
+              <motion.line
+                x1="400" y1="80"
+                x2="600" y2="400"
+                stroke={product.cssColor}
+                strokeWidth="25"
+                strokeDasharray="5,5"
+                className="opacity-30"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2, delay: 0.7 }}
+              />
+              <motion.line
+                x1="200" y1="400"
+                x2="600" y2="400"
+                stroke={product.cssColor}
+                strokeWidth="25"
+                strokeDasharray="5,5"
+                className="opacity-30"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2, delay: 0.9 }}
+              />
+            </svg>
+
+            {/* Grid personalizado para posicionar elementos en triángulo */}
+            <div className="relative z-10 h-[500px] w-[590px]">
+              {product.triplePilar.map((pilar, index) => {
+                const IconComponent = getPillarIcon(index, product.color);
+                
+                // Posiciones para formar triángulo
+                const positions = [
+                  // Elemento superior (centro-arriba)
+                  { 
+                    position: 'absolute top-10 right-[205]',
+                    delay: 0.2
+                  },
+                  // Elemento inferior izquierdo
+                  { 
+                    position: 'absolute bottom-25 left-35',
+                    delay: 0.4
+                  },
+                  // Elemento inferior derecho
+                  { 
+                    position: 'absolute bottom-25 right-14',
+                    delay: 0.6
+                  }
+                ];
+
+                return (
+                  <motion.div
+                    key={index}
+                    className={`${positions[index].position} group`}
+                    variants={cardVariants}
+                    transition={{ delay: positions[index].delay }}
+                    whileHover={{ scale: 1.05, y: -10 }}
                   >
-                    <IconComponent className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl text-gray-800 text-center mb-4 font-semibold">
-                    {pilar.title}
-                  </h3>
-                  <p className="text-gray-600 text-center mb-4 leading-relaxed">
-                    {pilar.description}
-                  </p>
-                  <p className="text-sm text-gray-500 text-center leading-relaxed">
-                    {pilar.details}
-                  </p>
-                </motion.div>
-              );
-            })}
+                    {/* Círculo principal del pilar */}
+                    <div className="relative">
+                      {/* Círculo de fondo con efecto hover */}
+                      <motion.div
+                        className="w-24 h-24 rounded-full flex items-center justify-center cursor-pointer relative overflow-hidden"
+                        style={{ backgroundColor: product.cssColor }}
+                        whileHover={{ 
+                          boxShadow: `0 20px 40px -10px ${product.cssColor}40`,
+                        }}
+                      >
+                        <IconComponent className="w-10 h-10 text-white" />
+                        <div className="absolute inset-0 rounded-full border-4 border-white/30" />
+                        {/* Efecto de ondas en hover */}
+                        <motion.div
+                          className="absolute inset-0 rounded-full border-4 border-white/30"
+                          initial={{ scale: 1, opacity: 0.5 }}
+                          whileHover={{ 
+                            scale: 1.2, 
+                            opacity: 0,
+                            transition: { duration: 0.6, repeat: Infinity }
+                          }}
+                        />
+                      </motion.div>
+
+                      {/* Tooltip/Card de información en hover */}
+                      <motion.div
+                        className="absolute z-30 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 p-6 pointer-events-none group-hover:opacity-100 group-hover:scale-100 opacity-0 scale-90"
+                        style={{
+                          // Posicionamiento dinámico según el índice
+                          ...(index === 0 ? 
+                            { top: '100%', left: '50%', transform: 'translateX(-50%) translateY(20px)' } :
+                            index === 1 ?
+                            { bottom: '100%', right: '-50%', transform: 'translateY(-20px)' } :
+                            { bottom: '100%', left: '-50%', transform: 'translateY(-20px)' }
+                          )
+                        }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        {/* Flecha del tooltip */}
+                        <div 
+                          className="absolute w-3 h-3 rotate-45 bg-white border border-gray-200"
+                          style={{ 
+                            ...(index === 0 ? 
+                              { top: '-6px', left: '50%', transform: 'translateX(-50%) rotate(45deg)', borderBottom: 'none', borderRight: 'none' } :
+                              index === 1 ?
+                              { bottom: '-6px', right: '60px', transform: 'rotate(45deg)', borderTop: 'none', borderLeft: 'none' } :
+                              { bottom: '-6px', left: '60px', transform: 'rotate(45deg)', borderTop: 'none', borderLeft: 'none' }
+                            )
+                          }}
+                        />
+                        
+                        <div className="relative">
+                          <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-center">
+                            <div
+                              className="w-8 h-8 rounded-lg flex items-center justify-center mr-3"
+                              style={{ backgroundColor: product.cssColor }}
+                            >
+                              <IconComponent className="w-4 h-4 text-white" />
+                            </div>
+                            {pilar.title}
+                          </h3>
+                          <p className="text-gray-600 mb-3 leading-relaxed">
+                            {pilar.description}
+                          </p>
+                          <p className="text-sm text-gray-500 leading-relaxed">
+                            {pilar.details}
+                          </p>
+                        </div>
+                      </motion.div>
+
+                      {/* Título visible siempre */}
+                      <motion.div 
+                        className="mt-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: positions[index].delay + 0.3 }}
+                      >
+                        <h3 className="text-lg w-[200px] font-semibold text-center text-gray-800 absolute left-[-45]">
+                          {pilar.title}
+                        </h3>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </motion.section>
@@ -427,7 +560,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   <div className="relative">
                     {/* Círculo con imagen de fondo */}
                     <motion.div 
-                      className="w-24 h-24 md:w-28 md:h-28 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-300 border-4 border-white overflow-hidden relative"
+                      className="w-24 h-24 md:w-34 md:h-34 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-300 border-4 border-white overflow-hidden relative"
                       style={{
                         backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${getCultivoImage(cultivo)})`,
                         backgroundSize: 'cover',
