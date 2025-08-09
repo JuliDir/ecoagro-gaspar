@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { Star, Play, Pause, ChevronLeft, ChevronRight, Award, Users, TrendingUp } from "lucide-react";
 import { testimonials } from "@/lib/data/testimonials";
-import Stats from "./Stats";
+import SectionHero from "../ui/SectionHero";
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -76,54 +76,13 @@ export default function TestimonialsSection() {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
-            <motion.section
-                className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-28 md:py-32 overflow-hidden"
-                initial="hidden"
-                animate="visible"
-                variants={containerVariants}
-            >
-                {/* Background decorations */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full"></div>
-                    <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/5 rounded-full"></div>
-                    <Image
-                        src="/icons/wheat.svg"
-                        alt=""
-                        width={120}
-                        height={120}
-                        className="absolute top-16 right-16 opacity-10 invert rotate-12"
-                    />
-                    <Image
-                        src="/icons/leaf.svg"
-                        alt=""
-                        width={80}
-                        height={80}
-                        className="absolute bottom-20 left-20 opacity-15 invert -rotate-45"
-                    />
-                </div>
-
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        className="text-center"
-                        variants={sectionVariants}
-                    >
-                        <motion.h1
-                            className="text-4xl md:text-6xl font-bold mb-6"
-                            variants={sectionVariants}
-                        >
-                            <span className="text-white">Nuestros</span>{" "}
-                            <span className="text-primary-200">testimonios</span>
-                        </motion.h1>
-                        <motion.p
-                            className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed"
-                            variants={sectionVariants}
-                        >
-                            Descubre las experiencias reales de productores que confían en nuestras 
-                            soluciones para proteger y potenciar sus cultivos.
-                        </motion.p>
-                    </motion.div>
-                </div>
-            </motion.section>
+            <SectionHero
+                title={{
+                    primary: "Nuestros",
+                    secondary: "testimonios"
+                }}
+                subtitle="Descubre las experiencias reales de productores que confían en nuestras soluciones para proteger y potenciar sus cultivos."
+            />
 
             {/* Testimonios destacados con estadísticas */}
             <motion.section
@@ -211,7 +170,7 @@ export default function TestimonialsSection() {
 
                                 {/* Video Controls */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                                
+
                                 {/* Play/Pause Button */}
                                 <button
                                     onClick={togglePlayPause}
@@ -239,11 +198,10 @@ export default function TestimonialsSection() {
                                             setCurrentTestimonial(index);
                                             setIsPlaying(false);
                                         }}
-                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                            index === currentTestimonial
-                                                ? 'bg-primary-500 scale-125'
-                                                : 'bg-gray-300 hover:bg-gray-400'
-                                        }`}
+                                        className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial
+                                            ? 'bg-primary-500 scale-125'
+                                            : 'bg-gray-300 hover:bg-gray-400'
+                                            }`}
                                     />
                                 ))}
                             </div>
@@ -344,7 +302,7 @@ export default function TestimonialsSection() {
                             Más Testimonios
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Conoce más experiencias de productores que han transformado sus cultivos 
+                            Conoce más experiencias de productores que han transformado sus cultivos
                             con nuestras soluciones especializadas
                         </p>
                     </motion.div>
@@ -403,7 +361,7 @@ export default function TestimonialsSection() {
                             ¿Quieres ser nuestro próximo caso de éxito?
                         </h2>
                         <p className="text-white/90 mb-6">
-                            Únete a los cientos de productores que ya han transformado sus cultivos 
+                            Únete a los cientos de productores que ya han transformado sus cultivos
                             con nuestras soluciones especializadas.
                         </p>
                         <div className="space-y-4">

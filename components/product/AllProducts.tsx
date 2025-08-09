@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { Search, Shield, FlaskConical } from "lucide-react";
 import { products } from "@/lib/data/products";
 import { useSearchParams } from "next/navigation";
+import SectionHero from "../ui/SectionHero";
 
 const categories = ["Todos", "Fungicidas", "Fertilizantes", "Coayugantes"];
 
@@ -58,13 +59,13 @@ const filterVariants = {
 
 // Mapping de nombres de productos a sus slugs
 const PRODUCT_SLUG_MAP: { [key: string]: string } = {
-  "COBRESTABLE": "cobrestable",
-  "BORDOCALD": "bordocald", 
-  "TRIKOPPER 50": "trikopper-50"
+    "COBRESTABLE": "cobrestable",
+    "BORDOCALD": "bordocald",
+    "TRIKOPPER 50": "trikopper-50"
 };
 
 const getProductSlug = (productName: string): string => {
-  return PRODUCT_SLUG_MAP[productName] || productName.toLowerCase().replace(/\s+/g, '-');
+    return PRODUCT_SLUG_MAP[productName] || productName.toLowerCase().replace(/\s+/g, '-');
 };
 
 export default function AllProducts() {
@@ -92,54 +93,13 @@ export default function AllProducts() {
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
-            <motion.section
-                className="relative bg-gradient-to-br from-primary-600 to-primary-800 text-white py-28 md:py-32 overflow-hidden"
-                initial="hidden"
-                animate="visible"
-                variants={containerVariants}
-            >
-                {/* Background decorations */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full"></div>
-                    <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/5 rounded-full"></div>
-                    <Image
-                        src="/icons/wheat.svg"
-                        alt=""
-                        width={120}
-                        height={120}
-                        className="absolute top-16 right-16 opacity-10 invert rotate-12"
-                    />
-                    <Image
-                        src="/icons/leaf.svg"
-                        alt=""
-                        width={80}
-                        height={80}
-                        className="absolute bottom-20 left-20 opacity-15 invert -rotate-45"
-                    />
-                </div>
-
-                <div className="relative pt-10 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        className="text-center"
-                        variants={sectionVariants}
-                    >
-                        <motion.h1
-                            className="text-4xl md:text-6xl font-bold mb-6"
-                            variants={sectionVariants}
-                        >
-                            <span className="text-white">Nuestros</span>{" "}
-                            <span className="text-primary-200">productos</span>
-                        </motion.h1>
-                        <motion.p
-                            className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed"
-                            variants={sectionVariants}
-                        >
-                            Descubre nuestra línea completa de productos fitosanitarios a base de cobre 
-                            para el manejo sustentable de enfermedades foliares.
-                        </motion.p>
-                    </motion.div>
-                </div>
-            </motion.section>
+            <SectionHero
+                title={{
+                    primary: "Nuestros",
+                    secondary: "productos"
+                }}
+                subtitle="Descubre nuestra línea completa de productos fitosanitarios a base de cobre para el manejo sustentable de enfermedades foliares."
+            />
 
             {/* Filtros y búsqueda */}
             <motion.section
@@ -259,7 +219,7 @@ export default function AllProducts() {
                                                     R
                                                 </span>
                                             </h3>
-                                            
+
                                             {/* Descripción visible solo en hover */}
                                             <motion.div
                                                 className={`transition-opacity duration-300 ${hoveredCard === index ? 'opacity-100' : 'opacity-0'
@@ -270,7 +230,7 @@ export default function AllProducts() {
                                                 }}
                                             >
                                                 <p className="text-white/90 mb-6 leading-relaxed">{product.description}</p>
-                                                
+
                                                 {/* Features destacadas */}
                                                 <div className="space-y-2 mb-6">
                                                     {product.features.slice(0, 2).map((feature, featureIndex) => (
@@ -361,7 +321,7 @@ export default function AllProducts() {
                             ¿Necesitas asesoramiento técnico?
                         </h2>
                         <p className="text-white/90 mb-6">
-                            Nuestro equipo de especialistas está disponible para ayudarte a elegir 
+                            Nuestro equipo de especialistas está disponible para ayudarte a elegir
                             el producto más adecuado para tus cultivos específicos.
                         </p>
                         <div className="space-y-4">
