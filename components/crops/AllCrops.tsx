@@ -3,7 +3,7 @@
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Search, Leaf } from "lucide-react";
 import { allCrops } from "@/lib/data/crops";
 import SectionHero from "../ui/SectionHero";
@@ -15,7 +15,7 @@ const containerVariants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.1,
+            staggerChildren: 0.15, // Aumentado para mejor efecto escalonado
             delayChildren: 0.2
         }
     }
@@ -24,15 +24,15 @@ const containerVariants = {
 const cardVariants = {
     hidden: {
         opacity: 0,
-        y: 30,
-        scale: 0.95
+        y: 60,
+        scale: 0.9
     },
     visible: {
         opacity: 1,
         y: 0,
         scale: 1,
         transition: {
-            duration: 0.5,
+            duration: 0.6,
             ease: easeOut
         }
     }
@@ -60,6 +60,19 @@ export default function AllCropsSection() {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("Todos");
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+    const [imageLoadingStates, setImageLoadingStates] = useState<{ [key: string]: boolean }>({});
+    const [imageErrors, setImageErrors] = useState<{ [key: string]: boolean }>({});
+    const [hasAnimated, setHasAnimated] = useState(false);
+
+    // Manejar estados de carga de imágenes
+    const handleImageLoad = (cropSlug: string) => {
+        setImageLoadingStates(prev => ({ ...prev, [cropSlug]: false }));
+    };
+
+    const handleImageError = (cropSlug: string) => {
+        setImageLoadingStates(prev => ({ ...prev, [cropSlug]: false }));
+        setImageErrors(prev => ({ ...prev, [cropSlug]: true }));
+    };
 
     // Filtrar cultivos basado en búsqueda y categoría
     const filteredCrops = allCrops.filter(crop => {
@@ -68,6 +81,31 @@ export default function AllCropsSection() {
         const matchesCategory = selectedCategory === "Todos" || crop.category === selectedCategory;
         return matchesSearch && matchesCategory;
     });
+
+    // Inicializar estados de carga para cultivos filtrados
+    const initializeImageLoading = (crops: typeof filteredCrops) => {
+        const initialStates: { [key: string]: boolean } = {};
+        crops.forEach(crop => {
+            if (!(crop.slug in imageLoadingStates)) {
+                initialStates[crop.slug] = true;
+            }
+        });
+        if (Object.keys(initialStates).length > 0) {
+            setImageLoadingStates(prev => ({ ...prev, ...initialStates }));
+        }
+    };
+
+    // Inicializar estados de carga cuando cambien los cultivos filtrados
+    useEffect(() => {
+        initializeImageLoading(filteredCrops);
+    }, [filteredCrops]);
+
+    // Resetear animación cuando cambian los filtros
+    useEffect(() => {
+        setHasAnimated(false);
+        const timer = setTimeout(() => setHasAnimated(true), 100);
+        return () => clearTimeout(timer);
+    }, [searchTerm, selectedCategory]);
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -140,96 +178,144 @@ export default function AllCropsSection() {
             {/* Grid de cultivos */}
             <motion.section
                 className="py-20"
+                key={`${searchTerm}-${selectedCategory}`} // Key para forzar re-render
                 initial="hidden"
-                animate="visible"
+                animate={hasAnimated ? "visible" : "hidden"}
                 variants={containerVariants}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {filteredCrops.length > 0 ? (
-                        <motion.div
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                        <motion.div 
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                             variants={containerVariants}
                         >
                             {filteredCrops.map((crop, index) => (
                                 <motion.div
                                     key={crop.slug}
                                     variants={cardVariants}
-                                    className="group relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 h-80 cursor-pointer"
+                                    className="group"
                                     onMouseEnter={() => setHoveredCard(index)}
                                     onMouseLeave={() => setHoveredCard(null)}
-                                    whileHover={{ y: -5 }}
                                 >
-                                    {/* Imagen de fondo */}
-                                    <Image
-                                        src={crop.backgroundImage}
-                                        alt={crop.name}
-                                        fill
-                                        quality={60}
-                                        className="object-cover"
-                                        style={{
-                                            zIndex: 0,
-                                            filter: 'brightness(0.6)',
-                                        }}
-                                        loading="lazy"
-                                    />
-
-                                    {/* Contenido */}
-                                    <div className="relative z-10 h-full flex flex-col">
-                                        {/* Header con categoría - Solo visible cuando NO está en hover */}
-                                        <div className={`p-4 transition-opacity duration-300 ${hoveredCard === index ? 'opacity-0' : 'opacity-100'
-                                            }`}>
-                                            <span className="inline-block bg-primary-600 text-white text-xs px-2 py-1 rounded-full">
-                                                {crop.category}
-                                            </span>
-                                        </div>
-
-                                        {/* Icono central */}
-                                        <div className={`flex-1 flex items-center justify-center transition-all duration-300 ${hoveredCard === index ? 'opacity-20' : 'opacity-100'
-                                            }`}>
-                                            <Image
-                                                src={`/icons/${crop.iconFilename}`}
-                                                alt={`${crop.name} icon`}
-                                                width={80}
-                                                height={80}
-                                                className="brightness-0 invert"
-                                            />
-                                        </div>
-
-                                        {/* Información en hover */}
+                                    <Link 
+                                        href={`/crops/${crop.slug}`}
+                                        className="block"
+                                    >
                                         <motion.div
-                                            className={`absolute inset-0 p-6 flex flex-col justify-between transition-opacity duration-300 ${hoveredCard === index ? 'opacity-100' : 'opacity-0'
-                                                }`}
-                                            style={{
-                                                background: hoveredCard === index
-                                                    ? `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8))`
-                                                    : 'transparent'
+                                            className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 h-80 cursor-pointer"
+                                            whileHover={{ 
+                                                y: -8,
+                                                scale: 1.02 
                                             }}
-                                            initial={false}
-                                            animate={{
-                                                opacity: hoveredCard === index ? 1 : 0,
-                                            }}
+                                            transition={{ duration: 0.3 }}
                                         >
-                                            <div>
-                                                <h3 className="text-2xl font-bold text-white mb-2">{crop.name}</h3>
-                                                <p className="text-primary-200 text-sm italic mb-3">{crop.scientificName}</p>
-                                                <p className="text-white/90 text-sm leading-relaxed">{crop.description}</p>
+                                            {/* Imagen de fondo con loading */}
+                                            <div className="absolute inset-0">
+                                                {/* Loading placeholder */}
+                                                {(imageLoadingStates[crop.slug] || imageErrors[crop.slug]) && (
+                                                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                                                        {imageLoadingStates[crop.slug] && (
+                                                            <div className="flex flex-col items-center space-y-3">
+                                                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+                                                                <span className="text-gray-500 text-sm font-medium">Cargando...</span>
+                                                            </div>
+                                                        )}
+                                                        {imageErrors[crop.slug] && (
+                                                            <div className="flex flex-col items-center space-y-2">
+                                                                <Leaf className="w-12 h-12 text-gray-400" />
+                                                                <span className="text-gray-500 text-sm">Imagen no disponible</span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
+
+                                                {/* Imagen de fondo */}
+                                                {!imageErrors[crop.slug] && (
+                                                    <>
+                                                        <Image
+                                                            src={crop.backgroundImage}
+                                                            alt={crop.name}
+                                                            fill
+                                                            quality={75}
+                                                            className="object-cover"
+                                                            loading="lazy"
+                                                            onLoad={() => handleImageLoad(crop.slug)}
+                                                            onError={() => handleImageError(crop.slug)}
+                                                        />
+                                                        {/* Overlay */}
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
+                                                    </>
+                                                )}
+                                            </div>
+                                            {/* Categoría - Siempre visible arriba */}
+                                            <div className="absolute top-4 left-4 z-10">
+                                                <span className="inline-block bg-primary-600/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full font-medium border border-white/20">
+                                                    {crop.category}
+                                                </span>
                                             </div>
 
-                                            <Link
-                                                href={`/crops/${crop.slug}`}
-                                                className="z-10 mt-4 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-semibold text-center transition-colors inline-block"
-                                            >
-                                                Ver Detalles
-                                            </Link>
-                                        </motion.div>
-
-                                        {/* Footer con nombre */}
-                                        <div className={`p-4 transition-opacity duration-300 ${hoveredCard === index ? 'opacity-0' : 'opacity-100'
+                                            {/* Ícono central - Por defecto */}
+                                            <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+                                                hoveredCard === index ? 'opacity-0' : 'opacity-100'
                                             }`}>
-                                            <h3 className="text-xl font-bold text-white text-center">{crop.name}</h3>
-                                            <p className="text-primary-200 text-sm text-center italic">{crop.scientificName}</p>
-                                        </div>
-                                    </div>
+                                                <Image
+                                                    src={`/icons/${crop.iconFilename}`}
+                                                    alt={`${crop.name} icon`}
+                                                    width={100}
+                                                    height={100}
+                                                    className="brightness-0 invert"
+                                                />
+                                            </div>
+
+                                            {/* Contenido en hover */}
+                                            <motion.div
+                                                className={`absolute inset-0 transition-opacity duration-300 ${
+                                                    hoveredCard === index ? 'opacity-100' : 'opacity-0'
+                                                }`}
+                                                initial={false}
+                                                animate={{
+                                                    opacity: hoveredCard === index ? 1 : 0,
+                                                }}
+                                            >
+                                                <div className="absolute inset-0 bg-black/60" />
+                                                <div className="relative z-10 h-full flex flex-col justify-center items-center p-6 text-center text-white">
+                                                    <motion.h3 
+                                                        className="text-3xl font-bold"
+                                                        initial={{ y: 20, opacity: 0 }}
+                                                        animate={{
+                                                            y: hoveredCard === index ? 0 : 20,
+                                                            opacity: hoveredCard === index ? 1 : 0
+                                                        }}
+                                                        transition={{ duration: 0.3, delay: 0.1 }}
+                                                    >
+                                                        {crop.name}
+                                                    </motion.h3>
+                                                </div>
+                                            </motion.div>
+
+                                            {/* Nombre del cultivo - Siempre visible abajo */}
+                                            <div className={`absolute bottom-4 left-4 right-4 z-10 transition-opacity duration-300 ${
+                                                hoveredCard === index ? 'opacity-0' : 'opacity-100'
+                                            }`}>
+                                                <h3 className="text-xl font-bold text-white text-center">{crop.name}</h3>
+                                            </div>
+
+                                            {/* Efecto de brillo en hover */}
+                                            <motion.div
+                                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 pointer-events-none"
+                                                animate={{
+                                                    opacity: hoveredCard === index ? [0, 0.3, 0] : 0,
+                                                    x: hoveredCard === index ? [-200, 400] : -200,
+                                                }}
+                                                transition={{ duration: 0.8 }}
+                                            />
+
+                                            {/* Borde decorativo en hover */}
+                                            <div className={`absolute inset-0 border-2 border-primary-400 transition-opacity duration-300 rounded-xl pointer-events-none ${
+                                                hoveredCard === index ? 'opacity-100' : 'opacity-0'
+                                            }`} />
+                                        </motion.div>
+                                    </Link>
                                 </motion.div>
                             ))}
                         </motion.div>

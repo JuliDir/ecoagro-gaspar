@@ -26,6 +26,15 @@ const cardVariants = {
     }
 };
 
+const faqVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, ease: easeOut }
+    }
+};
+
 // Lista simple de 10 FAQs
 const faqs = [
     {
@@ -71,8 +80,6 @@ const faqs = [
 ];
 
 export default function FAQsSection() {
-    // Mostrar todas las FAQs sin filtros
-
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
@@ -84,38 +91,41 @@ export default function FAQsSection() {
                 subtitle="Encuentra respuestas rápidas a las consultas más comunes sobre nuestros productos, aplicaciones y servicios técnicos especializados."
             />
 
-            {/* FAQs */}
+            {/* FAQs - Ahora más grandes y sin card contenedora */}
             <motion.section
                 className="py-20"
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
             >
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
-                        className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
-                        variants={cardVariants}
+                        className="space-y-6"
+                        variants={containerVariants}
                     >
-                        <div className="p-8">
-                            <Accordion type="single" collapsible className="space-y-4">
-                                {faqs.map((faq, index) => (
+                        <Accordion type="single" collapsible className="space-y-6">
+                            {faqs.map((faq, index) => (
+                                <motion.div
+                                    key={index}
+                                    variants={faqVariants}
+                                    className="cursor-pointer"
+                                >
                                     <AccordionItem
-                                        key={index}
                                         value={`faq-${index}`}
-                                        className="border border-gray-200 rounded-lg px-6 py-2 hover:border-primary-300 transition-colors"
+                                        className="cursor-pointer bg-white border border-gray-200 rounded-2xl px-8 py-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary-300"
                                     >
-                                        <AccordionTrigger className="text-left hover:no-underline">
-                                            <span className="font-semibold text-gray-900 pr-4">
+                                        <AccordionTrigger className="text-left hover:no-underline text-xl cursor-pointer">
+                                            <span className="font-bold text-gray-900 pr-6 leading-relaxed">
                                                 {faq.question}
                                             </span>
                                         </AccordionTrigger>
-                                        <AccordionContent className="text-gray-700 leading-relaxed pt-4">
+                                        <AccordionContent className="text-gray-700 leading-relaxed pt-6 text-lg">
                                             {faq.answer}
                                         </AccordionContent>
                                     </AccordionItem>
-                                ))}
-                            </Accordion>
-                        </div>
+                                </motion.div>
+                            ))}
+                        </Accordion>
                     </motion.div>
                 </div>
             </motion.section>
@@ -136,7 +146,7 @@ export default function FAQsSection() {
                         <h2 className="text-3xl font-bold mb-4">
                             ¿No encontraste lo que buscabas?
                         </h2>
-                        <p className="text-white/90 mb-8">
+                        <p className="text-white/90 mb-8 text-lg">
                             Nuestro equipo técnico especializado está disponible para resolver
                             todas tus consultas y brindarte asesoramiento personalizado.
                         </p>

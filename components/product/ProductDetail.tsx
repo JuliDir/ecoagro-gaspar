@@ -3,6 +3,7 @@
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import {
   Leaf,
   Shield,
@@ -52,40 +53,61 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1
+      staggerChildren: 0.1, // Reducido de 0.2 a 0.1
+      delayChildren: 0.05   // Reducido de 0.1 a 0.05
     }
   }
 };
 
 const sectionVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 }, // Reducido de y: 30 a y: 20
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: easeOut }
+    transition: { duration: 0.4, ease: easeOut } // Reducido de 0.6 a 0.4
   }
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.95 }, // Cambió de 0.9 a 0.95 para menos movimiento
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5, ease: easeOut }
+    transition: { duration: 0.3, ease: easeOut } // Reducido de 0.5 a 0.3
   }
 };
 
-const cropVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
+// Variantes optimizadas para cultivos - Animación más sutil y rápida
+const cropsGridVariants = {
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    scale: 1,
-    transition: { duration: 0.4, ease: easeOut }
+    transition: {
+      staggerChildren: 0.03, // Mucho más rápido
+      delayChildren: 0
+    }
+  }
+};
+
+const cropItemVariants = {
+  hidden: { opacity: 0, y: 10 }, // Movimiento mínimo
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.2,  // Muy rápido
+      ease: easeOut
+    }
   }
 };
 
 export default function ProductDetail({ product }: ProductDetailProps) {
+  // Estado para controlar la carga de imágenes
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+
+  const handleImageLoad = (index: number) => {
+    setLoadedImages(prev => new Set([...prev, index]));
+  };
   // Íconos para cada pilar según el producto
   const getPillarIcon = (index: number, productColor: string) => {
     const iconMap = {
@@ -172,73 +194,60 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <motion.section
-        className={`relative bg-gradient-to-br ${product.gradient} text-white py-28 md:py-32 overflow-hidden w-full`}
+        className={`relative bg-gradient-to-br ${product.gradient} text-white pb-8 pt-20 overflow-hidden w-full`}
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
         {/* Background decorations - variadas por producto */}
+        {/* Background decorations - iguales a SectionHero */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full"></div>
           <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/5 rounded-full"></div>
 
-          {/* Decoraciones específicas por producto */}
-          {product.color === 'cobrestable' && (
-            <>
-              <Image
-                src="/icons/wheat.svg"
-                alt=""
-                width={120}
-                height={120}
-                className="absolute top-16 right-16 opacity-10 invert rotate-12"
-              />
-              <Image
-                src="/icons/leaf.svg"
-                alt=""
-                width={80}
-                height={80}
-                className="absolute bottom-20 left-20 opacity-15 invert -rotate-45"
-              />
-            </>
-          )}
-
-          {product.color === 'bordocald' && (
-            <>
-              <Image
-                src="/icons/corn.svg"
-                alt=""
-                width={100}
-                height={100}
-                className="absolute top-20 right-20 opacity-12 invert rotate-45"
-              />
-              <Image
-                src="/icons/potato.svg"
-                alt=""
-                width={90}
-                height={90}
-                className="absolute bottom-16 left-16 opacity-10 invert -rotate-30"
-              />
-            </>
-          )}
-
-          {product.color === 'trikopper' && (
-            <>
-              <Image
-                src="/icons/soy.svg"
-                alt=""
-                width={110}
-                height={110}
-                className="absolute top-12 right-12 opacity-15 invert rotate-30"
-              />
-              <Image
-                src="/icons/garlic.svg"
-                alt=""
-                width={70}
-                height={70}
-                className="absolute bottom-24 left-24 opacity-12 invert -rotate-60"
-              />
-            </>
-          )}
+          {/* Íconos base */}
+          <Image
+            src="/icons/wheat.svg"
+            alt=""
+            width={120}
+            height={120}
+            className="absolute top-16 right-16 opacity-10 invert rotate-12"
+          />
+          <Image
+            src="/icons/leaf.svg"
+            alt=""
+            width={80}
+            height={80}
+            className="absolute bottom-20 left-20 opacity-15 invert -rotate-45"
+          />
+          <Image
+            src="/icons/corn.svg"
+            alt=""
+            width={90}
+            height={90}
+            className="absolute top-32 left-16 opacity-8 invert rotate-6"
+          />
+          <Image
+            src="/icons/bean.svg"
+            alt=""
+            width={70}
+            height={70}
+            className="absolute bottom-32 right-24 opacity-10 invert -rotate-12"
+          />
+          <Image
+            src="/icons/potato.svg"
+            alt=""
+            width={85}
+            height={85}
+            className="absolute top-24 left-1/3 opacity-7 invert rotate-25"
+          />
+          <Image
+            src="/icons/orange.svg"
+            alt=""
+            width={75}
+            height={75}
+            className="absolute bottom-10 right-1/3 opacity-9 invert -rotate-30"
+          />
         </div>
 
         <div className="relative pt-5 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -294,17 +303,17 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       </motion.section>
 
       <TriangleTripleAction
-          items={product.triplePilar.map((pilar, index) => ({
-            title: pilar.title,
-            description: pilar.description,
-            details: pilar.details,
-          }))}
-          color={product.cssColor}
-          heading="Triple pilar de acción"
-          subheading="Tecnología avanzada que combina tres mecanismos de acción para máxima efectividad"
-        />
+        items={product.triplePilar.map((pilar, index) => ({
+          title: pilar.title,
+          description: pilar.description,
+          details: pilar.details,
+        }))}
+        color={product.cssColor}
+        heading="Triple pilar de acción"
+        subheading="Tecnología avanzada que combina tres mecanismos de acción para máxima efectividad"
+      />
 
-        {/* Modo de Acción */}
+      {/* Modo de Acción */}
       <motion.section
         className="py-20 bg-gray-50"
         initial="hidden"
@@ -351,12 +360,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </motion.section>
 
-      {/* Cultivos Mejorados - Círculos visuales y clickeables */}
+      {/* Cultivos Mejorados - OPTIMIZADO para mejor rendimiento */}
       <motion.section
         className="py-20 bg-white"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }} // Reducido de 0.2 a 0.1 para activación más temprana
         variants={containerVariants}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -372,24 +381,28 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center"
+          {/* Grid de cultivos con animaciones optimizadas */}
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center"
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               justifyContent: 'center',
               gap: '2rem'
-            }}>
+            }}
+            variants={cropsGridVariants}
+          >
             {product.cultivos.map((cultivo, index) => (
               <motion.div
                 key={index}
-                variants={cropVariants}
+                variants={cropItemVariants}
                 className="group cursor-pointer"
                 whileHover={{
-                  scale: 1.05,
-                  y: -5,
-                  transition: { duration: 0.15 }
+                  scale: 1.03, // Reducido de 1.05 a 1.03
+                  y: -3,       // Reducido de -5 a -3
+                  transition: { duration: 0.12 } // Más rápido
                 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.97 }} // Reducido de 0.95 a 0.97
               >
                 <Link
                   href={`/crops/${getCultivoSlug(cultivo)}`}
@@ -397,29 +410,36 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 >
                   <div className="relative">
                     {/* Círculo con imagen de fondo */}
-                    <div
-                      className="w-24 h-24 md:w-34 md:h-34 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-200 border-4 border-white overflow-hidden relative"
-                      style={{
-                        backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${getCultivoImage(cultivo)})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                      }}
+                    <div className="w-24 h-24 md:w-34 md:h-34 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-200 border-4 border-white overflow-hidden relative"
                     >
+                      {/* Imagen del cultivo */}
+                      <Image
+                        src={getCultivoImage(cultivo)}
+                        alt={cultivo}
+                        fill
+                        className="object-cover"
+                      />
+
+                      {/* Overlay oscuro */}
+                      <div className="absolute inset-0 bg-black/30"></div>
+
                       {/* Overlay con ícono en hover */}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-200 flex items-center justify-center">
-                        <ArrowRight className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-150 flex items-center justify-center">
+                        <ArrowRight className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
                       </div>
 
-                      {/* Anillo de color del producto */}
-                      <div
-                        className="absolute inset-0 rounded-full border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                        style={{ borderColor: product.cssColor }}
-                      ></div>
+                      {/* Anillo de color del producto - solo visible cuando la imagen está cargada */}
+                      {loadedImages.has(index) && (
+                        <div
+                          className="absolute inset-0 rounded-full border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150"
+                          style={{ borderColor: product.cssColor }}
+                        ></div>
+                      )}
                     </div>
 
                     {/* Nombre del cultivo */}
                     <div className="text-center mt-3">
-                      <h4 className="font-semibold text-gray-800 capitalize text-sm md:text-base transition-colors duration-200">
+                      <h4 className="font-semibold text-gray-800 capitalize text-sm md:text-base transition-colors duration-150">
                         {cultivo}
                       </h4>
                     </div>
@@ -427,7 +447,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 </Link>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Call to action para ver más cultivos */}
           <motion.div

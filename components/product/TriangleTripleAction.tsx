@@ -191,7 +191,7 @@ export const TriangleTripleAction: React.FC<TriangleTripleActionProps> = ({
 
                     {/* Label */}
                     <div className="mt-4 text-center">
-                      <h3 className="text-base font-semibold text-foreground">
+                      <h3 className="text-base font-semibold text-foreground w-[180px]">
                         {pilar.title}
                       </h3>
                       <div
