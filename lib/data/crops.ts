@@ -3,8 +3,15 @@ export const cultivosData = {
     name: "Limón",
     scientificName: "Citrus limon",
     description: "Cítrico perenne de gran valor comercial, rico en vitamina C y aceites esenciales. Requiere climas cálidos y suelos bien drenados para un óptimo desarrollo.",
-    backgroundImage: "/images/crops/limon.jpg",
+    backgroundImage: "/crops/limon/limon.jpg",
     icon: "/icons/lemon.svg",
+
+    objetivosPrograma: [ 
+      "Controlar eficazmente la cancrosis cítrica",
+      "Prevenir infecciones durante el desarrollo del fruto",
+      "Mejorar la calidad comercial de la producción",
+      "Reducir pérdidas postcosecha"
+    ],
 
     caracteristicas: {
       ciclo: "Perenne - producción todo el año",
@@ -116,8 +123,15 @@ export const cultivosData = {
     name: "Naranja",
     scientificName: "Citrus sinensis",
     description: "Cítrico de mayor consumo mundial, rico en vitamina C y fibra. Requiere climas subtropicales y manejo sanitario intensivo para mantener calidad exportable.",
-    backgroundImage: "/images/crops/naranja.jpg",
+    backgroundImage: "/crops/naranja/naranja.jpg",
     icon: "/icons/orange.svg",
+
+    objetivosPrograma: [ 
+      "Controlar enfermedades fúngicas comunes",
+      "Mantener calidad de frutos para exportación",
+      "Reducir pérdidas económicas por descarte",
+      "Optimizar rendimiento del cultivo"
+    ],
 
     caracteristicas: {
       ciclo: "Perenne - cosecha anual",
@@ -229,8 +243,15 @@ export const cultivosData = {
     name: "Mandarina",
     scientificName: "Citrus reticulata",
     description: "Cítrico de fácil pelado y consumo directo. Más susceptible a enfermedades que otros cítricos, requiere manejo preventivo intensivo.",
-    backgroundImage: "/images/crops/mandarina.jpg",
+    backgroundImage: "/crops/mandarina/mandarina.jpg",
     icon: "/icons/mandarin.svg",
+
+    objetivosPrograma: [
+      "Controlar eficazmente la alternaria",
+      "Prevenir infecciones durante el desarrollo del fruto",
+      "Mejorar la calidad comercial de la producción",
+      "Reducir pérdidas postcosecha"
+    ],
 
     caracteristicas: {
       ciclo: "Perenne - cosecha invernal",
@@ -342,8 +363,15 @@ export const cultivosData = {
     name: "Pomelo",
     scientificName: "Citrus paradisi",
     description: "Cítrico de gran tamaño con propiedades nutricionales destacadas. Requiere temperaturas cálidas y manejo sanitario específico por su lento desarrollo.",
-    backgroundImage: "/images/crops/pomelo.jpg",
+    backgroundImage: "/crops/pomelo/pomelo.jpg",
     icon: "/icons/tangerine.svg",
+
+    objetivosPrograma: [
+      "Controlar eficazmente la melanosis",
+      "Prevenir infecciones durante el desarrollo del fruto",
+      "Mejorar la calidad comercial de la producción",
+      "Reducir pérdidas postcosecha"
+    ],
 
     caracteristicas: {
       ciclo: "Perenne - cosecha tardía",
@@ -456,8 +484,15 @@ export const cultivosData = {
     name: "Vid",
     scientificName: "Vitis vinifera",
     description: "Cultivo fundamental para la producción de uvas de mesa y vinificación. Requiere manejo sanitario específico para prevenir enfermedades fúngicas típicas.",
-    backgroundImage: "/images/crops/vid.jpg",
-    icon: "/icons/grape.svg",
+    backgroundImage: "/crops/vid/vid.jpg",
+    icon: "/icons/vid.svg",
+
+    objetivosPrograma: [
+      "Controlar eficazmente la botritis",
+      "Prevenir infecciones durante el desarrollo del fruto",
+      "Mejorar la calidad comercial de la producción",
+      "Reducir pérdidas postcosecha"
+    ],
 
     caracteristicas: {
       ciclo: "Perenne - cosecha anual",
@@ -586,8 +621,15 @@ export const cultivosData = {
     name: "Oliva",
     scientificName: "Olea europaea",
     description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
-    backgroundImage: "/images/crops/oliva.jpg",
+    backgroundImage: "/crops/oliva/oliva.jpg",
     icon: "/icons/olive.svg",
+
+    objetivosPrograma: [
+      "Controlar eficazmente la mosca del olivo",
+      "Prevenir infecciones durante el desarrollo del fruto",
+      "Mejorar la calidad comercial de la producción",
+      "Reducir pérdidas postcosecha"
+    ],
 
     caracteristicas: {
       ciclo: "Perenne - producción bianual",
@@ -700,7 +742,7 @@ export const cultivosData = {
     name: "Garbanzo",
     scientificName: "Cicer arietinum",
     description: "Leguminosa de grano seco con alta demanda nutricional. Sensible a excesos de humedad y requiere manejo preventivo de enfermedades foliares.",
-    backgroundImage: "/images/crops/garbanzo.jpg",
+    backgroundImage: "/crops/garbanzo/garbanzo.jpg",
     icon: "/icons/bean.svg",
 
     caracteristicas: {
@@ -711,6 +753,13 @@ export const cultivosData = {
       siembra: "Junio - Agosto",
       cosecha: "Noviembre - Diciembre"
     },
+
+    objetivosPrograma: [
+      "Controlar eficazmente la antracnosis",
+      "Prevenir infecciones durante el desarrollo del fruto",
+      "Mejorar la calidad comercial de la producción",
+      "Reducir pérdidas postcosecha"
+    ],
 
     enfermedadesComunes: [
       {
@@ -810,6 +859,13 @@ export const cultivosData = {
     description: "Leguminosa de grano con alto valor proteico. Susceptible a diversas enfermedades foliares y bacterianas que requieren manejo preventivo.",
     backgroundImage: "/images/crops/poroto.jpg",
     icon: "/icons/bean.svg",
+
+    objetivosPrograma: [
+      "Controlar eficazmente la antracnosis",
+      "Prevenir infecciones durante el desarrollo del fruto",
+      "Mejorar la calidad comercial de la producción",
+      "Reducir pérdidas postcosecha"
+    ],
 
     caracteristicas: {
       ciclo: "90-120 días según variedad",
@@ -922,8 +978,15 @@ export const cultivosData = {
     name: "Maní",
     scientificName: "Arachis hypogaea",
     description: "Oleaginosa de ciclo estival con frutos subterráneos. Requiere manejo específico de enfermedades foliares para mantener área foliar activa hasta cosecha.",
-    backgroundImage: "/images/crops/mani.jpg",
+    backgroundImage: "/crops/mani/mani.jpg",
     icon: "/icons/peanut.svg",
+
+    objetivosPrograma: [
+      "Controlar eficazmente las enfermedades foliares",
+      "Mantener la producción de frutos de calidad",
+      "Optimizar el uso de recursos hídricos",
+      "Reducir el impacto ambiental del cultivo"
+    ],
 
     caracteristicas: {
       ciclo: "120-140 días",
@@ -1036,8 +1099,15 @@ export const cultivosData = {
     name: "Soja",
     scientificName: "Glycine max",
     description: "La soja es una leguminosa de gran importancia económica, rica en proteínas y aceites. Es fundamental en la rotación de cultivos por su capacidad de fijar nitrógeno atmosférico a través de bacterias simbióticas.",
-    backgroundImage: "/images/crops/soja.jpg",
+    backgroundImage: "/crops/soja/soja.jpg",
     icon: "/icons/soy.svg",
+
+    objetivosPrograma: [
+      "Controlar eficazmente las enfermedades foliares",
+      "Mantener la producción de frutos de calidad",
+      "Optimizar el uso de recursos hídricos",
+      "Reducir el impacto ambiental del cultivo"
+    ],
 
     caracteristicas: {
       ciclo: "100-140 días según variedad",
@@ -1150,8 +1220,15 @@ export const cultivosData = {
     name: "Papa",
     scientificName: "Solanum tuberosum",
     description: "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje, con alta demanda nutricional.",
-    backgroundImage: "/images/crops/papas.jpg",
+    backgroundImage: "/crops/papas/papas.jpg",
     icon: "/icons/potato.svg",
+
+    objetivosPrograma: [
+      "Controlar enfermedades fúngicas comunes",
+      "Mantener calidad de frutos para exportación",
+      "Reducir pérdidas económicas por descarte",
+      "Optimizar rendimiento del cultivo"
+    ],
 
     caracteristicas: {
       ciclo: "90-120 días según variedad",
@@ -1267,7 +1344,7 @@ export const allCrops = [
     scientificName: "Glycine max",
     description: "Leguminosa de gran importancia económica, rica en proteínas y aceites. Fija nitrógeno atmosférico y es fundamental en la rotación de cultivos.",
     iconFilename: "soy.svg",
-    backgroundImage: "/images/crops/soja.jpg",
+    backgroundImage: "/crops/soja/soja.jpg",
     slug: "soja",
     category: "Leguminosas"
   },
@@ -1276,7 +1353,7 @@ export const allCrops = [
     scientificName: "Solanum tuberosum",
     description: "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje.",
     iconFilename: "potato.svg",
-    backgroundImage: "/images/crops/papas.jpg",
+    backgroundImage: "/crops/papas/papas.jpg",
     slug: "papa",
     category: "Tubérculos"
   },
@@ -1285,7 +1362,7 @@ export const allCrops = [
     scientificName: "Vitis vinifera",
     description: "Cultivo fundamental para producción de uvas de mesa y vinificación. Requiere manejo sanitario específico para prevenir enfermedades fúngicas.",
     iconFilename: "vid.svg",
-    backgroundImage: "/images/crops/vid.jpg",
+    backgroundImage: "/crops/vid/vid.jpg",
     slug: "vid",
     category: "Frutales"
   },
@@ -1294,7 +1371,7 @@ export const allCrops = [
     scientificName: "Cicer arietinum",
     description: "Leguminosa de grano seco con alta demanda nutricional. Sensible a excesos de humedad y requiere manejo preventivo de enfermedades foliares.",
     iconFilename: "bean.svg",
-    backgroundImage: "/images/crops/garbanzo.jpg",
+    backgroundImage: "/crops/garbanzo/garbanzo.jpg",
     slug: "garbanzo",
     category: "Leguminosas"
   },
@@ -1303,7 +1380,7 @@ export const allCrops = [
     scientificName: "Phaseolus vulgaris",
     description: "Leguminosa de grano con alto valor proteico. Susceptible a diversas enfermedades foliares y bacterianas que requieren manejo preventivo.",
     iconFilename: "bean.svg",
-    backgroundImage: "/images/crops/poroto.jpg",
+    backgroundImage: "/crops/poroto/poroto.jpg",
     slug: "poroto",
     category: "Leguminosas"
   },
@@ -1312,7 +1389,7 @@ export const allCrops = [
     scientificName: "Arachis hypogaea",
     description: "Oleaginosa de ciclo estival con frutos subterráneos. Requiere manejo específico de enfermedades foliares para mantener área foliar activa.",
     iconFilename: "peanut.svg",
-    backgroundImage: "/images/crops/mani.jpg",
+    backgroundImage: "/crops/mani/mani.jpg",
     slug: "mani",
     category: "Oleaginosas"
   },
@@ -1321,7 +1398,7 @@ export const allCrops = [
     scientificName: "Citrus limon",
     description: "Cítrico perenne de gran valor comercial, rico en vitamina C y aceites esenciales. Requiere climas cálidos y suelos bien drenados.",
     iconFilename: "lemon.svg",
-    backgroundImage: "/images/crops/limon.jpg",
+    backgroundImage: "/crops/limon/limon.jpg",
     slug: "limon",
     category: "Cítricos"
   },
@@ -1330,7 +1407,7 @@ export const allCrops = [
     scientificName: "Citrus sinensis",
     description: "Cítrico de mayor consumo mundial, rico en vitamina C y fibra. Requiere climas subtropicales y manejo sanitario intensivo.",
     iconFilename: "tangerine.svg",
-    backgroundImage: "/images/crops/naranja.jpg",
+    backgroundImage: "/crops/naranja/naranja.jpg",
     slug: "naranja",
     category: "Cítricos"
   },
@@ -1339,7 +1416,7 @@ export const allCrops = [
     scientificName: "Citrus reticulata",
     description: "Cítrico de fácil pelado y consumo directo. Más susceptible a enfermedades que otros cítricos, requiere manejo preventivo intensivo.",
     iconFilename: "tangerine.svg",
-    backgroundImage: "/images/crops/mandarina.jpg",
+    backgroundImage: "/crops/mandarina/mandarina.jpg",
     slug: "mandarina",
     category: "Cítricos"
   },
@@ -1348,7 +1425,7 @@ export const allCrops = [
     scientificName: "Citrus paradisi",
     description: "Cítrico de gran tamaño con propiedades nutricionales destacadas. Requiere temperaturas cálidas y manejo sanitario específico.",
     iconFilename: "tangerine.svg",
-    backgroundImage: "/images/crops/pomelo.jpg",
+    backgroundImage: "/crops/pomelo/pomelo.jpg",
     slug: "pomelo",
     category: "Cítricos"
   },
@@ -1357,7 +1434,7 @@ export const allCrops = [
     scientificName: "Olea europaea",
     description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
     iconFilename: "olive.svg",
-    backgroundImage: "/images/crops/oliva.jpg",
+    backgroundImage: "/crops/oliva/oliva.jpg",
     slug: "oliva",
     category: "Frutales"
   }

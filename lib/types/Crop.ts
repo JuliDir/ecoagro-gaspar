@@ -7,6 +7,8 @@ export interface CultivoData {
     backgroundImage: string;
     icon: string;
 
+    objetivosPrograma: string[];
+
     caracteristicas: {
         ciclo: string;
         temperatura: string;
