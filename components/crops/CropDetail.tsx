@@ -11,7 +11,6 @@ import {
     Download,
     ChevronRight,
     Shield,
-    AlertCircle,
     FileText,
     TrendingUp,
     DollarSign,
@@ -19,6 +18,7 @@ import {
     Wind
 } from "lucide-react";
 import { CultivoData } from "@/lib/types/Crop";
+import ProductCard from "../product/ProductCard";
 
 interface CultivoDetailProps {
     cultivo: CultivoData;
@@ -157,7 +157,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 </div>
             </motion.section>
 
-            {/* Enfermedades Comunes */}
+            {/* Enfermedades Comunes 
             <motion.section
                 className="py-20 bg-white"
                 initial="hidden"
@@ -206,6 +206,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                     </div>
                 </div>
             </motion.section>
+            */}
 
             {/* Productos Recomendados */}
             <motion.section
@@ -230,47 +231,12 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
 
                     <div className="flex items-center justify-center">
                         {cultivo.productosRecomendados.map((producto, index) => {
-                            const productColors = getProductColor(producto.nombre);
                             return (
-                                <motion.div
+                                <ProductCard
                                     key={index}
-                                    className="bg-white sm:min-w-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border-l-4"
-                                    style={{ borderColor: productColors.color }}
-                                    variants={cardVariants}
-                                    whileHover={{ x: 5 }}
-                                >
-                                    <div className="flex items-center justify-between mb-6">
-                                        <h3 
-                                            className="text-2xl font-bold font-softhits"
-                                            style={{ color: productColors.color }}
-                                        >
-                                            {producto.nombre}
-                                        </h3>
-                                        <Link
-                                            href={`/products/${producto.slug}`}
-                                            className="transition-colors"
-                                            style={{ color: productColors.color }}
-                                        >
-                                            <ChevronRight className="w-6 h-6 hover:scale-110 transition-transform" />
-                                        </Link>
-                                    </div>
-                                    <div className="space-y-4">
-                                        <div>
-                                            <p className="text-sm font-semibold text-gray-700">Aplicación:</p>
-                                            <p className="text-gray-600">{producto.aplicacion}</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-sm font-semibold text-gray-700">Dosis:</p>
-                                            <p className="font-medium" style={{ color: productColors.color }}>
-                                                {producto.dosis}
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p className="text-sm font-semibold text-gray-700">Momento:</p>
-                                            <p className="text-gray-600">{producto.momento}</p>
-                                        </div>
-                                    </div>
-                                </motion.div>
+                                    index={index}
+                                    product={producto}
+                                />
                             );
                         })}
                     </div>

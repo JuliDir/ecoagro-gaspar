@@ -122,7 +122,7 @@ export const TriangleTripleAction: React.FC<TriangleTripleActionProps> = ({
                 <motion.div
                   key={index}
                   className="group absolute"
-                  style={{ left: `${pos.x - 11}%`, top: `${pos.y - 10}%`, transform: "translate(-40%, -20%)" }}
+                  style={{ left: `${pos.x - 10}%`, top: `${pos.y - 10}%`, transform: "translate(-40%, -20%)" }}
                   variants={cardVariants}
                 >
                   <motion.div

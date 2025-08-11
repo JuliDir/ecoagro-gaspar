@@ -5,7 +5,7 @@ export const cultivosData = {
     description: "Cítrico perenne de gran valor comercial, rico en vitamina C y aceites esenciales. Requiere climas cálidos y suelos bien drenados para un óptimo desarrollo.",
     backgroundImage: "/images/crops/limon.jpg",
     icon: "/icons/lemon.svg",
-    
+
     caracteristicas: {
       ciclo: "Perenne - producción todo el año",
       temperatura: "15-30°C óptima",
@@ -35,12 +35,21 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Trikopper 50",
-        slug: "trikopper-50",
-        aplicacion: "Control preventivo y curativo de enfermedades fúngicas y bacterianas",
-        dosis: "150-200 g/100 L de agua",
-        momento: "Brotación, cuajado y desarrollo del fruto"
-      }
+        id: 3,
+        name: "TRIKOPPER 50",
+        color: "#00a859",
+        gradient: "from-green-400 to-emerald-600",
+        description:
+          "Cobre tribásico coloidal ultra micronizado, excelente adherencia y máxima residualidad.",
+        features: [
+          "Partículas ultrafinas para máxima cobertura",
+          "Alta retención incluso tras lluvias fuertes",
+          "Ideal para cítricos: cancrosis y mancha negra",
+        ],
+        icon: "/images/products/trikopper-box.png",
+        bgIcon: "/icons/soy.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -64,7 +73,7 @@ export const cultivosData = {
           objetivo: "Calidad comercial del fruto"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Aplicar cada 21-28 días según presión de enfermedad",
         "Usar volúmenes de 1000-1500 L/ha para buena cobertura",
@@ -109,7 +118,7 @@ export const cultivosData = {
     description: "Cítrico de mayor consumo mundial, rico en vitamina C y fibra. Requiere climas subtropicales y manejo sanitario intensivo para mantener calidad exportable.",
     backgroundImage: "/images/crops/naranja.jpg",
     icon: "/icons/orange.svg",
-    
+
     caracteristicas: {
       ciclo: "Perenne - cosecha anual",
       temperatura: "16-30°C óptima",
@@ -139,12 +148,21 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Trikopper 50",
-        slug: "trikopper-50",
-        aplicacion: "Protección integral contra patógenos cítricos",
-        dosis: "150-250 g/100 L de agua",
-        momento: "Brotación, floración y desarrollo frutal"
-      }
+        id: 3,
+        name: "TRIKOPPER 50",
+        color: "#00a859",
+        gradient: "from-green-400 to-emerald-600",
+        description:
+          "Cobre tribásico coloidal ultra micronizado, excelente adherencia y máxima residualidad.",
+        features: [
+          "Partículas ultrafinas para máxima cobertura",
+          "Alta retención incluso tras lluvias fuertes",
+          "Ideal para cítricos: cancrosis y mancha negra",
+        ],
+        icon: "/images/products/trikopper-box.png",
+        bgIcon: "/icons/soy.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -168,7 +186,7 @@ export const cultivosData = {
           objetivo: "Calidad y sanidad del fruto"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Programa preventivo cada 3-4 semanas",
         "Alternar con otros modos de acción",
@@ -213,7 +231,7 @@ export const cultivosData = {
     description: "Cítrico de fácil pelado y consumo directo. Más susceptible a enfermedades que otros cítricos, requiere manejo preventivo intensivo.",
     backgroundImage: "/images/crops/mandarina.jpg",
     icon: "/icons/mandarin.svg",
-    
+
     caracteristicas: {
       ciclo: "Perenne - cosecha invernal",
       temperatura: "15-28°C óptima",
@@ -243,12 +261,21 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Trikopper 50",
-        slug: "trikopper-50",
-        aplicacion: "Control específico para mandarina",
-        dosis: "150-200 g/100 L de agua",
-        momento: "Brotación, cuajado y pre-cosecha"
-      }
+        id: 3,
+        name: "TRIKOPPER 50",
+        color: "#00a859",
+        gradient: "from-green-400 to-emerald-600",
+        description:
+          "Cobre tribásico coloidal ultra micronizado, excelente adherencia y máxima residualidad.",
+        features: [
+          "Partículas ultrafinas para máxima cobertura",
+          "Alta retención incluso tras lluvias fuertes",
+          "Ideal para cítricos: cancrosis y mancha negra",
+        ],
+        icon: "/images/products/trikopper-box.png",
+        bgIcon: "/icons/soy.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -272,7 +299,7 @@ export const cultivosData = {
           objetivo: "Calidad post-cosecha"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Monitoreo semanal en épocas críticas",
         "Cosecha oportuna para evitar sobremaduración",
@@ -317,7 +344,7 @@ export const cultivosData = {
     description: "Cítrico de gran tamaño con propiedades nutricionales destacadas. Requiere temperaturas cálidas y manejo sanitario específico por su lento desarrollo.",
     backgroundImage: "/images/crops/pomelo.jpg",
     icon: "/icons/tangerine.svg",
-    
+
     caracteristicas: {
       ciclo: "Perenne - cosecha tardía",
       temperatura: "18-32°C óptima",
@@ -347,12 +374,21 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Trikopper 50",
-        slug: "trikopper-50",
-        aplicacion: "Protección específica para pomelo",
-        dosis: "180-250 g/100 L de agua",
-        momento: "Cuajado, desarrollo y pre-cosecha"
-      }
+        id: 3,
+        name: "TRIKOPPER 50",
+        color: "#00a859",
+        gradient: "from-green-400 to-emerald-600",
+        description:
+          "Cobre tribásico coloidal ultra micronizado, excelente adherencia y máxima residualidad.",
+        features: [
+          "Partículas ultrafinas para máxima cobertura",
+          "Alta retención incluso tras lluvias fuertes",
+          "Ideal para cítricos: cancrosis y mancha negra",
+        ],
+        icon: "/images/products/trikopper-box.png",
+        bgIcon: "/icons/soy.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -376,7 +412,7 @@ export const cultivosData = {
           objetivo: "Calidad y vida post-cosecha"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Aplicaciones cada 4-5 semanas por largo ciclo",
         "Especial atención en heridas de poda",
@@ -422,7 +458,7 @@ export const cultivosData = {
     description: "Cultivo fundamental para la producción de uvas de mesa y vinificación. Requiere manejo sanitario específico para prevenir enfermedades fúngicas típicas.",
     backgroundImage: "/images/crops/vid.jpg",
     icon: "/icons/grape.svg",
-    
+
     caracteristicas: {
       ciclo: "Perenne - cosecha anual",
       temperatura: "15-30°C según variedad",
@@ -452,19 +488,38 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Bordocald",
-        slug: "bordocald",
-        aplicacion: "Control preventivo certificado para vid orgánica",
-        dosis: "3-5 L/ha",
-        momento: "Brotación hasta pre-cosecha"
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        description:
+          "Caldo bordelés coloidal listo para usar.",
+        features: [
+          "Máxima adherencia y poder residual.",
+          "Mayor eficacia con menor cantidad de cobre metálico.",
+          "Certificado para agricultura orgánica.",
+        ],
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
       },
       {
-        nombre: "Cobrestable",
-        slug: "cobrestable",
-        aplicacion: "Complemento para control de bacteriosis",
-        dosis: "200-300 cc/100 L de agua",
-        momento: "Según presión de enfermedad"
-      }
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        description:
+          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
+        features: [
+          "Triple acción sistémico, multi sitio y acción nutricional.",
+          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
+          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
+          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
+        ],
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -488,7 +543,7 @@ export const cultivosData = {
           objetivo: "Sanidad hasta cosecha"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Aplicaciones cada 10-15 días según clima",
         "Usar equipos de alta presión para penetración",
@@ -533,7 +588,7 @@ export const cultivosData = {
     description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
     backgroundImage: "/images/crops/oliva.jpg",
     icon: "/icons/olive.svg",
-    
+
     caracteristicas: {
       ciclo: "Perenne - producción bianual",
       temperatura: "15-25°C óptima",
@@ -563,12 +618,21 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Bordocald",
-        slug: "bordocald",
-        aplicacion: "Control preventivo integral para olivicultura orgánica",
-        dosis: "3-4 L/ha",
-        momento: "Otoño, brotación y cuajado"
-      }
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        description:
+          "Caldo bordelés coloidal listo para usar.",
+        features: [
+          "Máxima adherencia y poder residual.",
+          "Mayor eficacia con menor cantidad de cobre metálico.",
+          "Certificado para agricultura orgánica.",
+        ],
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -592,7 +656,7 @@ export const cultivosData = {
           objetivo: "Sanidad durante desarrollo del fruto"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Podas sanitarias en época seca",
         "Aplicaciones cada 30-45 días",
@@ -638,7 +702,7 @@ export const cultivosData = {
     description: "Leguminosa de grano seco con alta demanda nutricional. Sensible a excesos de humedad y requiere manejo preventivo de enfermedades foliares.",
     backgroundImage: "/images/crops/garbanzo.jpg",
     icon: "/icons/bean.svg",
-    
+
     caracteristicas: {
       ciclo: "120-150 días",
       temperatura: "15-25°C óptima",
@@ -668,12 +732,22 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Cobrestable",
-        slug: "cobrestable",
-        aplicacion: "Control integral de patógenos en leguminosas",
-        dosis: "200-300 cc/100 L de agua",
-        momento: "Desde 6 hojas hasta llenado de vainas"
-      }
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        description:
+          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
+        features: [
+          "Triple acción sistémico, multi sitio y acción nutricional.",
+          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
+          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
+          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
+        ],
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -697,7 +771,7 @@ export const cultivosData = {
           objetivo: "Calidad de grano"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Monitoreo semanal desde floración",
         "Evitar aplicaciones en horas de calor",
@@ -736,7 +810,7 @@ export const cultivosData = {
     description: "Leguminosa de grano con alto valor proteico. Susceptible a diversas enfermedades foliares y bacterianas que requieren manejo preventivo.",
     backgroundImage: "/images/crops/poroto.jpg",
     icon: "/icons/bean.svg",
-    
+
     caracteristicas: {
       ciclo: "90-120 días según variedad",
       temperatura: "18-24°C óptima",
@@ -766,12 +840,22 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Cobrestable",
-        slug: "cobrestable",
-        aplicacion: "Control específico para poroto",
-        dosis: "200-300 cc/100 L de agua",
-        momento: "V3 hasta R6 según monitoreo"
-      }
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        description:
+          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
+        features: [
+          "Triple acción sistémico, multi sitio y acción nutricional.",
+          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
+          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
+          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
+        ],
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -795,7 +879,7 @@ export const cultivosData = {
           objetivo: "Calidad del grano y sanidad de vainas"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Aplicaciones cada 15-20 días según clima",
         "Monitorear desde primera hoja trifoliada",
@@ -840,7 +924,7 @@ export const cultivosData = {
     description: "Oleaginosa de ciclo estival con frutos subterráneos. Requiere manejo específico de enfermedades foliares para mantener área foliar activa hasta cosecha.",
     backgroundImage: "/images/crops/mani.jpg",
     icon: "/icons/peanut.svg",
-    
+
     caracteristicas: {
       ciclo: "120-140 días",
       temperatura: "25-30°C óptima",
@@ -870,12 +954,22 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Cobrestable",
-        slug: "cobrestable",
-        aplicacion: "Control integral en maní",
-        dosis: "250-350 cc/100 L de agua",
-        momento: "V4 hasta R6 según presión"
-      }
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        description:
+          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
+        features: [
+          "Triple acción sistémico, multi sitio y acción nutricional.",
+          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
+          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
+          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
+        ],
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -899,7 +993,7 @@ export const cultivosData = {
           objetivo: "Prevenir defoliación prematura"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Aplicaciones cada 20-25 días",
         "Priorizar protección del tercio superior",
@@ -944,7 +1038,7 @@ export const cultivosData = {
     description: "La soja es una leguminosa de gran importancia económica, rica en proteínas y aceites. Es fundamental en la rotación de cultivos por su capacidad de fijar nitrógeno atmosférico a través de bacterias simbióticas.",
     backgroundImage: "/images/crops/soja.jpg",
     icon: "/icons/soy.svg",
-    
+
     caracteristicas: {
       ciclo: "100-140 días según variedad",
       temperatura: "20-30°C óptima",
@@ -974,12 +1068,22 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Cobrestable",
-        slug: "cobrestable",
-        aplicacion: "Preventivo y curativo para enfermedades bacterianas y fúngicas",
-        dosis: "200-300 cc/100 L de agua",
-        momento: "Desde V3 hasta R5, cada 15-20 días según presión de enfermedad"
-      }
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        description:
+          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
+        features: [
+          "Triple acción sistémico, multi sitio y acción nutricional.",
+          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
+          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
+          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
+        ],
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -1003,7 +1107,7 @@ export const cultivosData = {
           objetivo: "Mantener área foliar sana para llenado de granos"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Monitorear semanalmente desde V3",
         "Aplicar con buena cobertura (mínimo 30 gotas/cm²)",
@@ -1048,7 +1152,7 @@ export const cultivosData = {
     description: "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje, con alta demanda nutricional.",
     backgroundImage: "/images/crops/papas.jpg",
     icon: "/icons/potato.svg",
-    
+
     caracteristicas: {
       ciclo: "90-120 días según variedad",
       temperatura: "15-20°C óptima",
@@ -1078,12 +1182,22 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        nombre: "Cobrestable",
-        slug: "cobrestable",
-        aplicacion: "Control curativo y activación de defensas",
-        dosis: "250-350 cc/100 L de agua",
-        momento: "Al detectar primeros síntomas o preventivo"
-      }
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        description:
+          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
+        features: [
+          "Triple acción sistémico, multi sitio y acción nutricional.",
+          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
+          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
+          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
+        ],
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
     ],
 
     guiaAplicacion: {
@@ -1107,7 +1221,7 @@ export const cultivosData = {
           objetivo: "Protección hasta cosecha"
         }
       ],
-      
+
       recomendacionesGenerales: [
         "Implementar sistema de alerta temprana",
         "Aplicar con volúmenes de 400-600 L/ha",
@@ -1159,7 +1273,7 @@ export const allCrops = [
   },
   {
     name: "Papa",
-    scientificName: "Solanum tuberosum", 
+    scientificName: "Solanum tuberosum",
     description: "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje.",
     iconFilename: "potato.svg",
     backgroundImage: "/images/crops/papas.jpg",

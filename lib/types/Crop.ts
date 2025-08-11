@@ -1,3 +1,5 @@
+import { Product } from "./Product";
+
 export interface CultivoData {
     name: string;
     scientificName: string;
@@ -20,13 +22,7 @@ export interface CultivoData {
         condiciones: string;
     }>;
 
-    productosRecomendados: Array<{
-        nombre: string;
-        slug: string;
-        aplicacion: string;
-        dosis: string;
-        momento: string;
-    }>;
+    productosRecomendados: Product[];
 
     guiaAplicacion: {
         etapasClaves: Array<{

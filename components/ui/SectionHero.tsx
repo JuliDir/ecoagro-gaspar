@@ -42,9 +42,9 @@ const sectionVariants = {
   }
 };
 
-export default function SectionHero({ 
-  title, 
-  subtitle, 
+export default function SectionHero({
+  title,
+  subtitle,
   backgroundDecorations = { showWheat: true, showLeaf: true }
 }: SectionHeroProps) {
   return (
@@ -56,6 +56,7 @@ export default function SectionHero({
     >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
+        
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/5 rounded-full"></div>
         
@@ -80,6 +81,39 @@ export default function SectionHero({
           />
         )}
         
+        {/* Additional crop icons */}
+        <Image
+          src="/icons/corn.svg"
+          alt=""
+          width={90}
+          height={90}
+          className="absolute top-32 left-16 opacity-8 invert rotate-6"
+        />
+        
+        <Image
+          src="/icons/bean.svg"
+          alt=""
+          width={70}
+          height={70}
+          className="absolute bottom-32 right-24 opacity-10 invert -rotate-12"
+        />
+        
+        <Image
+          src="/icons/potato.svg"
+          alt=""
+          width={85}
+          height={85}
+          className="absolute top-24 left-1/3 opacity-7 invert rotate-25"
+        />
+        
+        <Image
+          src="/icons/orange.svg"
+          alt=""
+          width={75}
+          height={75}
+          className="absolute bottom-10 right-1/3 opacity-9 invert -rotate-30"
+        />
+        
         {/* Custom icons */}
         {backgroundDecorations.customIcons?.map((icon, index) => (
           <Image
@@ -99,7 +133,7 @@ export default function SectionHero({
           variants={sectionVariants}
         >
           <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="text-4xl md:text-6xl font-bold mb-6 font-avenir-cyr-heavy"
             variants={sectionVariants}
           >
             <span className="text-white">{title.primary}</span>{" "}
