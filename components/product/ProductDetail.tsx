@@ -154,26 +154,26 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   // Mapping de cultivos a sus imágenes
   const getCultivoImage = (cultivo: string): string => {
     const imageMap: { [key: string]: string } = {
-      "garbanzo": "/images/crops/garbanzo.jpg",
-      "poroto": "/images/crops/poroto.jpg",
-      "maní": "/images/crops/mani.jpg",
-      "mani": "/images/crops/mani.jpg",
-      "soja": "/images/crops/soja.jpg",
-      "papa": "/images/crops/papas.jpg",
-      "vid": "/images/crops/vid.jpg",
-      "trigo": "/images/crops/trigo.jpg",
-      "tomate": "/images/crops/tomate.jpg",
-      "olivo": "/images/crops/olivo.jpg",
-      "palto": "/images/crops/palto.jpg",
-      "kiwi": "/images/crops/kiwi.jpg",
-      "maíz": "/images/crops/maiz.jpg",
-      "maiz": "/images/crops/maiz.jpg",
-      "ajo": "/images/crops/ajo.jpg",
-      "naranja": "/images/crops/naranja.jpg",
-      "limon": "/images/crops/limon.jpg",
-      "mandarina": "/images/crops/mandarina.jpg",
-      "pomelo": "/images/crops/pomelo.jpg",
-      "oliva": "/images/crops/oliva.jpg"
+      "garbanzo": "/crops/garbanzo/garbanzo.jpg",
+      "poroto": "/crops/poroto/poroto.jpg",
+      "maní": "/crops/mani/mani.jpg",
+      "mani": "/crops/mani/mani.jpg",
+      "soja": "/crops/soja/soja.jpg",
+      "papa": "/crops/papas/papas.jpg",
+      "vid": "/crops/vid/vid.jpg",
+      "trigo": "/crops/trigo/trigo.jpg",
+      "tomate": "/crops/tomate/tomate.jpg",
+      "olivo": "/crops/olivo/olivo.jpg",
+      "palto": "/crops/palto/palto.jpg",
+      "kiwi": "/crops/kiwi/kiwi.jpg",
+      "maíz": "/crops/maiz/maiz.jpg",
+      "maiz": "/crops/maiz/maiz.jpg",
+      "ajo": "/crops/ajo/ajo.jpg",
+      "naranja": "/crops/naranja/naranja.jpg",
+      "limon": "/crops/limon/limon.jpg",
+      "mandarina": "/crops/mandarina/mandarina.jpg",
+      "pomelo": "/crops/pomelo/pomelo.jpg",
+      "oliva": "/crops/oliva/oliva.jpg"
     };
 
     return imageMap[cultivo.toLowerCase()] || "/images/crops/default.jpg";

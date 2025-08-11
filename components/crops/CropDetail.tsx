@@ -61,7 +61,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
             <motion.section
                 className="relative text-white py-24 md:py-32 overflow-hidden"
                 style={{
-                    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(/crops/${cultivo.name}/${cultivo.name}.jpg)`,
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(/crops/${cultivo.name.toLocaleLowerCase()}/${cultivo.name.toLocaleLowerCase()}.jpg)`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat'
