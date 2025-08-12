@@ -272,7 +272,7 @@ export default function AboutUs() {
             className="text-center mb-10"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl font-bold mb-6">Más de 60 años de experiencia</h2>
+            <h2 className="text-4xl font-avenir-cyr-heavy mb-6">Más de 60 años de experiencia</h2>
             <p className="text-xl text-primary-200 max-w-3xl mx-auto">
               Décadas de dedicación al desarrollo de soluciones a base de cobre,
               con respaldo técnico y compromiso con la excelencia.

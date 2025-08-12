@@ -83,7 +83,7 @@ export default function Contact() {
           variants={headerVariants}
         >
           <motion.h2
-            className="text-4xl font-bold mb-4 text-primary-500"
+            className="text-4xl font-avenir-cyr-heavy mb-4 text-primary-500"
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: {

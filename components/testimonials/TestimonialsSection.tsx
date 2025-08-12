@@ -298,8 +298,8 @@ export default function TestimonialsSection() {
                         className="text-center mb-16"
                         variants={sectionVariants}
                     >
-                        <h2 className="text-4xl font-bold text-primary-800 mb-4">
-                            Más Testimonios
+                        <h2 className="text-4xl font-avenir-cyr-heavy text-primary-800 mb-4">
+                            Más testimonios
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Conoce más experiencias de productores que han transformado sus cultivos
