@@ -52,7 +52,7 @@ export default function AboutUs() {
             {/* Contenido textual */}
             <motion.div variants={sectionVariants}>
               <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
-                Acerca Nuestro
+                Acerca de nosotros
               </h2>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 En Ecoagro Gaspar, nos dedicamos a desarrollar productos derivados del cobre
@@ -120,7 +120,7 @@ export default function AboutUs() {
               className="order-1 md:order-2"
               variants={sectionVariants}
             >
-              <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-emerald-600 leading-tight mb-6">
+              <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
                 Misión
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
@@ -145,7 +145,7 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Contenido textual */}
             <motion.div variants={sectionVariants}>
-              <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-blue-600 leading-tight mb-6">
+              <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
                 Visión
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
@@ -201,19 +201,19 @@ export default function AboutUs() {
                 icon: Handshake,
                 title: "Compromiso",
                 description: "Dedicación total hacia el productor y el cuidado del medio ambiente",
-                color: "bg-orange-500"
+                color: "bg-primary"
               },
               {
                 icon: Users,
                 title: "Transparencia",
                 description: "Honestidad y claridad en todas nuestras relaciones comerciales",
-                color: "bg-blue-500"
+                color: "bg-primary"
               },
               {
                 icon: Leaf,
                 title: "Sustentabilidad",
                 description: "Desarrollo de soluciones que respetan y preservan el ecosistema",
-                color: "bg-green-500"
+                color: "bg-primary"
               }
             ].map((value, index) => (
               <motion.div

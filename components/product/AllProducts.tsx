@@ -10,7 +10,7 @@ import { useSearchParams } from "next/navigation";
 import SectionHero from "../ui/SectionHero";
 import ProductCard from "./ProductCard";
 
-const categories = ["Todos", "Fungicidas", "Fertilizantes", "Coayugantes"];
+const categories = ["Todos", "Fungicidas", "Fertilizantes", "Coadyuvantes"];
 
 const containerVariants = {
     hidden: { opacity: 0 },

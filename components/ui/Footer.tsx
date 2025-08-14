@@ -10,8 +10,8 @@ export default function Footer() {
                     {/* Logo y descripción */}
                     <div className="space-y-4 mt-2.5">
                         <Image
-                            src="/images/logo.png" 
-                            alt="Ecoagro Gaspar" 
+                            src="/images/logo.png"
+                            alt="Ecoagro Gaspar"
                             width={170}
                             height={100}
                         />
@@ -25,18 +25,23 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold text-primary-600">Productos</h3>
                         <ul className="space-y-2 text-sm text-gray-600">
                             <li>
-                                <Link href="/products/cobrestable" className="hover:text-primary-600 transition-colors">
-                                    Cobrestable®
+                                <Link href="/products?category=Fungicidas" className="hover:text-primary-600 transition-colors">
+                                    Fungicidas
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/products/bordocald" className="hover:text-primary-600 transition-colors">
-                                    Bordocald®
+                                <Link href="/products?category=Coadyuvantes" className="hover:text-primary-600 transition-colors">
+                                    Coadyuvantes
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/products/trikopper-50" className="hover:text-primary-600 transition-colors">
-                                    Trikopper 50®
+                                <Link href="/products?category=Fertilizantes" className="hover:text-primary-600 transition-colors">
+                                    Fertilizantes
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/products" className="hover:text-primary-600 transition-colors">
+                                    Ver todos
                                 </Link>
                             </li>
                         </ul>
@@ -67,8 +72,8 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/crops/limon" className="hover:text-primary-600 transition-colors">
-                                    Limón
+                                <Link href="/crops/cítricos" className="hover:text-primary-600 transition-colors">
+                                    Cítricos
                                 </Link>
                             </li>
                             <li>
@@ -84,7 +89,7 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold text-primary-600">Nosotros</h3>
                         <div className="text-sm">
                             <Link href="/about-us" className="text-gray-600 hover:text-primary-600 transition-colors">
-                                ¿Quiénes somos?
+                                Acerca de nosotros
                             </Link>
                         </div>
                     </div>
@@ -104,7 +109,7 @@ export default function Footer() {
                                 <Phone className="w-4 h-4 mt-0.5 text-primary-600 flex-shrink-0" />
                                 <div>
                                     <h4 className="text-gray-800 font-medium mb-1">Teléfono</h4>
-                                    <a 
+                                    <a
                                         href="tel:+542613990081"
                                         className="hover:text-primary-600 transition-colors"
                                     >
@@ -117,8 +122,8 @@ export default function Footer() {
                                 <div>
                                     <h4 className="text-gray-800 font-medium mb-1">Dirección</h4>
                                     <p>PARQUE INDUSTRIAL LAS HERAS<br />
-                                       Calle 12 eje Norte RT Lote 4<br />
-                                       Las Heras, Mendoza, Argentina
+                                        Calle 12 eje Norte RT Lote 4<br />
+                                        Las Heras, Mendoza, Argentina
                                     </p>
                                 </div>
                             </div>
@@ -133,9 +138,9 @@ export default function Footer() {
                     </p>
                     <p className="mt-2">
                         Desarrollado por{' '}
-                        <a 
-                            href="https://www.linkedin.com/in/julian-di-rocco/" 
-                            target="_blank" 
+                        <a
+                            href="https://www.linkedin.com/in/julian-di-rocco/"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="text-gray-600 hover:text-primary-600 transition-colors"
                         >

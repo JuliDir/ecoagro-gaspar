@@ -1350,7 +1350,7 @@ export const allCrops = [
   },
   {
     name: "Papa",
-    scientificName: "Solanum tuberosum",
+    scientificName: "Solanum tuberosum", 
     description: "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje.",
     iconFilename: "potato.svg",
     backgroundImage: "/crops/papas/papas.jpg",
@@ -1362,7 +1362,7 @@ export const allCrops = [
     scientificName: "Vitis vinifera",
     description: "Cultivo fundamental para producción de uvas de mesa y vinificación. Requiere manejo sanitario específico para prevenir enfermedades fúngicas.",
     iconFilename: "vid.svg",
-    backgroundImage: "/crops/vid/vid.jpg",
+    backgroundImage: "/crops/vid/vid.jpg", 
     slug: "vid",
     category: "Frutales"
   },
@@ -1372,7 +1372,7 @@ export const allCrops = [
     description: "Leguminosa de grano seco con alta demanda nutricional. Sensible a excesos de humedad y requiere manejo preventivo de enfermedades foliares.",
     iconFilename: "bean.svg",
     backgroundImage: "/crops/garbanzo/garbanzo.jpg",
-    slug: "garbanzo",
+    slug: "garbanzo", 
     category: "Leguminosas"
   },
   {
@@ -1385,7 +1385,7 @@ export const allCrops = [
     category: "Leguminosas"
   },
   {
-    name: "Maní",
+    name: "Maní", 
     scientificName: "Arachis hypogaea",
     description: "Oleaginosa de ciclo estival con frutos subterráneos. Requiere manejo específico de enfermedades foliares para mantener área foliar activa.",
     iconFilename: "peanut.svg",
@@ -1394,44 +1394,17 @@ export const allCrops = [
     category: "Oleaginosas"
   },
   {
-    name: "Limón",
-    scientificName: "Citrus limon",
-    description: "Cítrico perenne de gran valor comercial, rico en vitamina C y aceites esenciales. Requiere climas cálidos y suelos bien drenados.",
+    name: "Cítricos",
+    scientificName: "Citrus spp.",
+    description: "Familia de árboles frutales perennes incluyendo limón, naranja, mandarina y pomelo. Requieren manejo sanitario específico para prevenir enfermedades.",
     iconFilename: "lemon.svg",
-    backgroundImage: "/crops/limon/limon.jpg",
-    slug: "limon",
+    backgroundImage: "/crops/citricos/citricos.jpg",
+    slug: "citricos",
     category: "Cítricos"
   },
   {
-    name: "Naranja",
-    scientificName: "Citrus sinensis",
-    description: "Cítrico de mayor consumo mundial, rico en vitamina C y fibra. Requiere climas subtropicales y manejo sanitario intensivo.",
-    iconFilename: "tangerine.svg",
-    backgroundImage: "/crops/naranja/naranja.jpg",
-    slug: "naranja",
-    category: "Cítricos"
-  },
-  {
-    name: "Mandarina",
-    scientificName: "Citrus reticulata",
-    description: "Cítrico de fácil pelado y consumo directo. Más susceptible a enfermedades que otros cítricos, requiere manejo preventivo intensivo.",
-    iconFilename: "tangerine.svg",
-    backgroundImage: "/crops/mandarina/mandarina.jpg",
-    slug: "mandarina",
-    category: "Cítricos"
-  },
-  {
-    name: "Pomelo",
-    scientificName: "Citrus paradisi",
-    description: "Cítrico de gran tamaño con propiedades nutricionales destacadas. Requiere temperaturas cálidas y manejo sanitario específico.",
-    iconFilename: "tangerine.svg",
-    backgroundImage: "/crops/pomelo/pomelo.jpg",
-    slug: "pomelo",
-    category: "Cítricos"
-  },
-  {
-    name: "Oliva",
-    scientificName: "Olea europaea",
+    name: "Olivos",
+    scientificName: "Olea europaea", 
     description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
     iconFilename: "olive.svg",
     backgroundImage: "/crops/oliva/oliva.jpg",

@@ -61,20 +61,6 @@ export const productsData = {
     gradient: "from-sky-400 to-blue-600", 
     icon: "/images/products/cobrestable-box.png",
     registro: "SENASA AR #16.899",
-    composicion: {
-      sulfatoTetraaminoCuprico: "29%",
-      fosfitoPotasio: "15%",
-      nitrogeno: "12%",
-      fosforo: "1.1%",
-      potasio: "2.6%",
-      cobre: "4.5%"
-    },
-    features: [
-      "Triple acción sistémico, multi sitio y acción nutricional.",
-      "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
-      "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
-      "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
-    ],
     triplePilar: [
       {
         title: "Sinergia con fungicidas",
@@ -96,18 +82,12 @@ export const productsData = {
       cobertura: "Acción de contacto, translaminar y sistémica con doble barrera de protección (externa e interna)",
       penetracion: "Penetra por estomas, estimula defensas naturales, y su carga nutricional ayuda a las plantas a lidiar con el estrés"
     },
-    cultivos: ["garbanzo", "poroto", "mani", "soja", "papa", "naranja", "limon", "vid", "mandarina", "pomelo"],
+    cultivos: ["garbanzo", "poroto", "mani", "soja", "papa", "vid", "cítricos"],
     aplicacion: {
       equipos: "desde mochila hasta aplicaciones aéreas",
       compatibilidad: "combinar con pesticidas usuales, preferible agregar primero Cobrestable (lleva adherente siliconado)",
       intervaloSeguridad: "1 día antes de cosecha"
     },
-    documentacion: [
-      "Ficha técnica (PDF)",
-      "Hoja de seguridad",
-      "Recomendaciones de uso",
-      "Protocolos específicos por cultivo"
-    ]
   },
   bordocald: {
     name: "BORDOCALD",
@@ -117,19 +97,6 @@ export const productsData = {
     gradient: "from-fuchsia-400 to-purple-600", 
     icon: "/images/products/bordocald-box.png",
     registro: "SENASA AR #17.245",
-    composicion: {
-      oxicloruroCobre: "35%",
-      hidroxidoCobre: "15%",
-      sulfatoCobre: "8%",
-      cobre: "20%",
-      ph: "8.2",
-      densidad: "1.45 g/cm³"
-    },
-    features: [
-      "Máxima adherencia y poder residual.",
-      "Mayor eficacia con menor cantidad de cobre metálico.",
-      "Certificado para agricultura orgánica."
-    ],
     triplePilar: [
       {
         title: "Tecnología Ultramicronizada",
@@ -151,18 +118,12 @@ export const productsData = {
       cobertura: "Acción preventiva de contacto con alta persistencia y redistribución superficial",
       penetracion: "Liberación controlada de iones de cobre que forman una barrera protectora duradera"
     },
-    cultivos: ["vid", "oliva"],
+    cultivos: ["vid", "olivos"],
     aplicacion: {
       equipos: "pulverizadores terrestres y aéreos, compatible con sistemas de riego",
       compatibilidad: "compatible con la mayoría de fungicidas e insecticidas, evitar mezclas alcalinas",
       intervaloSeguridad: "sin carencia para consumo"
     },
-    documentacion: [
-      "Certificación orgánica ECOCERT",
-      "Certificación OIA",
-      "Ficha técnica completa",
-      "Protocolos para agricultura orgánica"
-    ]
   },
   "trikopper-50": {
     name: "TRIKOPPER 50",
@@ -172,19 +133,6 @@ export const productsData = {
     gradient: "from-green-400 to-emerald-600", 
     icon: "/images/products/trikopper-box.png",
     registro: "SENASA AR #18.156",
-    composicion: {
-      cobreTributico: "50%",
-      cobreElemental: "35%",
-      adherenteSiliconado: "3%",
-      dispersantes: "5%",
-      ph: "7.5",
-      densidad: "2.1 g/cm³"
-    },
-    features: [
-      "Partículas ultrafinas para máxima cobertura",
-      "Alta retención incluso tras lluvias fuertes",
-      "Ideal para cítricos: cancrosis y mancha negra"
-    ],
     triplePilar: [
       {
         title: "Partículas Ultrafinas",
@@ -206,17 +154,11 @@ export const productsData = {
       cobertura: "Acción preventiva y curativa con liberación sostenida de cobre activo",
       penetracion: "Penetración cuticular mejorada y formación de reservorio activo en la superficie foliar"
     },
-    cultivos: ["limon", "naranja", "mandarina", "pomelo"],
+    cultivos: ["citricos"],
     aplicacion: {
       equipos: "equipos de alto volumen recomendados, compatible con aplicaciones mecanizadas",
       compatibilidad: "excelente compatibilidad con aceites e insecticidas, evitar pH extremos",
       intervaloSeguridad: "7 días antes de cosecha"
     },
-    documentacion: [
-      "Protocolo específico para cítricos",
-      "Ficha técnica avanzada",
-      "Estudios de residualidad",
-      "Guía de compatibilidades"
-    ]
   }
 };

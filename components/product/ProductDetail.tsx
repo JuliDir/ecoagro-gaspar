@@ -25,7 +25,6 @@ interface ProductData {
   gradient: string;
   icon: string;
   registro: string;
-  composicion: Record<string, string>;
   triplePilar: Array<{
     title: string;
     description: string;
@@ -41,7 +40,6 @@ interface ProductData {
     compatibilidad: string;
     intervaloSeguridad: string;
   };
-  documentacion: string[];
 }
 
 interface ProductDetailProps {

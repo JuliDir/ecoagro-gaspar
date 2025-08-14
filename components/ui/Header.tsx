@@ -29,7 +29,7 @@ export default function Header() {
     const products = [
         { name: "Fungicidas", href: "/products?category=Fungicidas" },
         { name: "Fertilizantes", href: "/products?category=Fertilizantes" },
-        { name: "Coayugantes", href: "/products?category=Coayugantes" },
+        { name: "Coadyuvantes", href: "/products?category=Coadyuvantes" },
         { name: "Ver todos", href: "/products" },
     ]
 
@@ -38,7 +38,7 @@ export default function Header() {
         { name: "Papa", href: "/crops/papa" },
         { name: "Vid", href: "/crops/vid" },
         { name: "Garbanzo", href: "/crops/garbanzo" },
-        { name: "Limón", href: "/crops/limon" },
+        { name: "Cítricos", href: "/crops/citricos" },
         { name: "Ver todos", href: "/crops" },
     ]
 

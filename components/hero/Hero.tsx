@@ -11,12 +11,11 @@ interface CropSection {
 }
 
 const cropSections: CropSection[] = [
-  { id: 1, name: "Semillas", image: "/images/hero/semillas.jpg" },
+  { id: 1, name: "Legumbres", image: "/images/hero/semillas.jpg" },
   { id: 2, name: "Papas", image: "/images/hero/papas.jpg" },
   { id: 3, name: "Olivos", image: "/images/hero/olivos.jpg" },
   { id: 4, name: "Vid", image: "/images/hero/vid.jpg" },
-  { id: 5, name: "Naranjas", image: "/images/hero/naranjos.jpg" },
-  { id: 6, name: "Limones", image: "/images/hero/limones.jpg" }
+  { id: 5, name: "Cítricos", image: "/images/hero/citricos.jpg" }
 ]
 
 const heroTitles = [
