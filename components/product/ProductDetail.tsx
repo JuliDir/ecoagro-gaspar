@@ -58,65 +58,47 @@ const containerVariants = {
 };
 
 const sectionVariants = {
-  hidden: { opacity: 0, y: 20 }, // Reducido de y: 30 a y: 20
+  hidden: { opacity: 0, y: 20 }, 
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: easeOut } // Reducido de 0.6 a 0.4
+    transition: { duration: 0.4, ease: easeOut } 
   }
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, scale: 0.95 }, // Cambió de 0.9 a 0.95 para menos movimiento
+  hidden: { opacity: 0, scale: 0.95 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.3, ease: easeOut } // Reducido de 0.5 a 0.3
+    transition: { duration: 0.3, ease: easeOut } 
   }
 };
 
-// Variantes optimizadas para cultivos - Animación más sutil y rápida
 const cropsGridVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.03, // Mucho más rápido
+      staggerChildren: 0.03, 
       delayChildren: 0
     }
   }
 };
 
 const cropItemVariants = {
-  hidden: { opacity: 0, y: 10 }, // Movimiento mínimo
+  hidden: { opacity: 0, y: 10 }, 
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.2,  // Muy rápido
+      duration: 0.2,  
       ease: easeOut
     }
   }
 };
 
 export default function ProductDetail({ product }: ProductDetailProps) {
-  // Estado para controlar la carga de imágenes
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
-
-  const handleImageLoad = (index: number) => {
-    setLoadedImages(prev => new Set([...prev, index]));
-  };
-  // Íconos para cada pilar según el producto
-  const getPillarIcon = (index: number, productColor: string) => {
-    const iconMap = {
-      cobrestable: [Shield, Zap, Sprout],
-      bordocald: [Target, Droplets, Award],
-      trikopper: [FlaskConical, Shield, Leaf]
-    };
-
-    const icons = iconMap[productColor as keyof typeof iconMap] || [Shield, Zap, Sprout];
-    return icons[index] || Shield;
-  };
 
   // Mapping de cultivos a sus slugs
   const getCultivoSlug = (cultivo: string): string => {
@@ -171,7 +153,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "limon": "/crops/limon/limon.jpg",
       "mandarina": "/crops/mandarina/mandarina.jpg",
       "pomelo": "/crops/pomelo/pomelo.jpg",
-      "oliva": "/crops/oliva/oliva.jpg"
+      "oliva": "/crops/oliva/oliva.jpg",
+      "cítricos": "/crops/citricos/citricos.jpg"
     };
 
     return imageMap[cultivo.toLowerCase()] || "/images/crops/default.jpg";
@@ -425,14 +408,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-150 flex items-center justify-center">
                         <ArrowRight className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
                       </div>
-
-                      {/* Anillo de color del producto - solo visible cuando la imagen está cargada */}
-                      {loadedImages.has(index) && (
-                        <div
-                          className="absolute inset-0 rounded-full border-2 opacity-0 group-hover:opacity-100 transition-opacity duration-150"
-                          style={{ borderColor: product.cssColor }}
-                        ></div>
-                      )}
                     </div>
 
                     {/* Nombre del cultivo */}

@@ -154,7 +154,7 @@ export const productsData = {
       cobertura: "Acción preventiva y curativa con liberación sostenida de cobre activo",
       penetracion: "Penetración cuticular mejorada y formación de reservorio activo en la superficie foliar"
     },
-    cultivos: ["citricos"],
+    cultivos: ["cítricos"],
     aplicacion: {
       equipos: "equipos de alto volumen recomendados, compatible con aplicaciones mecanizadas",
       compatibilidad: "excelente compatibilidad con aceites e insecticidas, evitar pH extremos",
