@@ -15,7 +15,8 @@ import {
     DollarSign,
     Clock,
     Wind,
-    Thermometer
+    Thermometer,
+    FileText
 } from "lucide-react";
 import { CultivoData } from "@/lib/types/Crop";
 import ProductCard from "../product/ProductCard";
@@ -127,15 +128,24 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                             />
                         </div>
 
-                        {/* Botón de descarga del PDF */}
-                        <div className="flex justify-center mt-14">
+                        {/* Botones de descarga */}
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-14">
                             <a
                                 href={`/crops/mani/MANÍ.pdf`}
                                 download
                                 className="inline-flex items-center gap-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl"
                             >
                                 <Download className="w-5 h-5" />
-                                Descargar Protocolo Completo (PDF)
+                                Descargar Protocolo
+                            </a>
+                            
+                            <a
+                                href={`/crops/mani/hoja-seguridad-${cultivo.name.toLowerCase()}.pdf`}
+                                download
+                                className="inline-flex items-center gap-3 bg-secondary-600 hover:bg-secondary-700 text-primary px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl border-2 border-secondary-500"
+                            >
+                                <FileText className="w-5 h-5" />
+                                Descargar hoja de seguridad
                             </a>
                         </div>
                     </motion.div>
@@ -159,7 +169,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                             Objetivos del Programa
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Beneficios específicos del uso de productos EcoAgro en {cultivo.name}
+                            Beneficios específicos del uso de productos en {cultivo.name}
                         </p>
                     </motion.div>
 
@@ -185,60 +195,6 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
 
             <CTA />
 
-            {/* 
-            <motion.section
-                className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 text-white"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={containerVariants}
-            >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <motion.div
-                        className="text-center mb-16"
-                        variants={sectionVariants}
-                    >
-                        <h2 className="text-4xl font-bold mb-4 font-avenir-cyr-heavy">Resultados comprobados</h2>
-                        <p className="text-xl text-white/90 max-w-3xl mx-auto">
-                            Beneficios económicos del programa EcoAgro en {cultivo.name}
-                        </p>
-                    </motion.div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <motion.div
-                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
-                            variants={cardVariants}
-                            whileHover={{ scale: 1.05 }}
-                        >
-                            <TrendingUp className="w-12 h-12 mx-auto mb-4 text-primary-300" />
-                            <h3 className="text-2xl font-bold mb-2">Incremento de Rendimiento</h3>
-                            <p className="text-3xl font-bold text-primary-300">{cultivo.beneficiosEconomicos.incrementoRendimiento}</p>
-                        </motion.div>
-
-                        <motion.div
-                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
-                            variants={cardVariants}
-                            whileHover={{ scale: 1.05 }}
-                        >
-                            <Shield className="w-12 h-12 mx-auto mb-4 text-primary-300" />
-                            <h3 className="text-2xl font-bold mb-2">Reducción de Pérdidas</h3>
-                            <p className="text-3xl font-bold text-primary-300">{cultivo.beneficiosEconomicos.reduccionPerdidas}</p>
-                        </motion.div>
-
-                        <motion.div
-                            className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
-                            variants={cardVariants}
-                            whileHover={{ scale: 1.05 }}
-                        >
-                            <DollarSign className="w-12 h-12 mx-auto mb-4 text-primary-300" />
-                            <h3 className="text-2xl font-bold mb-2">Retorno de Inversión</h3>
-                            <p className="text-3xl font-bold text-primary-300">{cultivo.beneficiosEconomicos.roi}</p>
-                        </motion.div>
-                    </div>
-                </div>
-            </motion.section>
-            Beneficios Económicos y Resultados */}
-
             {/* Productos Recomendados */}
             <motion.section
                 className="py-20 bg-gray-50"
@@ -256,7 +212,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                             Productos Recomendados
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Soluciones EcoAgro específicas para el manejo óptimo del cultivo
+                            Soluciones específicas para el manejo óptimo del cultivo
                         </p>
                     </motion.div>
 
@@ -272,7 +228,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 </div>
             </motion.section>
 
-            {/* CTA Final - Unificada con CropDetail y AllCrops */}
+            {/* CTA Final */}
             <motion.section
                 className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 text-white"
                 initial="hidden"
