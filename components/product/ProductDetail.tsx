@@ -5,14 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
-  Leaf,
   Shield,
-  Zap,
   Target,
-  FlaskConical,
-  Sprout,
   Award,
-  Droplets,
   ArrowRight
 } from "lucide-react";
 import TriangleTripleAction from "./TriangleTripleAction";
