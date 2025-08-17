@@ -89,7 +89,7 @@ export default function Footer() {
                         <h3 className="text-lg font-semibold text-primary-600">Nosotros</h3>
                         <div className="text-sm">
                             <Link href="/#nosotros" className="text-gray-600 hover:text-primary-600 transition-colors">
-                                Acerca de nosotros
+                                Nosotros
                             </Link>
                         </div>
                     </div>

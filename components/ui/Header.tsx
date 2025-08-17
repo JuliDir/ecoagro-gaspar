@@ -30,7 +30,6 @@ export default function Header() {
         { name: "Fungicidas", href: "/products?category=Fungicidas" },
         { name: "Fertilizantes", href: "/products?category=Fertilizantes" },
         { name: "Coadyuvantes", href: "/products?category=Coadyuvantes" },
-        { name: "Ver todos", href: "/products" },
     ]
 
     const crops = [
@@ -56,8 +55,6 @@ export default function Header() {
             name: "Cultivos",
             href: "/crops",
             id: "cultivos",
-            hasDropdown: true,
-            dropdownType: "crops"
         },
         { name: "Testimonios", href: "/testimonials", id: "testimonials" },
         { name: "FAQs", href: "/faqs", id: "faqs" },

@@ -52,7 +52,7 @@ export default function AboutUs() {
             {/* Contenido textual */}
             <motion.div variants={sectionVariants}>
               <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
-                Acerca de nosotros
+                Nosotros
               </h2>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 En Ecoagro Gaspar, nos dedicamos a desarrollar productos derivados del cobre
@@ -234,7 +234,6 @@ export default function AboutUs() {
       </motion.section>
 
       {/* Stats con padding */}
-      <Stats />
 
       {/* Nuestro Equipo con QR */}
       <motion.section
