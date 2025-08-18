@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Leaf, Handshake, Users, Award } from "lucide-react";
 import Stats from "../testimonials/Stats";
 import TeamMembers from "./TeamMembers";
+import Separator from "../ui/Separator";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -47,7 +48,7 @@ export default function AboutUs() {
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-32">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Contenido textual */}
             <motion.div variants={sectionVariants}>
@@ -95,7 +96,7 @@ export default function AboutUs() {
         viewport={{ once: true, amount: 0.05, margin: "0px 0px -30px 0px" }}
         variants={containerVariants}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-32">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Imagen */}
             <motion.div
@@ -141,7 +142,7 @@ export default function AboutUs() {
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-32">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Contenido textual */}
             <motion.div variants={sectionVariants}>
@@ -176,15 +177,17 @@ export default function AboutUs() {
         </div>
       </motion.section>
 
-      {/* Valores con imágenes */}
+      {/* Separator */}
+      <Separator />
+
       <motion.section
-        className="py-20 bg-gray-50"
+        className="py-20 bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-32">
           <motion.div
             className="text-center mb-16"
             variants={sectionVariants}
@@ -243,7 +246,7 @@ export default function AboutUs() {
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-32">
           <motion.div
             className="text-center mb-16"
             variants={sectionVariants}
@@ -258,6 +261,28 @@ export default function AboutUs() {
         </div>
       </motion.section>
 
+      <div className="w-full overflow-hidden">
+        <svg className="w-full h-24 md:h-32" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">
+          {/* Primera fila de ondas - verde claro */}
+          <path
+            d="M0,60 Q150,45 300,50 T600,65 Q750,70 900,55 T1200,60 L1200,120 L0,120 Z"
+            fill="#7cb342"
+            className="opacity-90"
+          />
+          {/* Segunda fila de ondas - verde medio */}
+          <path
+            d="M0,75 Q100,60 200,65 Q350,70 500,75 Q650,80 800,70 Q950,60 1200,75 L1200,120 L0,120 Z"
+            fill="#4a7c59"
+            className="opacity-80"
+          />
+          {/* Tercera fila de ondas - verde oscuro */}
+          <path
+            d="M0,90 Q75,80 150,85 Q300,90 450,95 Q600,100 750,90 Q900,80 1200,90 L1200,120 L0,120 Z"
+            fill="#164A37"
+          />
+        </svg>
+      </div>
+
       {/* Historia y Experiencia */}
       <motion.section
         className="pt-20 pb-26 bg-primary-800 text-white"
@@ -266,7 +291,7 @@ export default function AboutUs() {
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto px-4 sm:px-6 lg:px-32">
           <motion.div
             className="text-center mb-10"
             variants={sectionVariants}
@@ -315,6 +340,27 @@ export default function AboutUs() {
           </div>
         </div>
       </motion.section>
+      <div className="w-full overflow-hidden bg-[#28292D]">
+        <svg className="w-full h-24 md:h-32 rotate-180" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">
+          {/* Primera fila de ondas - verde claro */}
+          <path
+            d="M0,60 Q150,45 300,50 T600,65 Q750,70 900,55 T1200,60 L1200,120 L0,120 Z"
+            fill="#7cb342"
+            className="opacity-90"
+          />
+          {/* Segunda fila de ondas - verde medio */}
+          <path
+            d="M0,75 Q100,60 200,65 Q350,70 500,75 Q650,80 800,70 Q950,60 1200,75 L1200,120 L0,120 Z"
+            fill="#4a7c59"
+            className="opacity-100"
+          />
+          {/* Tercera fila de ondas - verde oscuro */}
+          <path
+            d="M0,90 Q75,80 150,85 Q300,90 450,95 Q600,100 750,90 Q900,80 1200,90 L1200,120 L0,120 Z"
+            fill="#164A37"
+          />
+        </svg>
+      </div>
     </div>
   );
 }

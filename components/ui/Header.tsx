@@ -288,13 +288,13 @@ export default function Header() {
             className={cn(
                 "w-full fixed top-0 z-50 py-1",
                 scrolledPastHero
-                    ? "bg-white shadow-lg border-b border-gray-100 text-gray-800"
-                    : "bg-white/95 backdrop-blur-sm text-gray-800",
+                    ? "bg-white shadow-lg text-gray-800"
+                    : "bg-white text-gray-800",
                 "transition-all duration-500 ease-in-out"
             )}
         >
             {/* Container con margen fijo que se adapta */}
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto px-4 sm:px-6 lg:px-32">
                 <div className="flex items-center justify-between">
                     <Link className="relative h-16 w-48 sm:h-20 sm:w-60" href="/">
                         <Image src="/images/logo.png" alt="Ecoagro Gaspar Logo" fill className="object-contain" />

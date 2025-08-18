@@ -4,18 +4,15 @@ import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Search, Leaf } from "lucide-react";
+import { Leaf } from "lucide-react";
 import { allCrops } from "@/lib/data/crops";
-import SectionHero from "../ui/SectionHero";
-
-const categories = ["Todos", "Leguminosas", "Cítricos", "Frutales", "Tubérculos", "Oleaginosas"];
 
 const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.15, // Aumentado para mejor efecto escalonado
+            staggerChildren: 0.15, 
             delayChildren: 0.2
         }
     }
@@ -35,24 +32,6 @@ const cardVariants = {
             duration: 0.6,
             ease: easeOut
         }
-    }
-};
-
-const sectionVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.6, ease: easeOut }
-    }
-};
-
-const filterVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-        opacity: 1,
-        x: 0,
-        transition: { duration: 0.5, ease: easeOut }
     }
 };
 
@@ -108,72 +87,7 @@ export default function AllCropsSection() {
     }, [searchTerm, selectedCategory]);
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Hero Section */}
-            <SectionHero
-                title={{
-                    primary: "Todos los",
-                    secondary: "cultivos"
-                }}
-                subtitle="Explora nuestra amplia gama de cultivos especializados y soluciones nutricionales personalizadas para tu producción agrícola."
-            />
-
-            {/* Filtros y búsqueda */}
-            <motion.section
-                className="py-8 bg-white border-b border-gray-200"
-                initial="hidden"
-                animate="visible"
-                variants={containerVariants}
-            >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
-                        {/* Barra de búsqueda */}
-                        <motion.div
-                            className="relative flex-1 max-w-md"
-                            variants={filterVariants}
-                        >
-                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                            <input
-                                type="text"
-                                placeholder="Buscar cultivos..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                            />
-                        </motion.div>
-
-                        {/* Filtros de categoría */}
-                        <motion.div
-                            className="flex flex-wrap gap-2"
-                            variants={filterVariants}
-                        >
-                            {categories.map((category) => (
-                                <button
-                                    key={category}
-                                    onClick={() => setSelectedCategory(category)}
-                                    className={`cursor-pointer px-4 py-2 rounded-full font-medium transition-colors ${selectedCategory === category
-                                        ? "bg-primary-600 text-white"
-                                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                                        }`}
-                                >
-                                    {category}
-                                </button>
-                            ))}
-                        </motion.div>
-                    </div>
-
-                    {/* Contador de resultados */}
-                    <motion.div
-                        className="mt-4 text-gray-600"
-                        variants={filterVariants}
-                    >
-                        {filteredCrops.length === allCrops.length
-                            ? `Mostrando todos los cultivos (${allCrops.length})`
-                            : `Mostrando ${filteredCrops.length} de ${allCrops.length} cultivos`
-                        }
-                    </motion.div>
-                </div>
-            </motion.section>
+        <div className="min-h-screen bg-gray-50 pt-15">
 
             {/* Grid de cultivos */}
             <motion.section
@@ -183,10 +97,10 @@ export default function AllCropsSection() {
                 animate={hasAnimated ? "visible" : "hidden"}
                 variants={containerVariants}
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto px-4 sm:px-6 lg:px-10">
                     {filteredCrops.length > 0 ? (
                         <motion.div 
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
                             variants={containerVariants}
                         >
                             {filteredCrops.map((crop, index) => (

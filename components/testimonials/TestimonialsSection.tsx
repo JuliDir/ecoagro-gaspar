@@ -74,17 +74,9 @@ export default function TestimonialsSection() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Hero Section */}
-            <SectionHero
-                title={{
-                    primary: "Nuestros",
-                    secondary: "testimonios"
-                }}
-                subtitle="Descubre las experiencias reales de productores que confían en nuestras soluciones para proteger y potenciar sus cultivos."
-            />
+        <div className="min-h-screen bg-gray-50 pt-15">
 
-            {/* Testimonios destacados con estadísticas */}
+            {/* Video testimonial principal */}
             <motion.section
                 className="py-20 bg-white"
                 initial="hidden"
@@ -93,48 +85,6 @@ export default function TestimonialsSection() {
                 variants={containerVariants}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    {/* Estadísticas rápidas */}
-                    <motion.div
-                        className="grid md:grid-cols-3 gap-8 mb-20"
-                        variants={sectionVariants}
-                    >
-                        {[
-                            {
-                                icon: Users,
-                                number: "500+",
-                                label: "Clientes Satisfechos",
-                                description: "Productores que confían en nosotros"
-                            },
-                            {
-                                icon: Award,
-                                number: "98%",
-                                label: "Satisfacción del Cliente",
-                                description: "Índice de recomendación"
-                            },
-                            {
-                                icon: TrendingUp,
-                                number: "25%",
-                                label: "Incremento Promedio",
-                                description: "En rendimiento de cultivos"
-                            }
-                        ].map((stat, index) => (
-                            <motion.div
-                                key={index}
-                                className="bg-gradient-to-br from-primary-50 to-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 border border-primary-100"
-                                variants={cardVariants}
-                                whileHover={{ y: -5 }}
-                            >
-                                <div className="w-16 h-16 bg-primary-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-                                    <stat.icon className="w-8 h-8 text-white" />
-                                </div>
-                                <div className="text-3xl font-bold text-primary-600 mb-2">{stat.number}</div>
-                                <h3 className="text-xl font-semibold text-gray-800 mb-2">{stat.label}</h3>
-                                <p className="text-gray-600">{stat.description}</p>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-
-                    {/* Video testimonial principal */}
                     <motion.div
                         className="grid lg:grid-cols-2 gap-16 items-center"
                         variants={sectionVariants}
@@ -285,9 +235,60 @@ export default function TestimonialsSection() {
                 </div>
             </motion.section>
 
-            {/* Todos los testimonios en grid */}
+            {/* Estadísticas rápidas - Movidas aquí */}
             <motion.section
                 className="py-20 bg-gray-50"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={containerVariants}
+            >
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        className="grid md:grid-cols-3 gap-8"
+                        variants={sectionVariants}
+                    >
+                        {[
+                            {
+                                icon: Users,
+                                number: "500+",
+                                label: "Clientes Satisfechos",
+                                description: "Productores que confían en nosotros"
+                            },
+                            {
+                                icon: Award,
+                                number: "98%",
+                                label: "Satisfacción del Cliente",
+                                description: "Índice de recomendación"
+                            },
+                            {
+                                icon: TrendingUp,
+                                number: "25%",
+                                label: "Incremento Promedio",
+                                description: "En rendimiento de cultivos"
+                            }
+                        ].map((stat, index) => (
+                            <motion.div
+                                key={index}
+                                className="bg-gradient-to-br from-primary-50 to-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 border border-primary-100"
+                                variants={cardVariants}
+                                whileHover={{ y: -5 }}
+                            >
+                                <div className="w-16 h-16 bg-primary-600 rounded-xl flex items-center justify-center mx-auto mb-6">
+                                    <stat.icon className="w-8 h-8 text-white" />
+                                </div>
+                                <div className="text-3xl font-bold text-primary-600 mb-2">{stat.number}</div>
+                                <h3 className="text-xl font-semibold text-gray-800 mb-2">{stat.label}</h3>
+                                <p className="text-gray-600">{stat.description}</p>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+            </motion.section>
+
+            {/* Todos los testimonios en grid */}
+            <motion.section
+                className="py-20 bg-white"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
