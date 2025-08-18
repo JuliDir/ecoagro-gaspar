@@ -1,6 +1,6 @@
 export default function Separator() {
     return (
-        <div className="relative w-full">
+        <div className="relative w-full bg-white">
             {/* Ondas superiores */}
             <div className="w-full overflow-hidden">
                 <svg className="w-full h-24 md:h-32" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">

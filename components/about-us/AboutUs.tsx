@@ -4,7 +4,6 @@ import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import { Leaf, Handshake, Users, Award } from "lucide-react";
 import TeamMembers from "./TeamMembers";
-import Separator from "../ui/Separator";
 import RootSeparator from "../ui/RootSeparator";
 
 // Variantes optimizadas con menor delay y duraciones más cortas
@@ -194,12 +193,10 @@ export default function AboutUs() {
         </div>
       </motion.section>
 
-      {/* Separator */}
-      <RootSeparator />
 
       {/* Valores - Optimizado con animaciones más ligeras */}
       <motion.section
-        className="py-20 bg-white"
+        className="pb-20 pt-10 bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={optimizedViewport}
@@ -257,7 +254,7 @@ export default function AboutUs() {
         </div>
       </motion.section>
 
-      <Separator />
+      <RootSeparator />
 
       {/* Nuestro Equipo con QR - Sin animaciones complejas para mejor performance */}
       <motion.section
@@ -272,7 +269,7 @@ export default function AboutUs() {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary mb-4">Nuestro Equipo</h2>
+            <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary mb-4">Nuestro equipo</h2>
             <p className="text-xl text-gray-600">
               Liderazgo comprometido con la excelencia y la sustentabilidad
             </p>

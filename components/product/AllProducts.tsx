@@ -1,15 +1,9 @@
 "use client"
 
-import { easeOut, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import Link from "next/link"
-import { useState, useEffect } from "react"
-import { FlaskConical } from "lucide-react"
 import { products } from "@/lib/data/products"
-import { useSearchParams } from "next/navigation"
 import ProductCard from "./ProductCard"
-
-
-const categories = ["Todos", "Fungicidas", "Fertilizantes", "Coadyuvantes"]
 
 // Variantes optimizadas
 const containerVariants = {
@@ -23,15 +17,6 @@ const containerVariants = {
     },
 }
 
-const sectionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.4, ease: easeOut }
-    }
-}
-
 // Viewport optimizado para mejor detección
 const optimizedViewport = { 
     once: true, 
@@ -40,73 +25,24 @@ const optimizedViewport = {
 }
 
 export default function AllProducts() {
-    const searchParams = useSearchParams()
-    const [searchTerm, setSearchTerm] = useState("")
-    const [selectedCategory, setSelectedCategory] = useState("Todos")
-
-    // Efecto para establecer la categoría desde los parámetros de URL
-    useEffect(() => {
-        const categoryParam = searchParams.get("category")
-        if (categoryParam && categories.includes(categoryParam)) {
-            setSelectedCategory(categoryParam)
-        }
-    }, [searchParams])
-
-    // Filtrar productos basado en búsqueda y categoría
-    const filteredProducts = products.filter((product) => {
-        const matchesSearch =
-            product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            product.description.toLowerCase().includes(searchTerm.toLowerCase())
-        const matchesCategory = selectedCategory === "Todos" || product.category === selectedCategory
-        return matchesSearch && matchesCategory
-    })
-
     return (
         <div className="min-h-screen pt-15 bg-white">
             {/* Grid de productos */}
             <motion.section 
-                className="py-20 bg-white relative" 
+                className="py-24 bg-white relative" 
                 initial="hidden" 
                 animate="visible" 
                 variants={containerVariants}
             >
                 <div className="mx-auto px-4 sm:px-6 lg:px-32 pb-16">
-                    {filteredProducts.length > 0 ? (
-                        <motion.div 
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" 
-                            variants={containerVariants}
-                        >
-                            {filteredProducts.map((product, index) => (
-                                <ProductCard product={product} index={index} key={product.id} />
-                            ))}
-                        </motion.div>
-                    ) : (
-                        /* Estado sin resultados */
-                        <motion.div
-                            className="text-center py-16"
-                            variants={{
-                                hidden: { opacity: 0, scale: 0.95 },
-                                visible: {
-                                    opacity: 1,
-                                    scale: 1,
-                                    transition: { duration: 0.4, ease: easeOut },
-                                },
-                            }}
-                        >
-                            <FlaskConical className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                            <h3 className="text-xl font-semibold text-gray-600 mb-2">No se encontraron productos</h3>
-                            <p className="text-gray-500 mb-6">Intenta ajustar tu búsqueda o selecciona una categoría diferente.</p>
-                            <button
-                                onClick={() => {
-                                    setSearchTerm("")
-                                    setSelectedCategory("Todos")
-                                }}
-                                className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors"
-                            >
-                                Limpiar filtros
-                            </button>
-                        </motion.div>
-                    )}
+                    <motion.div 
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" 
+                        variants={containerVariants}
+                    >
+                        {products.map((product, index) => (
+                            <ProductCard product={product} index={index} key={product.id} />
+                        ))}
+                    </motion.div>
                 </div>
 
                 {/* Waves separator - bottom */}

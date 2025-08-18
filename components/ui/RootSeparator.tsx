@@ -1,6 +1,6 @@
 export default function RootSeparator() {
   return (
-    <div className="relative w-full h-32 md:h-40 overflow-hidden">
+    <div className="relative w-full h-32 md:h-40 overflow-hidden bg-white">
       <svg className="w-full h-full" viewBox="0 0 1200 200" preserveAspectRatio="none" fill="none">
         {/* Raíz principal - verde claro */}
         <path
