@@ -92,12 +92,12 @@ export default function AllCropsSection() {
             {/* Grid de cultivos */}
             <motion.section
                 className="py-20"
-                key={`${searchTerm}-${selectedCategory}`} // Key para forzar re-render
+                key={`${searchTerm}-${selectedCategory}`} 
                 initial="hidden"
                 animate={hasAnimated ? "visible" : "hidden"}
                 variants={containerVariants}
             >
-                <div className="mx-auto px-4 sm:px-6 lg:px-10">
+                <div className="mx-auto px-4 sm:px-6 lg:px-32">
                     {filteredCrops.length > 0 ? (
                         <motion.div 
                             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"

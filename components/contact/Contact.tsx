@@ -4,33 +4,41 @@ import React, { useState } from 'react';
 import { easeOut, motion } from 'framer-motion';
 import { Phone, Clock, Mail, User, MessageSquare } from 'lucide-react';
 
+// Variantes optimizadas
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.6,
-      staggerChildren: 0.1
+      duration: 0.4, // Reducido de 0.6 a 0.4
+      staggerChildren: 0.08 // Reducido de 0.1 a 0.08
     }
   }
 };
 
 const headerVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 }, // Reducido de y: 30 a y: 20
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: easeOut }
+    transition: { duration: 0.5, ease: easeOut } // Reducido de 0.8 a 0.5
   }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 15 }, // Reducido de y: 20 a y: 15
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: easeOut }
+    transition: { duration: 0.4, ease: easeOut } // Reducido de 0.6 a 0.4
   }
+};
+
+// Viewport optimizado
+const optimizedViewport = {
+  once: true,
+  amount: 0.05, // Muy bajo para activación temprana
+  margin: "0px 0px -100px 0px" // Pre-activación
 };
 
 export default function Contact() {
@@ -50,59 +58,38 @@ export default function Contact() {
   };
 
   return (
-    <motion.section
+    <section
       className="w-full pb-20 pt-10"
       style={{ backgroundColor: '#28292d' }}
       id="contacto"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: true,
-        amount: 0.1,
-      }}
-      variants={containerVariants}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Header - Animado individualmente */}
         <motion.div
           className="text-center mb-16"
           variants={headerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={optimizedViewport}
         >
-          <motion.h2
-            className="text-4xl font-avenir-cyr-heavy mb-4 text-primary-500"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.6, ease: easeOut }
-              }
-            }}
-          >
+          <h2 className="text-4xl font-avenir-cyr-heavy mb-4 text-primary-500">
             CONTACTO
-          </motion.h2>
-          <motion.p
-            className="text-lg text-gray-300 max-w-2xl mx-auto"
-            variants={{
-              hidden: { opacity: 0, y: 15 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.6, delay: 0.2, ease: easeOut }
-              }
-            }}
-          >
+          </h2>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Estamos aquí para ayudarte. Contáctanos para cualquier consulta sobre
             nuestros servicios y productos.
-          </motion.p>
+          </p>
         </motion.div>
 
-        {/* Content Grid - Ahora más centrado */}
+        {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Contact Information */}
+          {/* Contact Information - Animado individualmente */}
           <motion.div
             className="space-y-8"
-            variants={itemVariants}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={optimizedViewport}
           >
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10">
               <h3 className="text-2xl font-semibold text-white mb-6">
@@ -169,10 +156,13 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form - Animado individualmente */}
           <motion.div
             className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
-            variants={itemVariants}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={optimizedViewport}
           >
             <h3 className="text-2xl font-semibold text-white mb-6">
               Envíanos un Mensaje
@@ -293,6 +283,6 @@ export default function Contact() {
           </motion.div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

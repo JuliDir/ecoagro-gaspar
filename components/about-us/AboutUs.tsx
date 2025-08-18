@@ -3,37 +3,54 @@
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import { Leaf, Handshake, Users, Award } from "lucide-react";
-import Stats from "../testimonials/Stats";
 import TeamMembers from "./TeamMembers";
 import Separator from "../ui/Separator";
+import RootSeparator from "../ui/RootSeparator";
 
+// Variantes optimizadas con menor delay y duraciones más cortas
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1
+      staggerChildren: 0.1, // Reducido de 0.2 a 0.1
+      delayChildren: 0.05   // Reducido de 0.1 a 0.05
     }
   }
 };
 
 const sectionVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 }, // Reducido de y: 30 a y: 20
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: easeOut }
+    transition: { duration: 0.4, ease: easeOut } // Reducido de 0.6 a 0.4
   }
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.95 }, // Reducido de scale: 0.9 a 0.95
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5, ease: easeOut }
+    transition: { duration: 0.3, ease: easeOut } // Reducido de 0.5 a 0.3
   }
+};
+
+// Variantes específicas para imágenes con less intensive animations
+const imageVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.4, ease: easeOut }
+  }
+};
+
+// Viewport optimizado para mejor performance
+const optimizedViewport = { 
+  once: true, 
+  amount: 0.1, // Reducido de 0.2 a 0.1 para activación más temprana
+  margin: "0px 0px -50px 0px" // Margen para activar antes
 };
 
 export default function AboutUs() {
@@ -45,7 +62,7 @@ export default function AboutUs() {
         id="nosotros"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={optimizedViewport}
         variants={containerVariants}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-32">
@@ -71,7 +88,7 @@ export default function AboutUs() {
             {/* Imagen institucional */}
             <motion.div
               className="relative"
-              variants={sectionVariants}
+              variants={imageVariants}
             >
               <div className="relative h-96 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl overflow-hidden shadow-lg">
                 <Image
@@ -93,7 +110,7 @@ export default function AboutUs() {
       <motion.section
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.05, margin: "0px 0px -30px 0px" }}
+        viewport={optimizedViewport}
         variants={containerVariants}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-32">
@@ -101,7 +118,7 @@ export default function AboutUs() {
             {/* Imagen */}
             <motion.div
               className="relative order-2 md:order-1"
-              variants={sectionVariants}
+              variants={imageVariants}
             >
               <div className="relative h-96 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl overflow-hidden shadow-lg">
                 <Image
@@ -139,7 +156,7 @@ export default function AboutUs() {
         className="py-20 bg-white"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={optimizedViewport}
         variants={containerVariants}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-32">
@@ -159,7 +176,7 @@ export default function AboutUs() {
             {/* Imagen */}
             <motion.div
               className="relative"
-              variants={sectionVariants}
+              variants={imageVariants}
             >
               <div className="relative h-96 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl overflow-hidden shadow-lg">
                 <Image
@@ -178,13 +195,14 @@ export default function AboutUs() {
       </motion.section>
 
       {/* Separator */}
-      <Separator />
+      <RootSeparator />
 
+      {/* Valores - Optimizado con animaciones más ligeras */}
       <motion.section
         className="py-20 bg-white"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={optimizedViewport}
         variants={containerVariants}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-32">
@@ -223,7 +241,10 @@ export default function AboutUs() {
                 key={index}
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
                 variants={cardVariants}
-                whileHover={{ y: -5 }}
+                whileHover={{ 
+                  y: -3, // Reducido de -5 a -3
+                  transition: { duration: 0.2 } // Más rápido
+                }}
               >
                 <div className={`w-16 h-16 ${value.color} rounded-xl flex items-center justify-center mb-6 mx-auto`}>
                   <value.icon className="w-8 h-8 text-white" />
@@ -236,14 +257,14 @@ export default function AboutUs() {
         </div>
       </motion.section>
 
-      {/* Stats con padding */}
+      <Separator />
 
-      {/* Nuestro Equipo con QR */}
+      {/* Nuestro Equipo con QR - Sin animaciones complejas para mejor performance */}
       <motion.section
         className="py-20 bg-white"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={optimizedViewport}
         variants={containerVariants}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-32">
@@ -261,6 +282,7 @@ export default function AboutUs() {
         </div>
       </motion.section>
 
+      {/* Waves separator optimizado - Sin animaciones complejas */}
       <div className="w-full overflow-hidden">
         <svg className="w-full h-24 md:h-32" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">
           {/* Primera fila de ondas - verde claro */}
@@ -283,12 +305,12 @@ export default function AboutUs() {
         </svg>
       </div>
 
-      {/* Historia y Experiencia */}
+      {/* Historia y Experiencia - Animaciones optimizadas */}
       <motion.section
         className="pt-20 pb-26 bg-primary-800 text-white"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={optimizedViewport}
         variants={containerVariants}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-32">
@@ -340,6 +362,8 @@ export default function AboutUs() {
           </div>
         </div>
       </motion.section>
+      
+      {/* Bottom waves separator - Simplificado */}
       <div className="w-full overflow-hidden bg-[#28292D]">
         <svg className="w-full h-24 md:h-32 rotate-180" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">
           {/* Primera fila de ondas - verde claro */}
