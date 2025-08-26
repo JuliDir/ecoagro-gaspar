@@ -147,25 +147,7 @@ export default function AllCropsSection() {
                                                 </>
                                             )}
                                         </div>
-                                        {/* Categoría - Siempre visible arriba */}
-                                        <div className="absolute top-4 left-4 z-10">
-                                            <span className="inline-block bg-primary-600/90 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full font-medium border border-white/20">
-                                                {crop.category}
-                                            </span>
-                                        </div>
-
-                                        {/* Ícono central - Por defecto */}
-                                        <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                                            hoveredCard === index ? 'opacity-0' : 'opacity-100'
-                                        }`}>
-                                            <Image
-                                                src={`/icons/${crop.iconFilename}`}
-                                                alt={`${crop.name} icon`}
-                                                width={100}
-                                                height={100}
-                                                className="brightness-0 invert"
-                                            />
-                                        </div>
+                                        
 
                                         {/* Contenido en hover */}
                                         <motion.div
@@ -298,25 +280,7 @@ export default function AllCropsSection() {
                 </div>
             </section>
 
-            {/* Bottom waves separator */}
-            <div className="w-full overflow-hidden bg-white">
-                <svg className="w-full h-24 md:h-32 rotate-180" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">
-                    <path
-                        d="M0,60 Q150,45 300,50 T600,65 Q750,70 900,55 T1200,60 L1200,120 L0,120 Z"
-                        fill="#7cb342"
-                        className="opacity-90"
-                    />
-                    <path
-                        d="M0,75 Q100,60 200,65 Q350,70 500,75 Q650,80 800,70 Q950,60 1200,75 L1200,120 L0,120 Z"
-                        fill="#4a7c59"
-                        className="opacity-100"
-                    />
-                    <path
-                        d="M0,90 Q75,80 150,85 Q300,90 450,95 Q600,100 750,90 Q900,80 1200,90 L1200,120 L0,120 Z"
-                        fill="#164A37"
-                    />
-                </svg>
-            </div>
+            
         </div>
     );
 }

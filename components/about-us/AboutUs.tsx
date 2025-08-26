@@ -207,7 +207,7 @@ export default function AboutUs() {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary mb-4">Nuestros valores</h2>
+            <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary mb-4">Nuestros Valores</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Aplicación de ciencia e innovación con compromiso, transparencia y sustentabilidad
             </p>
@@ -269,7 +269,7 @@ export default function AboutUs() {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary mb-4">Nuestro equipo</h2>
+            <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary mb-4">Nuestro Equipo</h2>
             <p className="text-xl text-gray-600">
               Liderazgo comprometido con la excelencia y la sustentabilidad
             </p>

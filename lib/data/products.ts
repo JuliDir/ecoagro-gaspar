@@ -60,7 +60,7 @@ export const productsData = {
     cssColor: "#0098da", 
     gradient: "from-sky-400 to-blue-600", 
     icon: "/images/products/cobrestable-box.png",
-    registro: "SENASA AR #16.899",
+    registro: "SENASA AR #34.300",
     triplePilar: [
       {
         title: "Sinergia con fungicidas",
@@ -96,7 +96,7 @@ export const productsData = {
     cssColor: "#9a3388",
     gradient: "from-fuchsia-400 to-purple-600", 
     icon: "/images/products/bordocald-box.png",
-    registro: "SENASA AR #17.245",
+    registro: "SENASA AR #35.924",
     triplePilar: [
       {
         title: "Tecnología Ultramicronizada",
@@ -132,7 +132,7 @@ export const productsData = {
     cssColor: "#00a859", 
     gradient: "from-green-400 to-emerald-600", 
     icon: "/images/products/trikopper-box.png",
-    registro: "SENASA AR #18.156",
+    registro: "SENASA AR #36.079",
     triplePilar: [
       {
         title: "Partículas Ultrafinas",

@@ -666,8 +666,8 @@ export const allCrops = [
     scientificName: "Olea europaea",
     description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
     iconFilename: "olive.svg",
-    backgroundImage: "/crops/oliva/oliva.jpg",
-    slug: "oliva",
+    backgroundImage: "/crops/olivos/olivos.jpg",
+    slug: "olivos",
     category: "Frutales"
   }
 ];

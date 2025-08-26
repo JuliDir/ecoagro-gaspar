@@ -8,7 +8,9 @@ import {
   Shield,
   Target,
   Award,
-  ArrowRight
+  ArrowRight,
+  BarChart3,
+  Droplets
 } from "lucide-react";
 import TriangleTripleAction from "./TriangleTripleAction";
 import RootSeparator from "../ui/RootSeparator";
@@ -97,8 +99,8 @@ const cropItemVariants = {
 // Viewport optimizado para mejor detección
 const optimizedViewport = { 
   once: true, 
-  amount: 0.05, // Muy bajo para activación temprana
-  margin: "0px 0px -100px 0px" // Margen grande para pre-activación
+  amount: 0.05,
+  margin: "0px 0px -100px 0px"
 }
 
 export default function ProductDetail({ product }: ProductDetailProps) {
@@ -174,19 +176,40 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     return logoMap[productName] || "/images/products/default-logo.jpeg";
   };
 
+  // Mapping de gráficos de retención por producto - ACTUALIZADO para dos gráficos
+  const getRetentionCharts = (productName: string): { particleSize: string; precipitation: string } => {
+    const chartMap: { [key: string]: { particleSize: string; precipitation: string } } = {
+      "TRIKOPPER 50": {
+        particleSize: "/images/products/trikopper-retencion-particula.jpeg",
+        precipitation: "/images/products/trikopper-retencion-precipitacion.jpeg"
+      },
+      "BORDOCALD": {
+        particleSize: "/images/products/bordocald-retencion-particula.jpeg",
+        precipitation: "/images/products/bordocald-retencion-precipitacion.jpg"
+      },
+      "COBRESTABLE": {
+        particleSize: "",
+        precipitation: ""
+      }
+    };
+
+    return chartMap[productName] || { particleSize: "", precipitation: "" };
+  };
+
   // Función para crear gradiente basado en el color del producto
   const getCardGradient = (index: number): string => {
-    // Extraer el valor hex del color
     const baseColor = product.cssColor;
     
     if (index === 0) {
-      // Primera card - gradiente más fuerte hacia el blanco
       return `linear-gradient(135deg, ${baseColor}25 0%, ${baseColor}15 50%, ${baseColor}05 100%)`;
     } else {
-      // Segunda card - gradiente complementario más fuerte
       return `linear-gradient(135deg, ${baseColor}05 0%, ${baseColor}15 50%, ${baseColor}25 100%)`;
     }
   };
+
+  // Obtener los gráficos de retención
+  const retentionCharts = getRetentionCharts(product.name);
+  const hasRetentionCharts = retentionCharts.particleSize || retentionCharts.precipitation;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -197,13 +220,11 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         animate="visible"
         variants={containerVariants}
       >
-        {/* Background decorations - variadas por producto */}
-        {/* Background decorations - iguales a SectionHero */}
+        {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full"></div>
           <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-white/5 rounded-full"></div>
 
-          {/* Íconos base */}
           <Image
             src="/icons/wheat.svg"
             alt=""
@@ -250,9 +271,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
         <div className="relative pt-5 z-10 mx-auto px-4 sm:px-6 lg:px-32">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Contenido de texto */}
             <motion.div variants={sectionVariants}>
-              {/* Logo del producto */}
               <motion.div
                 className="mb-8"
                 variants={sectionVariants}
@@ -281,7 +300,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               </motion.div>
             </motion.div>
 
-            {/* Imagen del producto */}
             <motion.div
               className="relative flex items-center justify-center"
               variants={sectionVariants}
@@ -301,17 +319,17 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       </motion.section>
 
       <TriangleTripleAction
-        items={product.triplePilar.map((pilar, index) => ({
+        items={product.triplePilar.map((pilar) => ({
           title: pilar.title,
           description: pilar.description,
           details: pilar.details,
         }))}
         color={product.cssColor}
-        heading="Triple pilar de acción"
+        heading="Tres Pilares de Protección"
         subheading="Tecnología avanzada que combina tres mecanismos de acción para máxima efectividad"
       />
 
-       {/* Modo de Acción - CON GRADIENTES MÁS FUERTES */}
+      {/* Modo de Acción */}
       <motion.section
         className="pb-20 pt-10 bg-white"
         initial="hidden"
@@ -324,7 +342,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ color: product.cssColor }}>Modo de acción</h2>
+            <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ color: product.cssColor }}>Modo de Acción</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Mecanismo de protección integral para tus cultivos
             </p>
@@ -336,13 +354,11 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group" 
                 style={{ borderColor: product.cssColor }}
               >
-                {/* Gradiente de fondo más fuerte */}
                 <div 
                   className="absolute inset-0 opacity-70 group-hover:opacity-90 transition-opacity duration-300"
                   style={{ background: getCardGradient(0) }}
                 ></div>
                 
-                {/* Contenido */}
                 <div className="relative z-10">
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 shadow-lg" style={{ backgroundColor: product.cssColor }}>
@@ -360,13 +376,11 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group" 
                 style={{ borderColor: product.cssColor }}
               >
-                {/* Gradiente de fondo más fuerte */}
                 <div 
                   className="absolute inset-0 opacity-70 group-hover:opacity-90 transition-opacity duration-300"
                   style={{ background: getCardGradient(1) }}
                 ></div>
                 
-                {/* Contenido */}
                 <div className="relative z-10">
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 shadow-lg" style={{ backgroundColor: product.cssColor }}>
@@ -382,14 +396,112 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </motion.section>
 
+      {/* SECCIÓN ACTUALIZADA: Retención del Producto - Dos gráficos */}
+      {hasRetentionCharts && (
+        <>
+          <RootSeparator />
+          <motion.section
+            className="py-20 bg-white"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
+          >
+            <div className="mx-auto px-4 sm:px-6 lg:px-32">
+              <motion.div
+                className="text-center mb-16"
+                variants={sectionVariants}
+              >
+                <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ color: product.cssColor }}>
+                  Retención Superior
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Rendimiento comprobado de {product.name} frente a otros productos del mercado
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Gráfico 1: Retención por tamaño de partícula */}
+                {retentionCharts.particleSize && (
+                  <motion.div
+                    variants={cardVariants}
+                  >
+                    <div className="bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
+                      <div className="mb-8 text-center">
+                        <div className="flex items-center justify-center space-x-3 mb-4">
+                          <div 
+                            className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg"
+                            style={{ backgroundColor: product.cssColor }}
+                          >
+                            <BarChart3 className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-gray-800">Retención vs Tamaño de Partícula</h3>
+                        </div>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                          Porcentaje de retención del producto en función del tamaño de partícula
+                        </p>
+                      </div>
+
+                      <div className="relative bg-gray-50 rounded-xl p-4 overflow-hidden">
+                        <Image
+                          src={retentionCharts.particleSize}
+                          alt={`Gráfico de retención por tamaño de partícula - ${product.name}`}
+                          width={1200}
+                          height={800}
+                          className="w-full h-auto object-contain max-h-96 md:max-h-none"
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Gráfico 2: Retención por intensidad de precipitación */}
+                {retentionCharts.precipitation && (
+                  <motion.div
+                    variants={cardVariants}
+                  >
+                    <div className="bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
+                      <div className="mb-8 text-center">
+                        <div className="flex items-center justify-center space-x-3 mb-4">
+                          <div 
+                            className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg"
+                            style={{ backgroundColor: product.cssColor }}
+                          >
+                            <Droplets className="w-6 h-6 text-white" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-gray-800">Retención vs Intensidad de Precipitación</h3>
+                        </div>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                          Porcentaje de retención del producto en función de la intensidad de la precipitación
+                        </p>
+                      </div>
+
+                      <div className="relative bg-gray-50 rounded-xl p-4 overflow-hidden">
+                        <Image
+                          src={retentionCharts.precipitation}
+                          alt={`Gráfico de retención por intensidad de precipitación - ${product.name}`}
+                          width={1200}
+                          height={800}
+                          className="w-full h-auto object-contain max-h-96 md:max-h-none"
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </div>
+            </div>
+          </motion.section>
+        </>
+      )}
+
       <RootSeparator />
 
-      {/* Cultivos Mejorados - OPTIMIZADO para mejor rendimiento */}
+      {/* Cultivos Mejorados */}
       <motion.section
         className="py-20 bg-white relative"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }} // Reducido de 0.2 a 0.1 para activación más temprana
+        viewport={{ once: true, amount: 0.1 }}
         variants={containerVariants}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-32">
@@ -405,7 +517,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </p>
           </motion.div>
 
-          {/* Grid de cultivos con animaciones optimizadas */}
           <motion.div
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center"
             style={{
@@ -422,21 +533,18 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 variants={cropItemVariants}
                 className="group cursor-pointer"
                 whileHover={{
-                  scale: 1.03, // Reducido de 1.05 a 1.03
-                  y: -3,       // Reducido de -5 a -3
-                  transition: { duration: 0.12 } // Más rápido
+                  scale: 1.03,
+                  y: -3,
+                  transition: { duration: 0.12 }
                 }}
-                whileTap={{ scale: 0.97 }} // Reducido de 0.95 a 0.97
+                whileTap={{ scale: 0.97 }}
               >
                 <Link
                   href={`/crops/${getCultivoSlug(cultivo)}`}
                   className="block"
                 >
                   <div className="relative">
-                    {/* Círculo con imagen de fondo */}
-                    <div className="w-24 h-24 md:w-34 md:h-34 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-200 border-4 border-white overflow-hidden relative"
-                    >
-                      {/* Imagen del cultivo */}
+                    <div className="w-24 h-24 md:w-34 md:h-34 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-200 border-4 border-white overflow-hidden relative">
                       <Image
                         src={getCultivoImage(cultivo)}
                         alt={cultivo}
@@ -444,16 +552,13 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                         className="object-cover"
                       />
 
-                      {/* Overlay oscuro */}
                       <div className="absolute inset-0 bg-black/30"></div>
 
-                      {/* Overlay con ícono en hover */}
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-150 flex items-center justify-center">
                         <ArrowRight className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
                       </div>
                     </div>
 
-                    {/* Nombre del cultivo */}
                     <div className="text-center mt-3">
                       <h4 className="font-semibold text-gray-800 capitalize text-sm md:text-base transition-colors duration-150">
                         {cultivo}
@@ -465,7 +570,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             ))}
           </motion.div>
 
-          {/* Call to action para ver más cultivos */}
           <motion.div
             className="text-center mt-12 pb-10"
             variants={sectionVariants}
@@ -502,7 +606,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </motion.section>
 
-      {/* CTA Final - Actualizado */}
+      {/* CTA Final */}
       <section className="py-4 bg-[#164A37] text-white relative overflow-hidden">
         <div className="mx-auto px-4 sm:px-6 lg:px-32 relative z-10">
           <motion.div
@@ -555,25 +659,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </section>
 
-      {/* Bottom waves separator */}
-      <div className="w-full overflow-hidden bg-white">
-        <svg className="w-full h-24 md:h-32 rotate-180" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">
-          <path
-            d="M0,60 Q150,45 300,50 T600,65 Q750,70 900,55 T1200,60 L1200,120 L0,120 Z"
-            fill="#7cb342"
-            className="opacity-90"
-          />
-          <path
-            d="M0,75 Q100,60 200,65 Q350,70 500,75 Q650,80 800,70 Q950,60 1200,75 L1200,120 L0,120 Z"
-            fill="#4a7c59"
-            className="opacity-100"
-          />
-          <path
-            d="M0,90 Q75,80 150,85 Q300,90 450,95 Q600,100 750,90 Q900,80 1200,90 L1200,120 L0,120 Z"
-            fill="#164A37"
-          />
-        </svg>
-      </div>
+      
     </div>
   );
 }

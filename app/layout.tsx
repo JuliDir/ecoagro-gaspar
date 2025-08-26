@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/ui/Header";
 import PageLoader from "@/components/ui/PageLoader";
 import WhatsappButton from "@/components/ui/WhatsappButton";
-import Footer from "@/components/ui/Footer";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 
 const geistMono = Geist_Mono({
@@ -49,7 +48,6 @@ export default function RootLayout({
         <PageLoader /> 
         <Header />
         {children}
-        <Footer />
         <WhatsappButton />
         <ScrollToTopButton />
       </body>

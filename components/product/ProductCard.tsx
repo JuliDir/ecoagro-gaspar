@@ -83,9 +83,6 @@ export default function ProductCard({ product, index }: ProductCardProps) {
             {/* Header con registro y categoría - siempre visible */}
             <div className="mb-4">
               <div className="flex justify-between items-start">
-                <span className="inline-block bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm border border-white/30">
-                  Registro SENASA
-                </span>
                 <span className="inline-block bg-white/30 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm border border-white/40 font-medium">
                   {product.category}
                 </span>
