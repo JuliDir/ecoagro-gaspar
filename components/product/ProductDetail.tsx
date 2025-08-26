@@ -3,7 +3,6 @@
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import {
   Shield,
   Target,
@@ -27,6 +26,7 @@ interface ProductData {
     title: string;
     description: string;
     details: string;
+    image: string;
   }>;
   modoAccion: {
     cobertura: string;
@@ -130,7 +130,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "limon": "limon",
       "mandarina": "mandarina",
       "pomelo": "pomelo",
-      "oliva": "oliva"
     };
 
     return cultivoMap[cultivo.toLowerCase()] || cultivo.toLowerCase().replace(/\s+/g, '-');
@@ -148,7 +147,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "vid": "/crops/vid/vid.jpg",
       "trigo": "/crops/trigo/trigo.jpg",
       "tomate": "/crops/tomate/tomate.jpg",
-      "olivo": "/crops/olivo/olivo.jpg",
+      "olivo": "/crops/olivos/olivos.jpg",
       "palto": "/crops/palto/palto.jpg",
       "kiwi": "/crops/kiwi/kiwi.jpg",
       "maíz": "/crops/maiz/maiz.jpg",
@@ -158,7 +157,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "limon": "/crops/limon/limon.jpg",
       "mandarina": "/crops/mandarina/mandarina.jpg",
       "pomelo": "/crops/pomelo/pomelo.jpg",
-      "oliva": "/crops/oliva/oliva.jpg",
       "cítricos": "/crops/citricos/citricos.jpg"
     };
 
@@ -215,7 +213,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <motion.section
-        className={`relative bg-gradient-to-br ${product.gradient} text-white pb-8 pt-20 overflow-hidden w-full`}
+        className="relative text-white pb-8 pt-20 overflow-hidden w-full"
+        style={{ backgroundColor: product.cssColor }}
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -269,7 +268,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           />
         </div>
 
-        <div className="relative pt-5 z-10 mx-auto px-4 sm:px-6 lg:px-32">
+        <div className="relative pt-5 z-10 mx-auto px-4 sm:px-6 lg:px-36">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div variants={sectionVariants}>
               <motion.div
@@ -323,6 +322,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           title: pilar.title,
           description: pilar.description,
           details: pilar.details,
+          image: pilar.image,
         }))}
         color={product.cssColor}
         heading="Tres Pilares de Protección"
@@ -337,7 +337,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-36">
           <motion.div
             className="text-center mb-16"
             variants={sectionVariants}
@@ -407,7 +407,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
           >
-            <div className="mx-auto px-4 sm:px-6 lg:px-32">
+            <div className="mx-auto px-4 sm:px-6 lg:px-36">
               <motion.div
                 className="text-center mb-16"
                 variants={sectionVariants}
@@ -504,7 +504,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         viewport={{ once: true, amount: 0.1 }}
         variants={containerVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-36">
           <motion.div
             className="text-center mb-16"
             variants={sectionVariants}
@@ -608,7 +608,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
       {/* CTA Final */}
       <section className="py-4 bg-[#164A37] text-white relative overflow-hidden">
-        <div className="mx-auto px-4 sm:px-6 lg:px-32 relative z-10">
+        <div className="mx-auto px-4 sm:px-6 lg:px-36 relative z-10">
           <motion.div
             className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-2xl mx-auto text-center"
             initial="hidden"

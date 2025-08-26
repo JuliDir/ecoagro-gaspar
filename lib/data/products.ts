@@ -63,19 +63,22 @@ export const productsData = {
     registro: "SENASA AR #34.300",
     triplePilar: [
       {
-        title: "Sinergia con fungicidas",
-        description: "Se clasifica como fungicida FRAC M (multisitio), 'banda verde' y no requiere adherente adicional.",
-        details: "Compatible con fungicidas específicos, ayudando a prevenir la aparición de resistencias en patógenos."
-      },
-      {
         title: "Acción bactericida y fungicida",
         description: "Efectivo contra bacterias y enfermedades policíclicas (como mildius, tizones, rabia del garbanzo).",
-        details: "Especialmente útil en estrategias que buscan controlar las bacteriosis donde pocas herramientas están disponibles."
+        details: "Especialmente útil en estrategias que buscan controlar las bacteriosis donde pocas herramientas están disponibles.",
+        image: "/images/products/fungicida.jpg"
       },
       {
-        title: "Bioestimulación NutriFit",
+        title: "Sinergia con fungicidas",
+        description: "Se clasifica como fungicida FRAC M (multisitio), 'banda verde' y no requiere adherente adicional.",
+        details: "Compatible con fungicidas específicos, ayudando a prevenir la aparición de resistencias en patógenos.",
+        image: "/images/products/sinergia.jpg"
+      },
+      {
+        title: "Estimula las defensas naturales",
         description: "Contiene fosfitos de cobre, potasio y amonio que inducen respuestas de defensa.",
-        details: "Síntesis de fitoalexinas y lignina, fortaleciendo paredes celulares y aumentando la tolerancia al estrés (sequía, frío). En leguminosas, mejora la nodulación, la fijación de N y el crecimiento radicular."
+        details: "Su formulación permite inducir respuestas de defensa (hídrico, térmico, oxidativo, etc).",
+        image: "/images/products/defensas.png"
       }
     ],
     modoAccion: {
@@ -101,24 +104,27 @@ export const productsData = {
       {
         title: "Tecnología Ultramicronizada",
         description: "Partículas de ≈1 µm que garantizan máxima cobertura y penetración foliar.",
-        details: "La micronización ultra‑fina permite una distribución homogénea y mayor superficie de contacto con el patógeno."
+        details: "La micronización ultra‑fina permite una distribución homogénea y mayor superficie de contacto con el patógeno.",
+        image: "/images/products/tecnologia-micronizada-bordocald.png"
       },
       {
-        title: "Alta Adherencia Post‑Lluvia",
+        title: "Máxima Adherencia",
         description: "Mantiene efectividad incluso con precipitaciones de hasta 30 mm después de la aplicación.",
-        details: "Formulación especial con adherentes naturales que resisten el lavado por lluvia, extendiendo la protección."
+        details: "Formulación especial con adherentes naturales que resisten el lavado por lluvia, extendiendo la protección.",
+        image: "/images/products/adherencia-lluvia.jpg"
       },
       {
-        title: "Certificación Orgánica",
-        description: "Certificado para agricultura orgánica por ECOCERT y OIA.",
-        details: "Cumple con los estándares más exigentes de producción orgánica, siendo una herramienta clave para productores certificados."
+        title: "Máximo Poder Residual",
+        description: "Eficaz en el control de cancrosis y mancha negra en cítricos.",
+        details: "Proporciona un efecto prolongado en la superficie foliar, asegurando una protección continua contra enfermedades.",
+        image: "/images/products/poder-residual.jpg"
       }
     ],
     modoAccion: {
       cobertura: "Acción preventiva de contacto con alta persistencia y redistribución superficial",
       penetracion: "Liberación controlada de iones de cobre que forman una barrera protectora duradera"
     },
-    cultivos: ["vid", "olivos"],
+    cultivos: ["vid", "olivo"],
     aplicacion: {
       equipos: "pulverizadores terrestres y aéreos, compatible con sistemas de riego",
       compatibilidad: "compatible con la mayoría de fungicidas e insecticidas, evitar mezclas alcalinas",
@@ -135,19 +141,22 @@ export const productsData = {
     registro: "SENASA AR #36.079",
     triplePilar: [
       {
-        title: "Partículas Ultrafinas",
-        description: "Tecnología coloidal con partículas <1.5 µm para máxima cobertura superficial.",
-        details: "El tamaño ultra-fino de partículas garantiza una cobertura homogénea y persistente, especialmente en superficies cerosas como cítricos."
+        title: "Tecnología Ultramicronizada",
+        description: "Partículas de ≈1 µm que garantizan máxima cobertura y penetración foliar.",
+        details: "La micronización ultra‑fina permite una distribución homogénea y mayor superficie de contacto con el patógeno.",
+        image: "/images/products/tecnologia-micronizada-trikopper.png"
       },
       {
-        title: "Adherente Siliconado Integrado",
-        description: "Sistema de adherencia avanzado que resiste lluvias fuertes y vientos.",
-        details: "La formulación incluye adherentes siliconados que forman una película flexible y resistente, manteniendo el producto activo por hasta 40 días."
+        title: "Máxima Adherencia",
+        description: "Mantiene efectividad incluso con precipitaciones de hasta 30 mm después de la aplicación.",
+        details: "Formulación especial con adherentes naturales que resisten el lavado por lluvia, extendiendo la protección.",
+        image: "/images/products/adherencia-lluvia.jpg"
       },
       {
-        title: "Especialista en Cítricos",
-        description: "Formulación específica para el control de cancrosis y mancha negra en cítricos.",
-        details: "Optimizado para penetrar la cutícula cerosa de los cítricos y proporcionar control prolongado de las principales enfermedades bacterianas y fúngicas."
+        title: "Máximo Poder Residual",
+        description: "Eficaz en el control de cancrosis y mancha negra en cítricos.",
+        details: "Proporciona un efecto prolongado en la superficie foliar, asegurando una protección continua contra enfermedades.",
+        image: "/images/products/poder-residual.jpg"
       }
     ],
     modoAccion: {

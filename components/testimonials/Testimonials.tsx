@@ -141,7 +141,7 @@ export default function Testimonials() {
             animate="visible" // Siempre visible para evitar problemas
             variants={containerVariants}
         >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <motion.div
                     className="text-center mb-16"
                     variants={headerVariants}

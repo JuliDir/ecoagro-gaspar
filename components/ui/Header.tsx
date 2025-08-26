@@ -294,7 +294,7 @@ export default function Header() {
             )}
         >
             {/* Container con margen fijo que se adapta */}
-            <div className="mx-auto px-4 sm:px-6 lg:px-32">
+            <div className="mx-auto px-4 sm:px-6 lg:px-36">
                 <div className="flex items-center justify-between">
                     <Link className="relative h-16 w-48 sm:h-20 sm:w-60" href="/">
                         <Image src="/images/logo.png" alt="Ecoagro Gaspar Logo" fill className="object-contain" />

@@ -57,7 +57,7 @@ export default function AllProducts() {
                 animate="visible" 
                 variants={containerVariants}
             >
-                <div className="mx-auto px-4 sm:px-6 lg:px-32 pb-16">
+                <div className="mx-auto px-4 sm:px-6 lg:px-36 pb-16">
                     {showComingSoon ? (
                         // Mensaje de Próximamente
                         <motion.div 
@@ -144,7 +144,7 @@ export default function AllProducts() {
 
             {/* CTA Section - Sin animaciones */}
             <section className="py-10 bg-[#164A37] text-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-2xl mx-auto text-center">
                         <h2 className="text-3xl font-bold mb-4">
                             ¿Necesitas asesoramiento técnico?

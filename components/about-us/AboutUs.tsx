@@ -2,7 +2,7 @@
 
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
-import { Leaf, Handshake, Users, Award } from "lucide-react";
+import { Leaf, Handshake, Users, Award, Lightbulb } from "lucide-react";
 import TeamMembers from "./TeamMembers";
 import RootSeparator from "../ui/RootSeparator";
 
@@ -64,20 +64,20 @@ export default function AboutUs() {
         viewport={optimizedViewport}
         variants={containerVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-36">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Contenido textual */}
             <motion.div variants={sectionVariants}>
               <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
                 Nosotros
               </h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              <p className="text-xl text-gray-700 mb-6 leading-relaxed">
                 En Ecoagro Gaspar, nos dedicamos a desarrollar productos derivados del cobre
                 que representan la perfecta combinación entre eficacia y respeto por el medio ambiente.
                 Nuestro compromiso es brindar soluciones que impulsen la productividad de los cultivos
                 mientras preservamos el ecosistema.
               </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-xl text-gray-700 leading-relaxed">
                 Con más de seis décadas de experiencia, hemos perfeccionado nuestras fórmulas
                 para ofrecer productos que no solo protegen los cultivos, sino que también
                 contribuyen a una agricultura más sustentable y rentable.
@@ -89,7 +89,7 @@ export default function AboutUs() {
               className="relative"
               variants={imageVariants}
             >
-              <div className="relative h-96 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative ml-auto max-w-150 h-96 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="/images/about-us/institucional.jpg"
                   alt="Instalaciones de Ecoagro Gaspar"
@@ -112,14 +112,14 @@ export default function AboutUs() {
         viewport={optimizedViewport}
         variants={containerVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-36">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Imagen */}
             <motion.div
               className="relative order-2 md:order-1"
               variants={imageVariants}
             >
-              <div className="relative h-96 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative max-w-150 h-96 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="/images/about-us/mision.jpg"
                   alt="Productos sostenibles y agricultura responsable"
@@ -140,7 +140,7 @@ export default function AboutUs() {
               <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
                 Misión
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-xl text-gray-700 leading-relaxed">
                 Ofrecer <strong>soluciones fitosanitarias y nutricionales innovadoras</strong>.
                 Que impulsen la productividad de los cultivos, minimizando el impacto ambiental
                 y promoviendo una agricultura sustentable.
@@ -158,14 +158,14 @@ export default function AboutUs() {
         viewport={optimizedViewport}
         variants={containerVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-36">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Contenido textual */}
             <motion.div variants={sectionVariants}>
               <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
                 Visión
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <p className="text-xl text-gray-700 leading-relaxed">
                 Ser <strong>referentes clave en soluciones fitosanitarias y nutricionales</strong> que impulsen el máximo
                 potencial productivo de los cultivos integrando estrategias de prevención y manejo de
                 enfermedades con la optimización avanzada de sus procesos fisiológicos.
@@ -177,7 +177,7 @@ export default function AboutUs() {
               className="relative"
               variants={imageVariants}
             >
-              <div className="relative h-96 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative ml-auto max-w-150 h-96 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="/images/about-us/vision.jpg"
                   alt="Futuro de la agricultura y tecnología innovadora"
@@ -202,19 +202,25 @@ export default function AboutUs() {
         viewport={optimizedViewport}
         variants={containerVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-36">
           <motion.div
             className="text-center mb-16"
             variants={sectionVariants}
           >
             <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary mb-4">Nuestros Valores</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Aplicación de ciencia e innovación con compromiso, transparencia y sustentabilidad
+              Aplicamos la ciencia para lograr sustentabilidad con innovación, compromiso y transparencia.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
+              {
+                icon: Lightbulb,
+                title: "Innovación",
+                description: "Búsqueda constante de soluciones creativas y efectivas",
+                color: "bg-primary"
+              },
               {
                 icon: Handshake,
                 title: "Compromiso",
@@ -225,12 +231,6 @@ export default function AboutUs() {
                 icon: Users,
                 title: "Transparencia",
                 description: "Honestidad y claridad en todas nuestras relaciones comerciales",
-                color: "bg-primary"
-              },
-              {
-                icon: Leaf,
-                title: "Sustentabilidad",
-                description: "Desarrollo de soluciones que respetan y preservan el ecosistema",
                 color: "bg-primary"
               }
             ].map((value, index) => (
@@ -264,7 +264,7 @@ export default function AboutUs() {
         viewport={optimizedViewport}
         variants={containerVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-36">
           <motion.div
             className="text-center mb-16"
             variants={sectionVariants}
@@ -310,7 +310,7 @@ export default function AboutUs() {
         viewport={optimizedViewport}
         variants={containerVariants}
       >
-        <div className="mx-auto px-4 sm:px-6 lg:px-32">
+        <div className="mx-auto px-4 sm:px-6 lg:px-36">
           <motion.div
             className="text-center mb-10"
             variants={sectionVariants}

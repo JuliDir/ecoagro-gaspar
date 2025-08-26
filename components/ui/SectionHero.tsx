@@ -127,7 +127,7 @@ export default function SectionHero({
         ))}
       </div>
 
-      <div className="relative pt-20 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative pt-20 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         <motion.div
           className="text-center"
           variants={sectionVariants}

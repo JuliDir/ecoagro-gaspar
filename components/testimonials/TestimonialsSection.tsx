@@ -90,7 +90,7 @@ export default function TestimonialsSection() {
                 viewport={{ once: true, amount: 0 }}
                 variants={containerVariants}
             >
-                <div className="mx-auto px-4 sm:px-6 lg:px-32">
+                <div className="mx-auto px-4 sm:px-6 lg:px-36">
                     <motion.div
                         className="grid lg:grid-cols-2 gap-16 items-center"
                         variants={sectionVariants}
@@ -249,7 +249,7 @@ export default function TestimonialsSection() {
                 viewport={{ once: true, amount: 0.2 }}
                 variants={containerVariants}
             >
-                <div className="mx-auto px-4 sm:px-6 lg:px-32">
+                <div className="mx-auto px-4 sm:px-6 lg:px-36">
                     <motion.div
                         className="grid md:grid-cols-3 gap-8"
                         variants={sectionVariants}
@@ -300,7 +300,7 @@ export default function TestimonialsSection() {
                 viewport={{ once: true, amount: 0.2 }}
                 variants={containerVariants}
             >
-                <div className="mx-auto pb-20 px-4 sm:px-6 lg:px-32">
+                <div className="mx-auto pb-20 px-4 sm:px-6 lg:px-36">
                     <motion.div
                         className="text-center mb-16"
                         variants={sectionVariants}
@@ -373,7 +373,7 @@ export default function TestimonialsSection() {
 
             {/* CTA Final - Actualizado */}
             <section className="py-10 bg-[#164A37] text-white relative overflow-hidden">
-                <div className="mx-auto px-4 sm:px-6 lg:px-32 relative z-10">
+                <div className="mx-auto px-4 sm:px-6 lg:px-36 relative z-10">
                     <motion.div
                         className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-2xl mx-auto text-center"
                         initial="hidden"

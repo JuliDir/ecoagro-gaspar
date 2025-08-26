@@ -84,7 +84,7 @@ export default function AllCropsSection() {
                 animate="visible"
                 variants={containerVariants}
             >
-                <div className="mx-auto px-4 sm:px-6 lg:px-32">
+                <div className="mx-auto px-4 sm:px-6 lg:px-36">
                     <motion.div 
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
                         variants={containerVariants}
@@ -226,7 +226,7 @@ export default function AllCropsSection() {
 
             {/* CTA Section - Igual que en AllProducts */}
             <section className="py-10 bg-[#164A37] text-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
                     <motion.div
                         className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-2xl mx-auto text-center"
                         initial="hidden"

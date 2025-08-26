@@ -157,7 +157,7 @@ export default function Stats() {
             ref={sectionRef}
             className="pb-20 overflow-hidden bg-gray-50"
         >
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 {/* Stats Grid */}
                 <motion.div
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"

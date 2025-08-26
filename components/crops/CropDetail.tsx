@@ -81,7 +81,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
             >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-900/30 via-transparent to-primary-800/20"></div>
 
-                <div className="relative pt-20 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="relative pt-20 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
                     <motion.div
                         className="flex items-center justify-center gap-6"
                         variants={sectionVariants}
@@ -107,7 +107,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 animate="visible"
                 variants={containerVariants}
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
                     <motion.div
                         className="text-center mb-12"
                         variants={sectionVariants}
@@ -168,7 +168,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 viewport={{ once: true, amount: 0.2 }}
                 variants={containerVariants}
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
                     <motion.div
                         className="text-center mb-16"
                         variants={sectionVariants}
@@ -214,7 +214,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 viewport={{ once: true, amount: 0.2 }}
                 variants={containerVariants}
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
                     <motion.div
                         className="text-center mb-16"
                         variants={sectionVariants}
@@ -261,7 +261,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
 
             {/* CTA Final - Actualizado */}
             <section className="py-10 bg-[#164A37] text-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
                     <motion.div
                         className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-2xl mx-auto text-center"
                         initial="hidden"
