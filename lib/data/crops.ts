@@ -217,11 +217,11 @@ export const cultivosData = {
     }
   },
 
-  oliva: {
-    name: "Oliva",
+  olivo: {
+    name: "Olivo",
     scientificName: "Olea europaea",
     description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
-    backgroundImage: "/crops/oliva/oliva.jpg",
+    backgroundImage: "/crops/olivo/olivo.jpg",
     icon: "/icons/olive.svg",
 
     objetivosPrograma: [
@@ -480,7 +480,7 @@ export const cultivosData = {
     name: "Papa",
     scientificName: "Solanum tuberosum",
     description: "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje, con alta demanda nutricional.",
-    backgroundImage: "/crops/papas/papas.jpg",
+    backgroundImage: "/crops/papa/papa.jpg",
     icon: "/icons/potato.svg",
 
     objetivosPrograma: [
@@ -612,7 +612,7 @@ export const allCrops = [
     scientificName: "Solanum tuberosum",
     description: "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje.",
     iconFilename: "potato.svg",
-    backgroundImage: "/crops/papas/papas.jpg",
+    backgroundImage: "/crops/papa/papa.jpg",
     slug: "papa",
     category: "Tubérculos"
   },
@@ -662,12 +662,12 @@ export const allCrops = [
     category: "Cítricos"
   },
   {
-    name: "Olivos",
+    name: "Olivo",
     scientificName: "Olea europaea",
     description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
     iconFilename: "olive.svg",
-    backgroundImage: "/crops/olivos/olivos.jpg",
-    slug: "olivos",
+    backgroundImage: "/crops/olivo/olivo.jpg",
+    slug: "olivo",
     category: "Frutales"
   }
 ];
