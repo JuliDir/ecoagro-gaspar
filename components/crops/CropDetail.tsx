@@ -11,6 +11,7 @@ import {
 import { CultivoData } from "@/lib/types/Crop";
 import ProductCard from "../product/ProductCard";
 import Separator from "../ui/Separator";
+import RootSeparator from "../ui/RootSeparator";
 
 interface CultivoDetailProps {
     cultivo: CultivoData;
@@ -193,7 +194,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 </div>
             </motion.section>
 
-            <Separator />
+            <RootSeparator />
 
             {/* Productos Recomendados */}
             <motion.section

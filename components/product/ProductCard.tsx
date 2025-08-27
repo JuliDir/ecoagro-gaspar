@@ -63,7 +63,8 @@ export default function ProductCard({ product, index }: ProductCardProps) {
     >
       <Link href={`/products/${getProductSlug(product.name)}`} className="block">
         <motion.div
-          className={`relative rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 h-106 cursor-pointer bg-gradient-to-br ${product.gradient}`}
+          className={`relative rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 h-106 cursor-pointer`}
+          style={{background: product.color}}
           whileHover={{ y: -5 }}
           transition={{ duration: 0.3 }}
         >

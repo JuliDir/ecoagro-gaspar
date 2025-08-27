@@ -130,7 +130,7 @@ export default function Hero() {
           <motion.div
             key={hoveredSection}
             initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 0.3, scale: 1 }}
+            animate={{ opacity: 0.2, scale: 1 }}
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="absolute inset-0 z-0"
@@ -142,7 +142,7 @@ export default function Hero() {
               className="object-cover filter blur-sm"
               priority
             />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/10" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -190,8 +190,8 @@ export default function Hero() {
                   animate={{
                     backgroundColor:
                       hoveredSection === originalSection.id
-                        ? "rgba(0,0,0,0.1)"
-                        : "rgba(0,0,0,0.5)"
+                        ? "rgba(0,0,0,0.05)"
+                        : "rgba(0,0,0,0.15)"
                   }}
                   transition={{ duration: 0.3 }}
                 />

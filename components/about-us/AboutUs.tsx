@@ -46,8 +46,8 @@ const imageVariants = {
 };
 
 // Viewport optimizado para mejor performance
-const optimizedViewport = { 
-  once: true, 
+const optimizedViewport = {
+  once: true,
   amount: 0.1, // Reducido de 0.2 a 0.1 para activación más temprana
   margin: "0px 0px -50px 0px" // Margen para activar antes
 };
@@ -141,9 +141,7 @@ export default function AboutUs() {
                 Misión
               </h2>
               <p className="text-xl text-gray-700 leading-relaxed">
-                Ofrecer <strong>soluciones fitosanitarias y nutricionales innovadoras</strong>.
-                Que impulsen la productividad de los cultivos, minimizando el impacto ambiental
-                y promoviendo una agricultura sustentable.
+                Brindamos soluciones fitosanitarias y nutricionales de alta tecnología, diseñadas para el manejo sustentable de enfermedades foliares. Nuestro objetivo es optimizar el rendimiento de los cultivos, reduciendo al mismo tiempo el impacto ambiental y contribuyendo a una agricultura más responsable.
               </p>
             </motion.div>
           </div>
@@ -166,9 +164,7 @@ export default function AboutUs() {
                 Visión
               </h2>
               <p className="text-xl text-gray-700 leading-relaxed">
-                Ser <strong>referentes clave en soluciones fitosanitarias y nutricionales</strong> que impulsen el máximo
-                potencial productivo de los cultivos integrando estrategias de prevención y manejo de
-                enfermedades con la optimización avanzada de sus procesos fisiológicos.
+                Aspiramos a ser referentes en el desarrollo de soluciones fitosanitarias y nutricionales sustentables, capaces de potenciar el control de enfermedades foliares y disminuir la aparición de resistencias, promoviendo una agricultura más eficiente, segura y con visión de largo plazo.
               </p>
             </motion.div>
 
@@ -218,7 +214,7 @@ export default function AboutUs() {
               {
                 icon: Lightbulb,
                 title: "Innovación",
-                description: "Búsqueda constante de soluciones creativas y efectivas",
+                description: "Búsqueda constante de soluciones innovadoras y efectivas.",
                 color: "bg-primary"
               },
               {
@@ -238,7 +234,7 @@ export default function AboutUs() {
                 key={index}
                 className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
                 variants={cardVariants}
-                whileHover={{ 
+                whileHover={{
                   y: -3, // Reducido de -5 a -3
                   transition: { duration: 0.2 } // Más rápido
                 }}
@@ -359,7 +355,7 @@ export default function AboutUs() {
           </div>
         </div>
       </motion.section>
-      
+
       {/* Bottom waves separator - Simplificado */}
       <div className="w-full overflow-hidden bg-[#28292D]">
         <svg className="w-full h-24 md:h-32 rotate-180" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">

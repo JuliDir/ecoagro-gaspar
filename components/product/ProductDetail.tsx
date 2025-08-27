@@ -12,7 +12,6 @@ import {
   Droplets
 } from "lucide-react";
 import TriangleTripleAction from "./TriangleTripleAction";
-import RootSeparator from "../ui/RootSeparator";
 
 interface ProductData {
   name: string;
@@ -97,8 +96,8 @@ const cropItemVariants = {
 };
 
 // Viewport optimizado para mejor detección
-const optimizedViewport = { 
-  once: true, 
+const optimizedViewport = {
+  once: true,
   amount: 0.05,
   margin: "0px 0px -100px 0px"
 }
@@ -143,7 +142,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "maní": "/crops/mani/mani.jpg",
       "mani": "/crops/mani/mani.jpg",
       "soja": "/crops/soja/soja.jpg",
-      "papa": "/crops/papas/papas.jpg",
+      "papa": "/crops/papa/papa.jpg",
       "vid": "/crops/vid/vid.jpg",
       "trigo": "/crops/trigo/trigo.jpg",
       "tomate": "/crops/tomate/tomate.jpg",
@@ -197,7 +196,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   // Función para crear gradiente basado en el color del producto
   const getCardGradient = (index: number): string => {
     const baseColor = product.cssColor;
-    
+
     if (index === 0) {
       return `linear-gradient(135deg, ${baseColor}25 0%, ${baseColor}15 50%, ${baseColor}05 100%)`;
     } else {
@@ -210,7 +209,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   const hasRetentionCharts = retentionCharts.particleSize || retentionCharts.precipitation;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen" >
       {/* Hero Section */}
       <motion.section
         className="relative text-white pb-8 pt-20 overflow-hidden w-full"
@@ -315,7 +314,17 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </motion.div>
           </div>
         </div>
+
+
       </motion.section>
+
+      <div
+        className="w-full h-8"
+        style={{
+          background: product.cssColor,
+          clipPath: "polygon(50% 100%, 0 0, 100% 0)",
+        }}
+      ></div>
 
       <TriangleTripleAction
         items={product.triplePilar.map((pilar) => ({
@@ -330,10 +339,20 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       />
 
       {/* Modo de Acción */}
+      <div className="w-full h-8 relative" style={{ background: product.cssColor }}>
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "white",
+            clipPath: "polygon(50% 100%, 0 0, 100% 0)"
+          }}
+        ></div>
+      </div>
       <motion.section
-        className="pb-20 pt-10 bg-white"
+        className="pb-20 pt-10"
         initial="hidden"
         whileInView="visible"
+        style={{ background: product.cssColor }}
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
@@ -342,23 +361,23 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ color: product.cssColor }}>Modo de Acción</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-avenir-cyr-heavy mb-4 text-white">Modo de Acción</h2>
+            <p className="text-xl text-white max-w-3xl mx-auto">
               Mecanismo de protección integral para tus cultivos
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div variants={cardVariants}>
-              <div 
-                className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group" 
+              <div
+                className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
                 style={{ borderColor: product.cssColor }}
               >
-                <div 
+                <div
                   className="absolute inset-0 opacity-70 group-hover:opacity-90 transition-opacity duration-300"
                   style={{ background: getCardGradient(0) }}
                 ></div>
-                
+
                 <div className="relative z-10">
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 shadow-lg" style={{ backgroundColor: product.cssColor }}>
@@ -372,15 +391,15 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </motion.div>
 
             <motion.div variants={cardVariants}>
-              <div 
-                className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group" 
+              <div
+                className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
                 style={{ borderColor: product.cssColor }}
               >
-                <div 
+                <div
                   className="absolute inset-0 opacity-70 group-hover:opacity-90 transition-opacity duration-300"
                   style={{ background: getCardGradient(1) }}
                 ></div>
-                
+
                 <div className="relative z-10">
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 shadow-lg" style={{ backgroundColor: product.cssColor }}>
@@ -396,12 +415,19 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </motion.section>
 
+      <div
+        className="w-full h-8"
+        style={{
+          background: product.cssColor,
+          clipPath: "polygon(50% 100%, 0 0, 100% 0)"
+        }}
+      ></div>
+
       {/* SECCIÓN ACTUALIZADA: Retención del Producto - Dos gráficos */}
       {hasRetentionCharts && (
         <>
-          <RootSeparator />
           <motion.section
-            className="py-20 bg-white"
+            className="pt-20 pb-4 bg-white"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -429,7 +455,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     <div className="bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
                       <div className="mb-8 text-center">
                         <div className="flex items-center justify-center space-x-3 mb-4">
-                          <div 
+                          <div
                             className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg"
                             style={{ backgroundColor: product.cssColor }}
                           >
@@ -463,7 +489,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     <div className="bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
                       <div className="mb-8 text-center">
                         <div className="flex items-center justify-center space-x-3 mb-4">
-                          <div 
+                          <div
                             className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg"
                             style={{ backgroundColor: product.cssColor }}
                           >
@@ -494,7 +520,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </>
       )}
 
-      <RootSeparator />
 
       {/* Cultivos Mejorados */}
       <motion.section
@@ -617,11 +642,11 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             variants={containerVariants}
           >
             <h2 className="text-3xl font-bold mb-4">¿Necesitas más información?</h2>
-            
+
             <p className="text-white/90 mb-6">
               Nuestro equipo técnico está disponible para asesorarte sobre el uso específico de {product.name} en tus cultivos.
             </p>
-            
+
             <div className="space-y-4 mb-6">
               <div className="flex items-center justify-center space-x-3">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -646,7 +671,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 <span>contacto@ecoagrogaspar.com.ar</span>
               </div>
             </div>
-            
+
             <div>
               <Link
                 href="/#contacto"
@@ -659,7 +684,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </section>
 
-      
+
     </div>
   );
 }
