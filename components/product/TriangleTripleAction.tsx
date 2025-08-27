@@ -56,7 +56,7 @@ export const HorizontalCards: React.FC<HorizontalCardsProps> = ({
 
   return (
     <motion.section
-      className="py-20 relative overflow-hidden bg-background"
+      className="pb-20 pt-14 relative overflow-hidden bg-background"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}

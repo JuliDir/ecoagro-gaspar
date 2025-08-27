@@ -90,9 +90,53 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 </div>
             </motion.section>
 
+            {/* OBJETIVOS DEL PROGRAMA */}
+            <motion.section
+                className="py-20 bg-white"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={containerVariants}
+            >
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+                    <motion.div
+                        className="text-center mb-16"
+                        variants={sectionVariants}
+                    >
+                        <h2 className="text-5xl font-avenir-cyr-heavy text-primary-800 mb-4">
+                            Objetivos del Programa
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Beneficios específicos del uso de productos en {cultivo.name}
+                        </p>
+                    </motion.div>
+
+                    <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                        {cultivo.objetivosPrograma.map((objetivo, index) => (
+                            <motion.div
+                                key={index}
+                                className="bg-gradient-to-br from-green-50 via-white to-green-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-200 relative overflow-hidden"
+                                variants={cardVariants}
+                                whileHover={{ scale: 1.02, y: -5 }}
+                            >
+                                {/* Gradiente sutil de fondo */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 to-emerald-500/10 pointer-events-none"></div>
+                                
+                                <div className="flex gap-4 items-center relative z-10">
+                                    <div className="w-10 h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-green-300/30">
+                                        <Target className="w-5 h-5 text-green-600" />
+                                    </div>
+                                    <p className="text-gray-700 font-semibold text-xl leading-relaxed">{objetivo}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </motion.section>
+
             {/* PROTOCOLO DE APLICACIÓN - SECCIÓN PRINCIPAL */}
             <motion.section
-                className="pt-20 pb-4 bg-white"
+                className="pb-4 bg-white"
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
@@ -147,50 +191,6 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                             </a>
                         </div>
                     </motion.div>
-                </div>
-            </motion.section>
-
-            {/* OBJETIVOS DEL PROGRAMA */}
-            <motion.section
-                className="pb-20 bg-white"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={containerVariants}
-            >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-                    <motion.div
-                        className="text-center mb-16"
-                        variants={sectionVariants}
-                    >
-                        <h2 className="text-4xl font-avenir-cyr-heavy text-primary-800 mb-4">
-                            Objetivos del Programa
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Beneficios específicos del uso de productos en {cultivo.name}
-                        </p>
-                    </motion.div>
-
-                    <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                        {cultivo.objetivosPrograma.map((objetivo, index) => (
-                            <motion.div
-                                key={index}
-                                className="bg-gradient-to-br from-green-50 via-white to-green-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-200 relative overflow-hidden"
-                                variants={cardVariants}
-                                whileHover={{ scale: 1.02, y: -5 }}
-                            >
-                                {/* Gradiente sutil de fondo */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 to-emerald-500/10 pointer-events-none"></div>
-                                
-                                <div className="flex gap-4 items-center relative z-10">
-                                    <div className="w-10 h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-green-300/30">
-                                        <Target className="w-5 h-5 text-green-600" />
-                                    </div>
-                                    <p className="text-gray-700 font-semibold text-xl leading-relaxed">{objetivo}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
                 </div>
             </motion.section>
 

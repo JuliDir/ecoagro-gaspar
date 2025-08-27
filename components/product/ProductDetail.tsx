@@ -146,7 +146,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "vid": "/crops/vid/vid.jpg",
       "trigo": "/crops/trigo/trigo.jpg",
       "tomate": "/crops/tomate/tomate.jpg",
-      "olivo": "/crops/olivos/olivos.jpg",
+      "olivo": "/crops/olivo/olivo.jpg",
       "palto": "/crops/palto/palto.jpg",
       "kiwi": "/crops/kiwi/kiwi.jpg",
       "maíz": "/crops/maiz/maiz.jpg",
@@ -199,8 +199,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
     if (index === 0) {
       return `linear-gradient(135deg, ${baseColor}25 0%, ${baseColor}15 50%, ${baseColor}05 100%)`;
-    } else {
+    } else if (index === 1) {
       return `linear-gradient(135deg, ${baseColor}05 0%, ${baseColor}15 50%, ${baseColor}25 100%)`;
+    } else {
+      return `linear-gradient(135deg, ${baseColor}15 0%, ${baseColor}25 50%, ${baseColor}15 100%)`;
     }
   };
 
@@ -314,8 +316,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             </motion.div>
           </div>
         </div>
-
-
       </motion.section>
 
       <div
@@ -325,6 +325,96 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           clipPath: "polygon(50% 100%, 0 0, 100% 0)",
         }}
       ></div>
+
+      {/* Certificaciones para BORDOCALD - Fuera del Hero Section */}
+      {product.name === "BORDOCALD" && (
+        <motion.section
+          className="pt-10 bg-white relative"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+        >
+          <div className="mx-auto px-4 sm:px-6 lg:px-36">
+            <motion.div
+              className="max-w-5xl mx-auto bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300"
+              variants={cardVariants}
+            >
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                {/* Texto certificación */}
+                <div className="text-center md:text-left">
+                  <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <span className="text-gray-800 font-bold text-lg">CERTIFICADO PARA AGRICULTURA ORGÁNICA</span>
+                  </div>
+                  <p className="text-gray-600 text-sm">
+                    Aprobado por entidades certificadoras internacionales
+                  </p>
+                </div>
+
+                {/* Logos de certificaciones */}
+                <div className="flex items-center gap-6">
+                  {/* Logo SENASA */}
+                  <div className="group cursor-pointer" onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/certificates/bordocald-senasa-certificate.pdf';
+                    link.download = 'BORDOCALD-Certificado-SENASA.pdf';
+                    link.click();
+                  }}>
+                    <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-200 group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                      <Image
+                        src="/images/products/senasa-logo.png"
+                        alt="SENASA"
+                        width={40}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </div>
+                    <p className="text-center text-gray-700 text-xs mt-2 font-medium">SENASA</p>
+                  </div>
+
+                  {/* Logo OIA */}
+                  <div className="group cursor-pointer" onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/certificates/bordocald-oia-certificate.pdf';
+                    link.download = 'BORDOCALD-Certificado-OIA.pdf';
+                    link.click();
+                  }}>
+                    <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-200 group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                      <Image
+                        src="/images/products/oia_logo.png"
+                        alt="OIA"
+                        width={40}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </div>
+                    <p className="text-center text-gray-700 text-xs mt-2 font-medium">OIA</p>
+                  </div>
+
+                  {/* Logo ECOCERT */}
+                  <div className="group cursor-pointer" onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/certificates/bordocald-ecocert-certificate.pdf';
+                    link.download = 'BORDOCALD-Certificado-ECOCERT.pdf';
+                    link.click();
+                  }}>
+                    <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-200 group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+                      <Image
+                        src="/images/products/ecocert-logo.png"
+                        alt="ECOCERT"
+                        width={40}
+                        height={40}
+                        className="object-contain"
+                      />
+                    </div>
+                    <p className="text-center text-gray-700 text-xs mt-2 font-medium">ECOCERT</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.section>
+      )}
 
       <TriangleTripleAction
         items={product.triplePilar.map((pilar) => ({
@@ -338,7 +428,54 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         subheading="Tecnología avanzada que combina tres mecanismos de acción para máxima efectividad"
       />
 
-      {/* Modo de Acción */}
+      {/* Banner especial para TRIKOPPER-50 - Especialista en Cítricos */}
+      {product.name === "TRIKOPPER 50" && (
+        <motion.section
+          className="pb-16 bg-white"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+        >
+          <div className="mx-auto px-4 sm:px-6 lg:px-36">
+            <motion.div
+              className="relative rounded-3xl overflow-hidden shadow-2xl h-96 max-w-6xl mx-auto"
+              variants={cardVariants}
+            >
+              {/* Imagen de fondo */}
+              <Image
+                src="/crops/citricos/citricos.jpg"
+                alt="Cítricos - Especialidad TRIKOPPER-50"
+                fill
+                className="object-cover"
+              />
+              
+              {/* Overlay oscuro */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/30"></div>
+              
+              {/* Contenido */}
+              <div className="absolute inset-0 flex items-center justify-start p-12">
+                <div className="max-w-2xl">
+                  <h3 className="text-4xl font-bold text-white mb-4">
+                    🍊 ESPECIALISTA EN CÍTRICOS
+                  </h3>
+                  <p className="text-xl text-white/90 mb-6">
+                    Formulado especialmente para naranjas, limones, mandarinas y pomelos
+                  </p>
+                  
+                  {/* Badge */}
+                  <div className="inline-flex items-center bg-orange-500 text-white px-6 py-3 rounded-full font-bold">
+                    <Award className="w-5 h-5 mr-2" />
+                    MÁXIMA PROTECCIÓN
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.section>
+      )}
+
+      {/* Modo de Acción / Triple Acción */}
       <div className="w-full h-8 relative" style={{ background: product.cssColor }}>
         <div
           className="absolute inset-0"
@@ -361,57 +498,329 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl font-avenir-cyr-heavy mb-4 text-white">Modo de Acción</h2>
+            <h2 className="text-4xl font-avenir-cyr-heavy mb-4 text-white">
+              {product.name === "COBRESTABLE" ? "Triple Acción" : "Como Funciona"}
+            </h2>
             <p className="text-xl text-white max-w-3xl mx-auto">
-              Mecanismo de protección integral para tus cultivos
+              {product.name === "COBRESTABLE"
+                ? "Acción sistémica con + doble barrera de protección"
+                : "Mecanismo de protección integral para tus cultivos"}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div variants={cardVariants}>
-              <div
-                className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-                style={{ borderColor: product.cssColor }}
-              >
-                <div
-                  className="absolute inset-0 opacity-70 group-hover:opacity-90 transition-opacity duration-300"
-                  style={{ background: getCardGradient(0) }}
-                ></div>
+          {product.name === "COBRESTABLE" ? (
+            <>
+              <div className="grid md:grid-cols-3 gap-8 mb-12">
+                <motion.div variants={cardVariants}>
+                  <div
+                    className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 h-full shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden group border border-white/20"
+                    style={{
+                      background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)`,
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)'
+                    }}
+                  >
+                    {/* Gradiente de color del producto */}
+                    <div
+                      className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500"
+                      style={{ background: `linear-gradient(135deg, ${product.cssColor}20, transparent 70%)` }}
+                    ></div>
 
-                <div className="relative z-10">
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 shadow-lg" style={{ backgroundColor: product.cssColor }}>
-                      <Shield className="w-8 h-8 text-white" />
+                    {/* Efecto de brillo glassmorphism */}
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-white/30 via-transparent to-transparent"></div>
+
+                    {/* Efecto de movimiento */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+                    <div className="relative z-10">
+                      <div className="flex items-center mb-6">
+                        <div
+                          className="w-16 h-16 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-all duration-300"
+                          style={{
+                            background: `linear-gradient(135deg, ${product.cssColor}40, ${product.cssColor}20)`,
+                            boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          <Target className="w-8 h-8 text-white drop-shadow-lg" />
+                        </div>
+                        <h3 className="text-2xl text-white font-bold tracking-tight drop-shadow-lg">Penetración</h3>
+                      </div>
+                      <p className="text-white/90 leading-relaxed font-medium backdrop-blur-sm">
+                        Penetra y se moviliza por la planta
+                      </p>
                     </div>
-                    <h3 className="text-2xl text-gray-800 font-semibold">Cobertura</h3>
                   </div>
-                  <p className="text-gray-700 leading-relaxed">{product.modoAccion.cobertura}</p>
-                </div>
-              </div>
-            </motion.div>
+                </motion.div>
 
-            <motion.div variants={cardVariants}>
-              <div
-                className="bg-white rounded-2xl p-8 h-full border-l-4 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-                style={{ borderColor: product.cssColor }}
-              >
-                <div
-                  className="absolute inset-0 opacity-70 group-hover:opacity-90 transition-opacity duration-300"
-                  style={{ background: getCardGradient(1) }}
-                ></div>
+                <motion.div variants={cardVariants}>
+                  <div
+                    className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 h-full shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden group border border-white/20"
+                    style={{
+                      background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)`,
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)'
+                    }}
+                  >
+                    {/* Gradiente de color del producto */}
+                    <div
+                      className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500"
+                      style={{ background: `linear-gradient(135deg, ${product.cssColor}20, transparent 70%)` }}
+                    ></div>
 
-                <div className="relative z-10">
-                  <div className="flex items-center mb-6">
-                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mr-4 shadow-lg" style={{ backgroundColor: product.cssColor }}>
-                      <Target className="w-8 h-8 text-white" />
+                    {/* Efecto de brillo glassmorphism */}
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-white/30 via-transparent to-transparent"></div>
+
+                    {/* Efecto de movimiento */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+                    <div className="relative z-10">
+                      <div className="flex items-center mb-6">
+                        <div
+                          className="w-16 h-16 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-all duration-300"
+                          style={{
+                            background: `linear-gradient(135deg, ${product.cssColor}40, ${product.cssColor}20)`,
+                            boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          <Shield className="w-8 h-8 text-white drop-shadow-lg" />
+                        </div>
+                        <h3 className="text-2xl text-white font-bold tracking-tight drop-shadow-lg">Barrera interna</h3>
+                      </div>
+                      <p className="text-white/90 leading-relaxed font-medium">
+                        Deposita cobre creando una barrera interna
+                      </p>
+
+                      
                     </div>
-                    <h3 className="text-2xl text-gray-800 font-semibold">Penetración</h3>
                   </div>
-                  <p className="text-gray-700 leading-relaxed">{product.modoAccion.penetracion}</p>
-                </div>
+                </motion.div>
+
+                <motion.div variants={cardVariants}>
+                  <div
+                    className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 h-full shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden group border border-white/20"
+                    style={{
+                      background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)`,
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)'
+                    }}
+                  >
+                    {/* Gradiente de color del producto */}
+                    <div
+                      className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500"
+                      style={{ background: `linear-gradient(135deg, ${product.cssColor}20, transparent 70%)` }}
+                    ></div>
+
+                    {/* Efecto de brillo glassmorphism */}
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-white/30 via-transparent to-transparent"></div>
+
+                    {/* Efecto de movimiento */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+                    <div className="relative z-10">
+                      <div className="flex items-center mb-6">
+                        <div
+                          className="w-16 h-16 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-all duration-300"
+                          style={{
+                            background: `linear-gradient(135deg, ${product.cssColor}40, ${product.cssColor}20)`,
+                            boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+                          }}
+                        >
+                          <Shield className="w-8 h-8 text-white drop-shadow-lg" />
+                        </div>
+                        <h3 className="text-2xl text-white font-bold tracking-tight drop-shadow-lg">Barrera externa</h3>
+                      </div>
+                      <p className="text-white/90 leading-relaxed font-medium">
+                        Parte del cobre queda en el tejido produciendo una barrera externa
+                      </p>
+
+                      
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-          </div>
+
+              {/* Imágenes para COBRESTABLE con efecto glass */}
+              <motion.div
+                className="grid md:grid-cols-2 gap-8 mt-16"
+                variants={containerVariants}
+              >
+                <motion.div variants={cardVariants}>
+                  <div
+                    className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 group border border-white/20"
+                    style={{
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)'
+                    }}
+                  >
+                    <div className="relative overflow-hidden rounded-2xl">
+                      {/* Overlay glass */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm"></div>
+
+                      <Image
+                        src="/images/products/doble-barrera-1.jpeg"
+                        alt="Doble Barrera - Imagen 1"
+                        width={600}
+                        height={400}
+                        className="w-full h-64 transition-transform duration-700 group-hover:scale-105"
+                      />
+
+                      {/* Info overlay con glassmorphism */}
+                      <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div
+                          className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 border border-white/20"
+                          style={{
+                            backdropFilter: 'blur(20px)',
+                            WebkitBackdropFilter: 'blur(20px)'
+                          }}
+                        >
+                          <h4 className="font-bold text-white text-sm drop-shadow-lg">Proceso de aplicación</h4>
+                          <p className="text-white/80 text-xs mt-1">Visualización del modo de acción</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div variants={cardVariants}>
+                  <div
+                    className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 group border border-white/20"
+                    style={{
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)'
+                    }}
+                  >
+                    <div className="relative overflow-hidden rounded-2xl">
+                      {/* Overlay glass */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm"></div>
+
+                      <Image
+                        src="/images/products/doble-barrera-2.jpeg"
+                        alt="Doble Barrera - Imagen 2"
+                        width={600}
+                        height={400}
+                        className="w-full h-64 transition-transform duration-700 group-hover:scale-105"
+                      />
+
+                      {/* Info overlay con glassmorphism */}
+                      <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div
+                          className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 border border-white/20"
+                          style={{
+                            backdropFilter: 'blur(20px)',
+                            WebkitBackdropFilter: 'blur(20px)'
+                          }}
+                        >
+                          <h4 className="font-bold text-white text-sm drop-shadow-lg">Resultado final</h4>
+                          <p className="text-white/80 text-xs mt-1">Protección completa de la planta</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </>
+          ) : (
+            <div className="grid md:grid-cols-2 gap-8">
+              <motion.div variants={cardVariants}>
+                <div
+                  className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 h-full shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden group border border-white/20"
+                  style={{
+                    background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)`,
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)'
+                  }}
+                >
+                  {/* Gradiente de color del producto */}
+                  <div
+                    className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500"
+                    style={{ background: `linear-gradient(135deg, ${product.cssColor}20, transparent 70%)` }}
+                  ></div>
+
+                  {/* Efecto de brillo glassmorphism */}
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                  <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-white/30 via-transparent to-transparent"></div>
+
+                  {/* Efecto de movimiento */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+                  <div className="relative z-10">
+                    <div className="flex items-center mb-6">
+                      <div
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-all duration-300"
+                        style={{
+                          background: `linear-gradient(135deg, ${product.cssColor}40, ${product.cssColor}20)`,
+                          boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+                        }}
+                      >
+                        <Shield className="w-8 h-8 text-white drop-shadow-lg" />
+                      </div>
+                      <h3 className="text-2xl text-white font-bold tracking-tight drop-shadow-lg">Cobertura</h3>
+                    </div>
+                    <p className="text-white/90 leading-relaxed font-medium">
+                      {product.modoAccion.cobertura}
+                    </p>
+
+                    {/* Badge con efecto glass */}
+                    <div className="inline-flex items-center mt-6 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+                      <div className="w-2 h-2 rounded-full mr-2" style={{ background: `linear-gradient(45deg, ${product.cssColor}, ${product.cssColor}80)` }}></div>
+                      <span className="text-sm font-medium text-white/80">Protección superficial</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div variants={cardVariants}>
+                <div
+                  className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 h-full shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden group border border-white/20"
+                  style={{
+                    background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)`,
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)'
+                  }}
+                >
+                  {/* Gradiente de color del producto */}
+                  <div
+                    className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500"
+                    style={{ background: `linear-gradient(135deg, ${product.cssColor}20, transparent 70%)` }}
+                  ></div>
+
+                  {/* Efecto de brillo glassmorphism */}
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                  <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-white/30 via-transparent to-transparent"></div>
+
+                  {/* Efecto de movimiento */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+                  <div className="relative z-10">
+                    <div className="flex items-center mb-6">
+                      <div
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-all duration-300"
+                        style={{
+                          background: `linear-gradient(135deg, ${product.cssColor}40, ${product.cssColor}20)`,
+                          boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+                        }}
+                      >
+                        <Target className="w-8 h-8 text-white drop-shadow-lg" />
+                      </div>
+                      <h3 className="text-2xl text-white font-bold tracking-tight drop-shadow-lg">Penetración</h3>
+                    </div>
+                    <p className="text-white/90 leading-relaxed font-medium">
+                      {product.modoAccion.penetracion}
+                    </p>
+
+                    {/* Badge con efecto glass */}
+                    <div className="inline-flex items-center mt-6 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+                      <div className="w-2 h-2 rounded-full mr-2" style={{ background: `linear-gradient(45deg, ${product.cssColor}, ${product.cssColor}80)` }}></div>
+                      <span className="text-sm font-medium text-white/80">Acción sistémica</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          )}
         </div>
       </motion.section>
 
