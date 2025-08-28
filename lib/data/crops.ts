@@ -1,10 +1,8 @@
 export const cultivosData = {
   limon: {
     name: "Limón",
-    scientificName: "Citrus limon",
-    description: "Cítrico perenne de gran valor comercial, rico en vitamina C y aceites esenciales. Requiere climas cálidos y suelos bien drenados para un óptimo desarrollo.",
+    slug: "limon",
     backgroundImage: "/crops/limon/limon.jpg",
-    icon: "/icons/lemon.svg",
 
     objetivosPrograma: [
       "Controlar eficazmente la cancrosis cítrica",
@@ -19,32 +17,17 @@ export const cultivosData = {
         name: "TRIKOPPER 50",
         color: "#00a859",
         gradient: "from-green-400 to-emerald-600",
-        description:
-          "Cobre tribásico coloidal ultra micronizado, excelente adherencia y máxima residualidad.",
-        features: [
-          "Partículas ultrafinas para máxima cobertura",
-          "Alta retención incluso tras lluvias fuertes",
-          "Ideal para cítricos: cancrosis y mancha negra",
-        ],
         icon: "/images/products/trikopper-box.png",
         bgIcon: "/icons/soy.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "15-25% con manejo sanitario adecuado",
-      reduccionPerdidas: "Hasta 40% menos pérdidas por enfermedades",
-      roi: "3.5:1 en programas preventivos"
-    }
   },
 
   naranja: {
     name: "Naranja",
-    scientificName: "Citrus sinensis",
-    description: "Cítrico de mayor consumo mundial, rico en vitamina C y fibra. Requiere climas subtropicales y manejo sanitario intensivo para mantener calidad exportable.",
+    slug: "naranja",
     backgroundImage: "/crops/naranja/naranja.jpg",
-    icon: "/icons/orange.svg",
 
     objetivosPrograma: [
       "Controlar enfermedades fúngicas comunes",
@@ -59,32 +42,17 @@ export const cultivosData = {
         name: "TRIKOPPER 50",
         color: "#00a859",
         gradient: "from-green-400 to-emerald-600",
-        description:
-          "Cobre tribásico coloidal ultra micronizado, excelente adherencia y máxima residualidad.",
-        features: [
-          "Partículas ultrafinas para máxima cobertura",
-          "Alta retención incluso tras lluvias fuertes",
-          "Ideal para cítricos: cancrosis y mancha negra",
-        ],
         icon: "/images/products/trikopper-box.png",
         bgIcon: "/icons/soy.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "20-30% con manejo integrado",
-      reduccionPerdidas: "Hasta 35% menos descarte",
-      roi: "4:1 en plantaciones comerciales"
-    }
   },
 
   mandarina: {
     name: "Mandarina",
-    scientificName: "Citrus reticulata",
-    description: "Cítrico de fácil pelado y consumo directo. Más susceptible a enfermedades que otros cítricos, requiere manejo preventivo intensivo.",
+    slug: "mandarina",
     backgroundImage: "/crops/mandarina/mandarina.jpg",
-    icon: "/icons/mandarin.svg",
 
     objetivosPrograma: [
       "Controlar eficazmente la alternaria",
@@ -99,32 +67,17 @@ export const cultivosData = {
         name: "TRIKOPPER 50",
         color: "#00a859",
         gradient: "from-green-400 to-emerald-600",
-        description:
-          "Cobre tribásico coloidal ultra micronizado, excelente adherencia y máxima residualidad.",
-        features: [
-          "Partículas ultrafinas para máxima cobertura",
-          "Alta retención incluso tras lluvias fuertes",
-          "Ideal para cítricos: cancrosis y mancha negra",
-        ],
         icon: "/images/products/trikopper-box.png",
         bgIcon: "/icons/soy.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "18-28% con programa completo",
-      reduccionPerdidas: "Hasta 45% menos pérdidas post-cosecha",
-      roi: "3.8:1 en manejo preventivo"
-    }
   },
 
   pomelo: {
     name: "Pomelo",
-    scientificName: "Citrus paradisi",
-    description: "Cítrico de gran tamaño con propiedades nutricionales destacadas. Requiere temperaturas cálidas y manejo sanitario específico por su lento desarrollo.",
+    slug: "pomelo",
     backgroundImage: "/crops/pomelo/pomelo.jpg",
-    icon: "/icons/tangerine.svg",
 
     objetivosPrograma: [
       "Controlar eficazmente la melanosis",
@@ -139,33 +92,22 @@ export const cultivosData = {
         name: "TRIKOPPER 50",
         color: "#00a859",
         gradient: "from-green-400 to-emerald-600",
-        description:
-          "Cobre tribásico coloidal ultra micronizado, excelente adherencia y máxima residualidad.",
-        features: [
-          "Partículas ultrafinas para máxima cobertura",
-          "Alta retención incluso tras lluvias fuertes",
-          "Ideal para cítricos: cancrosis y mancha negra",
-        ],
         icon: "/images/products/trikopper-box.png",
         bgIcon: "/icons/soy.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "25-35% con manejo adecuado",
-      reduccionPerdidas: "Hasta 40% menos descarte",
-      roi: "4.2:1 en plantaciones establecidas"
-    }
   },
 
-  // CULTIVOS PARA BORDOCALD: Vid y oliva
   vid: {
     name: "Vid",
-    scientificName: "Vitis vinifera",
-    description: "Cultivo fundamental para la producción de uvas de mesa y vinificación. Requiere manejo sanitario específico para prevenir enfermedades fúngicas típicas.",
+    slug: "vid",
     backgroundImage: "/crops/vid/vid.jpg",
-    icon: "/icons/vid.svg",
+
+    protocoloAplicacion: {
+      image: "/crops/vid/vid-protocolo-aplicacion.jpg",
+      pdf: "/crops/vid/protocolo-vid.pdf"
+    },
 
     objetivosPrograma: [
       "Controlar eficazmente la botritis",
@@ -180,13 +122,6 @@ export const cultivosData = {
         name: "BORDOCALD",
         color: "#9a3388",
         gradient: "from-fuchsia-400 to-purple-600",
-        description:
-          "Caldo bordelés coloidal listo para usar.",
-        features: [
-          "Máxima adherencia y poder residual.",
-          "Mayor eficacia con menor cantidad de cobre metálico.",
-          "Certificado para agricultura orgánica.",
-        ],
         icon: "/images/products/bordocald-box.png",
         bgIcon: "/icons/corn.svg",
         category: "Fungicidas",
@@ -196,33 +131,17 @@ export const cultivosData = {
         name: "COBRESTABLE",
         color: "#0098da",
         gradient: "from-sky-400 to-blue-600",
-        description:
-          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
-        features: [
-          "Triple acción sistémico, multi sitio y acción nutricional.",
-          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
-          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
-          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
-        ],
         icon: "/images/products/cobrestable-box.png",
         bgIcon: "/icons/wheat.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "20-30% en años con presión de mildiu",
-      reduccionPerdidas: "Hasta 50% menos pérdidas por botritis",
-      roi: "5:1 en viticultura de calidad"
-    }
   },
 
   olivo: {
     name: "Olivo",
-    scientificName: "Olea europaea",
-    description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
+    slug: "olivo",
     backgroundImage: "/crops/olivo/olivo.jpg",
-    icon: "/icons/olive.svg",
 
     objetivosPrograma: [
       "Controlar eficazmente la mosca del olivo",
@@ -231,57 +150,23 @@ export const cultivosData = {
       "Reducir pérdidas postcosecha"
     ],
 
-    enfermedadesComunes: [
-      {
-        nombre: "Repilo",
-        sintomas: "Manchas circulares con halo amarillo",
-        condiciones: "Temperaturas de 18-24°C con humedad alta"
-      },
-      {
-        nombre: "Antracnosis",
-        sintomas: "Manchas deprimidas en frutos",
-        condiciones: "Humedad prolongada en otoño"
-      },
-      {
-        nombre: "Tuberculosis del olivo",
-        sintomas: "Agallas en ramas y tronco",
-        condiciones: "Heridas de poda con humedad"
-      }
-    ],
-
     productosRecomendados: [
       {
         id: 2,
         name: "BORDOCALD",
         color: "#9a3388",
         gradient: "from-fuchsia-400 to-purple-600",
-        description:
-          "Caldo bordelés coloidal listo para usar.",
-        features: [
-          "Máxima adherencia y poder residual.",
-          "Mayor eficacia con menor cantidad de cobre metálico.",
-          "Certificado para agricultura orgánica.",
-        ],
         icon: "/images/products/bordocald-box.png",
         bgIcon: "/icons/corn.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "15-25% con manejo preventivo",
-      reduccionPerdidas: "Hasta 35% menos pérdidas por repilo",
-      roi: "3.2:1 en olivares intensivos"
-    }
   },
 
-  // CULTIVOS PARA COBRESTABLE: Garbanzo, poroto, maní, soja, papa, cítricos y vid
   garbanzo: {
     name: "Garbanzo",
-    scientificName: "Cicer arietinum",
-    description: "Leguminosa de grano seco con alta demanda nutricional. Sensible a excesos de humedad y requiere manejo preventivo de enfermedades foliares.",
+    slug: "garbanzo",
     backgroundImage: "/crops/garbanzo/garbanzo.jpg",
-    icon: "/icons/bean.svg",
 
     objetivosPrograma: [
       "Controlar eficazmente la antracnosis",
@@ -296,33 +181,22 @@ export const cultivosData = {
         name: "COBRESTABLE",
         color: "#0098da",
         gradient: "from-sky-400 to-blue-600",
-        description:
-          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
-        features: [
-          "Triple acción sistémico, multi sitio y acción nutricional.",
-          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
-          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
-          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
-        ],
         icon: "/images/products/cobrestable-box.png",
         bgIcon: "/icons/wheat.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "18-25% con manejo sanitario",
-      reduccionPerdidas: "Hasta 30% menos pérdidas por antracnosis",
-      roi: "3:1 en condiciones favorables"
-    }
   },
 
   poroto: {
     name: "Poroto",
-    scientificName: "Phaseolus vulgaris",
-    description: "Leguminosa de grano con alto valor proteico. Susceptible a diversas enfermedades foliares y bacterianas que requieren manejo preventivo.",
-    backgroundImage: "/images/crops/poroto.jpg",
-    icon: "/icons/bean.svg",
+    slug: "poroto",
+    backgroundImage: "/crops/poroto/poroto.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/poroto/poroto-protocolo-aplicacion.jpg",
+      pdf: "/crops/poroto/protocolo-poroto.pdf"
+    },
 
     objetivosPrograma: [
       "Controlar eficazmente la antracnosis",
@@ -337,33 +211,22 @@ export const cultivosData = {
         name: "COBRESTABLE",
         color: "#0098da",
         gradient: "from-sky-400 to-blue-600",
-        description:
-          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
-        features: [
-          "Triple acción sistémico, multi sitio y acción nutricional.",
-          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
-          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
-          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
-        ],
         icon: "/images/products/cobrestable-box.png",
         bgIcon: "/icons/wheat.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "20-30% con programa completo",
-      reduccionPerdidas: "Hasta 40% menos pérdidas por antracnosis",
-      roi: "3.5:1 en manejo preventivo"
-    }
   },
 
   mani: {
     name: "Maní",
-    scientificName: "Arachis hypogaea",
-    description: "Oleaginosa de ciclo estival con frutos subterráneos. Requiere manejo específico de enfermedades foliares para mantener área foliar activa hasta cosecha.",
+    slug: "mani",
     backgroundImage: "/crops/mani/mani.jpg",
-    icon: "/icons/peanut.svg",
+
+    protocoloAplicacion: {
+      image: "/crops/mani/mani-protocolo-aplicacion.jpg",
+      pdf: "/crops/mani/protocolo-mani.pdf"
+    },
 
     objetivosPrograma: [
       "Controlar eficazmente las enfermedades foliares",
@@ -372,57 +235,28 @@ export const cultivosData = {
       "Reducir el impacto ambiental del cultivo"
     ],
 
-    enfermedadesComunes: [
-      {
-        nombre: "Viruela temprana",
-        sintomas: "Manchas circulares con halo amarillo",
-        condiciones: "Temperaturas de 25-30°C con humedad"
-      },
-      {
-        nombre: "Viruela tardía",
-        sintomas: "Manchas grandes irregulares",
-        condiciones: "Fin de ciclo con humedad alta"
-      },
-      {
-        nombre: "Bacteriosis",
-        sintomas: "Manchas acuosas y defoliación",
-        condiciones: "Lluvias con temperaturas altas"
-      }
-    ],
-
     productosRecomendados: [
       {
         id: 1,
         name: "COBRESTABLE",
         color: "#0098da",
         gradient: "from-sky-400 to-blue-600",
-        description:
-          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
-        features: [
-          "Triple acción sistémico, multi sitio y acción nutricional.",
-          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
-          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
-          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
-        ],
         icon: "/images/products/cobrestable-box.png",
         bgIcon: "/icons/wheat.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "15-25% manteniendo área foliar",
-      reduccionPerdidas: "Hasta 35% menos defoliación",
-      roi: "2.8:1 en programas preventivos"
-    }
   },
 
   soja: {
     name: "Soja",
-    scientificName: "Glycine max",
-    description: "La soja es una leguminosa de gran importancia económica, rica en proteínas y aceites. Es fundamental en la rotación de cultivos por su capacidad de fijar nitrógeno atmosférico a través de bacterias simbióticas.",
+    slug: "soja",
     backgroundImage: "/crops/soja/soja.jpg",
-    icon: "/icons/soy.svg",
+
+    protocoloAplicacion: {
+      image: "/crops/soja/soja-protocolo-aplicacion.jpg",
+      pdf: "/crops/soja/protocolo-soja.pdf"
+    },
 
     objetivosPrograma: [
       "Controlar eficazmente las enfermedades foliares",
@@ -431,57 +265,28 @@ export const cultivosData = {
       "Reducir el impacto ambiental del cultivo"
     ],
 
-    enfermedadesComunes: [
-      {
-        nombre: "Mancha marrón",
-        sintomas: "Manchas angulares de color marrón en hojas",
-        condiciones: "Alta humedad y temperaturas de 25-30°C"
-      },
-      {
-        nombre: "Roya asiática",
-        sintomas: "Pústulas pequeñas en el envés de las hojas",
-        condiciones: "Temperaturas de 18-26°C con alta humedad"
-      },
-      {
-        nombre: "Tizón bacteriano",
-        sintomas: "Manchas acuosas que se vuelven necróticas",
-        condiciones: "Lluvias frecuentes y temperaturas moderadas"
-      }
-    ],
-
     productosRecomendados: [
       {
         id: 1,
         name: "COBRESTABLE",
         color: "#0098da",
         gradient: "from-sky-400 to-blue-600",
-        description:
-          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
-        features: [
-          "Triple acción sistémico, multi sitio y acción nutricional.",
-          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
-          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
-          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
-        ],
         icon: "/images/products/cobrestable-box.png",
         bgIcon: "/icons/wheat.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "15-25% con manejo sanitario adecuado",
-      reduccionPerdidas: "Hasta 30% menos pérdidas por enfermedades",
-      roi: "3:1 relación beneficio/costo en aplicaciones preventivas"
-    }
   },
 
   papa: {
     name: "Papa",
-    scientificName: "Solanum tuberosum",
-    description: "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje, con alta demanda nutricional.",
+    slug: "papa",
     backgroundImage: "/crops/papa/papa.jpg",
-    icon: "/icons/potato.svg",
+
+    protocoloAplicacion: {
+      image: "/crops/papa/papa-protocolo-aplicacion.jpg",
+      pdf: "/crops/papa/protocolo-papa.pdf"
+    },
 
     objetivosPrograma: [
       "Controlar enfermedades fúngicas comunes",
@@ -490,59 +295,23 @@ export const cultivosData = {
       "Optimizar rendimiento del cultivo"
     ],
 
-    enfermedadesComunes: [
-      {
-        nombre: "Tizón tardío",
-        sintomas: "Manchas acuosas que se necrosan rápidamente",
-        condiciones: "Temperaturas de 12-20°C con alta humedad"
-      },
-      {
-        nombre: "Tizón temprano",
-        sintomas: "Manchas concéntricas en hojas viejas",
-        condiciones: "Temperaturas de 25-30°C, alternancia húmedo-seco"
-      },
-      {
-        nombre: "Sarna común",
-        sintomas: "Lesiones corchosas en tubérculos",
-        condiciones: "pH > 5.5 y baja humedad del suelo"
-      }
-    ],
-
     productosRecomendados: [
       {
         id: 1,
         name: "COBRESTABLE",
         color: "#0098da",
         gradient: "from-sky-400 to-blue-600",
-        description:
-          "Cobre de máxima biodisponibilidad con triple acción. Controla enfermedades y refuerza y activa las defensas naturales de la planta",
-        features: [
-          "Triple acción sistémico, multi sitio y acción nutricional.",
-          "Activa las defensas naturales promoviendo la síntesis de fitoalexina.",
-          "Refuerza la estructura de las paredes celulares, aumentando la síntesis de lignina.",
-          "Altamente eficaz para prevenir o detener la resistencia de los patógenos, a lo sumo fungicidas de síntesis. Ideal para aplicaciones combinadas."
-        ],
         icon: "/images/products/cobrestable-box.png",
         bgIcon: "/icons/wheat.svg",
         category: "Fungicidas",
       },
     ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "20-35% con control efectivo de tizón",
-      reduccionPerdidas: "Hasta 50% menos pérdidas en años epidémicos",
-      roi: "4:1 en programas preventivos"
-    }
   },
 
-  // Agregar al final de cultivosData en lib/data/crops.ts
-
   citricos: {
-    name: "Citricos",
-    scientificName: "Citrus spp.",
-    description: "Familia de árboles frutales perennes que incluye limón, naranja, mandarina y pomelo. Requieren manejo sanitario específico para prevenir enfermedades bacterianas y fúngicas comunes.",
+    name: "Cítricos",
+    slug: "citricos",
     backgroundImage: "/crops/citricos/citricos.jpg",
-    icon: "/icons/lemon.svg",
 
     objetivosPrograma: [
       "Controlar eficazmente la cancrosis cítrica",
@@ -551,123 +320,731 @@ export const cultivosData = {
       "Reducir pérdidas postcosecha"
     ],
 
-    enfermedadesComunes: [
-      {
-        nombre: "Cancrosis cítrica",
-        sintomas: "Lesiones corchosas en hojas, ramas y frutos",
-        condiciones: "Temperaturas de 20-30°C con alta humedad y lluvias"
-      },
-      {
-        nombre: "Melanosis",
-        sintomas: "Manchas negras rugosas en corteza del fruto",
-        condiciones: "Humedad alta durante brotación y desarrollo del fruto"
-      },
-      {
-        nombre: "Antracnosis",
-        sintomas: "Manchas necróticas en hojas y caída de frutos",
-        condiciones: "Temperaturas moderadas con humedad prolongada"
-      }
-    ],
-
     productosRecomendados: [
       {
         id: 3,
         name: "TRIKOPPER 50",
         color: "#00a859",
         gradient: "from-green-400 to-emerald-600",
-        description: "Cobre tribásico coloidal ultra micronizado, excelente adherencia y máxima residualidad.",
-        features: [
-          "Partículas ultrafinas para máxima cobertura",
-          "Alta retención incluso tras lluvias fuertes",
-          "Ideal para cítricos: cancrosis y mancha negra",
-        ],
         icon: "/images/products/trikopper-box.png",
         bgIcon: "/icons/soy.svg",
         category: "Fungicidas",
       },
     ],
+  },
+
+  // NUEVOS CULTIVOS AGREGADOS
+  ajo: {
+    name: "Ajo",
+    slug: "ajo",
+    backgroundImage: "/crops/ajo/ajo.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/ajo/ajo-protocolo-aplicacion.jpg",
+      pdf: "/crops/ajo/protocolo-ajo.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar enfermedades fúngicas foliares",
+      "Prevenir pudriciones de bulbo",
+      "Mejorar la calidad comercial",
+      "Reducir pérdidas postcosecha"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  "alfalfa-corte": {
+    name: "Alfalfa Corte",
+    slug: "alfalfa-corte",
+    backgroundImage: "/crops/alfalfa-corte/alfalfa-corte.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/alfalfa-corte/alfalfa-corte-protocolo-aplicacion.jpg",
+      pdf: "/crops/alfalfa-corte/protocolo-alfalfa-corte.pdf"
+    },
+
+    objetivosPrograma: [
+      "Mantener vigor del cultivo perenne",
+      "Controlar enfermedades foliares",
+      "Optimizar la calidad nutritiva del forraje",
+      "Prolongar la vida útil del cultivo"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  "alfalfa-primer-corte": {
+    name: "Alfalfa Primer Corte",
+    slug: "alfalfa-primer-corte",
+    backgroundImage: "/crops/alfalfa-primer-corte/alfalfa-primer-corte.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/alfalfa-primer-corte/alfalfa-primer-corte-protocolo-aplicacion.jpg",
+      pdf: "/crops/alfalfa-primer-corte/protocolo-alfalfa-primer-corte.pdf"
+    },
+
+    objetivosPrograma: [
+      "Establecer base sólida para cortes posteriores",
+      "Controlar enfermedades de establecimiento",
+      "Optimizar desarrollo inicial",
+      "Fortalecer sistema radicular"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  "alfalfa-semilla": {
+    name: "Alfalfa Semilla",
+    slug: "alfalfa-semilla",
+    backgroundImage: "/crops/alfalfa-semilla/alfalfa-semilla.jpg",
+
+    objetivosPrograma: [
+      "Maximizar producción de semilla",
+      "Controlar enfermedades que afectan floración",
+      "Mejorar calidad y viabilidad de semilla",
+      "Optimizar polinización"
+    ],
+
+    protocoloAplicacion: {
+      image: "/crops/alfalfa-semilla/alfalfa-semilla-protocolo-aplicacion.jpg",
+      pdf: "/crops/alfalfa-semilla/protocolo-alfalfa-semilla.pdf"
+    },
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  berenjena: {
+    name: "Berenjena",
+    slug: "berenjena",
+    backgroundImage: "/crops/berenjena/berenjena.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/berenjena/berenjena-protocolo-aplicacion.jpg",
+      pdf: "/crops/berenjena/protocolo-berenjena.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar enfermedades foliares",
+      "Prevenir pudriciones de fruto",
+      "Mejorar calidad comercial",
+      "Extender período de cosecha"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  broccoli: {
+    name: "Broccoli",
+    slug: "broccoli",
+    backgroundImage: "/crops/broccoli/broccoli.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/broccoli/broccoli-protocolo-aplicacion.jpg",
+      pdf: "/crops/broccoli/protocolo-broccoli.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar enfermedades de crucíferas",
+      "Prevenir pudriciones de cabeza",
+      "Mejorar compacidad y calidad",
+      "Optimizar desarrollo de inflorescencia"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  cebada: {
+    name: "Cebada",
+    slug: "cebada",
+    backgroundImage: "/crops/cebada/cebada.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/cebada/cebada-protocolo-aplicacion.jpg",
+      pdf: "/crops/cebada/protocolo-cebada.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar enfermedades foliares de cereales",
+      "Mejorar calidad del grano",
+      "Optimizar llenado de grano",
+      "Prevenir enfermedades de espiga"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  "cebolla-consumo": {
+    name: "Cebolla Consumo",
+    slug: "cebolla-consumo",
+    backgroundImage: "/crops/cebolla-consumo/cebolla-consumo.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/cebolla-consumo/cebolla-consumo-protocolo-aplicacion.jpg",
+      pdf: "/crops/cebolla-consumo/protocolo-cebolla-consumo.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar enfermedades foliares",
+      "Prevenir pudriciones de bulbo",
+      "Mejorar conservación postcosecha",
+      "Optimizar calibre y uniformidad"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  cucurbitaceas: {
+    name: "Cucurbitáceas",
+    slug: "cucurbitaceas",
+    backgroundImage: "/crops/cucurbitaceas/cucurbitaceas.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/cucurbitaceas/cucurbitaceas-protocolo-aplicacion.jpg",
+      pdf: "/crops/cucurbitaceas/protocolo-cucurbitaceas.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar mildiu y oídio",
+      "Prevenir bacteriosis",
+      "Mejorar cuajado de frutos",
+      "Extender período productivo"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  frutilla: {
+    name: "Frutilla",
+    slug: "frutilla",
+    backgroundImage: "/crops/frutilla/frutilla.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/frutilla/frutilla-protocolo-aplicacion.jpg",
+      pdf: "/crops/frutilla/protocolo-frutilla.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar botritis y antracnosis",
+      "Mejorar calidad del fruto",
+      "Extender vida postcosecha",
+      "Optimizar producción continua"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  "hortalizas-de-hoja": {
+    name: "Hortalizas de Hoja",
+    slug: "hortalizas-de-hoja",
+    backgroundImage: "/crops/hortalizas-de-hoja/hortalizas-de-hoja.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/hortalizas-de-hoja/hortalizas-de-hoja-protocolo-aplicacion.jpg",
+      pdf: "/crops/hortalizas-de-hoja/protocolo-hortalizas-de-hoja.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar enfermedades foliares",
+      "Mantener calidad visual",
+      "Prevenir bacteriosis",
+      "Optimizar desarrollo foliar"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  "maiz-grano": {
+    name: "Maíz Grano",
+    slug: "maiz-grano",
+    backgroundImage: "/crops/maiz-grano/maiz-grano.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/maiz-grano/maiz-grano-protocolo-aplicacion.jpg",
+      pdf: "/crops/maiz-grano/protocolo-maiz-grano.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar enfermedades foliares",
+      "Prevenir pudriciones de espiga",
+      "Optimizar llenado de grano",
+      "Mejorar calidad comercial"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
 
     beneficiosEconomicos: {
-      incrementoRendimiento: "18-30% con manejo sanitario adecuado",
-      reduccionPerdidas: "Hasta 40% menos pérdidas por enfermedades",
-      roi: "3.8:1 en programas preventivos"
+      incrementoRendimiento: "18-28% con manejo oportuno",
+      reduccionPerdidas: "Hasta 35% menos pérdidas por enfermedades",
+      roi: "3.2:1 en cultivos comerciales"
     }
+  },
 
+  "maiz-silo": {
+    name: "Maíz Silo",
+    slug: "maiz-silo",
+    backgroundImage: "/crops/maiz-silo/maiz-silo.jpg",
 
+    protocoloAplicacion: {
+      image: "/crops/maiz-silo/maiz-silo-protocolo-aplicacion.jpg",
+      pdf: "/crops/maiz-silo/protocolo-maiz-silo.pdf"
+    },
+
+    objetivosPrograma: [
+      "Mantener calidad nutricional",
+      "Controlar enfermedades foliares",
+      "Optimizar digestibilidad",
+      "Maximizar materia seca"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  melon: {
+    name: "Melón",
+    slug: "melon",
+    backgroundImage: "/crops/melon/melon.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/melon/melon-protocolo-aplicacion.jpg",
+      pdf: "/crops/melon/protocolo-melon.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar mildiu y oídio",
+      "Mejorar calidad del fruto",
+      "Optimizar contenido de azúcar",
+      "Extender vida postcosecha"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  pimiento: {
+    name: "Pimiento",
+    slug: "pimiento",
+    backgroundImage: "/crops/pimiento/pimiento.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/pimiento/pimiento-protocolo-aplicacion.jpg",
+      pdf: "/crops/pimiento/protocolo-pimiento.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar enfermedades de solanáceas",
+      "Mejorar cuajado y desarrollo",
+      "Optimizar color y firmeza",
+      "Extender período productivo"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  sandia: {
+    name: "Sandía",
+    slug: "sandia",
+    backgroundImage: "/crops/sandia/sandia.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/sandia/sandia-protocolo-aplicacion.jpg",
+      pdf: "/crops/sandia/protocolo-sandia.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar antracnosis y mildiu",
+      "Mejorar desarrollo del fruto",
+      "Optimizar contenido de azúcar",
+      "Prevenir pudriciones"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  "tomate-consumo": {
+    name: "Tomate Consumo",
+    slug: "tomate-consumo",
+    backgroundImage: "/crops/tomate-consumo/tomate-consumo.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/tomate-consumo/tomate-consumo-protocolo-aplicacion.jpg",
+      pdf: "/crops/tomate-consumo/protocolo-tomate-consumo.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar tizón tardío y temprano",
+      "Mejorar calidad y firmeza",
+      "Optimizar color y sabor",
+      "Extender vida postcosecha"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  "tomate-industria": {
+    name: "Tomate Industria",
+    slug: "tomate-industria",
+    backgroundImage: "/crops/tomate-industria/tomate-industria.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/tomate-industria/tomate-industria-protocolo-aplicacion.jpg",
+      pdf: "/crops/tomate-industria/protocolo-tomate-industria.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar enfermedades foliares",
+      "Maximizar sólidos solubles",
+      "Optimizar rendimiento industrial",
+      "Mejorar uniformidad de maduración"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  trigo: {
+    name: "Trigo",
+    slug: "trigo",
+    backgroundImage: "/crops/trigo/trigo.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/trigo/trigo-protocolo-aplicacion.jpg",
+      pdf: "/crops/trigo/protocolo-trigo.pdf"
+    },
+
+    objetivosPrograma: [
+      "Controlar enfermedades foliares",
+      "Prevenir fusarium de espiga",
+      "Mejorar calidad panadera",
+      "Optimizar peso hectolítrico"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
   }
 }
 
 export const allCrops = [
   {
     name: "Soja",
-    scientificName: "Glycine max",
-    description: "Leguminosa de gran importancia económica, rica en proteínas y aceites. Fija nitrógeno atmosférico y es fundamental en la rotación de cultivos.",
-    iconFilename: "soy.svg",
     backgroundImage: "/crops/soja/soja.jpg",
     slug: "soja",
-    category: "Leguminosas"
   },
   {
     name: "Papa",
-    scientificName: "Solanum tuberosum",
-    description: "Tubérculo versátil y nutritivo, cuarto cultivo alimenticio más importante del mundo. Requiere suelos sueltos y buen drenaje.",
-    iconFilename: "potato.svg",
     backgroundImage: "/crops/papa/papa.jpg",
     slug: "papa",
-    category: "Tubérculos"
   },
   {
     name: "Vid",
-    scientificName: "Vitis vinifera",
-    description: "Cultivo fundamental para producción de uvas de mesa y vinificación. Requiere manejo sanitario específico para prevenir enfermedades fúngicas.",
-    iconFilename: "vid.svg",
     backgroundImage: "/crops/vid/vid.jpg",
     slug: "vid",
-    category: "Frutales"
   },
   {
     name: "Garbanzo",
-    scientificName: "Cicer arietinum",
-    description: "Leguminosa de grano seco con alta demanda nutricional. Sensible a excesos de humedad y requiere manejo preventivo de enfermedades foliares.",
-    iconFilename: "bean.svg",
     backgroundImage: "/crops/garbanzo/garbanzo.jpg",
     slug: "garbanzo",
-    category: "Leguminosas"
   },
   {
     name: "Poroto",
-    scientificName: "Phaseolus vulgaris",
-    description: "Leguminosa de grano con alto valor proteico. Susceptible a diversas enfermedades foliares y bacterianas que requieren manejo preventivo.",
-    iconFilename: "bean.svg",
     backgroundImage: "/crops/poroto/poroto.jpg",
     slug: "poroto",
-    category: "Leguminosas"
   },
   {
     name: "Maní",
-    scientificName: "Arachis hypogaea",
-    description: "Oleaginosa de ciclo estival con frutos subterráneos. Requiere manejo específico de enfermedades foliares para mantener área foliar activa.",
-    iconFilename: "peanut.svg",
     backgroundImage: "/crops/mani/mani.jpg",
     slug: "mani",
-    category: "Oleaginosas"
   },
   {
     name: "Cítricos",
-    scientificName: "Citrus spp.",
-    description: "Familia de árboles frutales perennes incluyendo limón, naranja, mandarina y pomelo. Requieren manejo sanitario específico para prevenir enfermedades.",
-    iconFilename: "lemon.svg",
     backgroundImage: "/crops/citricos/citricos.jpg",
     slug: "citricos",
-    category: "Cítricos"
   },
   {
     name: "Olivo",
-    scientificName: "Olea europaea",
-    description: "Cultivo milenario de gran rusticidad y longevidad. Produce aceitunas para mesa y aceite, requiere manejo sanitario preventivo específico.",
-    iconFilename: "olive.svg",
     backgroundImage: "/crops/olivo/olivo.jpg",
     slug: "olivo",
-    category: "Frutales"
+  },
+  {
+    name: "Ajo",
+    backgroundImage: "/crops/ajo/ajo.jpg",
+    slug: "ajo",
+  },
+  {
+    name: "Alfalfa Corte",
+    backgroundImage: "/crops/alfalfa-corte/alfalfa-corte.jpg",
+    slug: "alfalfa-corte",
+  },
+  {
+    name: "Alfalfa Primer Corte",
+    backgroundImage: "/crops/alfalfa-primer-corte/alfalfa-primer-corte.jpg",
+    slug: "alfalfa-primer-corte",
+  },
+  {
+    name: "Alfalfa Semilla",
+    backgroundImage: "/crops/alfalfa-semilla/alfalfa-semilla.jpg",
+    slug: "alfalfa-semilla",
+  },
+  {
+    name: "Berenjena",
+    backgroundImage: "/crops/berenjena/berenjena.jpg",
+    slug: "berenjena",
+  },
+  {
+    name: "Broccoli",
+    backgroundImage: "/crops/broccoli/broccoli.jpg",
+    slug: "broccoli",
+  },
+  {
+    name: "Cebada",
+    backgroundImage: "/crops/cebada/cebada.jpg",
+    slug: "cebada",
+  },
+  {
+    name: "Cebolla Consumo",
+    backgroundImage: "/crops/cebolla-consumo/cebolla-consumo.jpg",
+    slug: "cebolla-consumo"
+  },
+  {
+    name: "Cucurbitáceas",
+    backgroundImage: "/crops/cucurbitaceas/cucurbitaceas.jpg",
+    slug: "cucurbitaceas"
+  },
+  {
+    name: "Frutilla",
+    backgroundImage: "/crops/frutilla/frutilla.jpg",
+    slug: "frutilla"
+  },
+  {
+    name: "Hortalizas de Hoja",
+    backgroundImage: "/crops/hortalizas-de-hoja/hortalizas-de-hoja.jpg",
+    slug: "hortalizas-de-hoja"
+  },
+  {
+    name: "Maíz Grano",
+    backgroundImage: "/crops/maiz-grano/maiz-grano.jpg",
+    slug: "maiz-grano"
+  },
+  {
+    name: "Maíz Silo",
+    backgroundImage: "/crops/maiz-silo/maiz-silo.jpg",
+    slug: "maiz-silo"
+  },
+  {
+    name: "Melón",
+    backgroundImage: "/crops/melon/melon.jpg",
+    slug: "melon"
+  },
+  {
+    name: "Pimiento",
+    backgroundImage: "/crops/pimiento/pimiento.jpg",
+    slug: "pimiento"
+  },
+  {
+    name: "Sandía",
+    backgroundImage: "/crops/sandia/sandia.jpg",
+    slug: "sandia"
+  },
+  {
+    name: "Tomate Consumo",
+    backgroundImage: "/crops/tomate-consumo/tomate-consumo.jpg",
+    slug: "tomate-consumo"
+  },
+  {
+    name: "Tomate Industria",
+    backgroundImage: "/crops/tomate-industria/tomate-industria.jpg",
+    slug: "tomate-industria"
+  },
+  {
+    name: "Trigo",
+    backgroundImage: "/crops/trigo/trigo.jpg",
+    slug: "trigo"
   }
 ];

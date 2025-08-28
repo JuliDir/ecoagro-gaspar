@@ -56,7 +56,6 @@ export default function Header() {
             href: "/crops",
             id: "cultivos",
         },
-        { name: "Testimonios", href: "/testimonials", id: "testimonials" },
         { name: "Preguntas frecuentes", href: "/faqs", id: "faqs" },
         { name: "Contacto", href: "#contacto", id: "contacto" },
     ], [])

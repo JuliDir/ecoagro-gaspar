@@ -2,18 +2,15 @@ import { Product } from "./Product";
 
 export interface CultivoData {
     name: string;
-    scientificName: string;
-    description: string;
+    slug: string;
     backgroundImage: string;
-    icon: string;
+
+    protocoloAplicacion?: {
+        image: string, 
+        pdf: string
+    }
 
     objetivosPrograma: string[];
 
     productosRecomendados: Product[];
-
-    beneficiosEconomicos: {
-        incrementoRendimiento: string;
-        reduccionPerdidas: string;
-        roi: string;
-    };
 }

@@ -15,6 +15,7 @@ export const teamMembers: TeamMember[] = [
     phone: "+54 9 341 5765476",
     email: "lgaspar@ecoagrogaspar.com.ar",
     location: "Aristóbulo del Valle 456, Mendoza. Mendoza.",
+    image: "/images/about-us/luis.png",
     description: "Responsable de la visión estratégica y la dirección general de Ecoagro Gaspar, con base en Mendoza."
   },
   {
@@ -23,6 +24,7 @@ export const teamMembers: TeamMember[] = [
     phone: "+54 9 261 6997468",
     email: "caruani@ecoagrogaspar.com.ar",
     location: "Aristóbulo del Valle 456, Mendoza. Mendoza.",
+    image: "/images/about-us/carlos.png",
     description: "Conduce el equipo comercial de la empresa, desarrollando relaciones comerciales sólidas y expandiendo el alcance de nuestros productos."
   },
   {
@@ -31,6 +33,7 @@ export const teamMembers: TeamMember[] = [
     phone: "+54 9 261 5163987",
     email: "rcrino@ecoagrogaspar.com.ar",
     location: "Aristóbulo del Valle 456, Mendoza. Mendoza.",
+    image: "/images/about-us/roberto.png",
     description: "Impulsa el desarrollo de productos y la gestión de ventas, combinando conocimiento técnico y comercial."
   },
   {
@@ -47,6 +50,7 @@ export const teamMembers: TeamMember[] = [
     phone: "+54 9 261 4537732",
     email: "pmartínez@ecoagrogaspar.com.ar",
     location: "Aristóbulo del Valle 456, Mendoza. Mendoza.",
+    image: "/images/about-us/pablo.png",
     description: "Apoya las operaciones administrativas de la empresa desde la sede en Mendoza, asegurando el cumplimiento financiero y documental."
   },
   {

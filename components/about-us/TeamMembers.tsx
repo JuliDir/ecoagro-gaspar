@@ -15,7 +15,7 @@ const TeamMembers = () => {
       for (const member of teamMembers) {
         const cleanPhone = member.phone.replace(/[^\d]/g, '');
         const whatsappUrl = `https://wa.me/${cleanPhone}`;
-        
+
         try {
           const qrCodeDataUrl = await QRCode.toDataURL(whatsappUrl, {
             width: 120,
@@ -58,23 +58,33 @@ const TeamMembers = () => {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:justify-items-center">
       {teamMembers.map((member, index) => (
-        <motion.div 
+        <motion.div
           key={index}
           className={`bg-gradient-to-br from-primary-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-primary-100 w-full h-[485px] flex flex-col ${
             // Centrar la última card cuando hay 7 elementos (3 columnas)
             teamMembers.length === 7 && index === 6 ? 'lg:col-start-2' : ''
-          }`}
+            }`}
           variants={cardVariants}
           whileHover={{ y: -5 }}
         >
           {/* Foto placeholder - Altura fija */}
           <div className="relative w-32 h-32 mx-auto mb-6 flex-shrink-0">
-            <div className="w-full h-full rounded-full overflow-hidden shadow-lg border-3 border-primary-200 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-              <div className="text-center">
-                <Users className="w-16 h-16 text-primary-600 mx-auto mb-1" />
-                <p className="text-primary-700 font-medium text-xs">Foto próximamente</p>
+            {member.image ? (
+              <Image
+                src={member.image}
+                alt={member.name}
+                width={128}
+                height={128}
+                className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md"
+              />
+            ) : (
+              <div className="w-full h-full rounded-full overflow-hidden shadow-lg border-3 border-primary-200 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+                <div className="text-center">
+                  <Users className="w-16 h-16 text-primary-600 mx-auto mb-1" />
+                  <p className="text-primary-700 font-medium text-xs">Foto próximamente</p>
+                </div>
               </div>
-            </div>
+            )}
             {/* Icono decorativo */}
             <div className="absolute -top-2 right-2 w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center">
               <Briefcase className="w-5 h-5 text-white" />
@@ -82,7 +92,7 @@ const TeamMembers = () => {
           </div>
 
           {/* Contenido que cambia entre info y QR - Flex para ocupar espacio disponible */}
-          <motion.div 
+          <motion.div
             className="text-center flex-1 flex flex-col"
             variants={contentVariants}
             animate="visible"
@@ -127,7 +137,7 @@ const TeamMembers = () => {
                 <div className="flex-1 flex flex-col items-center">
                   <h3 className="text-xl font-bold text-primary-800 mb-2">{member.name}</h3>
                   <p className="text-primary-600 font-semibold mb-4">WhatsApp QR</p>
-                  
+
                   {qrCodes[member.phone] && (
                     <div className="bg-white rounded-xl shadow-lg border border-primary-100 mb-4 relative">
                       <Image

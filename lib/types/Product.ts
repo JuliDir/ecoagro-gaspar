@@ -3,8 +3,8 @@ export interface Product {
   name: string;
   color: string;
   gradient: string;
-  description: string;
-  features: string[];
+  description?: string;
+  features?: string[];
   icon: string;
   bgIcon: string;
   category?: string; 

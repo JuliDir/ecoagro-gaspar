@@ -16,10 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return {
     title: `${cultivo.name} - Manejo Sanitario | Ecoagro Gaspar`,
-    description: cultivo.description,
     openGraph: {
       title: `${cultivo.name} - Manejo Sanitario | Ecoagro Gaspar`,
-      description: cultivo.description,
       url: `https://ecoagrogaspar.com.ar/cultivos/${slug}`,
       siteName: "Ecoagro Gaspar",
     },

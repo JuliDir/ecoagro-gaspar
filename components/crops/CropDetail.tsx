@@ -6,11 +6,11 @@ import Link from "next/link";
 import {
     Target,
     Download,
-    FileText
+    FileText,
+    Clock
 } from "lucide-react";
 import { CultivoData } from "@/lib/types/Crop";
 import ProductCard from "../product/ProductCard";
-import Separator from "../ui/Separator";
 import RootSeparator from "../ui/RootSeparator";
 
 interface CultivoDetailProps {
@@ -60,7 +60,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
             <motion.section
                 className="relative text-white py-24 md:py-32 overflow-hidden"
                 style={{
-                    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(/crops/${cultivo.name.toLocaleLowerCase()}/${cultivo.name.toLocaleLowerCase()}.jpg)`,
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(/crops/${cultivo.slug}/${cultivo.slug}.jpg)`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat'
@@ -76,13 +76,6 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         className="flex items-center justify-center gap-6"
                         variants={sectionVariants}
                     >
-                        <Image
-                            src={cultivo.icon}
-                            alt={cultivo.name}
-                            width={80}
-                            height={80}
-                            className="brightness-0 invert"
-                        />
                         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-softhits">
                             {cultivo.name}
                         </h1>
@@ -134,7 +127,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 </div>
             </motion.section>
 
-            {/* PROTOCOLO DE APLICACIÓN - SECCIÓN PRINCIPAL */}
+            {/* PROTOCOLO DE APLICACIÓN - SECCIÓN CONDICIONAL */}
             <motion.section
                 className="pb-4 bg-white"
                 initial="hidden"
@@ -154,42 +147,77 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         </p>
                     </motion.div>
 
-                    {/* Imagen del protocolo */}
+                    {/* Contenido condicional del protocolo */}
                     <motion.div
                         className="mb-16"
                         variants={cardVariants}
                     >
-                        <div className="relative w-full max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
-                            <Image
-                                src={`/crops/mani/mani-protocolo-aplicacion.jpg`}
-                                alt={`Protocolo de aplicación para ${cultivo.name}`}
-                                width={1400}
-                                height={800}
-                                className="w-full h-auto"
-                                priority
-                            />
-                        </div>
+                        {cultivo.protocoloAplicacion ? (
+                            <>
+                                {/* Imagen del protocolo */}
+                                <div className="relative w-full max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                                    <Image
+                                        src={cultivo.protocoloAplicacion.image}
+                                        alt={`Protocolo de aplicación para ${cultivo.name}`}
+                                        width={1400}
+                                        height={800}
+                                        className="w-full h-auto"
+                                        priority
+                                    />
+                                </div>
 
-                        {/* Botones de descarga */}
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-14">
-                            <a
-                                href={`/crops/mani/MANÍ.pdf`}
-                                download
-                                className="inline-flex items-center gap-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl"
-                            >
-                                <Download className="w-5 h-5" />
-                                Descargar Protocolo
-                            </a>
-                            
-                            <a
-                                href={`/crops/mani/hoja-seguridad-${cultivo.name.toLowerCase()}.pdf`}
-                                download
-                                className="inline-flex items-center gap-3 bg-secondary-600 hover:bg-secondary-700 text-primary px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl border-2 border-secondary-500"
-                            >
-                                <FileText className="w-5 h-5" />
-                                Descargar hoja de seguridad
-                            </a>
-                        </div>
+                                {/* Botones de descarga */}
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-14">
+                                    <a
+                                        href={cultivo.protocoloAplicacion.pdf}
+                                        download
+                                        className="inline-flex items-center gap-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl"
+                                    >
+                                        <Download className="w-5 h-5" />
+                                        Descargar Protocolo
+                                    </a>
+                                    
+                                    <a
+                                        href={`/crops/${cultivo.slug}/hoja-seguridad-${cultivo.name.toLowerCase()}.pdf`}
+                                        download
+                                        className="inline-flex items-center gap-3 bg-secondary-600 hover:bg-secondary-700 text-primary px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl border-2 border-secondary-500"
+                                    >
+                                        <FileText className="w-5 h-5" />
+                                        Descargar hoja de seguridad
+                                    </a>
+                                </div>
+                            </>
+                        ) : (
+                            /* Mensaje de "Próximamente" */
+                            <div className="max-w-4xl mx-auto">
+                                <div className="bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-2xl p-12 shadow-lg border border-gray-200 relative overflow-hidden">
+                                    {/* Gradiente de fondo sutil */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-primary-400/5 to-primary-500/10 pointer-events-none"></div>
+                                    
+                                    <div className="text-center relative z-10">
+                                        <div className="w-20 h-20 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary-300/30">
+                                            <Clock className="w-10 h-10 text-primary-600" />
+                                        </div>
+                                        
+                                        <h3 className="text-3xl font-bold text-primary-800 mb-4">
+                                            Próximamente
+                                        </h3>
+                                        
+                                        <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+                                            Estamos desarrollando el protocolo específico para <strong>{cultivo.name}</strong>. 
+                                            Muy pronto estará disponible con todas las recomendaciones técnicas detalladas.
+                                        </p>
+                                        
+                                        <div className="inline-flex items-center gap-3 bg-primary-50 text-primary-700 px-6 py-3 rounded-lg border border-primary-200">
+                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            <span className="font-medium">Mantente atento a nuestras actualizaciones</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </motion.div>
                 </div>
             </motion.section>
