@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ecoagro Gaspar | Soluciones Sustentables para la Sanidad Vegetal",
   description:
-    "Más de 50 años desarrollando productos derivados del cobre para el manejo eficiente y amigable con el medio ambiente de enfermedades foliares en cultivos.",
+    "Más de 60 años desarrollando productos derivados del cobre para el manejo eficiente y amigable con el medio ambiente de enfermedades foliares en cultivos.",
   openGraph: {
     title: "Ecoagro Gaspar | Soluciones Sustentables para la Sanidad Vegetal",
     description:
-      "Más de 50 años desarrollando productos derivados del cobre para el manejo eficiente y amigable con el medio ambiente de enfermedades foliares en cultivos.",
+      "Más de 60 años desarrollando productos derivados del cobre para el manejo eficiente y amigable con el medio ambiente de enfermedades foliares en cultivos.",
     url: "https://ecoagrogaspar.com.ar/",
     siteName: "Ecoagro Gaspar",
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ecoagro Gaspar | Soluciones Sustentables para la Sanidad Vegetal",
     description:
-      "Más de 50 años desarrollando productos derivados del cobre para el manejo eficiente y amigable con el medio ambiente de enfermedades foliares en cultivos.",
+      "Más de 60 años desarrollando productos derivados del cobre para el manejo eficiente y amigable con el medio ambiente de enfermedades foliares en cultivos.",
   },
 };
 
