@@ -11,11 +11,12 @@ interface CropSection {
 }
 
 const cropSections: CropSection[] = [
-  { id: 1, name: "Legumbres", image: "/images/hero/mani.jpg" },
-  { id: 2, name: "Papas", image: "/images/hero/papas.jpg" },
-  { id: 3, name: "Olivos", image: "/images/hero/olivos.jpg" },
-  { id: 4, name: "Vid", image: "/images/hero/vid.jpg" },
-  { id: 5, name: "Cítricos", image: "/images/hero/mandarinas.jpg" }
+  { id: 1, name: "Maní", image: "/images/hero/mani.jpg" },
+  { id: 2, name: "Nueces", image: "/images/hero/nueces.jpg" },
+  { id: 3, name: "Porotos", image: "/images/hero/poroto.jpg" },
+  { id: 4, name: "Uva Tinta", image: "/images/hero/uva-tinta.jpg" },
+  { id: 5, name: "Tomate Invernadero", image: "/images/hero/tomate-invernadero.jpg" },
+  { id: 6, name: "Trigo", image: "/images/hero/trigo.png" }
 ]
 
 const heroTitles = [
@@ -196,20 +197,7 @@ export default function Hero() {
                   transition={{ duration: 0.3 }}
                 />
 
-                <AnimatePresence>
-                  {hoveredSection === originalSection.id && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      className="absolute bottom-8 left-1/2 transform -translate-x-1/2 pointer-events-none"
-                    >
-                      <h3 className="text-white text-2xl font-bold text-center drop-shadow-lg">
-                        {section.name}
-                      </h3>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                
               </motion.div>
             )
           })}

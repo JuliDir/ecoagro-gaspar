@@ -5,7 +5,7 @@ import Image from "next/image";
 type Pilar = {
   title: string;
   description: string;
-  details: string;
+  details?: string;
   image?: string;
 };
 
@@ -132,11 +132,13 @@ export const HorizontalCards: React.FC<HorizontalCardsProps> = ({
                       </p>
 
                       {/* Details */}
-                      <div className="rounded-lg bg-muted/30 p-4 border-l-4" style={{ borderColor: color }}>
-                        <p className="text-md text-muted-foreground leading-relaxed">
-                          {pilar.details}
-                        </p>
-                      </div>
+                      {pilar.details && (
+                        <div className="rounded-lg bg-muted/30 p-4 border-l-4" style={{ borderColor: color }}>
+                          <p className="text-md text-muted-foreground leading-relaxed">
+                            {pilar.details}
+                          </p>
+                        </div>
+                      )}
                     </div>
 
                   </div>

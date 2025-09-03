@@ -86,7 +86,7 @@ export default function Contact() {
           viewport={optimizedViewport}
         >
           <h2 className="text-4xl font-avenir-cyr-heavy mb-4 text-primary-500">
-            CONTACTO
+            Contacto
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Estamos aquí para ayudarte. Contáctanos para cualquier consulta sobre

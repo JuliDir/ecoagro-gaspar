@@ -24,7 +24,7 @@ export const products: Product[] = [
     color: "#9a3388",
     gradient: "from-fuchsia-400 to-purple-600", 
     description:
-      "Caldo bordelés coloidal listo para usar.",
+      "Caldo bordelés listo para usar.",
     features: [
       "Máxima adherencia y poder residual.",
       "Mayor eficacia con menor cantidad de cobre metálico.",
@@ -76,8 +76,7 @@ export const productsData = {
       },
       {
         title: "Estimula las defensas naturales",
-        description: "Contiene fosfitos de cobre, potasio y amonio que inducen respuestas de defensa.",
-        details: "Su formulación permite inducir respuestas de defensa (hídrico, térmico, oxidativo, etc).",
+        description: "Su formulación permite inducir respuestas de defensa (hídrico, térmico, oxidativo, etc).",
         image: "/images/products/defensas.png"
       }
     ],
@@ -85,7 +84,10 @@ export const productsData = {
       cobertura: "Acción de contacto, translaminar y sistémica con doble barrera de protección (externa e interna)",
       penetracion: "Penetra por estomas, estimula defensas naturales, y su carga nutricional ayuda a las plantas a lidiar con el estrés"
     },
-    cultivos: ["garbanzo", "poroto", "mani", "soja", "papa", "vid", "cítricos"],
+    cultivos: ["ajo", "alfalfa corte", "alfalfa primer corte", "alfalfa semilla",
+      "berenjena", "broccoli", "cebada", "cebolla consumo", "citricos", "cucurbitaceas", "frutilla",
+      "garbanzo", "hortalizas de hoja", "limon", "maiz grano", "maiz silo", "mandarina", "mani", "melon", "naranja", "olivo", "papa", "pimiento",
+      "pomelo", "poroto", "sandia", "soja", "tomate consumo", "tomate industria", "trigo", "vid"],
     aplicacion: {
       equipos: "desde mochila hasta aplicaciones aéreas",
       compatibilidad: "combinar con pesticidas usuales, preferible agregar primero Cobrestable (lleva adherente siliconado)",
@@ -103,7 +105,7 @@ export const productsData = {
     triplePilar: [
       {
         title: "Tecnología Ultramicronizada",
-        description: "Partículas de ≈1 µm que garantizan máxima cobertura y penetración foliar.",
+        description: "Partículas de ≈1 µm que garantizan máxima cobertura.",
         details: "La micronización ultra‑fina permite una distribución homogénea y mayor superficie de contacto con el patógeno.",
         image: "/images/products/tecnologia-micronizada-bordocald.png"
       },
@@ -142,7 +144,7 @@ export const productsData = {
     triplePilar: [
       {
         title: "Tecnología Ultramicronizada",
-        description: "Partículas de ≈1 µm que garantizan máxima cobertura y penetración foliar.",
+        description: "Partículas entre ≈1 y ≈1.5 µm que garantizan máxima cobertura y penetración foliar.",
         details: "La micronización ultra‑fina permite una distribución homogénea y mayor superficie de contacto con el patógeno.",
         image: "/images/products/tecnologia-micronizada-trikopper.png"
       },
@@ -160,8 +162,8 @@ export const productsData = {
       }
     ],
     modoAccion: {
-      cobertura: "Acción preventiva y curativa con liberación sostenida de cobre activo",
-      penetracion: "Penetración cuticular mejorada y formación de reservorio activo en la superficie foliar"
+      cobertura: "Acción preventiva con liberación sostenida de cobre activo",
+      penetracion: "Formación de reservorio activo en la superficie foliar"
     },
     cultivos: ["cítricos"],
     aplicacion: {

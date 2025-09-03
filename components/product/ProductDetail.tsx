@@ -24,7 +24,7 @@ interface ProductData {
   triplePilar: Array<{
     title: string;
     description: string;
-    details: string;
+    details?: string;
     image: string;
   }>;
   modoAccion: {
@@ -104,31 +104,54 @@ const optimizedViewport = {
 
 export default function ProductDetail({ product }: ProductDetailProps) {
 
+
+
   // Mapping de cultivos a sus slugs
   const getCultivoSlug = (cultivo: string): string => {
+
     const cultivoMap: { [key: string]: string } = {
+      "ajo": "ajo",
+      "alfalfa corte": "alfalfa-corte",
+      "alfalfa primer corte": "alfalfa-primer-corte",
+      "alfalfa semilla": "alfalfa-semilla",
+      "berenjena": "berenjena",
+      "broccoli": "broccoli",
+      "cebada": "cebada",
+      "cebolla consumo": "cebolla-consumo",
+      "citricos": "citricos",
+      "cucurbitaceas": "cucurbitaceas",
+      "frutilla": "frutilla",
       "garbanzo": "garbanzo",
-      "poroto": "poroto",
-      "maní": "mani",
-      "soja": "soja",
-      "papa": "papa",
-      "cítricos": "citricos",
-      "vid": "vid",
-      "trigo": "trigo",
-      "tomate": "tomate",
-      "frutales de pepita": "frutales-pepita",
-      "hortalizas": "hortalizas",
-      "frutales de carozo": "frutales-carozo",
+      "hortalizas de hoja": "hortalizas-hoja",
+      "limon": "limon",
+      "maiz grano": "maiz-grano",
+      "maiz silo": "maiz-silo",
+      "mandarina": "mandarina",
+      "mani": "mani",
+      "melon": "melon",
+      "naranja": "naranja",
       "olivo": "olivo",
+      "papa": "papa",
+      "pimiento": "pimiento",
+      "pomelo": "pomelo",
+      "poroto": "poroto",
+      "sandia": "sandia",
+      "soja": "soja",
+      "tomate consumo": "tomate-consumo",
+      "tomate industria": "tomate-industria",
+      "trigo": "trigo",
+      "vid": "vid",
+
+      // Extras que tenías antes
+      "maní": "mani",                  // acento
+      "maíz": "maiz",                  // acento
+      "cítricos": "citricos",          // acento
+      "frutales de pepita": "frutales-pepita",
+      "frutales de carozo": "frutales-carozo",
+      "hortalizas": "hortalizas",
       "palto": "palto",
       "kiwi": "kiwi",
-      "maíz": "maiz",
-      "maiz": "maiz",
-      "ajo": "ajo",
-      "naranja": "naranja",
-      "limon": "limon",
-      "mandarina": "mandarina",
-      "pomelo": "pomelo",
+      "tomate": "tomate",              // genérico
     };
 
     return cultivoMap[cultivo.toLowerCase()] || cultivo.toLowerCase().replace(/\s+/g, '-');
@@ -137,26 +160,49 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   // Mapping de cultivos a sus imágenes
   const getCultivoImage = (cultivo: string): string => {
     const imageMap: { [key: string]: string } = {
+      "ajo": "/crops/ajo/ajo.jpg",
+      "alfalfa corte": "/crops/alfalfa-corte/alfalfa-corte.jpg",
+      "alfalfa primer corte": "/crops/alfalfa-primer-corte/alfalfa-primer-corte.jpg",
+      "alfalfa semilla": "/crops/alfalfa-semilla/alfalfa-semilla.jpg",
+      "berenjena": "/crops/berenjena/berenjena.jpg",
+      "broccoli": "/crops/broccoli/broccoli.jpg",
+      "cebada": "/crops/cebada/cebada.jpg",
+      "cebolla consumo": "/crops/cebolla-consumo/cebolla-consumo.jpg",
+      "citricos": "/crops/citricos/citricos.jpg",
+      "cítricos": "/crops/citricos/citricos.jpg", // con tilde
+      "cucurbitaceas": "/crops/cucurbitaceas/cucurbitaceas.jpg",
+      "frutilla": "/crops/frutilla/frutilla.jpg",
       "garbanzo": "/crops/garbanzo/garbanzo.jpg",
-      "poroto": "/crops/poroto/poroto.jpg",
-      "maní": "/crops/mani/mani.jpg",
+      "hortalizas de hoja": "/crops/hortalizas-de-hoja/hortalizas-de-hoja.jpg",
+      "limon": "/crops/limon/limon.jpg",
+      "maiz grano": "/crops/maiz-grano/maiz-grano.jpg",
+      "maiz silo": "/crops/maiz-silo/maiz-silo.jpg",
+      "maíz": "/crops/maiz/maiz.jpg", // con tilde
+      "maiz": "/crops/maiz/maiz.jpg",
+      "mandarina": "/crops/mandarina/mandarina.jpg",
+      "maní": "/crops/mani/mani.jpg", // con tilde
       "mani": "/crops/mani/mani.jpg",
-      "soja": "/crops/soja/soja.jpg",
-      "papa": "/crops/papa/papa.jpg",
-      "vid": "/crops/vid/vid.jpg",
-      "trigo": "/crops/trigo/trigo.jpg",
-      "tomate": "/crops/tomate/tomate.jpg",
+      "melon": "/crops/melon/melon.jpg",
+      "naranja": "/crops/naranja/naranja.jpg",
       "olivo": "/crops/olivo/olivo.jpg",
+      "papa": "/crops/papa/papa.jpg",
+      "pimiento": "/crops/pimiento/pimiento.jpg",
+      "pomelo": "/crops/pomelo/pomelo.jpg",
+      "poroto": "/crops/poroto/poroto.jpg",
+      "sandia": "/crops/sandia/sandia.jpg",
+      "soja": "/crops/soja/soja.jpg",
+      "tomate consumo": "/crops/tomate-consumo/tomate-consumo.jpg",
+      "tomate industria": "/crops/tomate-industria/tomate-industria.jpg",
+      "tomate": "/crops/tomate/tomate.jpg", // genérico
+      "trigo": "/crops/trigo/trigo.jpg",
+      "vid": "/crops/vid/vid.jpg",
+
+      // extras de tu cultivoMap original
+      "frutales de pepita": "/crops/frutales-pepita/frutales-pepita.jpg",
+      "frutales de carozo": "/crops/frutales-carozo/frutales-carozo.jpg",
+      "hortalizas": "/crops/hortalizas/hortalizas.jpg",
       "palto": "/crops/palto/palto.jpg",
       "kiwi": "/crops/kiwi/kiwi.jpg",
-      "maíz": "/crops/maiz/maiz.jpg",
-      "maiz": "/crops/maiz/maiz.jpg",
-      "ajo": "/crops/ajo/ajo.jpg",
-      "naranja": "/crops/naranja/naranja.jpg",
-      "limon": "/crops/limon/limon.jpg",
-      "mandarina": "/crops/mandarina/mandarina.jpg",
-      "pomelo": "/crops/pomelo/pomelo.jpg",
-      "cítricos": "/crops/citricos/citricos.jpg"
     };
 
     return imageMap[cultivo.toLowerCase()] || "/images/crops/default.jpg";
@@ -449,10 +495,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 fill
                 className="object-cover"
               />
-              
+
               {/* Overlay oscuro */}
               <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/30"></div>
-              
+
               {/* Contenido */}
               <div className="absolute inset-0 flex items-center justify-start p-12">
                 <div className="max-w-2xl">
@@ -462,7 +508,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   <p className="text-xl text-white/90 mb-6">
                     Formulado especialmente para naranjas, limones, mandarinas y pomelos
                   </p>
-                  
+
                   {/* Badge */}
                   <div className="inline-flex items-center bg-orange-500 text-white px-6 py-3 rounded-full font-bold">
                     <Award className="w-5 h-5 mr-2" />
@@ -499,7 +545,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             variants={sectionVariants}
           >
             <h2 className="text-4xl font-avenir-cyr-heavy mb-4 text-white">
-              {product.name === "COBRESTABLE" ? "Triple Acción" : "Como Funciona"}
+              {product.name === "COBRESTABLE" ? "Triple Acción" : "¿Cómo Funciona?"}
             </h2>
             <p className="text-xl text-white max-w-3xl mx-auto">
               {product.name === "COBRESTABLE"
@@ -510,7 +556,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
           {product.name === "COBRESTABLE" ? (
             <>
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="grid md:grid-cols-3 gap-8">
                 <motion.div variants={cardVariants}>
                   <div
                     className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 h-full shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden group border border-white/20"
@@ -546,7 +592,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                         </div>
                         <h3 className="text-2xl text-white font-bold tracking-tight drop-shadow-lg">Penetración</h3>
                       </div>
-                      <p className="text-white/90 leading-relaxed font-medium backdrop-blur-sm">
+                      <p className="text-white/90 leading-relaxed font-medium">
                         Penetra y se moviliza por la planta
                       </p>
                     </div>
@@ -592,7 +638,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                         Deposita cobre creando una barrera interna
                       </p>
 
-                      
+
                     </div>
                   </div>
                 </motion.div>
@@ -636,91 +682,11 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                         Parte del cobre queda en el tejido produciendo una barrera externa
                       </p>
 
-                      
+
                     </div>
                   </div>
                 </motion.div>
               </div>
-
-              {/* Imágenes para COBRESTABLE con efecto glass */}
-              <motion.div
-                className="grid md:grid-cols-2 gap-8 mt-16"
-                variants={containerVariants}
-              >
-                <motion.div variants={cardVariants}>
-                  <div
-                    className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 group border border-white/20"
-                    style={{
-                      backdropFilter: 'blur(20px)',
-                      WebkitBackdropFilter: 'blur(20px)'
-                    }}
-                  >
-                    <div className="relative overflow-hidden rounded-2xl">
-                      {/* Overlay glass */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm"></div>
-
-                      <Image
-                        src="/images/products/doble-barrera-1.jpeg"
-                        alt="Doble Barrera - Imagen 1"
-                        width={600}
-                        height={400}
-                        className="w-full h-64 transition-transform duration-700 group-hover:scale-105"
-                      />
-
-                      {/* Info overlay con glassmorphism */}
-                      <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div
-                          className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 border border-white/20"
-                          style={{
-                            backdropFilter: 'blur(20px)',
-                            WebkitBackdropFilter: 'blur(20px)'
-                          }}
-                        >
-                          <h4 className="font-bold text-white text-sm drop-shadow-lg">Proceso de aplicación</h4>
-                          <p className="text-white/80 text-xs mt-1">Visualización del modo de acción</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div variants={cardVariants}>
-                  <div
-                    className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 group border border-white/20"
-                    style={{
-                      backdropFilter: 'blur(20px)',
-                      WebkitBackdropFilter: 'blur(20px)'
-                    }}
-                  >
-                    <div className="relative overflow-hidden rounded-2xl">
-                      {/* Overlay glass */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm"></div>
-
-                      <Image
-                        src="/images/products/doble-barrera-2.jpeg"
-                        alt="Doble Barrera - Imagen 2"
-                        width={600}
-                        height={400}
-                        className="w-full h-64 transition-transform duration-700 group-hover:scale-105"
-                      />
-
-                      {/* Info overlay con glassmorphism */}
-                      <div className="absolute bottom-4 left-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div
-                          className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 border border-white/20"
-                          style={{
-                            backdropFilter: 'blur(20px)',
-                            WebkitBackdropFilter: 'blur(20px)'
-                          }}
-                        >
-                          <h4 className="font-bold text-white text-sm drop-shadow-lg">Resultado final</h4>
-                          <p className="text-white/80 text-xs mt-1">Protección completa de la planta</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
             </>
           ) : (
             <div className="grid md:grid-cols-2 gap-8">
@@ -831,6 +797,38 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           clipPath: "polygon(50% 100%, 0 0, 100% 0)"
         }}
       ></div>
+
+      {product.name === "COBRESTABLE" && (
+        <>
+          {/* Imágenes para COBRESTABLE con efecto glass */}
+          <motion.div
+            className="flex flex-col md:flex-row items-center justify-center gap-4 pt-10"
+            variants={containerVariants}
+          >
+            <motion.div variants={cardVariants}>
+              <div className="relative w-[600px] h-[280px]">
+                <Image
+                  src="/images/products/doble-barrera-2.jpeg"
+                  alt="Doble Barrera - Imagen 1"
+                  fill
+                  className="transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div variants={cardVariants}>
+              <div className="relative w-[600px] h-[250px]">
+                <Image
+                  src="/images/products/doble-barrera-1.jpeg"
+                  alt="Doble Barrera - Imagen 2"
+                  fill
+                  className="transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        </>
+      )}
 
       {/* SECCIÓN ACTUALIZADA: Retención del Producto - Dos gráficos */}
       {hasRetentionCharts && (
@@ -944,7 +942,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             variants={sectionVariants}
           >
             <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ color: product.cssColor }}>
-              Cultivos recomendados
+              Cultivos Recomendados
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Descubre todos los cultivos donde puedes aplicar {product.name} para obtener los mejores resultados

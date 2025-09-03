@@ -7,6 +7,7 @@ export const teamMembers: TeamMember[] = [
     phone: "+54 9 261 6383387",
     email: "cocaranza@ecoagrogaspar.com.ar",
     location: "Parque Industrial Las Heras, Calle 12 eje Norte RT Lote 4",
+    image: "/images/about-us/cecilia.png",
     description: "Lidera la gestión administrativa de la empresa desde el Parque Industrial Las Heras, impulsando eficiencia y organización en cada proceso."
   },
   {

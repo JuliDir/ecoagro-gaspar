@@ -89,7 +89,9 @@ export default function AllCropsSection() {
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
                         variants={containerVariants}
                     >
-                        {allCrops.map((crop, index) => (
+                        {allCrops.sort(
+                            (a, b) => a.name.localeCompare(b.name)
+                        ).map((crop, index) => (
                             <motion.div
                                 key={crop.slug}
                                 variants={cardVariants}

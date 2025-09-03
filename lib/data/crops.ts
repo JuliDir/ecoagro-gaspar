@@ -199,10 +199,11 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar eficazmente la antracnosis",
-      "Prevenir infecciones durante el desarrollo del fruto",
-      "Mejorar la calidad comercial de la producción",
-      "Reducir pérdidas postcosecha"
+      "Dotar al cultivo de cobre como nutriente para disminuir el riesgo de ataques de patógenos en especial bacteriosis.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos.",
+      "Disminuir los efectos de estrés abióticos.",
+      "Mejorar la fotosíntesis para asegurar mayor asimilación de azúcares.",
+      "Aumentar cantidad y calidad de polen. Mejorar la cuaja de granos. Aumentar rendimiento por hectárea."
     ],
 
     productosRecomendados: [
@@ -229,10 +230,10 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar eficazmente las enfermedades foliares",
-      "Mantener la producción de frutos de calidad",
-      "Optimizar el uso de recursos hídricos",
-      "Reducir el impacto ambiental del cultivo"
+      "Sanidad: prevenir la entrada de patógenos, en especial las viruelas Cercospora arachidicola y Nothopassalora personata (Cercosporidium personatum).",
+      "Sanidad: En aplicaciones conjuntas con fungicidas específicos, potenciar la acción de los mismos evitando la aparición de resistencia por parte de los patógenos.",
+      "Nutricionalmente: Dotar al cultivo de cobre como nutriente para fortalecer tejidos frente al ataque de patógenos.",
+      "Nutricionalmente: por la acción del cobre, mejorar la fotosíntesis para asegurar mayor asimilación de azúcares."
     ],
 
     productosRecomendados: [
@@ -289,10 +290,11 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar enfermedades fúngicas comunes",
-      "Mantener calidad de frutos para exportación",
-      "Reducir pérdidas económicas por descarte",
-      "Optimizar rendimiento del cultivo"
+      "Principalmente Cobrestable actúa como fungicida preventivo contra tizón temprano y tizón tardío.",
+      "Cobrestable potencia la actividad fotosintética para asegurar una mayor acumulación y traslado de carbohidratos especialmente durante la formación de los tubérculos. Esto permitirá mejorar el tamaño y la uniformidad de los mismos.",
+      "Durante todo el ciclo Cobrestable permite disminuir los efectos de los diferentes estreses abióticos que sufre el cultivo (aplicación de herbicidas, bajas temperaturas, aplicación de pesticidas, daños mecánicos, etc.) y que son causa fundamental de la falta de uniformidad final de los tubérculos.",
+      "El equilibrio entre los nutrientes que componen Cobrestable permite lograr máxima eficiencia de aprovechamiento del nitrógeno y del potasio de las aplicaciones de fertilizantes durante la tuberización.",
+      "Cobrestable logra epidermis más fuertes, asegurando mayor calidad de las mismas a cosecha evitando su rotura durante el manipuleo."
     ],
 
     productosRecomendados: [
@@ -314,10 +316,9 @@ export const cultivosData = {
     backgroundImage: "/crops/citricos/citricos.jpg",
 
     objetivosPrograma: [
-      "Controlar eficazmente la cancrosis cítrica",
-      "Prevenir enfermedades fúngicas como melanosis",
-      "Mejorar la calidad comercial de la producción",
-      "Reducir pérdidas postcosecha"
+      "Manejo preventivo de las enfermedades del citrus, con especial énfasis en Cancrosis, Mancha negra y Melanosis.",
+      "La aplicación conjunta de Cobrestable y Trikopper obedece a una mayor eficiencia de control.",
+      "Cobrestable aporta cobre de manera sistémica llevando la acción preventiva a toda la planta. Trikopper aporta el escudo ultramicronizado que impide la penetración de los patógenos."
     ],
 
     productosRecomendados: [
@@ -345,10 +346,11 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar enfermedades fúngicas foliares",
-      "Prevenir pudriciones de bulbo",
-      "Mejorar la calidad comercial",
-      "Reducir pérdidas postcosecha"
+      "Promover un sistema radicular fuerte y de crecimiento rápido para asegurar una absorción más eficiente de los fertilizantes desde temprano en el ciclo.",
+      "Potenciar la actividad fotosintética para asegurar una mayor acumulación y traslado de carbohidratos especialmente durante la formación del bulbo. Esto permitirá mejorar el tamaño y la uniformidad de estos.",
+      "Permitir disminuir los efectos de los diferentes estreses abióticos que sufre el cultivo (aplicación de herbicidas, bajas temperaturas, aplicación de pesticidas, daños mecánicos, etc.) y que son causa fundamental de la desuniformidad final de los bulbos.",
+      "Lograr máxima eficiencia de aprovechamiento del nitrógeno y del potasio de las aplicaciones de fertilizantes durante el encabezado.",
+      "Asegurar mayor calidad de las catáfilas a cosecha para mayor supervivencia en góndola."
     ],
 
     productosRecomendados: [
@@ -375,10 +377,12 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Mantener vigor del cultivo perenne",
-      "Controlar enfermedades foliares",
-      "Optimizar la calidad nutritiva del forraje",
-      "Prolongar la vida útil del cultivo"
+      "Aumentar el rendimiento en kgs. de materia seca por hectárea.",
+      "Lograr Mayor retención de hojas a la hora de hacer fardos o rollos.",
+      "Lograr tallos más tiernos y digeribles.",
+      "Mejorar la calidad proteica de los tejidos.",
+      "Proveer de cobre al pasto de manera uniforme para disminuir los requerimientos de suplementación de los animales con este microelemento.",
+      "Cobrestable produce un adelantamiento de la floración de entre 3 y 5 días por ciclo, de manera que a lo largo del año (6 a 7 ciclos) podría lograrse obtener un corta adicional."
     ],
 
     productosRecomendados: [
@@ -405,10 +409,7 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Establecer base sólida para cortes posteriores",
-      "Controlar enfermedades de establecimiento",
-      "Optimizar desarrollo inicial",
-      "Fortalecer sistema radicular"
+      "Asegurar la mejor implantación del cultivo con máximo crecimiento radicular y expansión foliar."
     ],
 
     productosRecomendados: [
@@ -430,10 +431,12 @@ export const cultivosData = {
     backgroundImage: "/crops/alfalfa-semilla/alfalfa-semilla.jpg",
 
     objetivosPrograma: [
-      "Maximizar producción de semilla",
-      "Controlar enfermedades que afectan floración",
-      "Mejorar calidad y viabilidad de semilla",
-      "Optimizar polinización"
+      "Aumentar el número de hojas fotosintéticamente activas.",
+      "Mejorar la calidad de la fotosíntesis de manera promover una mayor acumulación de azúcares.",
+      "Mejorar la floración.",
+      "Mejorar la cantidad y calidad del cuaje.",
+      "Reducir la incidencia de estrés abiótico.",
+      "El objetivo final es la obtención de un mayor rendimiento de semillas por hectárea."
     ],
 
     protocoloAplicacion: {
@@ -465,10 +468,11 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar enfermedades foliares",
-      "Prevenir pudriciones de fruto",
-      "Mejorar calidad comercial",
-      "Extender período de cosecha"
+      "Reducir el riesgo de ataques de patógenos en especial Tizón Temprano (Alternaria), Tizón Tardío (Phythophthora) y Bacteriosis dotando al cultivo de cobre nutriente para fortalecer las paredes celulares de los tejidos y evitar la penetración de las hifas.",
+      "Eficientizar el aprovechamiento del nitrógeno durante el cultivo optimizando la transformación del nitrógeno de nitratos en hojas (alimento para los hongos) en nitrógeno amínico (no utilizado por los mismos).",
+      "Aumentar la tasa fotosintética para asegurar mayor asimilación de azúcares.",
+      "Disminuir los efectos de estrés abióticos en especial derivado del uso de agrotóxicos, promoviendo la eliminación de radicales libres oxidantes.",
+      "Sinergizar la acción de los fungicidas en aplicaciones conjuntas para aumentar la eficacia de los mismos reduciendo los riesgos de resistencia."
     ],
 
     productosRecomendados: [
@@ -495,10 +499,12 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar enfermedades de crucíferas",
-      "Prevenir pudriciones de cabeza",
-      "Mejorar compacidad y calidad",
-      "Optimizar desarrollo de inflorescencia"
+      "Obtener plantines vigorosos.",
+      "Robustecer a las plantas en el trasplante.",
+      "Mantener la sanidad general del cultivo.",
+      "Estimular el crecimiento y desarrollo foliar.",
+      "Disminuir los efectos de estrés abióticos.",
+      "Mejorar la fotosíntesis."
     ],
 
     productosRecomendados: [
@@ -555,10 +561,11 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar enfermedades foliares",
-      "Prevenir pudriciones de bulbo",
-      "Mejorar conservación postcosecha",
-      "Optimizar calibre y uniformidad"
+      "Promover un sistema radicular fuerte y de crecimiento rápido para asegurar una absorción más eficiente de los fertilizantes desde temprano en el ciclo.",
+      "Potenciar la actividad fotosintética para asegurar una mayor acumulación y traslado de carbohidratos especialmente durante la formación del bulbo. Esto permitirá mejorar el tamaño y la uniformidad de estos.",
+      "Permitir disminuir los efectos de los diferentes estreses abióticos que sufre el cultivo (aplicación de herbicidas, bajas temperaturas, aplicación de pesticidas, daños mecánicos, etc.) y que son causa fundamental de la desuniformidad final de los bulbos.",
+      "Lograr máxima eficiencia de aprovechamiento del nitrógeno y del potasio de las aplicaciones de fertilizantes durante el encabezado.",
+      "Asegurar mayor calidad de las catáfilas a cosecha para mayor supervivencia en góndola."
     ],
 
     productosRecomendados: [
@@ -585,10 +592,13 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar mildiu y oídio",
-      "Prevenir bacteriosis",
-      "Mejorar cuajado de frutos",
-      "Extender período productivo"
+      "Promover un más temprano desarrollo radicular.",
+      "Fortalecer tejidos para trasplante.",
+      "Favorecer la rusticación de raíces.",
+      "Estimulación del crecimiento foliar.",
+      "Protección contra patógenos.",
+      "Aportar una nutrición cúprica para fortalecer tejidos.",
+      "Estimulación de síntesis de fitoalexinas."
     ],
 
     productosRecomendados: [
@@ -615,10 +625,13 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar botritis y antracnosis",
-      "Mejorar calidad del fruto",
-      "Extender vida postcosecha",
-      "Optimizar producción continua"
+      "Fortalecer el sistema radicular para una mejor implantación del cultivo",
+      "Estimular tempranamente el desarrollo de coronas",
+      "Mayor crecimiento vegetativo",
+      "Mantener la sanidad durante todo el ciclo.",
+      "Manejo del estrés ocasionado por la poda",
+      "Mejorar el cuaje",
+      "Mejorar uniformidad y aumentar tamaño de frutos."
     ],
 
     productosRecomendados: [
@@ -645,10 +658,12 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar enfermedades foliares",
-      "Mantener calidad visual",
-      "Prevenir bacteriosis",
-      "Optimizar desarrollo foliar"
+      "Obtener plantines vigorosos.",
+      "Robustecer a las plantas en el trasplante.",
+      "Mantener la sanidad durante todo el ciclo.",
+      "Nutrir con cobre para hacer tejidos más resistentes a daños mecánicos en general.",
+      "Estimular el crecimiento y maximizar el tamaño de las plantas.",
+      "Disminuir los efectos de estrés abióticos."
     ],
 
     productosRecomendados: [
@@ -771,10 +786,11 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar enfermedades de solanáceas",
-      "Mejorar cuajado y desarrollo",
-      "Optimizar color y firmeza",
-      "Extender período productivo"
+      "Reducir el riesgo de ataques de patógenos en especial Tizón Temprano (Alternaria), Tizón Tardío (Phythophthora) y Bacteriosis dotando al cultivo de cobre nutriente para fortalecer las paredes celulares de los tejidos y evitar la penetración de las hifas.",
+      "Sinergizar la acción de los fungicidas en aplicaciones conjuntas para aumentar la eficacia de los mismos reduciendo los riesgos de resistencia.",
+      "Eficientizar el aprovechamiento del nitrógeno durante el cultivo optimizando la transformación del nitrógeno de nitratos en hojas (alimento para los hongos) en nitrógeno amínico (no utilizado por los mismos).",
+      "Aumentar la tasa fotosintética para asegurar mayor asimilación de azúcares.",
+      "Disminuir los efectos de estrés abióticos en especial derivado del uso de agrotóxicos, promoviendo la eliminación de radicales libres oxidantes."
     ],
 
     productosRecomendados: [

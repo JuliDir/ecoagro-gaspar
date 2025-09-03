@@ -140,7 +140,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         variants={sectionVariants}
                     >
                         <h2 className="text-5xl text-primary-800 mb-4 font-avenir-cyr-heavy">
-                            Protocolo de aplicación
+                            Protocolo de Aplicación
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Programa completo desarrollado por Ecoagro Gaspar para maximizar el rendimiento y la calidad del cultivo

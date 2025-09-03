@@ -31,13 +31,6 @@ const itemVariants = {
     },
 }
 
-// Viewport optimizado para mejor detección
-const optimizedViewport = { 
-    once: true, 
-    amount: 0.05, // Muy bajo para activación temprana
-    margin: "0px 0px -100px 0px" // Margen grande para pre-activación
-}
-
 export default function AllProducts() {
     const searchParams = useSearchParams()
     const category = searchParams.get('category')
