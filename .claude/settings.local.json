@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/C:\\Repos\\ecoagrogaspar\\components\\about-us/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -76,7 +76,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         className="flex items-center justify-center gap-6"
                         variants={sectionVariants}
                     >
-                        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-softhits">
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-avenir">
                             {cultivo.name}
                         </h1>
                     </motion.div>

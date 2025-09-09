@@ -402,8 +402,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   {/* Logo SENASA */}
                   <div className="group cursor-pointer" onClick={() => {
                     const link = document.createElement('a');
-                    link.href = '/certificates/bordocald-senasa-certificate.pdf';
-                    link.download = 'BORDOCALD-Certificado-SENASA.pdf';
+                    link.href = '/certificates/bordocald-senasa-certificate.jpeg';
+                    link.download = 'BORDOCALD-Certificado-SENASA.jpeg';
                     link.click();
                   }}>
                     <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-200 group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
@@ -859,7 +859,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   <motion.div
                     variants={cardVariants}
                   >
-                    <div className="bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
+                    <div className="h-140 bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
                       <div className="mb-8 text-center">
                         <div className="flex items-center justify-center space-x-3 mb-4">
                           <div
@@ -893,7 +893,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   <motion.div
                     variants={cardVariants}
                   >
-                    <div className="bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
+                    <div className="h-140 bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
                       <div className="mb-8 text-center">
                         <div className="flex items-center justify-center space-x-3 mb-4">
                           <div

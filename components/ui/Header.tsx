@@ -10,6 +10,9 @@ import { usePathname } from "next/navigation"
 type DropdownItem = {
     name: string
     href: string
+    isCategory?: boolean
+    isSubItem?: boolean
+    parentCategory?: string
 }
 
 export default function Header() {
@@ -19,15 +22,20 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false)
     const [isCropsDropdownOpen, setIsCropsDropdownOpen] = useState(false)
+    const [isFungicidesSubDropdownOpen, setIsFungicidesSubDropdownOpen] = useState(false)
     // Estados para dropdowns móviles
     const [isMobileProductsDropdownOpen, setIsMobileProductsDropdownOpen] = useState(false)
     const [isMobileCropsDropdownOpen, setIsMobileCropsDropdownOpen] = useState(false)
+    const [isMobileFungicidesDropdownOpen, setIsMobileFungicidesDropdownOpen] = useState(false)
     const lastScrollY = useRef(0)
     const pathname = usePathname()
 
-    // Nuevas categorías de productos
+    // Categorías de productos con fungicidas como sub-items visibles
     const products = [
-        { name: "Fungicidas", href: "/products?category=Fungicidas" },
+        { name: "Fungicidas", href: "/products?category=Fungicidas", isCategory: true },
+        { name: "Cobrestable", href: "/products/cobrestable", isSubItem: true, parentCategory: "Fungicidas" },
+        { name: "Bordocald", href: "/products/bordocald", isSubItem: true, parentCategory: "Fungicidas" },
+        { name: "Trikopper", href: "/products/trikopper-50", isSubItem: true, parentCategory: "Fungicidas" },
         { name: "Fertilizantes", href: "/products?category=Fertilizantes" },
         { name: "Coadyuvantes", href: "/products?category=Coadyuvantes" },
     ]
@@ -207,10 +215,14 @@ export default function Header() {
     const toggleMobileDropdown = (dropdownType: string) => {
         if (dropdownType === "products") {
             setIsMobileProductsDropdownOpen(!isMobileProductsDropdownOpen)
-            setIsMobileCropsDropdownOpen(false) // Cerrar el otro dropdown
+            setIsMobileCropsDropdownOpen(false)
+            setIsMobileFungicidesDropdownOpen(false)
         } else if (dropdownType === "crops") {
             setIsMobileCropsDropdownOpen(!isMobileCropsDropdownOpen)
-            setIsMobileProductsDropdownOpen(false) // Cerrar el otro dropdown
+            setIsMobileProductsDropdownOpen(false)
+            setIsMobileFungicidesDropdownOpen(false)
+        } else if (dropdownType === "fungicides") {
+            setIsMobileFungicidesDropdownOpen(!isMobileFungicidesDropdownOpen)
         }
     }
 
@@ -233,9 +245,19 @@ export default function Header() {
                             <Link
                                 key={dropdownItem.href}
                                 href={dropdownItem.href}
-                                className="block px-4 py-3 text-sm hover:bg-gray-50 transition-colors"
+                                className={cn(
+                                    "block px-4 py-2 text-sm hover:bg-gray-50 transition-colors",
+                                    dropdownItem.isCategory 
+                                        ? "font-semibold text-primary-700 border-b border-gray-100" 
+                                        : dropdownItem.isSubItem 
+                                        ? "pl-8 text-gray-600 text-xs" 
+                                        : ""
+                                )}
                                 onClick={onClose}
                             >
+                                {dropdownItem.isSubItem && (
+                                    <span className="inline-block w-2 h-2 bg-primary-400 rounded-full mr-2 -ml-1"></span>
+                                )}
                                 {dropdownItem.name}
                             </Link>
                         ))}
@@ -263,13 +285,24 @@ export default function Header() {
                             <Link
                                 key={dropdownItem.href}
                                 href={dropdownItem.href}
-                                className="block px-6 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-gray-800 transition-colors border-l-2 border-gray-200"
+                                className={cn(
+                                    "block py-2 text-sm transition-colors border-l-2 border-gray-200",
+                                    dropdownItem.isCategory 
+                                        ? "px-6 font-semibold text-primary-700 hover:bg-gray-100 hover:text-primary-800" 
+                                        : dropdownItem.isSubItem 
+                                        ? "px-8 text-gray-500 text-xs hover:bg-gray-100 hover:text-gray-700" 
+                                        : "px-6 text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+                                )}
                                 onClick={() => {
                                     setIsMobileMenuOpen(false)
                                     setIsMobileProductsDropdownOpen(false)
                                     setIsMobileCropsDropdownOpen(false)
+                                    setIsMobileFungicidesDropdownOpen(false)
                                 }}
                             >
+                                {dropdownItem.isSubItem && (
+                                    <span className="inline-block w-1.5 h-1.5 bg-primary-400 rounded-full mr-2 -ml-1"></span>
+                                )}
                                 {dropdownItem.name}
                             </Link>
                         ))}
@@ -315,6 +348,7 @@ export default function Header() {
                                         onMouseLeave={() => {
                                             if (item.dropdownType === "products") {
                                                 setIsProductsDropdownOpen(false)
+                                                setIsFungicidesSubDropdownOpen(false)
                                             } else if (item.dropdownType === "crops") {
                                                 setIsCropsDropdownOpen(false)
                                             }
@@ -342,7 +376,10 @@ export default function Header() {
                                         {item.dropdownType === "products" && renderDropdown(
                                             isProductsDropdownOpen,
                                             products,
-                                            () => setIsProductsDropdownOpen(false)
+                                            () => {
+                                                setIsProductsDropdownOpen(false)
+                                                setIsFungicidesSubDropdownOpen(false)
+                                            }
                                         )}
 
                                         {item.dropdownType === "crops" && renderDropdown(
@@ -408,9 +445,7 @@ export default function Header() {
                                 {navItems.map((item) => {
                                     if (item.hasDropdown) {
                                         const dropdownItems = item.dropdownType === "products" ? products : crops
-                                        const isDropdownOpen = item.dropdownType === "products"
-                                            ? isMobileProductsDropdownOpen
-                                            : isMobileCropsDropdownOpen
+                                        const isDropdownOpen = item.dropdownType === "products" ? isMobileProductsDropdownOpen : isMobileCropsDropdownOpen
 
                                         return (
                                             <div key={item.id}>

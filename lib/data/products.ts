@@ -1,3 +1,4 @@
+import { details } from "framer-motion/client";
 import { Product } from "../types/Product";
 
 export const products: Product[] = [
@@ -76,7 +77,8 @@ export const productsData = {
       },
       {
         title: "Estimula las defensas naturales",
-        description: "Su formulación permite inducir respuestas de defensa (hídrico, térmico, oxidativo, etc).",
+        description: "Su formulación permite inducir respuestas de defensa (fitoalexinas).",
+        details: "El cobre es un poderoso inductor de la sintesis de fitoalexinas y ligninas, dos estrategias de defensa natural que tienen las plantas.",
         image: "/images/products/defensas.png"
       }
     ],
@@ -90,13 +92,13 @@ export const productsData = {
       "pomelo", "poroto", "sandia", "soja", "tomate consumo", "tomate industria", "trigo", "vid"],
     aplicacion: {
       equipos: "desde mochila hasta aplicaciones aéreas",
-      compatibilidad: "combinar con pesticidas usuales, preferible agregar primero Cobrestable (lleva adherente siliconado)",
+      compatibilidad: "combinar con pesticidas usuales, preferible agregar primero Cobrestable (fitoalexinas)",
       intervaloSeguridad: "1 día antes de cosecha"
     },
   },
   bordocald: {
     name: "BORDOCALD",
-    description: "Caldo bordelés coloidal listo para usar.",
+    description: "Caldo bordelés listo para usar.",
     color: "bordocald",
     cssColor: "#9a3388",
     gradient: "from-fuchsia-400 to-purple-600", 
@@ -104,20 +106,20 @@ export const productsData = {
     registro: "SENASA AR #35.924",
     triplePilar: [
       {
-        title: "Tecnología Ultramicronizada",
+        title: "Tecnología Nano",
         description: "Partículas de ≈1 µm que garantizan máxima cobertura.",
-        details: "La micronización ultra‑fina permite una distribución homogénea y mayor superficie de contacto con el patógeno.",
+        details: "Logrando un mayor control con menor cantidad de cobre metálico.",
         image: "/images/products/tecnologia-micronizada-bordocald.png"
       },
       {
         title: "Máxima Adherencia",
-        description: "Mantiene efectividad incluso con precipitaciones de hasta 30 mm después de la aplicación.",
-        details: "Formulación especial con adherentes naturales que resisten el lavado por lluvia, extendiendo la protección.",
+        description: "Su formulación permite resistir precipitaciones.",
+        details: "Formulación especial con adherentes naturales y siliconados evitando la perdida de producto.",
         image: "/images/products/adherencia-lluvia.jpg"
       },
       {
         title: "Máximo Poder Residual",
-        description: "Eficaz en el control de cancrosis y mancha negra en cítricos.",
+        description: "Su capacidad de adherencia permite extender el control en el tiempo.",
         details: "Proporciona un efecto prolongado en la superficie foliar, asegurando una protección continua contra enfermedades.",
         image: "/images/products/poder-residual.jpg"
       }
