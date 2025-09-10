@@ -87,9 +87,9 @@ export const productsData = {
       penetracion: "Penetra por estomas, estimula defensas naturales, y su carga nutricional ayuda a las plantas a lidiar con el estrés"
     },
     cultivos: ["ajo", "alfalfa corte", "alfalfa primer corte", "alfalfa semilla",
-      "berenjena", "broccoli", "cebada", "cebolla consumo", "citricos", "cucurbitaceas", "frutilla",
-      "garbanzo", "hortalizas de hoja", "limon", "maiz grano", "maiz silo", "mandarina", "mani", "melon", "naranja", "olivo", "papa", "pimiento",
-      "pomelo", "poroto", "sandia", "soja", "tomate consumo", "tomate industria", "trigo", "vid"],
+      "berenjena", "brócoli", "cebada", "cebolla consumo", "cítricos", "cucurbitáceas", "frutilla",
+      "garbanzo", "hortalizas de hoja", "limón", "maíz grano", "maíz silo", "mandarina", "maní", "melón", "naranja", "olivo", "papa", "pimiento",
+      "pomelo", "poroto", "sandía", "soja", "tomate consumo", "tomate industria", "trigo", "vid"],
     aplicacion: {
       equipos: "desde mochila hasta aplicaciones aéreas",
       compatibilidad: "combinar con pesticidas usuales, preferible agregar primero Cobrestable (fitoalexinas)",
@@ -128,7 +128,7 @@ export const productsData = {
       cobertura: "Acción preventiva de contacto con alta persistencia y redistribución superficial",
       penetracion: "Liberación controlada de iones de cobre que forman una barrera protectora duradera"
     },
-    cultivos: ["vid", "olivo"],
+    cultivos: ["vid", "nogal", "olivo", "cítricos", "pistacho"],
     aplicacion: {
       equipos: "pulverizadores terrestres y aéreos, compatible con sistemas de riego",
       compatibilidad: "compatible con la mayoría de fungicidas e insecticidas, evitar mezclas alcalinas",

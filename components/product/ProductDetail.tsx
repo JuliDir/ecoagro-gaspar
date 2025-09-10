@@ -9,9 +9,16 @@ import {
   Award,
   ArrowRight,
   BarChart3,
-  Droplets
+  Droplets,
+  Download,
+  FileText,
+  ShieldCheck,
+  Image as ImageIcon,
+  ChevronDown
 } from "lucide-react";
 import TriangleTripleAction from "./TriangleTripleAction";
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 interface ProductData {
   name: string;
@@ -103,6 +110,7 @@ const optimizedViewport = {
 }
 
 export default function ProductDetail({ product }: ProductDetailProps) {
+  const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
 
 
 
@@ -115,37 +123,35 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "alfalfa primer corte": "alfalfa-primer-corte",
       "alfalfa semilla": "alfalfa-semilla",
       "berenjena": "berenjena",
-      "broccoli": "broccoli",
+      "brócoli": "broccoli",
       "cebada": "cebada",
       "cebolla consumo": "cebolla-consumo",
-      "citricos": "citricos",
-      "cucurbitaceas": "cucurbitaceas",
+      "cítricos": "citricos",
+      "cucurbitáceas": "cucurbitaceas",
       "frutilla": "frutilla",
       "garbanzo": "garbanzo",
       "hortalizas de hoja": "hortalizas-hoja",
-      "limon": "limon",
-      "maiz grano": "maiz-grano",
-      "maiz silo": "maiz-silo",
+      "limón": "limon",
+      "maíz grano": "maiz-grano",
+      "maíz silo": "maiz-silo",
       "mandarina": "mandarina",
-      "mani": "mani",
-      "melon": "melon",
+      "maní": "mani",
+      "melón": "melon",
       "naranja": "naranja",
+      "nogal": "nogal",
       "olivo": "olivo",
       "papa": "papa",
+      "pistacho": "pistacho",
       "pimiento": "pimiento",
       "pomelo": "pomelo",
       "poroto": "poroto",
-      "sandia": "sandia",
+      "sandía": "sandia",
       "soja": "soja",
       "tomate consumo": "tomate-consumo",
       "tomate industria": "tomate-industria",
       "trigo": "trigo",
       "vid": "vid",
 
-      // Extras que tenías antes
-      "maní": "mani",                  // acento
-      "maíz": "maiz",                  // acento
-      "cítricos": "citricos",          // acento
       "frutales de pepita": "frutales-pepita",
       "frutales de carozo": "frutales-carozo",
       "hortalizas": "hortalizas",
@@ -165,31 +171,29 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "alfalfa primer corte": "/crops/alfalfa-primer-corte/alfalfa-primer-corte.jpg",
       "alfalfa semilla": "/crops/alfalfa-semilla/alfalfa-semilla.jpg",
       "berenjena": "/crops/berenjena/berenjena.jpg",
-      "broccoli": "/crops/broccoli/broccoli.jpg",
+      "brócoli": "/crops/broccoli/broccoli.jpg",
       "cebada": "/crops/cebada/cebada.jpg",
       "cebolla consumo": "/crops/cebolla-consumo/cebolla-consumo.jpg",
-      "citricos": "/crops/citricos/citricos.jpg",
-      "cítricos": "/crops/citricos/citricos.jpg", // con tilde
-      "cucurbitaceas": "/crops/cucurbitaceas/cucurbitaceas.jpg",
+      "cítricos": "/crops/citricos/citricos.jpg",
+      "cucurbitáceas": "/crops/cucurbitaceas/cucurbitaceas.jpg",
       "frutilla": "/crops/frutilla/frutilla.jpg",
       "garbanzo": "/crops/garbanzo/garbanzo.jpg",
       "hortalizas de hoja": "/crops/hortalizas-de-hoja/hortalizas-de-hoja.jpg",
-      "limon": "/crops/limon/limon.jpg",
-      "maiz grano": "/crops/maiz-grano/maiz-grano.jpg",
-      "maiz silo": "/crops/maiz-silo/maiz-silo.jpg",
-      "maíz": "/crops/maiz/maiz.jpg", // con tilde
-      "maiz": "/crops/maiz/maiz.jpg",
+      "limón": "/crops/limon/limon.jpg",
+      "maíz grano": "/crops/maiz-grano/maiz-grano.jpg",
+      "maíz silo": "/crops/maiz-silo/maiz-silo.jpg",
       "mandarina": "/crops/mandarina/mandarina.jpg",
-      "maní": "/crops/mani/mani.jpg", // con tilde
-      "mani": "/crops/mani/mani.jpg",
-      "melon": "/crops/melon/melon.jpg",
+      "maní": "/crops/mani/mani.jpg",
+      "melón": "/crops/melon/melon.jpg",
       "naranja": "/crops/naranja/naranja.jpg",
+      "nogal": "/crops/nogal/nogal.jpg",
       "olivo": "/crops/olivo/olivo.jpg",
       "papa": "/crops/papa/papa.jpg",
+      "pistacho": "/crops/pistacho/pistacho.jpg",
       "pimiento": "/crops/pimiento/pimiento.jpg",
       "pomelo": "/crops/pomelo/pomelo.jpg",
       "poroto": "/crops/poroto/poroto.jpg",
-      "sandia": "/crops/sandia/sandia.jpg",
+      "sandía": "/crops/sandia/sandia.jpg",
       "soja": "/crops/soja/soja.jpg",
       "tomate consumo": "/crops/tomate-consumo/tomate-consumo.jpg",
       "tomate industria": "/crops/tomate-industria/tomate-industria.jpg",
@@ -255,6 +259,26 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   // Obtener los gráficos de retención
   const retentionCharts = getRetentionCharts(product.name);
   const hasRetentionCharts = retentionCharts.particleSize || retentionCharts.precipitation;
+
+  // Función para obtener los documentos de descarga
+  const getProductDocuments = (productName: string) => {
+    const productSlug = productName.toLowerCase().replace(/\s+/g, '-');
+    return {
+      safetySheet: `/documents/${productSlug}/hoja-seguridad.pdf`,
+      technicalSheet: `/documents/${productSlug}/ficha-tecnica.pdf`,
+      marvete: `/documents/${productSlug}/marvete.jpeg`
+    };
+  };
+
+  // Función para manejar descargas
+  const handleDownload = (url: string, filename: string) => {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+  };
+
+  const documents = getProductDocuments(product.name);
 
   return (
     <div className="min-h-screen" >
@@ -462,6 +486,100 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </motion.section>
       )}
 
+      {/* Sección de Documentos de Descarga */}
+      <motion.section
+        className="pt-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+      >
+        <div className="mx-auto px-4 sm:px-6 lg:px-36">
+          <motion.div
+            className="text-center mb-12"
+            variants={sectionVariants}
+          >
+            <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ color: product.cssColor }}>
+              Documentación Técnica
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Descarga toda la información técnica y de seguridad de {product.name}
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+            variants={containerVariants}
+          >
+            {/* Hoja de Seguridad */}
+            <motion.div
+              variants={cardVariants}
+              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer"
+              onClick={() => handleDownload(documents.safetySheet, `${product.name}-Hoja-Seguridad.pdf`)}
+            >
+              <div className="text-center">
+                <div 
+                  className="w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                  style={{ backgroundColor: `${product.cssColor}15` }}
+                >
+                  <ShieldCheck className="w-8 h-8" style={{ color: product.cssColor }} />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Hoja de Seguridad</h3>
+                <p className="text-gray-600 text-sm mb-4">Información completa de seguridad y manejo del producto</p>
+                <div className="flex items-center justify-center text-sm font-medium group-hover:text-blue-600 transition-colors">
+                  <Download className="w-4 h-4 mr-2" />
+                  Descargar PDF
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Ficha Técnica */}
+            <motion.div
+              variants={cardVariants}
+              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer"
+              onClick={() => handleDownload(documents.technicalSheet, `${product.name}-Ficha-Tecnica.pdf`)}
+            >
+              <div className="text-center">
+                <div 
+                  className="w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                  style={{ backgroundColor: `${product.cssColor}15` }}
+                >
+                  <FileText className="w-8 h-8" style={{ color: product.cssColor }} />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Ficha Técnica</h3>
+                <p className="text-gray-600 text-sm mb-4">Especificaciones técnicas y modo de aplicación</p>
+                <div className="flex items-center justify-center text-sm font-medium group-hover:text-blue-600 transition-colors">
+                  <Download className="w-4 h-4 mr-2" />
+                  Descargar PDF
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Marvete */}
+            <motion.div
+              variants={cardVariants}
+              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer"
+              onClick={() => handleDownload(documents.marvete, `${product.name}-Marvete.jpeg`)}
+            >
+              <div className="text-center">
+                <div 
+                  className="w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                  style={{ backgroundColor: `${product.cssColor}15` }}
+                >
+                  <ImageIcon className="w-8 h-8" style={{ color: product.cssColor }} />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Marvete</h3>
+                <p className="text-gray-600 text-sm mb-4">Etiqueta oficial del producto con información regulatoria</p>
+                <div className="flex items-center justify-center text-sm font-medium group-hover:text-blue-600 transition-colors">
+                  <Download className="w-4 h-4 mr-2" />
+                  Descargar JPEG
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.section>
+
       <TriangleTripleAction
         items={product.triplePilar.map((pilar) => ({
           title: pilar.title,
@@ -471,7 +589,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         }))}
         color={product.cssColor}
         heading="Tres Pilares de Protección"
-        subheading="Tecnología avanzada que combina tres mecanismos de acción para máxima efectividad"
+        subheading={product.name === "BORDOCALD" ? "Se adhiere, no se lava y dura" : "Tecnología avanzada que combina tres mecanismos de acción para máxima efectividad"}
       />
 
       {/* Banner especial para TRIKOPPER-50 - Especialista en Cítricos */}
@@ -485,35 +603,36 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         >
           <div className="mx-auto px-4 sm:px-6 lg:px-36">
             <motion.div
-              className="relative rounded-3xl overflow-hidden shadow-2xl h-96 max-w-6xl mx-auto"
+              className="relative rounded-3xl overflow-hidden shadow-2xl h-96 max-w-6xl mx-auto bg-white"
               variants={cardVariants}
             >
-              {/* Imagen de fondo */}
-              <Image
-                src="/crops/citricos/citricos.jpg"
-                alt="Cítricos - Especialidad TRIKOPPER-50"
-                fill
-                className="object-cover"
-              />
+              <div className="flex h-full">
+                {/* Contenido - 3/4 del ancho */}
+                <div className="w-3/4 flex items-center justify-start p-12" style={{ background: `linear-gradient(135deg, ${product.cssColor}10, ${product.cssColor}20)` }}>
+                  <div className="max-w-2xl">
+                    <h3 className="text-4xl font-bold mb-4" style={{ color: product.cssColor }}>
+                      🍊 ESPECIALISTA EN CÍTRICOS
+                    </h3>
+                    <p className="text-xl mb-6" style={{ color: product.cssColor }}>
+                      Formulado especialmente para naranjas, limones, mandarinas y pomelos
+                    </p>
 
-              {/* Overlay oscuro */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/30"></div>
-
-              {/* Contenido */}
-              <div className="absolute inset-0 flex items-center justify-start p-12">
-                <div className="max-w-2xl">
-                  <h3 className="text-4xl font-bold text-white mb-4">
-                    🍊 ESPECIALISTA EN CÍTRICOS
-                  </h3>
-                  <p className="text-xl text-white/90 mb-6">
-                    Formulado especialmente para naranjas, limones, mandarinas y pomelos
-                  </p>
-
-                  {/* Badge */}
-                  <div className="inline-flex items-center bg-orange-500 text-white px-6 py-3 rounded-full font-bold">
-                    <Award className="w-5 h-5 mr-2" />
-                    MÁXIMA PROTECCIÓN
+                    {/* Badge */}
+                    <div className="inline-flex items-center text-white px-6 py-3 rounded-full font-bold" style={{ backgroundColor: product.cssColor }}>
+                      <Award className="w-5 h-5 mr-2" />
+                      MÁXIMA PROTECCIÓN
+                    </div>
                   </div>
+                </div>
+
+                {/* Imagen - 1/4 del ancho */}
+                <div className="w-1/4 relative">
+                  <Image
+                    src="/crops/citricos/citricos.jpg"
+                    alt="Cítricos - Especialidad TRIKOPPER-50"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </motion.div>
@@ -522,20 +641,26 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       )}
 
       {/* Modo de Acción / Triple Acción */}
-      <div className="w-full h-8 relative" style={{ background: product.cssColor }}>
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "white",
-            clipPath: "polygon(50% 100%, 0 0, 100% 0)"
-          }}
-        ></div>
-      </div>
+      {product.name !== "BORDOCALD" && product.name !== "TRIKOPPER 50" && (
+        <div className="w-full h-8 relative" style={{ background: product.cssColor }}>
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "white",
+              clipPath: "polygon(50% 100%, 0 0, 100% 0)"
+            }}
+          ></div>
+        </div>
+      )}
       <motion.section
-        className="pb-20 pt-10"
+        className={cn(
+          product.name === "BORDOCALD" || product.name === "TRIKOPPER 50" ? "" : "pb-20 pt-10",
+        )}
         initial="hidden"
         whileInView="visible"
-        style={{ background: product.cssColor }}
+        style={{ 
+          background: product.name === "BORDOCALD" || product.name === "TRIKOPPER 50" ? "white" : product.cssColor 
+        }}
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
@@ -544,13 +669,17 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl font-avenir-cyr-heavy mb-4 text-white">
+            <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ 
+              color: product.name === "BORDOCALD" || product.name === "TRIKOPPER 50" ? product.cssColor : "white" 
+            }}>
               {product.name === "COBRESTABLE" ? "Triple Acción" : "¿Cómo Funciona?"}
             </h2>
-            <p className="text-xl text-white max-w-3xl mx-auto">
+            <p className="text-xl max-w-3xl mx-auto" style={{ 
+              color: product.name === "BORDOCALD" || product.name === "TRIKOPPER 50" ? product.cssColor : "white" 
+            }}>
               {product.name === "COBRESTABLE"
                 ? "Acción sistémica con + doble barrera de protección"
-                : "Mecanismo de protección integral para tus cultivos"}
+                : "Mecanismo de protección integral para cultivos"}
             </p>
           </motion.div>
 
@@ -688,6 +817,100 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 </motion.div>
               </div>
             </>
+          ) : product.name === "BORDOCALD" ? (
+            <div className="space-y-8">
+              {/* Máximo Control - Grande y centrado */}
+              <motion.div variants={cardVariants}>
+                <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 max-w-4xl mx-auto">
+                  <div className="relative h-96">
+                    <Image
+                      src="/images/products/maximo-control.jpeg"
+                      alt="Máximo Control"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Poder Residual y Biodisponibilidad - Lado a lado */}
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Poder Residual */}
+                <motion.div variants={cardVariants}>
+                  <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+                    <div className="relative h-80">
+                      <Image
+                        src="/images/products/bordocald-poder-residual.jpeg"
+                        alt="BORDOCALD - Poder Residual"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Biodisponibilidad */}
+                <motion.div variants={cardVariants}>
+                  <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+                    <div className="relative h-80">
+                      <Image
+                        src="/images/products/bordocald-biodisponibilidad.jpeg"
+                        alt="BORDOCALD - Biodisponibilidad"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          ) : product.name === "TRIKOPPER 50" ? (
+            <div className="space-y-8">
+              {/* Imagen principal - Grande y centrada */}
+              <motion.div variants={cardVariants}>
+                <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 max-w-4xl mx-auto">
+                  <div className="relative h-96">
+                    <Image
+                      src="/images/products/maximo-control.jpeg"
+                      alt="TRIKOPPER 50 - Máximo Control"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Gráficos secundarios - Lado a lado */}
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Gráfico 1 */}
+                <motion.div variants={cardVariants}>
+                  <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+                    <div className="relative h-80">
+                      <Image
+                        src="/images/products/trikopper-poder-residual.jpeg"
+                        alt="TRIKOPPER 50 - Poder Residual"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Gráfico 2 */}
+                <motion.div variants={cardVariants}>
+                  <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
+                    <div className="relative h-80">
+                      <Image
+                        src="/images/products/trikopper-biodisponibilidad.jpeg"
+                        alt="TRIKOPPER 50 - Biodisponibilidad"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
           ) : (
             <div className="grid md:grid-cols-2 gap-8">
               <motion.div variants={cardVariants}>
@@ -790,13 +1013,15 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </motion.section>
 
-      <div
-        className="w-full h-8"
-        style={{
-          background: product.cssColor,
-          clipPath: "polygon(50% 100%, 0 0, 100% 0)"
-        }}
-      ></div>
+      {product.name !== "BORDOCALD" && product.name !== "TRIKOPPER 50" && (
+        <div
+          className="w-full h-8"
+          style={{
+        background: product.cssColor,
+        clipPath: "polygon(50% 100%, 0 0, 100% 0)"
+          }}
+        ></div>
+      )}
 
       {product.name === "COBRESTABLE" && (
         <>
@@ -963,7 +1188,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               <motion.div
                 key={index}
                 variants={cropItemVariants}
-                className="group cursor-pointer"
+                className="group cursor-pointer pb-10"
                 whileHover={{
                   scale: 1.03,
                   y: -3,
@@ -1000,20 +1225,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 </Link>
               </motion.div>
             ))}
-          </motion.div>
-
-          <motion.div
-            className="text-center mt-12 pb-10"
-            variants={sectionVariants}
-          >
-            <Link
-              href="/crops"
-              className="inline-flex items-center space-x-2 px-8 py-4 rounded-full font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
-              style={{ backgroundColor: product.cssColor }}
-            >
-              <span>Ver todos los cultivos</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
           </motion.div>
         </div>
 

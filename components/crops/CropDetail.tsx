@@ -104,22 +104,22 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         </p>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                    <div className="flex flex-col gap-4 max-w-3xl mx-auto">
                         {cultivo.objetivosPrograma.map((objetivo, index) => (
                             <motion.div
                                 key={index}
-                                className="bg-gradient-to-br from-green-50 via-white to-green-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-200 relative overflow-hidden"
+                                className="bg-gradient-to-br from-green-50 via-white to-green-100 rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-green-200 relative overflow-hidden"
                                 variants={cardVariants}
-                                whileHover={{ scale: 1.02, y: -5 }}
+                                whileHover={{ scale: 1.01, y: -2 }}
                             >
                                 {/* Gradiente sutil de fondo */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 to-emerald-500/10 pointer-events-none"></div>
                                 
-                                <div className="flex gap-4 items-center relative z-10">
-                                    <div className="w-10 h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center flex-shrink-0 mt-1 border border-green-300/30">
-                                        <Target className="w-5 h-5 text-green-600" />
+                                <div className="flex gap-3 items-center relative z-10">
+                                    <div className="w-8 h-8 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center flex-shrink-0 border border-green-300/30">
+                                        <Target className="w-4 h-4 text-green-600" />
                                     </div>
-                                    <p className="text-gray-700 font-semibold text-xl leading-relaxed">{objetivo}</p>
+                                    <p className="text-gray-700 font-semibold text-lg leading-relaxed">{objetivo}</p>
                                 </div>
                             </motion.div>
                         ))}

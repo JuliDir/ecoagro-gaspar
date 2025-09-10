@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/Header";
+import SmallFooter from "@/components/ui/SmallFooter";
 import PageLoader from "@/components/ui/PageLoader";
 import WhatsappButton from "@/components/ui/WhatsappButton";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
@@ -48,6 +49,7 @@ export default function RootLayout({
         <PageLoader /> 
         <Header />
         {children}
+        <SmallFooter />
         <WhatsappButton />
         <ScrollToTopButton />
       </body>

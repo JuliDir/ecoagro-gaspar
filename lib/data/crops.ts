@@ -489,7 +489,7 @@ export const cultivosData = {
   },
 
   broccoli: {
-    name: "Broccoli",
+    name: "Brócoli",
     slug: "broccoli",
     backgroundImage: "/crops/broccoli/broccoli.jpg",
 
@@ -994,7 +994,7 @@ export const allCrops = [
     slug: "berenjena",
   },
   {
-    name: "Broccoli",
+    name: "Brócoli",
     backgroundImage: "/crops/broccoli/broccoli.jpg",
     slug: "broccoli",
   },
