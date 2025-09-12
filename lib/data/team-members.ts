@@ -21,7 +21,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "Carlos \"Puchi\" Aruani",
-    position: "Director de Ventas",
+    position: "Desarrollo y Ventas",
     phone: "+54 9 261 6997468",
     email: "caruani@ecoagrogaspar.com.ar",
     location: "Aristóbulo del Valle 456, Mendoza. Mendoza.",
@@ -47,14 +47,6 @@ export const teamMembers: TeamMember[] = [
     description: "Apoya las operaciones administrativas de la empresa desde la sede en Mendoza, asegurando el cumplimiento financiero y documental."
   },
   {
-    name: "Álvaro Pereyra",
-    position: "Logística",
-    phone: "+54 9 261 5002845",
-    email: "apereyra@ecoagrogaspar.com.ar",
-    location: "Aristóbulo del Valle 456, Mendoza. Mendoza.",
-    description: "Gestiona y coordina la logística de productos para asegurar entregas eficientes y puntuales."
-  },
-  {
     name: "Alexis Pereyra",
     position: "Producción",
     phone: "+54 9 261 6827814",
@@ -63,4 +55,12 @@ export const teamMembers: TeamMember[] = [
     image: "/images/about-us/alexis.png",
     description: "Encargado de la supervisión de procesos productivos, asegurando la calidad y continuidad de la manufactura."
   },
+  {
+    name: "Álvaro Pereyra",
+    position: "Logística",
+    phone: "+54 9 261 5002845",
+    email: "apereyra@ecoagrogaspar.com.ar",
+    location: "Aristóbulo del Valle 456, Mendoza. Mendoza.",
+    description: "Gestiona y coordina la logística de productos para asegurar entregas eficientes y puntuales."
+  }
 ];

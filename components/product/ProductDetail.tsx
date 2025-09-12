@@ -559,7 +559,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             <motion.div
               variants={cardVariants}
               className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer"
-              onClick={() => handleDownload(documents.marvete, `${product.name}-Marvete.jpeg`)}
+              onClick={() => handleDownload(documents.marvete, `${product.name}-Marbete.jpeg`)}
             >
               <div className="text-center">
                 <div 
@@ -568,7 +568,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 >
                   <ImageIcon className="w-8 h-8" style={{ color: product.cssColor }} />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Marvete</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">Marbete</h3>
                 <p className="text-gray-600 text-sm mb-4">Etiqueta oficial del producto con información regulatoria</p>
                 <div className="flex items-center justify-center text-sm font-medium group-hover:text-blue-600 transition-colors">
                   <Download className="w-4 h-4 mr-2" />
@@ -1084,7 +1084,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   <motion.div
                     variants={cardVariants}
                   >
-                    <div className="h-140 bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
+                    <div className=" bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
                       <div className="mb-8 text-center">
                         <div className="flex items-center justify-center space-x-3 mb-4">
                           <div
@@ -1118,7 +1118,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   <motion.div
                     variants={cardVariants}
                   >
-                    <div className="h-140 bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
+                    <div className=" bg-white rounded-2xl p-8 shadow-xl border-2" style={{ borderColor: `${product.cssColor}20` }}>
                       <div className="mb-8 text-center">
                         <div className="flex items-center justify-center space-x-3 mb-4">
                           <div
