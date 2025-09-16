@@ -315,6 +315,11 @@ export const cultivosData = {
     slug: "citricos",
     backgroundImage: "/crops/citricos/citricos.jpg",
 
+    protocoloAplicacion: {
+      image: "/crops/citricos/citricos-protocolo-aplicacion.jpg",
+      pdf: "/crops/citricos/protocolo-citricos.pdf"
+    },
+
     objetivosPrograma: [
       "Manejo preventivo de las enfermedades del citrus, con especial énfasis en Cancrosis, Mancha negra y Melanosis.",
       "La aplicación conjunta de Cobrestable y Trikopper obedece a una mayor eficiencia de control.",
@@ -924,6 +929,80 @@ export const cultivosData = {
         category: "Fungicidas",
       },
     ],
+  },
+
+  nogal: {
+    name: "Nogal",
+    slug: "nogal",
+    backgroundImage: "/crops/nogal/nogal.jpg",
+
+    objetivosPrograma: [
+      "Controlar eficazmente la bacteriosis del nogal (Xanthomonas campestris pv. juglandis)",
+      "Prevenir la antracnosis (Gnomonia leptostyla) y otras enfermedades fúngicas",
+      "Mejorar la calidad y el llenado de las nueces",
+      "Fortalecer la resistencia natural del árbol contra patógenos",
+      "Optimizar la producción y reducir pérdidas postcosecha",
+      "Aportar cobre como micronutriente esencial para el desarrollo del cultivo"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
+      },
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  pistacho: {
+    name: "Pistacho",
+    slug: "pistacho",
+    backgroundImage: "/crops/pistacho/pistacho.jpg",
+
+    objetivosPrograma: [
+      "Controlar eficazmente la botritis del pistacho (Botrytis cinerea)",
+      "Prevenir la alternariosis (Alternaria alternata) y otras enfermedades fúngicas",
+      "Controlar la septoriosis (Septoria pistaciarum) que afecta hojas y frutos",
+      "Mejorar la calidad y el llenado de los pistachos",
+      "Fortalecer la resistencia natural del árbol contra patógenos",
+      "Optimizar la producción y reducir pérdidas postcosecha",
+      "Aportar cobre como micronutriente esencial para el metabolismo y la lignificación",
+      "Prevenir deficiencias nutricionales que predisponen a enfermedades"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
+      },
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
   }
 }
 
@@ -1062,5 +1141,15 @@ export const allCrops = [
     name: "Trigo",
     backgroundImage: "/crops/trigo/trigo.jpg",
     slug: "trigo"
+  },
+  {
+    name: "Nogal",
+    backgroundImage: "/crops/nogal/nogal.jpg",
+    slug: "nogal"
+  },
+  {
+    name: "Pistacho",
+    backgroundImage: "/crops/pistacho/pistacho.jpg",
+    slug: "pistacho"
   }
 ];

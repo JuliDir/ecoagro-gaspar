@@ -54,47 +54,51 @@ const optimizedViewport = {
     margin: "0px 0px -100px 0px" 
 }
 
-// Lista simple de 10 FAQs
+// Lista de FAQs actualizadas
 const faqs = [
     {
-        question: "¿Cuál es la diferencia entre Cobrestable, Bordocald y Trikopper 50?",
-        answer: "Cobrestable es un fungicida preventivo y curativo con acción sistémica, ideal para aplicaciones preventivas. Bordocald combina cobre con caldos bordeleses para mayor adherencia y persistencia. Trikopper 50 ofrece una concentración más alta de cobre elemental para casos de alta presión de enfermedades."
+        question: "¿Cuál es la diferencia entre nuestros productos a base de cobre?",
+        answer: "Cada uno de nuestros formulados está diseñado para un objetivo específico: fungicida, bactericida y en algunos con acción bioestimulante. Aunque todos comparten el mismo principio activo (cobre), la diferencia radica en la forma química y la tecnología de formulación, que determina la velocidad de liberación, la persistencia en el cultivo y la compatibilidad con otras aplicaciones."
     },
     {
-        question: "¿Los productos de Ecoagro Gaspar son orgánicos?",
-        answer: "Sí, todos nuestros productos están basados en cobre, un elemento naturalmente presente en el suelo y aprobado para agricultura orgánica. Cuentan con certificación SENASA y son compatibles con protocolos de producción sustentable."
+        question: "¿Qué diferencia tienen nuestros cobres con respecto a otros productos del mercado?",
+        answer: "A diferencia de los cobres tradicionales, nuestros productos presentan mayor biodisponibilidad, es decir, la planta aprovecha más eficientemente el micronutriente; y mayor bioactividad, lo que potencia la acción tanto preventiva como correctiva frente a hongos y bacterias. Esto se traduce en mejores resultados con menores dosis, menor riesgo de acumulación en el suelo y un impacto ambiental más bajo."
     },
     {
-        question: "¿Cuál es la dosis recomendada para cada cultivo?",
-        answer: "Las dosis varían según el cultivo y la presión de enfermedad. Generalmente: Soja 200-300g/100L, Papa 250-400g/100L, Vid 300-500g/100L, Cítricos 200-400g/100L. Consulte siempre la etiqueta del producto y nuestro equipo técnico para recomendaciones específicas."
+        question: "¿En qué cultivos se recomienda el uso de nuestros cobres?",
+        answer: "Nuestros productos a base de cobre pueden aplicarse en una amplia variedad de cultivos: frutales, hortalizas, vid, cítricos, nogales, cereales, legumbres y cultivos industriales. Se adaptan tanto a esquemas de producción intensiva como a programas de manejo integrado de plagas y enfermedades en cultivos extensivos."
     },
     {
-        question: "¿Cuál es el mejor momento para aplicar?",
-        answer: "Aplique en horas de menor temperatura (temprano en la mañana o al atardecer), con humedad relativa alta (>60%) y viento mínimo (<10 km/h). Para aplicaciones preventivas, inicie antes de la aparición de síntomas."
+        question: "¿Cómo actúa el cobre en la planta y en los patógenos?",
+        answer: "El cobre inhibe la respiración y el metabolismo de los microorganismos patógenos, bloqueando el desarrollo de hongos y bacterias. En la planta, cumple un rol esencial como micronutriente: participa en la fotosíntesis, enzimología y lignificación, contribuyendo a mejorar la resistencia natural frente a estrés biótico y abiótico."
     },
     {
-        question: "¿En qué cultivos puedo usar productos de cobre?",
-        answer: "Nuestros productos son efectivos en soja, papa, vid, cítricos, garbanzo, maní, trigo, tomate, frutales de pepita y carozo, hortalizas, olivo, palto y muchos otros cultivos. Cada producto tiene cultivos específicos autorizados en su registro."
+        question: "¿Cuál es la dosis y el momento de aplicación más recomendado según el cultivo?",
+        answer: "En los marbetes de nuestros productos se pueden encontrar dosis dependiendo del cultivo, la fenología y el objetivo de la aplicación (preventiva o curativa), allí se podrá observar que siempre la dosis se encuentra recomendada como cantidad de principio activo por hectárea y no por volumen de caldo. Ante cualquier duda recomendamos siempre consultar a nuestro equipo técnico para ajustar el plan a las condiciones específicas de cada lote."
     },
     {
-        question: "¿Ofrecen asesoramiento técnico personalizado?",
-        answer: "Sí, contamos con un equipo de ingenieros agrónomos especializados que brindan asesoramiento personalizado sin costo. Pueden visitarlo en campo o atenderlo telefónicamente según sus necesidades."
+        question: "¿Por qué las dosis de agroquímicos se expresan por hectárea y no por volumen de caldo?",
+        answer: "Porque lo que realmente importa es la cantidad de producto que llega al cultivo por superficie tratada. El agua es solo un vehículo para distribuirlo, y su volumen puede variar según el tipo de cultivo, la densidad del follaje, la etapa de desarrollo o el equipo de aplicación. Al recomendar la dosis por hectárea se asegura que, sin importar cuántos litros de agua se usen, siempre se aplique la cantidad correcta de ingrediente activo, garantizando eficacia, seguridad y uniformidad en el tratamiento."
     },
     {
-        question: "¿Cuánto tiempo duran los productos almacenados?",
-        answer: "Nuestros productos tienen una vida útil de 3 años desde la fecha de fabricación si se almacenan en condiciones adecuadas: lugar seco, fresco, protegido de la luz solar directa y en su envase original cerrado."
+        question: "¿Nuestros productos son compatibles con otros agroquímicos o bioinsumos?",
+        answer: "Sí, en la mayoría de los casos son compatibles, nuestra recomendación es que siempre se introduzcan en primer lugar dentro del caldo. Sin embargo, se recomienda realizar una prueba previa de compatibilidad en pequeño volumen y consultar la tabla de mezclas para el resto de los productos a agregar. Nuestros formulados suelen integrarse bien con programas que incluyen insecticidas biológicos, bioestimulantes y fertilizantes foliares."
     },
     {
-        question: "¿Puedo mezclar los productos de cobre con otros fitosanitarios?",
-        answer: "En general, nuestros productos son compatibles con la mayoría de fitosanitarios. Sin embargo, recomendamos realizar una prueba de compatibilidad previa y consultar la etiqueta. Evitar mezclas con productos altamente alcalinos o que contengan azufre."
+        question: "¿Por qué nuestros productos siguen siendo una herramienta clave en la agricultura?",
+        answer: "El cobre es uno de los activos más confiables y con mayor trayectoria en el manejo sanitario de cultivos. A diferencia de muchos productos sintéticos, no genera resistencia fácilmente y ofrece un amplio espectro de acción. Nuestros formulados se destacan por su alta biodisponibilidad y bioactividad, lo que los hace más efectivos que otros cobres del mercado. Además, brindan un doble beneficio: control de enfermedades y aporte nutricional para fortalecer a la planta."
     },
     {
-        question: "¿Cuál es el intervalo de seguridad?",
-        answer: "El intervalo de seguridad varía según el cultivo: Hortalizas 7 días, Frutales 14-21 días, Cereales 30 días. Consulte la etiqueta específica de cada producto para información detallada."
+        question: "¿El cobre puede aplicarse en agricultura orgánica o bajo certificaciones especiales?",
+        answer: "Sí, varios de nuestros productos cumplen con normativas internacionales para su uso en agricultura orgánica (dependiendo del país y de la certificadora). Esto convierte al cobre en una herramienta clave en sistemas de producción sustentable."
     },
     {
-        question: "¿El cobre puede generar fitotoxicidad?",
-        answer: "En condiciones normales de uso, nuestros productos no generan fitotoxicidad. Puede ocurrir con sobredosis, aplicaciones en condiciones de estrés hídrico extremo o en variedades muy sensibles. Siempre respete las dosis recomendadas."
+        question: "¿Qué precauciones debo tener al manipular agroquímicos de banda azul?",
+        answer: "Aunque los productos de banda azul son los de menor riesgo toxicológico, siempre requieren cuidados básicos. Es importante leer la etiqueta antes de usarlos, utilizar equipo de protección personal mínimo (guantes, gafas y ropa adecuada), evitar comer, beber o fumar durante la aplicación y lavarse bien las manos y la ropa al finalizar. Se deben almacenar en lugares seguros, ventilados y fuera del alcance de niños y animales. Estos productos son seguros cuando se usan de forma responsable, siguiendo las recomendaciones de uso y dosificación."
+    },
+    {
+        question: "¿Dónde puedo comprar los productos y cómo acceder al asesoramiento técnico?",
+        answer: "Puede adquirir nuestros productos a través de nuestra red de distribuidores oficiales o comunicándose directamente con nosotros. Nuestro equipo técnico brinda acompañamiento en campo y asesoramiento personalizado para garantizar la máxima eficiencia en cada aplicación."
     }
 ];
 

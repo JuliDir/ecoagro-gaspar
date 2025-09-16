@@ -155,7 +155,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         {cultivo.protocoloAplicacion ? (
                             <>
                                 {/* Imagen del protocolo */}
-                                <div className="relative w-full max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+                                <div className="relative w-full mx-auto rounded-2xl overflow-hidden">
                                     <Image
                                         src={cultivo.protocoloAplicacion.image}
                                         alt={`Protocolo de aplicación para ${cultivo.name}`}
@@ -167,7 +167,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                                 </div>
 
                                 {/* Botones de descarga */}
-                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-14">
+                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
                                     <a
                                         href={cultivo.protocoloAplicacion.pdf}
                                         download

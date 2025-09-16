@@ -87,7 +87,7 @@ export const productsData = {
       penetracion: "Penetra por estomas, estimula defensas naturales, y su carga nutricional ayuda a las plantas a lidiar con el estrés"
     },
     cultivos: ["ajo", "alfalfa corte", "alfalfa primer corte", "alfalfa semilla",
-      "berenjena", "brócoli", "cebada", "cebolla consumo", "cítricos", "cucurbitáceas", "frutilla",
+      "berenjena", "brócoli", "cebada", "cebolla consumo", "cucurbitáceas", "frutilla",
       "garbanzo", "hortalizas de hoja", "limón", "maíz grano", "maíz silo", "mandarina", "maní", "melón", "naranja", "olivo", "papa", "pimiento",
       "pomelo", "poroto", "sandía", "soja", "tomate consumo", "tomate industria", "trigo", "vid"],
     aplicacion: {
