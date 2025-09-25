@@ -611,7 +611,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 <div className="w-3/4 flex items-center justify-start p-12" style={{ background: `linear-gradient(135deg, ${product.cssColor}10, ${product.cssColor}20)` }}>
                   <div className="max-w-2xl">
                     <h3 className="text-4xl font-bold mb-4" style={{ color: product.cssColor }}>
-                      🍊 ESPECIALISTA EN CÍTRICOS
+                      🍊 ESPECIALISTA EN CÍTRICOS (limón, naranja, mandarina y pomelo)
                     </h3>
                     <p className="text-xl mb-6" style={{ color: product.cssColor }}>
                       Formulado especialmente para naranjas, limones, mandarinas y pomelos
@@ -629,7 +629,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 <div className="w-1/4 relative">
                   <Image
                     src="/crops/citricos/citricos.jpg"
-                    alt="Cítricos - Especialidad TRIKOPPER-50"
+                    alt="Cítricos (limón, naranja, mandarina y pomelo) - Especialidad TRIKOPPER-50"
                     fill
                     className="object-cover"
                   />

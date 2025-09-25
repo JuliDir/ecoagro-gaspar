@@ -3,11 +3,12 @@
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import {
     Target,
-    Download,
     FileText,
-    Clock
+    Clock,
+    X
 } from "lucide-react";
 import { CultivoData } from "@/lib/types/Crop";
 import ProductCard from "../product/ProductCard";
@@ -47,15 +48,25 @@ const cardVariants = {
 };
 
 // Viewport optimizado para mejor detección
-const optimizedViewport = { 
-    once: true, 
+const optimizedViewport = {
+    once: true,
     amount: 0.05, // Muy bajo para activación temprana
     margin: "0px 0px -100px 0px" // Margen grande para pre-activación
 }
 
 export default function CropDetail({ cultivo }: CultivoDetailProps) {
+    const [showPdfModal, setShowPdfModal] = useState(false);
+
+    const openPdfModal = () => {
+        setShowPdfModal(true);
+    };
+
+    const closePdfModal = () => {
+        setShowPdfModal(false);
+    };
+
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-white">
             {/* Hero Section Simplificado */}
             <motion.section
                 className="relative text-white py-24 md:py-32 overflow-hidden"
@@ -83,55 +94,12 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 </div>
             </motion.section>
 
-            {/* OBJETIVOS DEL PROGRAMA */}
+            {/* PROTOCOLO DE APLICACIÓN - SECCIÓN CONDICIONAL */}
             <motion.section
-                className="py-20 bg-white"
+                className="pt-20 bg-white"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                variants={containerVariants}
-            >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-                    <motion.div
-                        className="text-center mb-16"
-                        variants={sectionVariants}
-                    >
-                        <h2 className="text-5xl font-avenir-cyr-heavy text-primary-800 mb-4">
-                            Objetivos del Programa
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Beneficios específicos del uso de productos en {cultivo.name}
-                        </p>
-                    </motion.div>
-
-                    <div className="flex flex-col gap-4 max-w-3xl mx-auto">
-                        {cultivo.objetivosPrograma.map((objetivo, index) => (
-                            <motion.div
-                                key={index}
-                                className="bg-gradient-to-br from-green-50 via-white to-green-100 rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-green-200 relative overflow-hidden"
-                                variants={cardVariants}
-                                whileHover={{ scale: 1.01, y: -2 }}
-                            >
-                                {/* Gradiente sutil de fondo */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 to-emerald-500/10 pointer-events-none"></div>
-                                
-                                <div className="flex gap-3 items-center relative z-10">
-                                    <div className="w-8 h-8 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center flex-shrink-0 border border-green-300/30">
-                                        <Target className="w-4 h-4 text-green-600" />
-                                    </div>
-                                    <p className="text-gray-700 font-semibold text-lg leading-relaxed">{objetivo}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </motion.section>
-
-            {/* PROTOCOLO DE APLICACIÓN - SECCIÓN CONDICIONAL */}
-            <motion.section
-                className="pb-4 bg-white"
-                initial="hidden"
-                animate="visible"
                 variants={containerVariants}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
@@ -166,25 +134,15 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                                     />
                                 </div>
 
-                                {/* Botones de descarga */}
-                                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
-                                    <a
-                                        href={cultivo.protocoloAplicacion.pdf}
-                                        download
-                                        className="inline-flex items-center gap-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl"
-                                    >
-                                        <Download className="w-5 h-5" />
-                                        Descargar Protocolo
-                                    </a>
-                                    
-                                    <a
-                                        href={`/crops/${cultivo.slug}/hoja-seguridad-${cultivo.name.toLowerCase()}.pdf`}
-                                        download
-                                        className="inline-flex items-center gap-3 bg-secondary-600 hover:bg-secondary-700 text-primary px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl border-2 border-secondary-500"
+                                {/* Botón de visualizar protocolo */}
+                                <div className="flex items-center justify-center mt-4">
+                                    <button
+                                        onClick={openPdfModal}
+                                        className="inline-flex items-center gap-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl cursor-pointer"
                                     >
                                         <FileText className="w-5 h-5" />
-                                        Descargar hoja de seguridad
-                                    </a>
+                                        Visualizar Protocolo
+                                    </button>
                                 </div>
                             </>
                         ) : (
@@ -193,21 +151,21 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                                 <div className="bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-2xl p-12 shadow-lg border border-gray-200 relative overflow-hidden">
                                     {/* Gradiente de fondo sutil */}
                                     <div className="absolute inset-0 bg-gradient-to-br from-primary-400/5 to-primary-500/10 pointer-events-none"></div>
-                                    
+
                                     <div className="text-center relative z-10">
                                         <div className="w-20 h-20 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary-300/30">
                                             <Clock className="w-10 h-10 text-primary-600" />
                                         </div>
-                                        
+
                                         <h3 className="text-3xl font-bold text-primary-800 mb-4">
                                             Próximamente
                                         </h3>
-                                        
+
                                         <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-                                            Estamos desarrollando el protocolo específico para <strong>{cultivo.name}</strong>. 
+                                            Estamos desarrollando el protocolo específico para <strong>{cultivo.name}</strong>.
                                             Muy pronto estará disponible con todas las recomendaciones técnicas detalladas.
                                         </p>
-                                        
+
                                         <div className="inline-flex items-center gap-3 bg-primary-50 text-primary-700 px-6 py-3 rounded-lg border border-primary-200">
                                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -222,7 +180,53 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 </div>
             </motion.section>
 
-            <RootSeparator />
+            {/* OBJETIVOS DEL PROGRAMA */}
+            <motion.section
+                className="pb-4 bg-white"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={containerVariants}
+            >
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+                    <motion.div
+                        className="text-center mb-16"
+                        variants={sectionVariants}
+                    >
+                        <h2 className="text-5xl font-avenir-cyr-heavy text-primary-800 mb-4">
+                            Objetivos del Programa
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Beneficios específicos del uso de productos en {cultivo.name}
+                        </p>
+                    </motion.div>
+
+                    <div className="flex flex-col gap-4 max-w-3xl mx-auto">
+                        {cultivo.objetivosPrograma.map((objetivo, index) => (
+                            <motion.div
+                                key={index}
+                                className="bg-gradient-to-br from-green-50 via-white to-green-100 rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-green-200 relative overflow-hidden"
+                                variants={cardVariants}
+                                whileHover={{ scale: 1.01, y: -2 }}
+                            >
+                                {/* Gradiente sutil de fondo */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 to-emerald-500/10 pointer-events-none"></div>
+
+                                <div className="flex gap-3 items-center relative z-10">
+                                    <div className="w-8 h-8 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center flex-shrink-0 border border-green-300/30">
+                                        <Target className="w-4 h-4 text-green-600" />
+                                    </div>
+                                    <p className="text-gray-700 font-semibold text-lg leading-relaxed">{objetivo}</p>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </motion.section>
+
+            <div className="py-10">
+                <RootSeparator />
+            </div>
 
             {/* Productos Recomendados */}
             <motion.section
@@ -288,11 +292,11 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         variants={containerVariants}
                     >
                         <h2 className="text-3xl font-bold mb-4">¿Necesitas más información?</h2>
-                        
+
                         <p className="text-white/90 mb-6">
                             Nuestro equipo técnico está disponible para asesorarte
                         </p>
-                        
+
                         <div className="space-y-4 mb-6">
                             <div className="flex items-center justify-center space-x-3">
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -317,7 +321,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                                 <span>contacto@ecoagrogaspar.com.ar</span>
                             </div>
                         </div>
-                        
+
                         <div>
                             <Link
                                 href="/#contacto"
@@ -330,7 +334,58 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 </div>
             </section>
 
-            
+            {/* Modal flotante para PDF */}
+            {showPdfModal && cultivo.protocoloAplicacion?.pdf && (
+                <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+                    <div className="bg-white rounded-lg shadow-2xl max-w-6xl w-full h-5/6 flex flex-col">
+                        {/* Header de la modal */}
+                        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+                            <h3 className="text-xl font-semibold text-gray-900">
+                                Protocolo de Aplicación - {cultivo.name}
+                            </h3>
+                            <button
+                                onClick={closePdfModal}
+                                className="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
+                            >
+                                <X className="w-6 h-6 text-gray-600" />
+                            </button>
+                        </div>
+
+                        {/* Contenido del PDF */}
+                        <div className="flex-1 p-4">
+                            <iframe
+                                src={cultivo.protocoloAplicacion.pdf}
+                                className="w-full h-full border border-gray-300 rounded"
+                                title={`Protocolo de aplicación para ${cultivo.name}`}
+                            />
+                        </div>
+
+                        {/* Footer con botones */}
+                        <div className="flex items-center justify-between p-4 border-t border-gray-200 bg-gray-50">
+                            <div className="text-sm text-gray-600">
+                                Puedes descargar el archivo usando los controles del visor PDF
+                            </div>
+                            <div className="flex gap-3">
+                                <button
+                                    onClick={closePdfModal}
+                                    className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors cursor-pointer"
+                                >
+                                    Cerrar
+                                </button>
+                                <a
+                                    href={cultivo.protocoloAplicacion.pdf}
+                                    download
+                                    className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors cursor-pointer"
+                                >
+                                    <FileText className="w-4 h-4" />
+                                    Descargar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </div>
     );
 }

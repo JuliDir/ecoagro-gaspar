@@ -13,6 +13,7 @@ type DropdownItem = {
     isCategory?: boolean
     isSubItem?: boolean
     parentCategory?: string
+    color?: string
 }
 
 export default function Header() {
@@ -22,7 +23,6 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false)
     const [isCropsDropdownOpen, setIsCropsDropdownOpen] = useState(false)
-    const [isFungicidesSubDropdownOpen, setIsFungicidesSubDropdownOpen] = useState(false)
     // Estados para dropdowns móviles
     const [isMobileProductsDropdownOpen, setIsMobileProductsDropdownOpen] = useState(false)
     const [isMobileCropsDropdownOpen, setIsMobileCropsDropdownOpen] = useState(false)
@@ -33,9 +33,27 @@ export default function Header() {
     // Categorías de productos con fungicidas como sub-items visibles
     const products = [
         { name: "Fungicidas", href: "/products?category=Fungicidas", isCategory: true },
-        { name: "Cobrestable", href: "/products/cobrestable", isSubItem: true, parentCategory: "Fungicidas" },
-        { name: "Bordocald", href: "/products/bordocald", isSubItem: true, parentCategory: "Fungicidas" },
-        { name: "Trikopper", href: "/products/trikopper-50", isSubItem: true, parentCategory: "Fungicidas" },
+        { 
+            name: "Cobrestable", 
+            href: "/products/cobrestable", 
+            isSubItem: true, 
+            parentCategory: "Fungicidas",
+            color: "#0098da"
+        },
+        { 
+            name: "Bordocald", 
+            href: "/products/bordocald", 
+            isSubItem: true, 
+            parentCategory: "Fungicidas",
+            color: "#9a3388"
+        },
+        { 
+            name: "Trikopper", 
+            href: "/products/trikopper-50", 
+            isSubItem: true, 
+            parentCategory: "Fungicidas",
+            color: "#164A37"
+        },
         { name: "Fertilizantes", href: "/products?category=Fertilizantes" },
         { name: "Coadyuvantes", href: "/products?category=Coadyuvantes" },
     ]
@@ -45,7 +63,7 @@ export default function Header() {
         { name: "Papa", href: "/crops/papa" },
         { name: "Vid", href: "/crops/vid" },
         { name: "Garbanzo", href: "/crops/garbanzo" },
-        { name: "Cítricos", href: "/crops/citricos" },
+        { name: "Cítricos (limón, naranja, mandarina y pomelo)", href: "/crops/citricos" },
         { name: "Ver todos", href: "/crops" },
     ]
 
@@ -256,7 +274,12 @@ export default function Header() {
                                 onClick={onClose}
                             >
                                 {dropdownItem.isSubItem && (
-                                    <span className="inline-block w-2 h-2 bg-primary-400 rounded-full mr-2 -ml-1"></span>
+                                    <span 
+                                        className="inline-block w-2 h-2 rounded-full mr-2 -ml-1"
+                                        style={{ 
+                                            backgroundColor: dropdownItem.color || "#0098da" 
+                                        }}
+                                    ></span>
                                 )}
                                 {dropdownItem.name}
                             </Link>
@@ -301,7 +324,12 @@ export default function Header() {
                                 }}
                             >
                                 {dropdownItem.isSubItem && (
-                                    <span className="inline-block w-1.5 h-1.5 bg-primary-400 rounded-full mr-2 -ml-1"></span>
+                                    <span 
+                                        className="inline-block w-1.5 h-1.5 rounded-full mr-2 -ml-1"
+                                        style={{ 
+                                            backgroundColor: dropdownItem.color || "#0098da" 
+                                        }}
+                                    ></span>
                                 )}
                                 {dropdownItem.name}
                             </Link>
@@ -348,7 +376,6 @@ export default function Header() {
                                         onMouseLeave={() => {
                                             if (item.dropdownType === "products") {
                                                 setIsProductsDropdownOpen(false)
-                                                setIsFungicidesSubDropdownOpen(false)
                                             } else if (item.dropdownType === "crops") {
                                                 setIsCropsDropdownOpen(false)
                                             }
@@ -378,7 +405,6 @@ export default function Header() {
                                             products,
                                             () => {
                                                 setIsProductsDropdownOpen(false)
-                                                setIsFungicidesSubDropdownOpen(false)
                                             }
                                         )}
 

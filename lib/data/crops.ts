@@ -311,7 +311,7 @@ export const cultivosData = {
   },
 
   citricos: {
-    name: "Cítricos",
+    name: "Cítricos (limón, naranja, mandarina y pomelo)",
     slug: "citricos",
     backgroundImage: "/crops/citricos/citricos.jpg",
 
@@ -1038,7 +1038,7 @@ export const allCrops = [
     slug: "mani",
   },
   {
-    name: "Cítricos",
+    name: "Cítricos (limón, naranja, mandarina y pomelo)",
     backgroundImage: "/crops/citricos/citricos.jpg",
     slug: "citricos",
   },
