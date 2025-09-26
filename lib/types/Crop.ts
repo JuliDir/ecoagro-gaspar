@@ -2,6 +2,7 @@ import { Product } from "./Product";
 
 export interface CultivoData {
     name: string;
+    subtitle?: string;
     slug: string;
     backgroundImage: string;
 

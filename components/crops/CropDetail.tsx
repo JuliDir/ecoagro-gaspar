@@ -87,9 +87,16 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         className="flex items-center justify-center gap-6"
                         variants={sectionVariants}
                     >
-                        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-avenir-cyr-heavy">
-                            {cultivo.name}
-                        </h1>
+                        <div className="text-center">
+                            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold font-avenir-cyr-heavy">
+                                {cultivo.name}
+                            </h1>
+                            {cultivo.subtitle && (
+                                <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-white/90 mt-4">
+                                    {cultivo.subtitle}
+                                </p>
+                            )}
+                        </div>
                     </motion.div>
                 </div>
             </motion.section>
@@ -336,7 +343,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
 
             {/* Modal flotante para PDF */}
             {showPdfModal && cultivo.protocoloAplicacion?.pdf && (
-                <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
                     <div className="bg-white rounded-lg shadow-2xl max-w-6xl w-full h-5/6 flex flex-col">
                         {/* Header de la modal */}
                         <div className="flex items-center justify-between p-4 border-b border-gray-200">

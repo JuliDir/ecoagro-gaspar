@@ -311,7 +311,8 @@ export const cultivosData = {
   },
 
   citricos: {
-    name: "Cítricos (limón, naranja, mandarina y pomelo)",
+    name: "Cítricos",
+    subtitle: "(limón, mandarina, naranja y pomelo)",
     slug: "citricos",
     backgroundImage: "/crops/citricos/citricos.jpg",
 
@@ -494,7 +495,7 @@ export const cultivosData = {
   },
 
   broccoli: {
-    name: "Brócoli",
+    name: "Brócoli - Coliflor",
     slug: "broccoli",
     backgroundImage: "/crops/broccoli/broccoli.jpg",
 
@@ -525,35 +526,6 @@ export const cultivosData = {
     ],
   },
 
-  cebada: {
-    name: "Cebada",
-    slug: "cebada",
-    backgroundImage: "/crops/cebada/cebada.jpg",
-
-    protocoloAplicacion: {
-      image: "/crops/cebada/cebada-protocolo-aplicacion.jpg",
-      pdf: "/crops/cebada/protocolo-cebada.pdf"
-    },
-
-    objetivosPrograma: [
-      "Controlar enfermedades foliares de cereales",
-      "Mejorar calidad del grano",
-      "Optimizar llenado de grano",
-      "Prevenir enfermedades de espiga"
-    ],
-
-    productosRecomendados: [
-      {
-        id: 1,
-        name: "COBRESTABLE",
-        color: "#0098da",
-        gradient: "from-sky-400 to-blue-600",
-        icon: "/images/products/cobrestable-box.png",
-        bgIcon: "/icons/wheat.svg",
-        category: "Fungicidas",
-      },
-    ],
-  },
 
   "cebolla-consumo": {
     name: "Cebolla Consumo",
@@ -684,71 +656,7 @@ export const cultivosData = {
     ],
   },
 
-  "maiz-grano": {
-    name: "Maíz Grano",
-    slug: "maiz-grano",
-    backgroundImage: "/crops/maiz-grano/maiz-grano.jpg",
 
-    protocoloAplicacion: {
-      image: "/crops/maiz-grano/maiz-grano-protocolo-aplicacion.jpg",
-      pdf: "/crops/maiz-grano/protocolo-maiz-grano.pdf"
-    },
-
-    objetivosPrograma: [
-      "Controlar enfermedades foliares",
-      "Prevenir pudriciones de espiga",
-      "Optimizar llenado de grano",
-      "Mejorar calidad comercial"
-    ],
-
-    productosRecomendados: [
-      {
-        id: 1,
-        name: "COBRESTABLE",
-        color: "#0098da",
-        gradient: "from-sky-400 to-blue-600",
-        icon: "/images/products/cobrestable-box.png",
-        bgIcon: "/icons/wheat.svg",
-        category: "Fungicidas",
-      },
-    ],
-
-    beneficiosEconomicos: {
-      incrementoRendimiento: "18-28% con manejo oportuno",
-      reduccionPerdidas: "Hasta 35% menos pérdidas por enfermedades",
-      roi: "3.2:1 en cultivos comerciales"
-    }
-  },
-
-  "maiz-silo": {
-    name: "Maíz Silo",
-    slug: "maiz-silo",
-    backgroundImage: "/crops/maiz-silo/maiz-silo.jpg",
-
-    protocoloAplicacion: {
-      image: "/crops/maiz-silo/maiz-silo-protocolo-aplicacion.jpg",
-      pdf: "/crops/maiz-silo/protocolo-maiz-silo.pdf"
-    },
-
-    objetivosPrograma: [
-      "Mantener calidad nutricional",
-      "Controlar enfermedades foliares",
-      "Optimizar digestibilidad",
-      "Maximizar materia seca"
-    ],
-
-    productosRecomendados: [
-      {
-        id: 1,
-        name: "COBRESTABLE",
-        color: "#0098da",
-        gradient: "from-sky-400 to-blue-600",
-        icon: "/images/products/cobrestable-box.png",
-        bgIcon: "/icons/wheat.svg",
-        category: "Fungicidas",
-      },
-    ],
-  },
 
   melon: {
     name: "Melón",
@@ -902,7 +810,7 @@ export const cultivosData = {
   },
 
   trigo: {
-    name: "Trigo",
+    name: "Trigo - Cebada",
     slug: "trigo",
     backgroundImage: "/crops/trigo/trigo.jpg",
 
@@ -1003,6 +911,307 @@ export const cultivosData = {
         category: "Fungicidas",
       },
     ],
+  },
+
+  // NUEVOS CULTIVOS - PRÓXIMAMENTE
+  arroz: {
+    name: "Arroz",
+    slug: "arroz",
+    backgroundImage: "/crops/arroz/arroz.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  cerezo: {
+    name: "Cerezo",
+    slug: "cerezo",
+    backgroundImage: "/crops/cerezo/cerezo.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  zanahoria: {
+    name: "Zanahoria",
+    slug: "zanahoria",
+    backgroundImage: "/crops/zanahoria/zanahoria.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  kiwi: {
+    name: "Kiwi",
+    slug: "kiwi",
+    backgroundImage: "/crops/kiwi/kiwi.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  palto: {
+    name: "Palto",
+    slug: "palto",
+    backgroundImage: "/crops/palto/palto.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
+      },
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  pecan: {
+    name: "Pecán",
+    slug: "pecan",
+    backgroundImage: "/crops/pecan/pecan.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  legumbres: {
+    name: "Legumbres (arvejas, lentejas)",
+    slug: "legumbres",
+    backgroundImage: "/crops/legumbres/legumbres.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  arandano: {
+    name: "Arándano",
+    slug: "arandano",
+    backgroundImage: "/crops/arandano/arandano.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
+      },
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  "flores-de-corte": {
+    name: "Flores de Corte",
+    slug: "flores-de-corte",
+    backgroundImage: "/crops/flores-de-corte/flores-de-corte.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  banano: {
+    name: "Banano",
+    slug: "banano",
+    backgroundImage: "/crops/banano/banano.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
+      },
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  cafe: {
+    name: "Café",
+    slug: "cafe",
+    backgroundImage: "/crops/cafe/cafe.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/corn.svg",
+        category: "Fungicidas",
+      },
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  anana: {
+    name: "Ananá",
+    slug: "anana",
+    backgroundImage: "/crops/anana/anana.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
   }
 }
 
@@ -1038,7 +1247,8 @@ export const allCrops = [
     slug: "mani",
   },
   {
-    name: "Cítricos (limón, naranja, mandarina y pomelo)",
+    name: "Cítricos",
+    subtitle: "(limón, mandarina, naranja y pomelo)",
     backgroundImage: "/crops/citricos/citricos.jpg",
     slug: "citricos",
   },
@@ -1073,14 +1283,9 @@ export const allCrops = [
     slug: "berenjena",
   },
   {
-    name: "Brócoli",
+    name: "Brócoli - Coliflor",
     backgroundImage: "/crops/broccoli/broccoli.jpg",
     slug: "broccoli",
-  },
-  {
-    name: "Cebada",
-    backgroundImage: "/crops/cebada/cebada.jpg",
-    slug: "cebada",
   },
   {
     name: "Cebolla Consumo",
@@ -1101,16 +1306,6 @@ export const allCrops = [
     name: "Hortalizas de Hoja",
     backgroundImage: "/crops/hortalizas-de-hoja/hortalizas-de-hoja.jpg",
     slug: "hortalizas-de-hoja"
-  },
-  {
-    name: "Maíz Grano",
-    backgroundImage: "/crops/maiz-grano/maiz-grano.jpg",
-    slug: "maiz-grano"
-  },
-  {
-    name: "Maíz Silo",
-    backgroundImage: "/crops/maiz-silo/maiz-silo.jpg",
-    slug: "maiz-silo"
   },
   {
     name: "Melón",
@@ -1138,7 +1333,7 @@ export const allCrops = [
     slug: "tomate-industria"
   },
   {
-    name: "Trigo",
+    name: "Trigo - Cebada",
     backgroundImage: "/crops/trigo/trigo.jpg",
     slug: "trigo"
   },
@@ -1151,5 +1346,66 @@ export const allCrops = [
     name: "Pistacho",
     backgroundImage: "/crops/pistacho/pistacho.jpg",
     slug: "pistacho"
+  },
+  // NUEVOS CULTIVOS - PRÓXIMAMENTE
+  {
+    name: "Arroz",
+    backgroundImage: "/crops/arroz/arroz.jpg",
+    slug: "arroz"
+  },
+  {
+    name: "Cerezo",
+    backgroundImage: "/crops/cerezo/cerezo.jpg",
+    slug: "cerezo"
+  },
+  {
+    name: "Zanahoria",
+    backgroundImage: "/crops/zanahoria/zanahoria.jpg",
+    slug: "zanahoria"
+  },
+  {
+    name: "Kiwi",
+    backgroundImage: "/crops/kiwi/kiwi.jpg",
+    slug: "kiwi"
+  },
+  {
+    name: "Palto",
+    backgroundImage: "/crops/palto/palto.jpg",
+    slug: "palto"
+  },
+  {
+    name: "Pecán",
+    backgroundImage: "/crops/pecan/pecan.jpg",
+    slug: "pecan"
+  },
+  {
+    name: "Legumbres (arvejas, lentejas)",
+    backgroundImage: "/crops/legumbres/legumbres.jpg",
+    slug: "legumbres"
+  },
+  {
+    name: "Arándano",
+    backgroundImage: "/crops/arandano/arandano.jpg",
+    slug: "arandano"
+  },
+  {
+    name: "Flores de Corte",
+    backgroundImage: "/crops/flores-de-corte/flores-de-corte.jpg",
+    slug: "flores-de-corte"
+  },
+  {
+    name: "Banano",
+    backgroundImage: "/crops/banano/banano.jpg",
+    slug: "banano"
+  },
+  {
+    name: "Café",
+    backgroundImage: "/crops/cafe/cafe.jpg",
+    slug: "cafe"
+  },
+  {
+    name: "Ananá",
+    backgroundImage: "/crops/anana/anana.jpg",
+    slug: "anana"
   }
 ];

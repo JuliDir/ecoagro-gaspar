@@ -214,36 +214,37 @@ export default function AboutUs() {
               {
                 icon: Lightbulb,
                 title: "Innovación",
-                description: "Búsqueda constante de soluciones innovadoras y efectivas.",
-                color: "bg-primary"
+                description: "Búsqueda constante de soluciones innovadoras y efectivas."
               },
               {
                 icon: Handshake,
                 title: "Compromiso",
-                description: "Dedicación total hacia el productor y el cuidado del medio ambiente",
-                color: "bg-primary"
+                description: "Dedicación total hacia el productor y el cuidado del medio ambiente"
               },
               {
                 icon: Users,
                 title: "Transparencia",
-                description: "Honestidad y claridad en todas nuestras relaciones comerciales",
-                color: "bg-primary"
+                description: "Honestidad y claridad en todas nuestras relaciones comerciales"
               }
             ].map((value, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-primary-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-100 relative overflow-hidden"
                 variants={cardVariants}
                 whileHover={{
-                  y: -3, // Reducido de -5 a -3
-                  transition: { duration: 0.2 } // Más rápido
+                  y: -3,
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
                 }}
               >
-                <div className={`w-16 h-16 ${value.color} rounded-xl flex items-center justify-center mb-6 mx-auto`}>
+                {/* Efecto de brillo sutil */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+
+                <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 mx-auto shadow-md relative z-10">
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 text-center mb-4">{value.title}</h3>
-                <p className="text-gray-600 text-center leading-relaxed">{value.description}</p>
+                <h3 className="text-2xl font-bold text-gray-800 text-center mb-4 relative z-10">{value.title}</h3>
+                <p className="text-gray-700 text-center leading-relaxed relative z-10">{value.description}</p>
               </motion.div>
             ))}
           </div>

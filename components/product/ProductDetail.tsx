@@ -14,7 +14,8 @@ import {
   FileText,
   ShieldCheck,
   Image as ImageIcon,
-  ChevronDown
+  ChevronDown,
+  X
 } from "lucide-react";
 import TriangleTripleAction from "./TriangleTripleAction";
 import { cn } from "@/lib/utils";
@@ -111,6 +112,7 @@ const optimizedViewport = {
 
 export default function ProductDetail({ product }: ProductDetailProps) {
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
 
 
@@ -161,6 +163,17 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     };
 
     return cultivoMap[cultivo.toLowerCase()] || cultivo.toLowerCase().replace(/\s+/g, '-');
+  };
+
+  // Función para obtener el título y subtítulo de un cultivo
+  const getCultivoDisplayName = (cultivo: string): { title: string; subtitle?: string } => {
+    if (cultivo.toLowerCase() === "cítricos") {
+      return {
+        title: "Cítricos",
+        subtitle: "(limón, mandarina, naranja y pomelo)"
+      };
+    }
+    return { title: cultivo };
   };
 
   // Mapping de cultivos a sus imágenes
@@ -422,62 +435,56 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 </div>
 
                 {/* Logos de certificaciones */}
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-8">
                   {/* Logo SENASA */}
-                  <div className="group cursor-pointer" onClick={() => {
+                  <div className="group cursor-pointer text-center" onClick={() => {
                     const link = document.createElement('a');
                     link.href = '/certificates/bordocald-senasa-certificate.jpeg';
                     link.download = 'BORDOCALD-Certificado-SENASA.jpeg';
                     link.click();
                   }}>
-                    <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-200 group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                      <Image
-                        src="/images/products/senasa-logo.png"
-                        alt="SENASA"
-                        width={40}
-                        height={40}
-                        className="object-contain"
-                      />
-                    </div>
-                    <p className="text-center text-gray-700 text-xs mt-2 font-medium">SENASA</p>
+                    <Image
+                      src="/images/products/senasa-logo.png"
+                      alt="SENASA"
+                      width={80}
+                      height={80}
+                      className="object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <p className="text-center text-gray-700 text-sm mt-3 font-medium">SENASA</p>
                   </div>
 
                   {/* Logo OIA */}
-                  <div className="group cursor-pointer" onClick={() => {
+                  <div className="group cursor-pointer text-center" onClick={() => {
                     const link = document.createElement('a');
                     link.href = '/certificates/bordocald-oia-certificate.pdf';
                     link.download = 'BORDOCALD-Certificado-OIA.pdf';
                     link.click();
                   }}>
-                    <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-200 group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                      <Image
-                        src="/images/products/oia_logo.png"
-                        alt="OIA"
-                        width={40}
-                        height={40}
-                        className="object-contain"
-                      />
-                    </div>
-                    <p className="text-center text-gray-700 text-xs mt-2 font-medium">OIA</p>
+                    <Image
+                      src="/images/products/oia_logo.png"
+                      alt="OIA"
+                      width={80}
+                      height={80}
+                      className="object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <p className="text-center text-gray-700 text-sm mt-3 font-medium">OIA</p>
                   </div>
 
                   {/* Logo ECOCERT */}
-                  <div className="group cursor-pointer" onClick={() => {
+                  <div className="group cursor-pointer text-center" onClick={() => {
                     const link = document.createElement('a');
                     link.href = '/certificates/bordocald-ecocert-certificate.pdf';
                     link.download = 'BORDOCALD-Certificado-ECOCERT.pdf';
                     link.click();
                   }}>
-                    <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center border border-gray-200 group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                      <Image
-                        src="/images/products/ecocert-logo.png"
-                        alt="ECOCERT"
-                        width={40}
-                        height={40}
-                        className="object-contain"
-                      />
-                    </div>
-                    <p className="text-center text-gray-700 text-xs mt-2 font-medium">ECOCERT</p>
+                    <Image
+                      src="/images/products/ecocert-logo.png"
+                      alt="ECOCERT"
+                      width={80}
+                      height={80}
+                      className="object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <p className="text-center text-gray-700 text-sm mt-3 font-medium">ECOCERT</p>
                   </div>
                 </div>
               </div>
@@ -611,7 +618,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 <div className="w-3/4 flex items-center justify-start p-12" style={{ background: `linear-gradient(135deg, ${product.cssColor}10, ${product.cssColor}20)` }}>
                   <div className="max-w-2xl">
                     <h3 className="text-4xl font-bold mb-4" style={{ color: product.cssColor }}>
-                      🍊 ESPECIALISTA EN CÍTRICOS (limón, naranja, mandarina y pomelo)
+                      🍊 ESPECIALISTA EN CÍTRICOS
                     </h3>
                     <p className="text-xl mb-6" style={{ color: product.cssColor }}>
                       Formulado especialmente para naranjas, limones, mandarinas y pomelos
@@ -822,12 +829,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               {/* Máximo Control - Grande y centrado */}
               <motion.div variants={cardVariants}>
                 <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 max-w-4xl mx-auto">
-                  <div className="relative h-96">
+                  <div className="relative h-96 cursor-pointer" onClick={() => setLightboxImage("/images/products/maximo-control.jpeg")}>
                     <Image
                       src="/images/products/maximo-control.jpeg"
                       alt="Máximo Control"
                       fill
-                      className="object-contain"
+                      className="object-contain hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 </div>
@@ -838,12 +845,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 {/* Poder Residual */}
                 <motion.div variants={cardVariants}>
                   <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
-                    <div className="relative h-80">
+                    <div className="relative h-80 cursor-pointer" onClick={() => setLightboxImage("/images/products/bordocald-poder-residual.jpeg")}>
                       <Image
                         src="/images/products/bordocald-poder-residual.jpeg"
                         alt="BORDOCALD - Poder Residual"
                         fill
-                        className="object-contain"
+                        className="object-contain hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   </div>
@@ -852,12 +859,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 {/* Biodisponibilidad */}
                 <motion.div variants={cardVariants}>
                   <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
-                    <div className="relative h-80">
+                    <div className="relative h-80 cursor-pointer" onClick={() => setLightboxImage("/images/products/bordocald-biodisponibilidad.jpeg")}>
                       <Image
                         src="/images/products/bordocald-biodisponibilidad.jpeg"
                         alt="BORDOCALD - Biodisponibilidad"
                         fill
-                        className="object-contain"
+                        className="object-contain hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   </div>
@@ -869,12 +876,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               {/* Imagen principal - Grande y centrada */}
               <motion.div variants={cardVariants}>
                 <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 max-w-4xl mx-auto">
-                  <div className="relative h-96">
+                  <div className="relative h-96 cursor-pointer" onClick={() => setLightboxImage("/images/products/maximo-control.jpeg")}>
                     <Image
                       src="/images/products/maximo-control.jpeg"
                       alt="TRIKOPPER 50 - Máximo Control"
                       fill
-                      className="object-contain"
+                      className="object-contain hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 </div>
@@ -885,12 +892,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 {/* Gráfico 1 */}
                 <motion.div variants={cardVariants}>
                   <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
-                    <div className="relative h-80">
+                    <div className="relative h-80 cursor-pointer" onClick={() => setLightboxImage("/images/products/trikopper-poder-residual.jpeg")}>
                       <Image
                         src="/images/products/trikopper-poder-residual.jpeg"
                         alt="TRIKOPPER 50 - Poder Residual"
                         fill
-                        className="object-contain"
+                        className="object-contain hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   </div>
@@ -899,12 +906,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 {/* Gráfico 2 */}
                 <motion.div variants={cardVariants}>
                   <div className="bg-white rounded-2xl p-2 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
-                    <div className="relative h-80">
+                    <div className="relative h-80 cursor-pointer" onClick={() => setLightboxImage("/images/products/trikopper-biodisponibilidad.jpeg")}>
                       <Image
                         src="/images/products/trikopper-biodisponibilidad.jpeg"
                         alt="TRIKOPPER 50 - Biodisponibilidad"
                         fill
-                        className="object-contain"
+                        className="object-contain hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   </div>
@@ -1031,23 +1038,23 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             variants={containerVariants}
           >
             <motion.div variants={cardVariants}>
-              <div className="relative w-[600px] h-[280px]">
+              <div className="relative w-[600px] h-[280px] cursor-pointer" onClick={() => setLightboxImage("/images/products/doble-barrera-2.jpeg")}>
                 <Image
                   src="/images/products/doble-barrera-2.jpeg"
                   alt="Doble Barrera - Imagen 1"
                   fill
-                  className="transition-transform duration-700 group-hover:scale-105"
+                  className="transition-transform duration-700 group-hover:scale-105 hover:scale-110"
                 />
               </div>
             </motion.div>
 
             <motion.div variants={cardVariants}>
-              <div className="relative w-[600px] h-[250px]">
+              <div className="relative w-[600px] h-[250px] cursor-pointer" onClick={() => setLightboxImage("/images/products/doble-barrera-1.jpeg")}>
                 <Image
                   src="/images/products/doble-barrera-1.jpeg"
                   alt="Doble Barrera - Imagen 2"
                   fill
-                  className="transition-transform duration-700 group-hover:scale-105"
+                  className="transition-transform duration-700 group-hover:scale-105 hover:scale-110"
                 />
               </div>
             </motion.div>
@@ -1100,13 +1107,13 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                         </p>
                       </div>
 
-                      <div className="relative bg-gray-50 rounded-xl p-4 overflow-hidden">
+                      <div className="relative bg-gray-50 rounded-xl p-4 overflow-hidden cursor-pointer" onClick={() => setLightboxImage(retentionCharts.particleSize)}>
                         <Image
                           src={retentionCharts.particleSize}
                           alt={`Gráfico de retención por tamaño de partícula - ${product.name}`}
                           width={1200}
                           height={800}
-                          className="w-full h-auto object-contain max-h-96 md:max-h-none"
+                          className="w-full h-auto object-contain max-h-96 md:max-h-none hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     </div>
@@ -1134,13 +1141,13 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                         </p>
                       </div>
 
-                      <div className="relative bg-gray-50 rounded-xl p-4 overflow-hidden">
+                      <div className="relative bg-gray-50 rounded-xl p-4 overflow-hidden cursor-pointer" onClick={() => setLightboxImage(retentionCharts.precipitation)}>
                         <Image
                           src={retentionCharts.precipitation}
                           alt={`Gráfico de retención por intensidad de precipitación - ${product.name}`}
                           width={1200}
                           height={800}
-                          className="w-full h-auto object-contain max-h-96 md:max-h-none"
+                          className="w-full h-auto object-contain max-h-96 md:max-h-none hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     </div>
@@ -1175,53 +1182,71 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 justify-items-center"
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              gap: '2rem'
-            }}
+            className="flex flex-wrap justify-center gap-6 mb-20"
             variants={cropsGridVariants}
           >
             {product.cultivos.map((cultivo, index) => (
               <motion.div
                 key={index}
                 variants={cropItemVariants}
-                className="group cursor-pointer pb-10"
-                whileHover={{
-                  scale: 1.03,
-                  y: -3,
-                  transition: { duration: 0.12 }
-                }}
-                whileTap={{ scale: 0.97 }}
+                className="group"
+                style={{ width: '280px' }}
               >
                 <Link
                   href={`/crops/${getCultivoSlug(cultivo)}`}
                   className="block"
                 >
-                  <div className="relative">
-                    <div className="w-24 h-24 md:w-34 md:h-34 rounded-full shadow-lg group-hover:shadow-xl transition-all duration-200 border-4 border-white overflow-hidden relative">
+                  <motion.div
+                    className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 h-64 cursor-pointer"
+                    whileHover={{
+                      y: -8,
+                      scale: 1.02
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {/* Imagen de fondo */}
+                    <div className="absolute inset-0">
                       <Image
                         src={getCultivoImage(cultivo)}
                         alt={cultivo}
                         fill
                         className="object-cover"
                       />
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
+                    </div>
 
-                      <div className="absolute inset-0 bg-black/30"></div>
-
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-150 flex items-center justify-center">
-                        <ArrowRight className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+                    {/* Contenido en hover */}
+                    <motion.div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      <div className="absolute inset-0 bg-black/60" />
+                      <div className="relative z-10 h-full flex flex-col justify-center items-center p-6 text-center text-white">
+                        <motion.div
+                          className="text-center"
+                          initial={{ y: 20, opacity: 0 }}
+                          whileHover={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.3, delay: 0.1 }}
+                        >
+                          <h3 className="text-2xl font-bold capitalize">{getCultivoDisplayName(cultivo).title}</h3>
+                          {getCultivoDisplayName(cultivo).subtitle && (
+                            <p className="text-base text-white/90 mt-2">{getCultivoDisplayName(cultivo).subtitle}</p>
+                          )}
+                        </motion.div>
                       </div>
+                    </motion.div>
+
+                    {/* Nombre del cultivo - Siempre visible abajo */}
+                    <div className="absolute bottom-4 left-4 right-4 z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                      <h3 className="text-lg font-bold text-white text-center capitalize">{getCultivoDisplayName(cultivo).title}</h3>
+                      {getCultivoDisplayName(cultivo).subtitle && (
+                        <p className="text-sm text-white/80 text-center mt-1">{getCultivoDisplayName(cultivo).subtitle}</p>
+                      )}
                     </div>
 
-                    <div className="text-center mt-3">
-                      <h4 className="font-semibold text-gray-800 capitalize text-sm md:text-base transition-colors duration-150">
-                        {cultivo}
-                      </h4>
-                    </div>
-                  </div>
+                    {/* Borde decorativo en hover */}
+                    <div className="absolute inset-0 border-2 border-primary-400 transition-opacity duration-300 rounded-xl pointer-events-none opacity-0 group-hover:opacity-100" />
+                  </motion.div>
                 </Link>
               </motion.div>
             ))}
@@ -1302,6 +1327,35 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         </div>
       </section>
 
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setLightboxImage(null)}
+        >
+          <div className="relative max-w-5xl max-h-full">
+            <button
+              onClick={() => setLightboxImage(null)}
+              className="absolute -top-4 -right-4 bg-white hover:bg-gray-100 rounded-full p-2 shadow-lg transition-colors z-10 cursor-pointer"
+              aria-label="Cerrar lightbox"
+            >
+              <X size={20} className="text-gray-600" />
+            </button>
+            <div
+              className="bg-white rounded-lg shadow-2xl overflow-hidden cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={lightboxImage}
+                alt="Imagen ampliada"
+                width={1200}
+                height={800}
+                className="w-full h-auto max-h-[80vh] object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );

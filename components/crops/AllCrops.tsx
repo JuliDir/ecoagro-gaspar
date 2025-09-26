@@ -163,8 +163,8 @@ export default function AllCropsSection() {
                                         >
                                             <div className="absolute inset-0 bg-black/60" />
                                             <div className="relative z-10 h-full flex flex-col justify-center items-center p-6 text-center text-white">
-                                                <motion.h3 
-                                                    className="text-3xl font-bold"
+                                                <motion.div
+                                                    className="text-center"
                                                     initial={{ y: 20, opacity: 0 }}
                                                     animate={{
                                                         y: hoveredCard === index ? 0 : 20,
@@ -172,8 +172,11 @@ export default function AllCropsSection() {
                                                     }}
                                                     transition={{ duration: 0.3, delay: 0.1 }}
                                                 >
-                                                    {crop.name}
-                                                </motion.h3>
+                                                    <h3 className="text-3xl font-bold">{crop.name}</h3>
+                                                    {crop.subtitle && (
+                                                        <p className="text-lg text-white/90 mt-2">{crop.subtitle}</p>
+                                                    )}
+                                                </motion.div>
                                             </div>
                                         </motion.div>
 
@@ -182,6 +185,9 @@ export default function AllCropsSection() {
                                             hoveredCard === index ? 'opacity-0' : 'opacity-100'
                                         }`}>
                                             <h3 className="text-xl font-bold text-white text-center">{crop.name}</h3>
+                                            {crop.subtitle && (
+                                                <p className="text-sm text-white/80 text-center mt-1">{crop.subtitle}</p>
+                                            )}
                                         </div>
 
                                         {/* Efecto de brillo en hover */}
