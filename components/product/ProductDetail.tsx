@@ -124,15 +124,18 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "alfalfa corte": "alfalfa-corte",
       "alfalfa primer corte": "alfalfa-primer-corte",
       "alfalfa semilla": "alfalfa-semilla",
+      "arveja": "arveja",
       "berenjena": "berenjena",
       "brócoli": "broccoli",
       "cebada": "cebada",
+      "trigo - cebada": "trigo",
       "cebolla consumo": "cebolla-consumo",
       "cítricos": "citricos",
       "cucurbitáceas": "cucurbitaceas",
       "frutilla": "frutilla",
       "garbanzo": "garbanzo",
       "hortalizas de hoja": "hortalizas-hoja",
+      "lenteja": "lenteja",
       "limón": "citricos",
       "maíz grano": "maiz-grano",
       "maíz silo": "maiz-silo",
@@ -143,6 +146,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "nogal": "nogal",
       "olivo": "olivo",
       "papa": "papa",
+      "pecán": "pecan",
       "pistacho": "pistacho",
       "pimiento": "pimiento",
       "pomelo": "citricos",
@@ -153,6 +157,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "tomate industria": "tomate-industria",
       "trigo": "trigo",
       "vid": "vid",
+      "zanahoria consumo": "zanahoria-consumo",
+      "zanahoria semilla": "zanahoria-semilla",
 
       "frutales de pepita": "frutales-pepita",
       "frutales de carozo": "frutales-carozo",
@@ -167,12 +173,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
   // Función para obtener el título y subtítulo de un cultivo
   const getCultivoDisplayName = (cultivo: string): { title: string; subtitle?: string } => {
-    if (cultivo.toLowerCase() === "cítricos") {
-      return {
-        title: "Cítricos",
-        subtitle: "(limón, mandarina, naranja y pomelo)"
-      };
-    }
     return { title: cultivo };
   };
 
@@ -183,15 +183,18 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "alfalfa corte": "/crops/alfalfa-corte/alfalfa-corte.jpg",
       "alfalfa primer corte": "/crops/alfalfa-primer-corte/alfalfa-primer-corte.jpg",
       "alfalfa semilla": "/crops/alfalfa-semilla/alfalfa-semilla.jpg",
+      "arveja": "/crops/arveja/arveja.jpg",
       "berenjena": "/crops/berenjena/berenjena.jpg",
       "brócoli": "/crops/broccoli/broccoli.jpg",
       "cebada": "/crops/cebada/cebada.jpg",
+      "trigo - cebada": "/crops/trigo/trigo.jpg",
       "cebolla consumo": "/crops/cebolla-consumo/cebolla-consumo.jpg",
       "cítricos": "/crops/citricos/citricos.jpg",
       "cucurbitáceas": "/crops/cucurbitaceas/cucurbitaceas.jpg",
       "frutilla": "/crops/frutilla/frutilla.jpg",
       "garbanzo": "/crops/garbanzo/garbanzo.jpg",
       "hortalizas de hoja": "/crops/hortalizas-de-hoja/hortalizas-de-hoja.jpg",
+      "lenteja": "/crops/lenteja/lenteja.jpg",
       "limón": "/crops/limon/limon.jpg",
       "maíz grano": "/crops/maiz-grano/maiz-grano.jpg",
       "maíz silo": "/crops/maiz-silo/maiz-silo.jpg",
@@ -202,6 +205,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "nogal": "/crops/nogal/nogal.jpg",
       "olivo": "/crops/olivo/olivo.jpg",
       "papa": "/crops/papa/papa.jpg",
+      "pecán": "/crops/pecan/pecan.jpg",
       "pistacho": "/crops/pistacho/pistacho.jpg",
       "pimiento": "/crops/pimiento/pimiento.jpg",
       "pomelo": "/crops/pomelo/pomelo.jpg",
@@ -213,6 +217,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       "tomate": "/crops/tomate/tomate.jpg", // genérico
       "trigo": "/crops/trigo/trigo.jpg",
       "vid": "/crops/vid/vid.jpg",
+      "zanahoria consumo": "/crops/zanahoria-consumo/zanahoria-consumo.jpg",
+      "zanahoria semilla": "/crops/zanahoria-semilla/zanahoria-semilla.jpg",
 
       // extras de tu cultivoMap original
       "frutales de pepita": "/crops/frutales-pepita/frutales-pepita.jpg",
@@ -437,52 +443,37 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 {/* Logos de certificaciones */}
                 <div className="flex items-center gap-8">
                   {/* Logo SENASA */}
-                  <div className="group cursor-pointer text-center" onClick={() => {
-                    const link = document.createElement('a');
-                    link.href = '/certificates/bordocald-senasa-certificate.jpeg';
-                    link.download = 'BORDOCALD-Certificado-SENASA.jpeg';
-                    link.click();
-                  }}>
+                  <div className="group text-center">
                     <Image
                       src="/images/products/senasa-logo.png"
                       alt="SENASA"
                       width={80}
                       height={80}
-                      className="object-contain group-hover:scale-110 transition-transform duration-300"
+                      className="object-contain"
                     />
                     <p className="text-center text-gray-700 text-sm mt-3 font-medium">SENASA</p>
                   </div>
 
                   {/* Logo OIA */}
-                  <div className="group cursor-pointer text-center" onClick={() => {
-                    const link = document.createElement('a');
-                    link.href = '/certificates/bordocald-oia-certificate.pdf';
-                    link.download = 'BORDOCALD-Certificado-OIA.pdf';
-                    link.click();
-                  }}>
+                  <div className="group text-center">
                     <Image
                       src="/images/products/oia_logo.png"
                       alt="OIA"
                       width={80}
                       height={80}
-                      className="object-contain group-hover:scale-110 transition-transform duration-300"
+                      className="object-contain"
                     />
                     <p className="text-center text-gray-700 text-sm mt-3 font-medium">OIA</p>
                   </div>
 
                   {/* Logo ECOCERT */}
-                  <div className="group cursor-pointer text-center" onClick={() => {
-                    const link = document.createElement('a');
-                    link.href = '/certificates/bordocald-ecocert-certificate.pdf';
-                    link.download = 'BORDOCALD-Certificado-ECOCERT.pdf';
-                    link.click();
-                  }}>
+                  <div className="group text-center">
                     <Image
                       src="/images/products/ecocert-logo.png"
                       alt="ECOCERT"
                       width={80}
                       height={80}
-                      className="object-contain group-hover:scale-110 transition-transform duration-300"
+                      className="object-contain"
                     />
                     <p className="text-center text-gray-700 text-sm mt-3 font-medium">ECOCERT</p>
                   </div>

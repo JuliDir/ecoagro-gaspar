@@ -85,8 +85,8 @@ export default function AllCropsSection() {
                 variants={containerVariants}
             >
                 <div className="mx-auto px-4 sm:px-6 lg:px-36">
-                    <motion.div 
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+                    <motion.div
+                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3"
                         variants={containerVariants}
                     >
                         {allCrops.sort(
@@ -99,15 +99,15 @@ export default function AllCropsSection() {
                                 onMouseEnter={() => setHoveredCard(index)}
                                 onMouseLeave={() => setHoveredCard(null)}
                             >
-                                <Link 
+                                <Link
                                     href={`/crops/${crop.slug}`}
                                     className="block"
                                 >
                                     <motion.div
-                                        className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 h-80 cursor-pointer"
-                                        whileHover={{ 
+                                        className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 h-48 cursor-pointer"
+                                        whileHover={{
                                             y: -8,
-                                            scale: 1.02 
+                                            scale: 1.02
                                         }}
                                         transition={{ duration: 0.3 }}
                                     >
@@ -172,22 +172,16 @@ export default function AllCropsSection() {
                                                     }}
                                                     transition={{ duration: 0.3, delay: 0.1 }}
                                                 >
-                                                    <h3 className="text-3xl font-bold">{crop.name}</h3>
-                                                    {crop.subtitle && (
-                                                        <p className="text-lg text-white/90 mt-2">{crop.subtitle}</p>
-                                                    )}
+                                                    <h3 className="text-lg font-bold">{crop.name}</h3>
                                                 </motion.div>
                                             </div>
                                         </motion.div>
 
                                         {/* Nombre del cultivo - Siempre visible abajo */}
-                                        <div className={`absolute bottom-4 left-4 right-4 z-10 transition-opacity duration-300 ${
+                                        <div className={`absolute bottom-2 left-2 right-2 z-10 transition-opacity duration-300 ${
                                             hoveredCard === index ? 'opacity-0' : 'opacity-100'
                                         }`}>
-                                            <h3 className="text-xl font-bold text-white text-center">{crop.name}</h3>
-                                            {crop.subtitle && (
-                                                <p className="text-sm text-white/80 text-center mt-1">{crop.subtitle}</p>
-                                            )}
+                                            <h3 className="text-sm font-bold text-white text-center">{crop.name}</h3>
                                         </div>
 
                                         {/* Efecto de brillo en hover */}

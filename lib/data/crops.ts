@@ -110,10 +110,11 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar eficazmente la botritis",
-      "Prevenir infecciones durante el desarrollo del fruto",
-      "Mejorar la calidad comercial de la producción",
-      "Reducir pérdidas postcosecha"
+      "Desde yema hinchada hasta prefloración. En los primeros estadíos fenológicos los tejidos quedan expuestos constantemente al ataque de patógenos por el rápido crecimiento. Aplicaciones hasta floración para predisponer mejor a la planta en la defensa pasiva contra peronóspora, botritis y oidio (aumento en la síntesis de lignina).",
+      "Floración hasta post-cuaje. Aplicaciones para potenciar liberación de polen, cuaje y fortalecimiento de los meristemas en la etapa inicial del crecimiento de las bayas.",
+      "Aumento de las barreras contra el ingreso de patógenos peronóspora, botritis y oidio (aumento en la síntesis de lignina).",
+      "Aplicaciones tradicionales de cobre preventivas contra Peronóspora.",
+      "Aplicación de post-cosecha para el fortalecimiento de yemas con cobre, disminuir el potencial de inóculo de patógenos fúngicos, aumentar la fotosíntesis para mayor acumulación de reservas."
     ],
 
     productosRecomendados: [
@@ -144,10 +145,8 @@ export const cultivosData = {
     backgroundImage: "/crops/olivo/olivo.jpg",
 
     objetivosPrograma: [
-      "Controlar eficazmente la mosca del olivo",
-      "Prevenir infecciones durante el desarrollo del fruto",
-      "Mejorar la calidad comercial de la producción",
-      "Reducir pérdidas postcosecha"
+      "Con las aplicaciones de Cobrestable se busca mejorará la calidad de las yemas de fruto, la calidad y cantidad de polen liberado, lograr frutos más grandes y más pesados.",
+      "Desde el manejo sanitario las aplicaciones tanto de Cobrestable como Bordocald tienen como objetivo principal bajar el inóculo de la Tubercolosis",
     ],
 
     productosRecomendados: [
@@ -167,6 +166,11 @@ export const cultivosData = {
     name: "Garbanzo",
     slug: "garbanzo",
     backgroundImage: "/crops/garbanzo/garbanzo.jpg",
+
+    protocoloAplicacion: {
+      image: "/crops/garbanzo/garbanzo-protocolo-aplicacion.jpg",
+      pdf: "/crops/garbanzo/protocolo-garbanzo.pdf"
+    },
 
     objetivosPrograma: [
       "Controlar eficazmente la antracnosis",
@@ -260,10 +264,12 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar eficazmente las enfermedades foliares",
-      "Mantener la producción de frutos de calidad",
-      "Optimizar el uso de recursos hídricos",
-      "Reducir el impacto ambiental del cultivo"
+      "Dotar al cultivo de cobre como nutriente para fortalecer tejidos frente al ataque de patógenos.",
+      "Disminuir los efectos de estrés abióticos.",
+      "Mejorar el proceso de Fijacion Biológica del Nitrógeno (FBN)",
+      "Mejorar la fotosíntesis para asegurar mayor asimilación de azúcares.",
+      "Aumentar cantidad y calidad de polen. Mejorar la cuaja de granos (más granos por vaina). Aumentar rendimiento por hectárea.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos."
     ],
 
     productosRecomendados: [
@@ -312,7 +318,6 @@ export const cultivosData = {
 
   citricos: {
     name: "Cítricos",
-    subtitle: "(limón, mandarina, naranja y pomelo)",
     slug: "citricos",
     backgroundImage: "/crops/citricos/citricos.jpg",
 
@@ -669,10 +674,12 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar mildiu y oídio",
-      "Mejorar calidad del fruto",
-      "Optimizar contenido de azúcar",
-      "Extender vida postcosecha"
+      "Protección contra Mildiu (Pseudoperonospora cubensis) y Mancha Bacteriana.",
+      "Fortalecimiento de las paredes celulares de los tejidos.",
+      "Mayor aprovechamiento del Nitrógeno.",
+      "Mayor actividad fotosintética.",
+      "Reducir efectos del estrés.",
+      "Aumentar la eficiencia de los fungicidas de síntesis cuando se aplican en conjunto."
     ],
 
     productosRecomendados: [
@@ -730,10 +737,11 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar antracnosis y mildiu",
-      "Mejorar desarrollo del fruto",
-      "Optimizar contenido de azúcar",
-      "Prevenir pudriciones"
+      "Reducir el riesgo de ataques de patógenos en especial Antracnosis (Colletotrichum orbiculare), Mildiu (Pseudoperonospora cubensis) y Bacteriosis dotando al cultivo de cobre nutriente para fortalecer las paredes celulares de los tejidos y evitar la penetración de las hifas.",
+      "Eficientizar el aprovechamiento del nitrógeno durante el cultivo optimizando la transformación del nitrógeno de nitratos en hojas (alimento para los hongos) en nitrógeno amínico (no utilizado por los mismos).",
+      "Aumentar la tasa fotosintética para asegurar mayor asimilación de azúcares.",
+      "Disminuir los efectos de estrés abióticos en especial derivado del uso de agrotóxicos, promoviendo la eliminación de radicales libres oxidantes.",
+      "Sinergizar la acción de los fungicidas en aplicaciones conjuntas para aumentar la eficacia de los mismos reduciendo los riesgos de resistencia."
     ],
 
     productosRecomendados: [
@@ -760,10 +768,12 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar tizón tardío y temprano",
-      "Mejorar calidad y firmeza",
-      "Optimizar color y sabor",
-      "Extender vida postcosecha"
+      "Dotar al cultivo de cobre como nutriente para disminuir el riesgo de ataques de patógenos en especial bacteriosis y fúngicos.",
+      "Mejorar cuaje y aumentar los rendimientos",
+      "Fortalecer meristemas en activo crecimiento en especial post-cuaje.",
+      "Disminuir los efectos de estrés abióticos.",
+      "Mejorar la fotosíntesis para asegurar mayor concentración de sólidos solubles.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos."
     ],
 
     productosRecomendados: [
@@ -790,10 +800,12 @@ export const cultivosData = {
     },
 
     objetivosPrograma: [
-      "Controlar enfermedades foliares",
-      "Maximizar sólidos solubles",
-      "Optimizar rendimiento industrial",
-      "Mejorar uniformidad de maduración"
+      "Dotar al cultivo de cobre como nutriente para disminuir el riesgo de ataques de patógenos en especial bacteriosis y fúngicos.",
+      "Mejorar cuaje y aumentar los rendimientos",
+      "Fortalecer meristemas en activo crecimiento en especial post-cuaje.",
+      "Disminuir los efectos de estrés abióticos.",
+      "Mejorar la fotosíntesis para asegurar mayor concentración de sólidos solubles.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos."
     ],
 
     productosRecomendados: [
@@ -845,12 +857,11 @@ export const cultivosData = {
     backgroundImage: "/crops/nogal/nogal.jpg",
 
     objetivosPrograma: [
-      "Controlar eficazmente la bacteriosis del nogal (Xanthomonas campestris pv. juglandis)",
-      "Prevenir la antracnosis (Gnomonia leptostyla) y otras enfermedades fúngicas",
-      "Mejorar la calidad y el llenado de las nueces",
-      "Fortalecer la resistencia natural del árbol contra patógenos",
-      "Optimizar la producción y reducir pérdidas postcosecha",
-      "Aportar cobre como micronutriente esencial para el desarrollo del cultivo"
+      "Dotar al cultivo de cobre como nutriente para evitar la infección fundamentalmente de la Cancrosis Bacteriana, entre otras.",
+      "Mejorar la fotosíntesis para asegurar mayor asimilación de azúcares.",
+      "Aumentar cantidad y calidad de polen. Mejorar la cuaja de granos. Aumentar rendimiento por hectárea.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos.",
+      "IMPORTANTE: Aplicar después de una granizada, viento o después de la poda para cicatrizar rápidamente las heridas."
     ],
 
     productosRecomendados: [
@@ -881,14 +892,11 @@ export const cultivosData = {
     backgroundImage: "/crops/pistacho/pistacho.jpg",
 
     objetivosPrograma: [
-      "Controlar eficazmente la botritis del pistacho (Botrytis cinerea)",
-      "Prevenir la alternariosis (Alternaria alternata) y otras enfermedades fúngicas",
-      "Controlar la septoriosis (Septoria pistaciarum) que afecta hojas y frutos",
-      "Mejorar la calidad y el llenado de los pistachos",
-      "Fortalecer la resistencia natural del árbol contra patógenos",
-      "Optimizar la producción y reducir pérdidas postcosecha",
-      "Aportar cobre como micronutriente esencial para el metabolismo y la lignificación",
-      "Prevenir deficiencias nutricionales que predisponen a enfermedades"
+      "Dotar al cultivo de cobre como nutriente para evitar la infección de los patógenos Septoriosis, Botriosfera y Botrytis , entre otras.",
+      "Mejorar la fotosíntesis para asegurar mayor asimilación de azúcares.",
+      "Aumentar cantidad y calidad de polen. Mejorar la cuaja de frutos.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos.",
+      "IMPORTANTE: Aplicar después de una granizada, viento o después de la poda para cicatrizar rápidamente las heridas."
     ],
 
     productosRecomendados: [
@@ -919,8 +927,18 @@ export const cultivosData = {
     slug: "arroz",
     backgroundImage: "/crops/arroz/arroz.jpg",
 
+    protocoloAplicacion: {
+      image: "/crops/arroz/arroz-protocolo-aplicacion.jpg",
+      pdf: "/crops/arroz/protocolo-arroz.pdf"
+    },
+
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Dotar al cultivo de cobre como nutriente para disminuir el riesgo de ataques de patógenos en especial Pyricularia y bacteriosis.",
+      "Robustecer tallos para lograr mayor rigidez y evitar el encamado.",
+      "Disminuir los efectos de estrés abióticos.",
+      "Mejorar la fotosíntesis para asegurar mayor asimilación de azúcares.",
+      "Aumentar cantidad y calidad de polen. Mejorar la cuaja de granos. Aumentar rendimiento por hectárea.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos."
     ],
 
     productosRecomendados: [
@@ -941,8 +959,16 @@ export const cultivosData = {
     slug: "cerezo",
     backgroundImage: "/crops/cerezo/cerezo.jpg",
 
+    protocoloAplicacion: {
+      image: "/crops/cerezo/cerezo-protocolo-aplicacion.jpg",
+      pdf: "/crops/cerezo/protocolo-cerezo.pdf"
+    },
+
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Aplicación de post-cosecha para el fortalecimiento de yemas con cobre y reducción de los riesgos del ataque de patógenos fúngicos y bacterianos vía heridas por caídas de hojas.",
+      "También tiene como objetivo promover una óptima fotosíntesis para la acumulación de azúcares de reserva para el ciclo siguiente.",
+      "Desde yema hinchada hasta inicio de floración, tiene por objetivos, nutrir con cobre para predisponer mejor a la planta en la defensa pasiva contra patógenos en especial el Tizón Bacteriano (mayor cicatrización de las heridas producidas por la caída de pétalos)",
+      "Promover una mejor formación de los granos de polen (específico), potenciar la liberación de mismo (gracias a la mayor síntesis de lignina) y uniformar el cuaje."
     ],
 
     productosRecomendados: [
@@ -958,35 +984,22 @@ export const cultivosData = {
     ],
   },
 
-  zanahoria: {
-    name: "Zanahoria",
-    slug: "zanahoria",
-    backgroundImage: "/crops/zanahoria/zanahoria.jpg",
-
-    objetivosPrograma: [
-      "Información técnica próximamente disponible"
-    ],
-
-    productosRecomendados: [
-      {
-        id: 1,
-        name: "COBRESTABLE",
-        color: "#0098da",
-        gradient: "from-sky-400 to-blue-600",
-        icon: "/images/products/cobrestable-box.png",
-        bgIcon: "/icons/wheat.svg",
-        category: "Fungicidas",
-      },
-    ],
-  },
-
   kiwi: {
     name: "Kiwi",
     slug: "kiwi",
     backgroundImage: "/crops/kiwi/kiwi.jpg",
 
+    protocoloAplicacion: {
+      image: "/crops/kiwi/kiwi-protocolo-aplicacion.jpg",
+      pdf: "/crops/kiwi/protocolo-kiwi.pdf"
+    },
+
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Reducir la carga epifítica de bacterias fitopatógenas (especialmente Pseudomonas syringae) en superficie foliar y en heridas para minimizar el riesgo de infección primaria en brotación, post-poda y post-cosecha.",
+      "Prevenir el establecimiento de infecciones latentes en cortes, pedicelos y cicatrices foliares, formando una barrera protectora con cobre disponible.",
+      "Disminuir la incidencia de enfermedades fungosas oportunistas (manchas foliares, pudriciones de fruto por Botrytis, Alternaria, Pestalotiopsis).",
+      "Proteger la sanidad del huerto en momentos críticos de alta presión climática (lluvias, heladas, humedad prolongada), evitando picos de infección y estabilizando la carga de inóculo a lo largo de la temporada.",
+      "Optimizar la eficiencia y seguridad del uso de cobre: reducir riesgo de fitotoxicidad y acumulación en fruto y suelo mediante dosis menores y formas metabolizables, logrando eficacia sanitaria con menor impacto ambiental y mayor compatibilidad fenológica."
     ],
 
     productosRecomendados: [
@@ -1007,8 +1020,18 @@ export const cultivosData = {
     slug: "palto",
     backgroundImage: "/crops/palto/palto.jpg",
 
+    protocoloAplicacion: {
+      image: "/crops/palto/palto-protocolo-aplicacion.jpg",
+      pdf: "/crops/palto/protocolo-palto.pdf"
+    },
+
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Dotar al cultivo de cobre como nutriente para evitar la infección de los patógenos Antracnosis (Colletotrichum gloeosporioides), Roña o Sarna del palto (Sphaceloma perseae / Elsinoë perseae), Alternaria (Alternaria alternata), Cancros y manchas foliares bacterianas (Xanthomonas spp., Pseudomonas spp.), entre otras.",
+      "Disminuir los efectos de estrés abióticos.",
+      "Mejorar la fotosíntesis para asegurar mayor asimilación de azúcares.",
+      "Aumentar cantidad y calidad de polen. Mejorar la cuaja de granos. Aumentar rendimiento por hectárea.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos.",
+      "IMPORTANTE: Aplicar después de una granizada, viento o después de la poda para cicatrizar rápidamente las heridas."
     ],
 
     productosRecomendados: [
@@ -1038,8 +1061,17 @@ export const cultivosData = {
     slug: "pecan",
     backgroundImage: "/crops/pecan/pecan.jpg",
 
+    protocoloAplicacion: {
+      image: "/crops/pecan/pecan-protocolo-aplicacion.jpg",
+      pdf: "/crops/pecan/protocolo-pecan.pdf"
+    },
+
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Dotar al cultivo de cobre como nutriente para evitar la infección de los patógenos Roya del pecán (Puccinia pecanihicoriae), Sarna o costra del pecán (Fusicladium effusum), Antracnosis (Colletotrichum gloeosporioides), Bacteriosis foliar y de brotes (Xanthomonas arboricola pv. juglandis), entre otras.",
+      "Mejorar la fotosíntesis para asegurar mayor asimilación de azúcares.",
+      "Aumentar cantidad y calidad de polen. Mejorar la cuaja de granos. Aumentar rendimiento por hectárea.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos.",
+      "IMPORTANTE: Aplicar después de una granizada, viento o después de la poda para cicatrizar rápidamente las heridas."
     ],
 
     productosRecomendados: [
@@ -1055,10 +1087,10 @@ export const cultivosData = {
     ],
   },
 
-  legumbres: {
-    name: "Legumbres (arvejas, lentejas)",
-    slug: "legumbres",
-    backgroundImage: "/crops/legumbres/legumbres.jpg",
+  arveja: {
+    name: "Arveja",
+    slug: "arveja",
+    backgroundImage: "/crops/arveja/arveja.jpg",
 
     objetivosPrograma: [
       "Información técnica próximamente disponible"
@@ -1077,13 +1109,89 @@ export const cultivosData = {
     ],
   },
 
+  lenteja: {
+    name: "Lenteja",
+    slug: "lenteja",
+    backgroundImage: "/crops/lenteja/lenteja.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  zanahoriaConsumo: {
+    name: "Zanahoria Consumo",
+    slug: "zanahoria-consumo",
+    backgroundImage: "/crops/zanahoria-consumo/zanahoria-consumo.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/leaf.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
+  zanahoriaSemilla: {
+    name: "Zanahoria Semilla",
+    slug: "zanahoria-semilla",
+    backgroundImage: "/crops/zanahoria-semilla/zanahoria-semilla.jpg",
+
+    objetivosPrograma: [
+      "Información técnica próximamente disponible"
+    ],
+
+    productosRecomendados: [
+      {
+        id: 2,
+        name: "BORDOCALD",
+        color: "#9a3388",
+        gradient: "from-fuchsia-400 to-purple-600",
+        icon: "/images/products/bordocald-box.png",
+        bgIcon: "/icons/leaf.svg",
+        category: "Fungicidas",
+      },
+    ],
+  },
+
   arandano: {
     name: "Arándano",
     slug: "arandano",
     backgroundImage: "/crops/arandano/arandano.jpg",
 
+    protocoloAplicacion: {
+      image: "/crops/arandano/arandano-protocolo-aplicacion.jpg",
+      pdf: "/crops/arandano/protocolo-arandano.pdf"
+    },
+
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Fortalecimiento de las yemas con cobre.",
+      "Adecuada formación y rusticación de los tejidos.",
+      "Las aplicaciones de en prefloración predisponen a la formación de polen de mayor calidad y una mayor y mejor cuaje",
+      "Fortalecimiento de las bayas durante las fases uno y dos del crecimiento de los frutos.",
+      "Maximizar la actividad fotosintética y el Traslado de azúcares.",
+      "Mayor protección contra estrés abiótico."
     ],
 
     productosRecomendados: [
@@ -1113,6 +1221,11 @@ export const cultivosData = {
     slug: "flores-de-corte",
     backgroundImage: "/crops/flores-de-corte/flores-de-corte.jpg",
 
+    protocoloAplicacion: {
+      image: "/crops/flores-de-corte/flores-de-corte-protocolo-aplicacion.jpg",
+      pdf: "/crops/flores-de-corte/protocolo-flores-de-corte.pdf"
+    },
+
     objetivosPrograma: [
       "Información técnica próximamente disponible"
     ],
@@ -1135,39 +1248,17 @@ export const cultivosData = {
     slug: "banano",
     backgroundImage: "/crops/banano/banano.jpg",
 
-    objetivosPrograma: [
-      "Información técnica próximamente disponible"
-    ],
-
-    productosRecomendados: [
-      {
-        id: 2,
-        name: "BORDOCALD",
-        color: "#9a3388",
-        gradient: "from-fuchsia-400 to-purple-600",
-        icon: "/images/products/bordocald-box.png",
-        bgIcon: "/icons/corn.svg",
-        category: "Fungicidas",
-      },
-      {
-        id: 1,
-        name: "COBRESTABLE",
-        color: "#0098da",
-        gradient: "from-sky-400 to-blue-600",
-        icon: "/images/products/cobrestable-box.png",
-        bgIcon: "/icons/wheat.svg",
-        category: "Fungicidas",
-      },
-    ],
-  },
-
-  cafe: {
-    name: "Café",
-    slug: "cafe",
-    backgroundImage: "/crops/cafe/cafe.jpg",
+    protocoloAplicacion: {
+      image: "/crops/banano/banano-protocolo-aplicacion.jpg",
+      pdf: "/crops/banano/protocolo-banano.pdf"
+    },
 
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Reducir el riesgo de ataques de patógenos en especial Sigatoka y Bacteriosis (Erwinia) dotando al cultivo de cobre nutriente para fortalecer las paredes celulares de los tejidos con aumento de la lignina.",
+      "Eficientizar el aprovechamiento del nitrógeno durante el cultivo optimizando la transformación del nitrógeno de nitratos en hojas (alimento para los hongos) en nitrógeno amínico (no utilizado por los mismos).",
+      "Aumentar la tasa fotosintética para asegurar mayor asimilación de azúcares.",
+      "Disminuir los efectos de estrés abióticos en especial derivado del uso de agrotóxicos, promoviendo la eliminación de radicales libres oxidantes.",
+      "Sinergizar la acción de los fungicidas en aplicaciones conjuntas para aumentar la eficacia de los mismos reduciendo los riesgos de resistencia."
     ],
 
     productosRecomendados: [
@@ -1193,12 +1284,21 @@ export const cultivosData = {
   },
 
   anana: {
-    name: "Ananá",
+    name: "Ananá - Piña",
     slug: "anana",
     backgroundImage: "/crops/anana/anana.jpg",
 
+    protocoloAplicacion: {
+      image: "/crops/anana/anana-protocolo-aplicacion.jpg",
+      pdf: "/crops/anana/protocolo-anana.pdf"
+    },
+
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Reducir el riesgo de ataques de patógenos en especial Pudrición del Cogollo (Pythophthora parasitica) y Pudrición Bacteriana (Erwinia carotovora), Falsa Erwinia (Bacillus pumillum) y Pudrición Negra o Acuosa (Thielaviopsis paradoxa) dotando al cultivo de cobre nutriente para fortalecer las paredes celulares de los tejidos y evitar la penetración y avance de las hifas.",
+      "Eficientizar el aprovechamiento del nitrógeno durante el cultivo optimizando la transformación del nitrógeno de nitratos en hojas (alimento para los hongos) en nitrógeno amínico (no utilizado por los mismos).",
+      "Aumentar la tasa fotosintética para asegurar mayor asimilación de azúcares.",
+      "Disminuir los efectos de estrés abióticos en especial derivado del uso de agrotóxicos, promoviendo la eliminación de radicales libres oxidantes.",
+      "Sinergizar la acción de los fungicidas (Metalaxyl) en aplicaciones conjuntas para aumentar la eficacia de los mismos reduciendo los riesgos de resistencia."
     ],
 
     productosRecomendados: [
@@ -1248,7 +1348,6 @@ export const allCrops = [
   },
   {
     name: "Cítricos",
-    subtitle: "(limón, mandarina, naranja y pomelo)",
     backgroundImage: "/crops/citricos/citricos.jpg",
     slug: "citricos",
   },
@@ -1359,11 +1458,6 @@ export const allCrops = [
     slug: "cerezo"
   },
   {
-    name: "Zanahoria",
-    backgroundImage: "/crops/zanahoria/zanahoria.jpg",
-    slug: "zanahoria"
-  },
-  {
     name: "Kiwi",
     backgroundImage: "/crops/kiwi/kiwi.jpg",
     slug: "kiwi"
@@ -1379,9 +1473,24 @@ export const allCrops = [
     slug: "pecan"
   },
   {
-    name: "Legumbres (arvejas, lentejas)",
-    backgroundImage: "/crops/legumbres/legumbres.jpg",
-    slug: "legumbres"
+    name: "Arveja",
+    backgroundImage: "/crops/arveja/arveja.jpg",
+    slug: "arveja"
+  },
+  {
+    name: "Lenteja",
+    backgroundImage: "/crops/lenteja/lenteja.jpg",
+    slug: "lenteja"
+  },
+  {
+    name: "Zanahoria Consumo",
+    backgroundImage: "/crops/zanahoria-consumo/zanahoria-consumo.jpg",
+    slug: "zanahoria-consumo"
+  },
+  {
+    name: "Zanahoria Semilla",
+    backgroundImage: "/crops/zanahoria-semilla/zanahoria-semilla.jpg",
+    slug: "zanahoria-semilla"
   },
   {
     name: "Arándano",
@@ -1399,12 +1508,7 @@ export const allCrops = [
     slug: "banano"
   },
   {
-    name: "Café",
-    backgroundImage: "/crops/cafe/cafe.jpg",
-    slug: "cafe"
-  },
-  {
-    name: "Ananá",
+    name: "Ananá - Piña",
     backgroundImage: "/crops/anana/anana.jpg",
     slug: "anana"
   }

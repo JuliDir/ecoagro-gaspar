@@ -56,6 +56,7 @@ const optimizedViewport = {
 
 export default function CropDetail({ cultivo }: CultivoDetailProps) {
     const [showPdfModal, setShowPdfModal] = useState(false);
+    const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
     const openPdfModal = () => {
         setShowPdfModal(true);
@@ -130,7 +131,10 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         {cultivo.protocoloAplicacion ? (
                             <>
                                 {/* Imagen del protocolo */}
-                                <div className="relative w-full mx-auto rounded-2xl overflow-hidden">
+                                <div
+                                    className="relative w-full mx-auto rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+                                    onClick={() => setLightboxImage(cultivo.protocoloAplicacion!.image)}
+                                >
                                     <Image
                                         src={cultivo.protocoloAplicacion.image}
                                         alt={`Protocolo de aplicación para ${cultivo.name}`}
@@ -141,15 +145,17 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                                     />
                                 </div>
 
-                                {/* Botón de visualizar protocolo */}
+                                {/* Botón de descargar protocolo */}
                                 <div className="flex items-center justify-center mt-4">
-                                    <button
-                                        onClick={openPdfModal}
+                                    <a
+                                        href={cultivo.protocoloAplicacion.pdf}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="inline-flex items-center gap-3 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors shadow-lg hover:shadow-xl cursor-pointer"
                                     >
                                         <FileText className="w-5 h-5" />
-                                        Visualizar Protocolo
-                                    </button>
+                                        DESCARGAR PROTOCOLO
+                                    </a>
                                 </div>
                             </>
                         ) : (
@@ -388,6 +394,36 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                                     Descargar
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Lightbox Modal para imágenes */}
+            {lightboxImage && (
+                <div
+                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                    onClick={() => setLightboxImage(null)}
+                >
+                    <div className="relative max-w-5xl max-h-full">
+                        <button
+                            onClick={() => setLightboxImage(null)}
+                            className="absolute -top-4 -right-4 bg-white hover:bg-gray-100 rounded-full p-2 shadow-lg transition-colors z-10 cursor-pointer"
+                            aria-label="Cerrar lightbox"
+                        >
+                            <X size={20} className="text-gray-600" />
+                        </button>
+                        <div
+                            className="bg-white rounded-lg shadow-2xl overflow-hidden cursor-default"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <Image
+                                src={lightboxImage}
+                                alt="Imagen ampliada"
+                                width={1200}
+                                height={800}
+                                className="w-full h-auto max-h-[80vh] object-contain"
+                            />
                         </div>
                     </div>
                 </div>
