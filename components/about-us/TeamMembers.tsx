@@ -14,11 +14,6 @@ const TeamMembers = () => {
     visible: { opacity: 1, y: 0 }
   };
 
-  const contentVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1 }
-  };
-
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:justify-items-center">
       {teamMembers.map((member, index) => (

@@ -93,7 +93,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                                 {cultivo.name}
                             </h1>
                             {cultivo.subtitle && (
-                                <p className="text-2xl sm:text-3xl md:text-4xl font-medium text-white/90 mt-4">
+                                <p className="text-3xl sm:text-4xl md:text-5xl font-medium text-white/85 mt-4">
                                     {cultivo.subtitle}
                                 </p>
                             )}

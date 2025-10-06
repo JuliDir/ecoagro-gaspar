@@ -318,6 +318,7 @@ export const cultivosData = {
 
   citricos: {
     name: "Cítricos",
+    subtitle: "limón, mandarina, naranja y pomelo",
     slug: "citricos",
     backgroundImage: "/crops/citricos/citricos.jpg",
 
@@ -1096,6 +1097,11 @@ export const cultivosData = {
       "Información técnica próximamente disponible"
     ],
 
+    protocoloAplicacion: {
+      image: "/crops/arveja/arveja-protocolo-aplicacion.jpg",
+      pdf: "/crops/arveja/protocolo-arveja.pdf"
+    },
+
     productosRecomendados: [
       {
         id: 1,
@@ -1118,6 +1124,11 @@ export const cultivosData = {
       "Información técnica próximamente disponible"
     ],
 
+    protocoloAplicacion: {
+      image: "/crops/lenteja/lenteja-protocolo-aplicacion.jpg",
+      pdf: "/crops/lenteja/protocolo-lenteja.pdf"
+    },
+
     productosRecomendados: [
       {
         id: 1,
@@ -1131,7 +1142,7 @@ export const cultivosData = {
     ],
   },
 
-  zanahoriaConsumo: {
+  "zanahoria-consumo": {
     name: "Zanahoria Consumo",
     slug: "zanahoria-consumo",
     backgroundImage: "/crops/zanahoria-consumo/zanahoria-consumo.jpg",
@@ -1139,6 +1150,11 @@ export const cultivosData = {
     objetivosPrograma: [
       "Información técnica próximamente disponible"
     ],
+
+    protocoloAplicacion: {
+      image: "/crops/zanahoria-consumo/zanahoria-consumo-protocolo-aplicacion.jpg",
+      pdf: "/crops/zanahoria-consumo/protocolo-zanahoria-consumo.pdf"
+    },
 
     productosRecomendados: [
       {
@@ -1153,7 +1169,7 @@ export const cultivosData = {
     ],
   },
 
-  zanahoriaSemilla: {
+  "zanahoria-semilla": {
     name: "Zanahoria Semilla",
     slug: "zanahoria-semilla",
     backgroundImage: "/crops/zanahoria-semilla/zanahoria-semilla.jpg",
@@ -1161,6 +1177,11 @@ export const cultivosData = {
     objetivosPrograma: [
       "Información técnica próximamente disponible"
     ],
+
+    protocoloAplicacion: {
+      image: "/crops/zanahoria-semilla/zanahoria-semilla-protocolo-aplicacion.jpg",
+      pdf: "/crops/zanahoria-semilla/protocolo-zanahoria-semilla.pdf"
+    },
 
     productosRecomendados: [
       {

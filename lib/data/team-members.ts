@@ -61,6 +61,7 @@ export const teamMembers: TeamMember[] = [
     phone: "+54 9 261 5002845",
     email: "apereyra@ecoagrogaspar.com.ar",
     location: "Aristóbulo del Valle 456, Mendoza. Mendoza.",
+    image: "/images/about-us/alvaro.png",
     description: "Gestiona y coordina la logística de productos para asegurar entregas eficientes y puntuales."
   }
 ];

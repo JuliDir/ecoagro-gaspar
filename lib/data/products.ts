@@ -87,9 +87,9 @@ export const productsData = {
       penetracion: "Penetra por estomas, estimula defensas naturales, y su carga nutricional ayuda a las plantas a lidiar con el estrés"
     },
     cultivos: ["ajo", "alfalfa corte", "alfalfa primer corte", "alfalfa semilla", "arveja",
-      "berenjena", "brócoli", "trigo - cebada", "cebolla consumo", "cucurbitáceas", "frutilla",
-      "garbanzo", "hortalizas de hoja", "lenteja", "limón", "mandarina", "maní", "melón", "naranja", "olivo", "papa", "pimiento",
-      "pomelo", "poroto", "sandía", "soja", "tomate consumo", "tomate industria", "vid", "zanahoria consumo", "zanahoria semilla"],
+      "berenjena", "brócoli", "cebolla consumo", "cítricos", "cucurbitáceas", "frutilla",
+      "garbanzo", "hortalizas de hoja", "lenteja", "maní", "melón", "olivo", "papa", "pimiento",
+      "poroto", "sandía", "soja", "tomate consumo", "tomate industria", "trigo - cebada", "vid", "zanahoria consumo", "zanahoria semilla"],
     aplicacion: {
       equipos: "desde mochila hasta aplicaciones aéreas",
       compatibilidad: "combinar con pesticidas usuales, preferible agregar primero Cobrestable (fitoalexinas)",

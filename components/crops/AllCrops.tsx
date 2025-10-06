@@ -47,6 +47,17 @@ export default function AllCropsSection() {
     const [imageLoadingStates, setImageLoadingStates] = useState<{ [key: string]: boolean }>({});
     const [imageErrors, setImageErrors] = useState<{ [key: string]: boolean }>({});
 
+    // Función para obtener el título y subtítulo de un cultivo
+    const getCropDisplayName = (cropName: string): { title: string; subtitle?: string } => {
+        if (cropName.toLowerCase() === "cítricos") {
+            return {
+                title: "Cítricos",
+                subtitle: "limón, mandarina, naranja y pomelo"
+            };
+        }
+        return { title: cropName };
+    };
+
     // Manejar estados de carga de imágenes
     const handleImageLoad = (cropSlug: string) => {
         setImageLoadingStates(prev => ({ ...prev, [cropSlug]: false }));
@@ -172,7 +183,10 @@ export default function AllCropsSection() {
                                                     }}
                                                     transition={{ duration: 0.3, delay: 0.1 }}
                                                 >
-                                                    <h3 className="text-lg font-bold">{crop.name}</h3>
+                                                    <h3 className="text-lg font-bold">{getCropDisplayName(crop.name).title}</h3>
+                                                    {getCropDisplayName(crop.name).subtitle && (
+                                                        <p className="text-sm text-white/70 mt-1">{getCropDisplayName(crop.name).subtitle}</p>
+                                                    )}
                                                 </motion.div>
                                             </div>
                                         </motion.div>
@@ -181,7 +195,10 @@ export default function AllCropsSection() {
                                         <div className={`absolute bottom-2 left-2 right-2 z-10 transition-opacity duration-300 ${
                                             hoveredCard === index ? 'opacity-0' : 'opacity-100'
                                         }`}>
-                                            <h3 className="text-sm font-bold text-white text-center">{crop.name}</h3>
+                                            <h3 className="text-sm font-bold text-white text-center">{getCropDisplayName(crop.name).title}</h3>
+                                            {getCropDisplayName(crop.name).subtitle && (
+                                                <p className="text-xs text-white/65 text-center mt-0.5">{getCropDisplayName(crop.name).subtitle}</p>
+                                            )}
                                         </div>
 
                                         {/* Efecto de brillo en hover */}

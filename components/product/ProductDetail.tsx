@@ -173,6 +173,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
   // Función para obtener el título y subtítulo de un cultivo
   const getCultivoDisplayName = (cultivo: string): { title: string; subtitle?: string } => {
+    if (cultivo.toLowerCase() === "cítricos") {
+      return {
+        title: "Cítricos",
+        subtitle: "limón, mandarina, naranja y pomelo"
+      };
+    }
     return { title: cultivo };
   };
 
@@ -285,7 +291,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     return {
       safetySheet: `/documents/${productSlug}/hoja-seguridad.pdf`,
       technicalSheet: `/documents/${productSlug}/ficha-tecnica.pdf`,
-      marvete: `/documents/${productSlug}/marvete.jpeg`
+      marvete: `/documents/${productSlug}/marbete.jpeg`
     };
   };
 
@@ -295,6 +301,11 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     link.href = url;
     link.download = filename;
     link.click();
+  };
+
+  // Función para abrir en nueva pestaña
+  const handleOpenInNewTab = (url: string) => {
+    window.open(url, '_blank');
   };
 
   const documents = getProductDocuments(product.name);
@@ -426,56 +437,97 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         >
           <div className="mx-auto px-4 sm:px-6 lg:px-36">
             <motion.div
-              className="max-w-5xl mx-auto bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6 border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="max-w-6xl mx-auto bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300"
               variants={cardVariants}
             >
-              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex flex-col items-center gap-8">
                 {/* Texto certificación */}
-                <div className="text-center md:text-left">
-                  <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-                    <span className="text-gray-800 font-bold text-lg">CERTIFICADO PARA AGRICULTURA ORGÁNICA</span>
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="text-gray-800 font-bold text-xl">CERTIFICADO PARA AGRICULTURA ORGÁNICA</span>
                   </div>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 text-base">
                     Aprobado por entidades certificadoras internacionales
                   </p>
                 </div>
 
-                {/* Logos de certificaciones */}
-                <div className="flex items-center gap-8">
+                {/* Logos de certificaciones - Grid de 7 logos */}
+                <div className="grid grid-cols-4 md:grid-cols-7 gap-6 items-center justify-items-center w-full">
                   {/* Logo SENASA */}
-                  <div className="group text-center">
+                  <div className="flex items-center justify-center">
                     <Image
                       src="/images/products/senasa-logo.png"
                       alt="SENASA"
-                      width={80}
-                      height={80}
-                      className="object-contain"
+                      width={100}
+                      height={100}
+                      className="object-contain hover:scale-110 transition-transform duration-300"
                     />
-                    <p className="text-center text-gray-700 text-sm mt-3 font-medium">SENASA</p>
+                  </div>
+
+                  {/* Logo Orgánico Argentina */}
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src="/images/products/organico-argentina-logo.png"
+                      alt="Orgánico Argentina"
+                      width={100}
+                      height={100}
+                      className="object-contain hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
 
                   {/* Logo OIA */}
-                  <div className="group text-center">
+                  <div className="flex items-center justify-center">
                     <Image
-                      src="/images/products/oia_logo.png"
+                      src="/images/products/oia-logo.png"
                       alt="OIA"
-                      width={80}
-                      height={80}
-                      className="object-contain"
+                      width={100}
+                      height={100}
+                      className="object-contain hover:scale-110 transition-transform duration-300"
                     />
-                    <p className="text-center text-gray-700 text-sm mt-3 font-medium">OIA</p>
+                  </div>
+
+                  {/* Logo JAS */}
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src="/images/products/jas-logo.png"
+                      alt="JAS"
+                      width={100}
+                      height={100}
+                      className="object-contain hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+
+                  {/* Logo UE */}
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src="/images/products/ue-logo.png"
+                      alt="Unión Europea"
+                      width={100}
+                      height={100}
+                      className="object-contain hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
 
                   {/* Logo ECOCERT */}
-                  <div className="group text-center">
+                  <div className="flex items-center justify-center">
                     <Image
                       src="/images/products/ecocert-logo.png"
                       alt="ECOCERT"
-                      width={80}
-                      height={80}
-                      className="object-contain"
+                      width={100}
+                      height={100}
+                      className="object-contain hover:scale-110 transition-transform duration-300"
                     />
-                    <p className="text-center text-gray-700 text-sm mt-3 font-medium">ECOCERT</p>
+                  </div>
+
+                  {/* Logo USDA Organic */}
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src="/images/products/usda-organic-logo.png"
+                      alt="USDA Organic"
+                      width={100}
+                      height={100}
+                      className="object-contain hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
                 </div>
               </div>
@@ -557,10 +609,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             <motion.div
               variants={cardVariants}
               className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer"
-              onClick={() => handleDownload(documents.marvete, `${product.name}-Marbete.jpeg`)}
+              onClick={() => handleOpenInNewTab(documents.marvete)}
             >
               <div className="text-center">
-                <div 
+                <div
                   className="w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                   style={{ backgroundColor: `${product.cssColor}15` }}
                 >
@@ -569,8 +621,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Marbete</h3>
                 <p className="text-gray-600 text-sm mb-4">Etiqueta oficial del producto con información regulatoria</p>
                 <div className="flex items-center justify-center text-sm font-medium group-hover:text-blue-600 transition-colors">
-                  <Download className="w-4 h-4 mr-2" />
-                  Descargar JPEG
+                  <ImageIcon className="w-4 h-4 mr-2" />
+                  Ver Marbete
                 </div>
               </div>
             </motion.div>
@@ -1221,7 +1273,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                         >
                           <h3 className="text-2xl font-bold capitalize">{getCultivoDisplayName(cultivo).title}</h3>
                           {getCultivoDisplayName(cultivo).subtitle && (
-                            <p className="text-base text-white/90 mt-2">{getCultivoDisplayName(cultivo).subtitle}</p>
+                            <p className="text-base text-white/70 mt-2">{getCultivoDisplayName(cultivo).subtitle}</p>
                           )}
                         </motion.div>
                       </div>
@@ -1231,7 +1283,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     <div className="absolute bottom-4 left-4 right-4 z-10 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
                       <h3 className="text-lg font-bold text-white text-center capitalize">{getCultivoDisplayName(cultivo).title}</h3>
                       {getCultivoDisplayName(cultivo).subtitle && (
-                        <p className="text-sm text-white/80 text-center mt-1">{getCultivoDisplayName(cultivo).subtitle}</p>
+                        <p className="text-sm text-white/65 text-center mt-1">{getCultivoDisplayName(cultivo).subtitle}</p>
                       )}
                     </div>
 
