@@ -149,6 +149,11 @@ export const cultivosData = {
       "Desde el manejo sanitario las aplicaciones tanto de Cobrestable como Bordocald tienen como objetivo principal bajar el inóculo de la Tubercolosis",
     ],
 
+    protocoloAplicacion: {
+      image: "/crops/olivo/olivo-protocolo-aplicacion.jpg",
+      pdf: "/crops/olivo/protocolo-olivo.pdf"
+    },
+
     productosRecomendados: [
       {
         id: 2,
@@ -318,7 +323,7 @@ export const cultivosData = {
 
   citricos: {
     name: "Cítricos",
-    subtitle: "limón, mandarina, naranja y pomelo",
+    subtitle: "(limón, mandarina, naranja y pomelo)",
     slug: "citricos",
     backgroundImage: "/crops/citricos/citricos.jpg",
 
@@ -865,6 +870,11 @@ export const cultivosData = {
       "IMPORTANTE: Aplicar después de una granizada, viento o después de la poda para cicatrizar rápidamente las heridas."
     ],
 
+    protocoloAplicacion: {
+      image: "/crops/nogal/nogal-protocolo-aplicacion.jpg",
+      pdf: "/crops/nogal/protocolo-nogal.pdf"
+    },
+
     productosRecomendados: [
       {
         id: 2,
@@ -899,6 +909,11 @@ export const cultivosData = {
       "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos.",
       "IMPORTANTE: Aplicar después de una granizada, viento o después de la poda para cicatrizar rápidamente las heridas."
     ],
+
+    protocoloAplicacion: {
+      image: "/crops/pistacho/pistacho-protocolo-aplicacion.jpg",
+      pdf: "/crops/pistacho/protocolo-pistacho.pdf"
+    },
 
     productosRecomendados: [
       {
@@ -1241,14 +1256,18 @@ export const cultivosData = {
     name: "Flores de Corte",
     slug: "flores-de-corte",
     backgroundImage: "/crops/flores-de-corte/flores-de-corte.jpg",
-
+    
     protocoloAplicacion: {
       image: "/crops/flores-de-corte/flores-de-corte-protocolo-aplicacion.jpg",
       pdf: "/crops/flores-de-corte/protocolo-flores-de-corte.pdf"
     },
 
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Aportar cobre para asegurar un mejor status nutricional en este nutriente que ayude en la defensa pasiva de la planta.",
+      "Asegurar una mayor rigidez de los tallos.",
+      "Disminuir los riesgos de deshidratación post-corte.",
+      "Estimular un rápido crecimiento inicial.",
+      "Disminuir los efectos de estrés abióticos."
     ],
 
     productosRecomendados: [

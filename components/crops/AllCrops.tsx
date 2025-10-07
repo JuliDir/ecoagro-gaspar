@@ -52,7 +52,7 @@ export default function AllCropsSection() {
         if (cropName.toLowerCase() === "cítricos") {
             return {
                 title: "Cítricos",
-                subtitle: "limón, mandarina, naranja y pomelo"
+                subtitle: "(limón, mandarina, naranja y pomelo)"
             };
         }
         return { title: cropName };
@@ -112,10 +112,10 @@ export default function AllCropsSection() {
                             >
                                 <Link
                                     href={`/crops/${crop.slug}`}
-                                    className="block"
+                                    className="block cursor-default"
                                 >
                                     <motion.div
-                                        className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 h-48 cursor-pointer"
+                                        className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 h-48"
                                         whileHover={{
                                             y: -8,
                                             scale: 1.02

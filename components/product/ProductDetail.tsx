@@ -176,7 +176,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     if (cultivo.toLowerCase() === "cítricos") {
       return {
         title: "Cítricos",
-        subtitle: "limón, mandarina, naranja y pomelo"
+        subtitle: "(limón, mandarina, naranja y pomelo)"
       };
     }
     return { title: cultivo };
@@ -429,109 +429,100 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       {/* Certificaciones para BORDOCALD - Fuera del Hero Section */}
       {product.name === "BORDOCALD" && (
         <motion.section
-          className="pt-10 bg-white relative"
+          className="pt-20 bg-white relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
         >
           <div className="mx-auto px-4 sm:px-6 lg:px-36">
-            <motion.div
-              className="max-w-6xl mx-auto bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300"
-              variants={cardVariants}
-            >
-              <div className="flex flex-col items-center gap-8">
-                {/* Texto certificación */}
-                <div className="text-center">
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <span className="text-gray-800 font-bold text-xl">CERTIFICADO PARA AGRICULTURA ORGÁNICA</span>
-                  </div>
-                  <p className="text-gray-600 text-base">
-                    Aprobado por entidades certificadoras internacionales
-                  </p>
-                </div>
-
-                {/* Logos de certificaciones - Grid de 7 logos */}
-                <div className="grid grid-cols-4 md:grid-cols-7 gap-6 items-center justify-items-center w-full">
-                  {/* Logo SENASA */}
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src="/images/products/senasa-logo.png"
-                      alt="SENASA"
-                      width={100}
-                      height={100}
-                      className="object-contain hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Logo Orgánico Argentina */}
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src="/images/products/organico-argentina-logo.png"
-                      alt="Orgánico Argentina"
-                      width={100}
-                      height={100}
-                      className="object-contain hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Logo OIA */}
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src="/images/products/oia-logo.png"
-                      alt="OIA"
-                      width={100}
-                      height={100}
-                      className="object-contain hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Logo JAS */}
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src="/images/products/jas-logo.png"
-                      alt="JAS"
-                      width={100}
-                      height={100}
-                      className="object-contain hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Logo UE */}
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src="/images/products/ue-logo.png"
-                      alt="Unión Europea"
-                      width={100}
-                      height={100}
-                      className="object-contain hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Logo ECOCERT */}
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src="/images/products/ecocert-logo.png"
-                      alt="ECOCERT"
-                      width={100}
-                      height={100}
-                      className="object-contain hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Logo USDA Organic */}
-                  <div className="flex items-center justify-center">
-                    <Image
-                      src="/images/products/usda-organic-logo.png"
-                      alt="USDA Organic"
-                      width={100}
-                      height={100}
-                      className="object-contain hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                </div>
-              </div>
+            {/* Texto certificación */}
+            <motion.div className="text-center mb-4" variants={sectionVariants}>
+              <h2 className="text-gray-800 font-bold text-4xl mb-3 font-avenir-cyr-heavy" style={{ color: product.cssColor }}>Certificado Para Agricultura Orgánica</h2>
+              <p className="text-gray-600 text-lg">
+                Aprobado por entidades certificadoras internacionales
+              </p>
             </motion.div>
+
+            {/* Logos de certificaciones - Todos en una fila */}
+            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 w-full mx-auto">
+              {/* Logo SENASA */}
+              <motion.div variants={cardVariants}>
+                <Image
+                  src="/images/products/senasa-logo.png"
+                  alt="SENASA"
+                  width={180}
+                  height={180}
+                  className="object-contain hover:scale-110 transition-transform duration-300"
+                />
+              </motion.div>
+
+              {/* Logo Orgánico Argentina */}
+              <motion.div variants={cardVariants}>
+                <Image
+                  src="/images/products/organico-argentina-logo.png"
+                  alt="Orgánico Argentina"
+                  width={180}
+                  height={180}
+                  className="object-contain hover:scale-110 transition-transform duration-300"
+                />
+              </motion.div>
+
+              {/* Logo OIA */}
+              <motion.div variants={cardVariants}>
+                <Image
+                  src="/images/products/oia-logo.png"
+                  alt="OIA"
+                  width={180}
+                  height={180}
+                  className="object-contain hover:scale-110 transition-transform duration-300"
+                />
+              </motion.div>
+
+              {/* Logo JAS */}
+              <motion.div variants={cardVariants}>
+                <Image
+                  src="/images/products/jas-logo.png"
+                  alt="JAS"
+                  width={180}
+                  height={180}
+                  className="object-contain hover:scale-110 transition-transform duration-300"
+                />
+              </motion.div>
+
+              {/* Logo UE */}
+              <motion.div variants={cardVariants}>
+                <Image
+                  src="/images/products/ue-logo.png"
+                  alt="Unión Europea"
+                  width={180}
+                  height={180}
+                  className="object-contain hover:scale-110 transition-transform duration-300"
+                />
+              </motion.div>
+
+              {/* Logo ECOCERT */}
+              <motion.div variants={cardVariants}>
+                <Image
+                  src="/images/products/ecocert-logo.png"
+                  alt="ECOCERT"
+                  width={180}
+                  height={180}
+                  className="object-contain hover:scale-110 transition-transform duration-300"
+                />
+              </motion.div>
+
+              {/* Logo USDA Organic */}
+              <motion.div variants={cardVariants}>
+                <Image
+                  src="/images/products/usda-organic-logo.png"
+                  alt="USDA Organic"
+                  width={180}
+                  height={180}
+                  className="object-contain hover:scale-110 transition-transform duration-300"
+                />
+              </motion.div>
+            </div>
           </div>
         </motion.section>
       )}
@@ -622,7 +613,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 <p className="text-gray-600 text-sm mb-4">Etiqueta oficial del producto con información regulatoria</p>
                 <div className="flex items-center justify-center text-sm font-medium group-hover:text-blue-600 transition-colors">
                   <ImageIcon className="w-4 h-4 mr-2" />
-                  Ver Marbete
+                  Descargar Marbete
                 </div>
               </div>
             </motion.div>
@@ -1237,10 +1228,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               >
                 <Link
                   href={`/crops/${getCultivoSlug(cultivo)}`}
-                  className="block"
+                  className="block cursor-default"
                 >
                   <motion.div
-                    className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 h-64 cursor-pointer"
+                    className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 h-64"
                     whileHover={{
                       y: -8,
                       scale: 1.02

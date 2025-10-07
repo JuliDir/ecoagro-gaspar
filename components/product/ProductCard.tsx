@@ -61,9 +61,9 @@ export default function ProductCard({ product, index }: ProductCardProps) {
       onMouseEnter={() => setHoveredCard(index)}
       onMouseLeave={() => setHoveredCard(null)}
     >
-      <Link href={`/products/${getProductSlug(product.name)}`} className="block">
+      <Link href={`/products/${getProductSlug(product.name)}`} className="block cursor-default">
         <motion.div
-          className={`relative rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 h-128 cursor-pointer`}
+          className={`relative rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 h-128`}
           style={{background: product.color}}
           whileHover={{ y: -5 }}
           transition={{ duration: 0.3 }}

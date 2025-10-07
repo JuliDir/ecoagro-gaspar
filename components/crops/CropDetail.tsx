@@ -131,10 +131,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                         {cultivo.protocoloAplicacion ? (
                             <>
                                 {/* Imagen del protocolo */}
-                                <div
-                                    className="relative w-full mx-auto rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                                    onClick={() => setLightboxImage(cultivo.protocoloAplicacion!.image)}
-                                >
+                                <div className="relative w-full mx-auto rounded-2xl overflow-hidden">
                                     <Image
                                         src={cultivo.protocoloAplicacion.image}
                                         alt={`Protocolo de aplicación para ${cultivo.name}`}
