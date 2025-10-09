@@ -143,7 +143,7 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                                 </div>
 
                                 {/* Botón de descargar protocolo */}
-                                <div className="flex items-center justify-center mt-4">
+                                <div className="flex items-center justify-center mt-12">
                                     <a
                                         href={cultivo.protocoloAplicacion.pdf}
                                         target="_blank"

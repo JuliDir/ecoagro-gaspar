@@ -78,7 +78,7 @@ export default function AboutUs() {
                 mientras preservamos el ecosistema.
               </p>
               <p className="text-xl text-gray-700 leading-relaxed">
-                Con más de seis décadas de experiencia, hemos perfeccionado nuestras fórmulas
+                Fundada por el Ing. Luis Gaspar, con más de seis décadas de experiencia, hemos perfeccionado nuestras fórmulas
                 para ofrecer productos que no solo protegen los cultivos, sino que también
                 contribuyen a una agricultura más sustentable y rentable.
               </p>
@@ -99,6 +99,10 @@ export default function AboutUs() {
                 />
                 {/* Overlay sutil para mejorar legibilidad si se necesita */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                {/* Label del fundador */}
+                <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm px-4 py-2 rounded-lg">
+                  <p className="text-white font-semibold text-sm">Ing. Luis Gaspar</p>
+                </div>
               </div>
             </motion.div>
           </div>

@@ -32,25 +32,25 @@ export default function Header() {
 
     // Categorías de productos con fungicidas como sub-items visibles
     const products = [
-        { name: "Fungicidas", href: "/products?category=Fungicidas", isCategory: true },
-        { 
-            name: "Cobrestable", 
-            href: "/products/cobrestable", 
-            isSubItem: true, 
+        { name: "Fungicidas", href: "#", isCategory: true },
+        {
+            name: "Cobrestable",
+            href: "/products/cobrestable",
+            isSubItem: true,
             parentCategory: "Fungicidas",
             color: "#0098da"
         },
-        { 
-            name: "Bordocald", 
-            href: "/products/bordocald", 
-            isSubItem: true, 
+        {
+            name: "Bordocald",
+            href: "/products/bordocald",
+            isSubItem: true,
             parentCategory: "Fungicidas",
             color: "#9a3388"
         },
-        { 
-            name: "Trikopper", 
-            href: "/products/trikopper-50", 
-            isSubItem: true, 
+        {
+            name: "Trikopper",
+            href: "/products/trikopper-50",
+            isSubItem: true,
             parentCategory: "Fungicidas",
             color: "#164A37"
         },
@@ -72,7 +72,7 @@ export default function Header() {
         { name: "Inicio", href: "/", id: "inicio" },
         {
             name: "Productos",
-            href: "/products",
+            href: "#productos",
             id: "productos",
             hasDropdown: true,
             dropdownType: "products"
@@ -260,29 +260,39 @@ export default function Header() {
                 >
                     <div className="py-2">
                         {items.map((dropdownItem) => (
-                            <Link
-                                key={dropdownItem.href}
-                                href={dropdownItem.href}
-                                className={cn(
-                                    "block px-4 py-2 text-sm hover:bg-gray-50 transition-colors",
-                                    dropdownItem.isCategory 
-                                        ? "font-semibold text-primary-700 border-b border-gray-100" 
-                                        : dropdownItem.isSubItem 
-                                        ? "pl-8 text-gray-600 text-xs" 
-                                        : ""
-                                )}
-                                onClick={onClose}
-                            >
-                                {dropdownItem.isSubItem && (
-                                    <span 
-                                        className="inline-block w-2 h-2 rounded-full mr-2 -ml-1"
-                                        style={{ 
-                                            backgroundColor: dropdownItem.color || "#0098da" 
-                                        }}
-                                    ></span>
-                                )}
-                                {dropdownItem.name}
-                            </Link>
+                            dropdownItem.isCategory ? (
+                                <div
+                                    key={dropdownItem.href}
+                                    className={cn(
+                                        "block px-4 py-2 text-sm transition-colors",
+                                        "font-semibold text-primary-700 border-b border-gray-100"
+                                    )}
+                                >
+                                    {dropdownItem.name}
+                                </div>
+                            ) : (
+                                <Link
+                                    key={dropdownItem.href}
+                                    href={dropdownItem.href}
+                                    className={cn(
+                                        "block px-4 py-2 text-sm hover:bg-gray-50 transition-colors",
+                                        dropdownItem.isSubItem
+                                            ? "pl-8 text-gray-600 text-xs"
+                                            : ""
+                                    )}
+                                    onClick={onClose}
+                                >
+                                    {dropdownItem.isSubItem && (
+                                        <span
+                                            className="inline-block w-2 h-2 rounded-full mr-2 -ml-1"
+                                            style={{
+                                                backgroundColor: dropdownItem.color || "#0098da"
+                                            }}
+                                        ></span>
+                                    )}
+                                    {dropdownItem.name}
+                                </Link>
+                            )
                         ))}
                     </div>
                 </motion.div>
@@ -305,34 +315,44 @@ export default function Header() {
                 >
                     <div className="pl-4">
                         {items.map((dropdownItem) => (
-                            <Link
-                                key={dropdownItem.href}
-                                href={dropdownItem.href}
-                                className={cn(
-                                    "block py-2 text-sm transition-colors border-l-2 border-gray-200",
-                                    dropdownItem.isCategory 
-                                        ? "px-6 font-semibold text-primary-700 hover:bg-gray-100 hover:text-primary-800" 
-                                        : dropdownItem.isSubItem 
-                                        ? "px-8 text-gray-500 text-xs hover:bg-gray-100 hover:text-gray-700" 
-                                        : "px-6 text-gray-600 hover:bg-gray-100 hover:text-gray-800"
-                                )}
-                                onClick={() => {
-                                    setIsMobileMenuOpen(false)
-                                    setIsMobileProductsDropdownOpen(false)
-                                    setIsMobileCropsDropdownOpen(false)
-                                    setIsMobileFungicidesDropdownOpen(false)
-                                }}
-                            >
-                                {dropdownItem.isSubItem && (
-                                    <span 
-                                        className="inline-block w-1.5 h-1.5 rounded-full mr-2 -ml-1"
-                                        style={{ 
-                                            backgroundColor: dropdownItem.color || "#0098da" 
-                                        }}
-                                    ></span>
-                                )}
-                                {dropdownItem.name}
-                            </Link>
+                            dropdownItem.isCategory ? (
+                                <div
+                                    key={dropdownItem.href}
+                                    className={cn(
+                                        "block py-2 text-sm transition-colors border-l-2 border-gray-200",
+                                        "px-6 font-semibold text-primary-700"
+                                    )}
+                                >
+                                    {dropdownItem.name}
+                                </div>
+                            ) : (
+                                <Link
+                                    key={dropdownItem.href}
+                                    href={dropdownItem.href}
+                                    className={cn(
+                                        "block py-2 text-sm transition-colors border-l-2 border-gray-200",
+                                        dropdownItem.isSubItem
+                                            ? "px-8 text-gray-500 text-xs hover:bg-gray-100 hover:text-gray-700"
+                                            : "px-6 text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+                                    )}
+                                    onClick={() => {
+                                        setIsMobileMenuOpen(false)
+                                        setIsMobileProductsDropdownOpen(false)
+                                        setIsMobileCropsDropdownOpen(false)
+                                        setIsMobileFungicidesDropdownOpen(false)
+                                    }}
+                                >
+                                    {dropdownItem.isSubItem && (
+                                        <span
+                                            className="inline-block w-1.5 h-1.5 rounded-full mr-2 -ml-1"
+                                            style={{
+                                                backgroundColor: dropdownItem.color || "#0098da"
+                                            }}
+                                        ></span>
+                                    )}
+                                    {dropdownItem.name}
+                                </Link>
+                            )
                         ))}
                     </div>
                 </motion.div>
@@ -381,10 +401,9 @@ export default function Header() {
                                             }
                                         }}
                                     >
-                                        <Link
-                                            href={item.href}
+                                        <button
                                             className={cn(
-                                                "flex items-center space-x-1 px-2 lg:px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer",
+                                                "flex items-center space-x-1 px-2 lg:px-3 py-1.5 rounded-full transition-all duration-300",
                                                 "hover:bg-primary-100",
                                                 activeSection === item.id
                                                     ? "bg-primary-100 text-primary-700 shadow-lg"
@@ -398,7 +417,7 @@ export default function Header() {
                                                     (item.dropdownType === "crops" && isCropsDropdownOpen)
                                                     ? "rotate-180" : ""
                                             )} />
-                                        </Link>
+                                        </button>
 
                                         {item.dropdownType === "products" && renderDropdown(
                                             isProductsDropdownOpen,
@@ -478,7 +497,7 @@ export default function Header() {
                                                 <button
                                                     onClick={() => toggleMobileDropdown(item.dropdownType)}
                                                     className={cn(
-                                                        "w-full text-left px-6 py-3 transition-colors hover:bg-gray-50 cursor-pointer flex items-center justify-between",
+                                                        "w-full text-left px-6 py-3 transition-colors hover:bg-gray-50 flex items-center justify-between",
                                                         activeSection === item.id ? "bg-primary-50 text-primary-700" : ""
                                                     )}
                                                 >
