@@ -290,9 +290,9 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   const getProductDocuments = (productName: string) => {
     const productSlug = productName.toLowerCase().replace(/\s+/g, '-');
     return {
-      safetySheet: `/documents/${productSlug}/hoja-seguridad.pdf`,
-      technicalSheet: `/documents/${productSlug}/ficha-tecnica.pdf`,
-      marvete: `/documents/${productSlug}/marbete.jpeg`
+      safetySheet: `/documents/${productSlug}/${productSlug}-hoja-seguridad.pdf`,
+      technicalSheet: `/documents/${productSlug}/${productSlug}-ficha-tecnica.pdf`,
+      marvete: `/documents/${productSlug}/${productSlug}-marbete.jpeg`
     };
   };
 
@@ -505,8 +505,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         )}
         initial="hidden"
         whileInView="visible"
-        style={{ 
-          background: product.name === "BORDOCALD" || product.name === "TRIKOPPER 50" ? "white" : product.cssColor 
+        style={{
+          background: product.name === "BORDOCALD" || product.name === "TRIKOPPER 50" ? "white" : product.cssColor
         }}
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
@@ -516,13 +516,13 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             className="text-center mb-16"
             variants={sectionVariants}
           >
-            <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{ 
-              color: product.name === "BORDOCALD" || product.name === "TRIKOPPER 50" ? product.cssColor : "white" 
+            <h2 className="text-4xl font-avenir-cyr-heavy mb-4" style={{
+              color: product.name === "BORDOCALD" || product.name === "TRIKOPPER 50" ? product.cssColor : "white"
             }}>
               {product.name === "COBRESTABLE" ? "Triple Acción" : "¿Cómo Funciona?"}
             </h2>
-            <p className="text-xl max-w-3xl mx-auto" style={{ 
-              color: product.name === "BORDOCALD" || product.name === "TRIKOPPER 50" ? product.cssColor : "white" 
+            <p className="text-xl max-w-3xl mx-auto" style={{
+              color: product.name === "BORDOCALD" || product.name === "TRIKOPPER 50" ? product.cssColor : "white"
             }}>
               {product.name === "COBRESTABLE"
                 ? "Acción sistémica con + doble barrera de protección"
@@ -864,8 +864,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         <div
           className="w-full h-8"
           style={{
-        background: product.cssColor,
-        clipPath: "polygon(50% 100%, 0 0, 100% 0)"
+            background: product.cssColor,
+            clipPath: "polygon(50% 100%, 0 0, 100% 0)"
           }}
         ></div>
       )}
@@ -1012,9 +1012,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           <div className="mx-auto px-4 sm:px-6 lg:px-36 mb-4">
             <motion.div className="text-center" variants={sectionVariants}>
               <h2 className="text-gray-800 font-bold text-4xl mb-3 font-avenir-cyr-heavy" style={{ color: product.cssColor }}>Certificado Para Agricultura Orgánica</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Aprobado por entidades certificadoras internacionales
-              </p>
+
+              {product.name !== "COBRESTABLE" && (
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Aprobado por entidades certificadoras internacionales
+                </p>
+              )}
             </motion.div>
           </div>
 
@@ -1135,7 +1138,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             <motion.div
               variants={cardVariants}
               className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer"
-              onClick={() => handleDownload(documents.safetySheet, `${product.name}-Hoja-Seguridad.pdf`)}
+              onClick={() => handleOpenInNewTab(documents.safetySheet)}
             >
               <div className="text-center">
                 <div
@@ -1156,21 +1159,20 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             {/* Ficha Técnica */}
             <motion.div
               variants={cardVariants}
-              className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 group cursor-pointer"
-              onClick={() => handleDownload(documents.technicalSheet, `${product.name}-Ficha-Tecnica.pdf`)}
+              className="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 border border-gray-200 group opacity-60"
             >
               <div className="text-center">
                 <div
-                  className="w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                  className="w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center transition-transform duration-300"
                   style={{ backgroundColor: `${product.cssColor}15` }}
                 >
                   <FileText className="w-8 h-8" style={{ color: product.cssColor }} />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Ficha Técnica</h3>
                 <p className="text-gray-600 text-sm mb-4">Especificaciones técnicas y modo de aplicación</p>
-                <div className="flex items-center justify-center text-sm font-medium group-hover:text-blue-600 transition-colors">
-                  <Download className="w-4 h-4 mr-2" />
-                  Descargar PDF
+                <div className="flex items-center justify-center text-sm font-medium text-gray-500">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Próximamente
                 </div>
               </div>
             </motion.div>
@@ -1260,9 +1262,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
                     {/* Contenido en hover */}
                     <motion.div
-                      className={`absolute inset-0 transition-opacity duration-300 ${
-                        hoveredCropCard === index ? 'opacity-100' : 'opacity-0'
-                      }`}
+                      className={`absolute inset-0 transition-opacity duration-300 ${hoveredCropCard === index ? 'opacity-100' : 'opacity-0'
+                        }`}
                       initial={false}
                       animate={{
                         opacity: hoveredCropCard === index ? 1 : 0,
@@ -1288,9 +1289,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     </motion.div>
 
                     {/* Nombre del cultivo - Siempre visible abajo */}
-                    <div className={`absolute bottom-4 left-4 right-4 z-10 transition-opacity duration-300 ${
-                      hoveredCropCard === index ? 'opacity-0' : 'opacity-100'
-                    }`}>
+                    <div className={`absolute bottom-4 left-4 right-4 z-10 transition-opacity duration-300 ${hoveredCropCard === index ? 'opacity-0' : 'opacity-100'
+                      }`}>
                       <h3 className="text-lg font-bold text-white text-center capitalize">{getCultivoDisplayName(cultivo).title}</h3>
                       {getCultivoDisplayName(cultivo).subtitle && (
                         <p className="text-sm text-white/65 text-center mt-1">{getCultivoDisplayName(cultivo).subtitle}</p>
@@ -1298,9 +1298,8 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     </div>
 
                     {/* Borde decorativo en hover */}
-                    <div className={`absolute inset-0 border-2 border-primary-400 transition-opacity duration-300 rounded-xl pointer-events-none ${
-                      hoveredCropCard === index ? 'opacity-100' : 'opacity-0'
-                    }`} />
+                    <div className={`absolute inset-0 border-2 border-primary-400 transition-opacity duration-300 rounded-xl pointer-events-none ${hoveredCropCard === index ? 'opacity-100' : 'opacity-0'
+                      }`} />
                   </motion.div>
                 </Link>
               </motion.div>
