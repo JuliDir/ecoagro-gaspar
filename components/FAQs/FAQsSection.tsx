@@ -121,116 +121,15 @@ const decorativeIcons = [
 export default function FAQsSection() {
     return (
         <div className="min-h-screen bg-white pt-20 relative overflow-hidden">
-            {/* Iconos decorativos de fondo */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {/* Iconos flotantes en diferentes posiciones */}
-                <motion.div 
-                    className="absolute top-20 left-10"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '0s' }}
-                >
-                    <Image src="/icons/bean.svg" alt="Bean" width={64} height={64} className="opacity-10" />
-                </motion.div>
-                
-                <motion.div 
-                    className="absolute top-32 right-20"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '1s' }}
-                >
-                    <Image src="/icons/corn.svg" alt="Corn" width={80} height={80} className="opacity-8" />
-                </motion.div>
-
-                <motion.div 
-                    className="absolute top-60 left-1/4"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '2s' }}
-                >
-                    <Image src="/icons/leaf.svg" alt="Leaf" width={72} height={72} className="opacity-12" />
-                </motion.div>
-
-                <motion.div 
-                    className="absolute top-80 right-1/3"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '3s' }}
-                >
-                    <Image src="/icons/lemon.svg" alt="Lemon" width={56} height={56} className="opacity-15" />
-                </motion.div>
-
-                <motion.div 
-                    className="absolute bottom-80 left-20"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '4s' }}
-                >
-                    <Image src="/icons/olive.svg" alt="Olive" width={48} height={48} className="opacity-20" />
-                </motion.div>
-
-                <motion.div 
-                    className="absolute bottom-60 right-16"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '5s' }}
-                >
-                    <Image src="/icons/orange.svg" alt="Orange" width={68} height={68} className="opacity-10" />
-                </motion.div>
-
-                <motion.div 
-                    className="absolute bottom-40 left-1/3"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '6s' }}
-                >
-                    <Image src="/icons/potato.svg" alt="Potato" width={60} height={60} className="opacity-12" />
-                </motion.div>
-
-                <motion.div 
-                    className="absolute top-1/2 left-8"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '0.5s' }}
-                >
-                    <Image src="/icons/soy.svg" alt="Soy" width={52} height={52} className="opacity-18" />
-                </motion.div>
-
-                <motion.div 
-                    className="absolute top-1/3 right-8"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '1.5s' }}
-                >
-                    <Image src="/icons/wheat.svg" alt="Wheat" width={76} height={76} className="opacity-8" />
-                </motion.div>
-
-                <motion.div 
-                    className="absolute bottom-1/3 right-1/4"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '2.5s' }}
-                >
-                    <Image src="/icons/garlic.svg" alt="Garlic" width={44} height={44} className="opacity-25" />
-                </motion.div>
-
-                <motion.div 
-                    className="absolute top-1/4 left-1/2"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '3.5s' }}
-                >
-                    <Image src="/icons/peanut.svg" alt="Peanut" width={50} height={50} className="opacity-15" />
-                </motion.div>
-
-                <motion.div 
-                    className="absolute bottom-1/4 left-1/2"
-                    variants={floatingVariants}
-                    animate="animate"
-                    style={{ animationDelay: '4.5s' }}
-                >
-                    <Image src="/icons/tangerine.svg" alt="Tangerine" width={54} height={54} className="opacity-20" />
-                </motion.div>
+            {/* Imagen de fondo */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/images/faqs/bg-faqs.jpg"
+                    alt="Background"
+                    fill
+                    className="object-cover opacity-90"
+                    priority
+                />
             </div>
 
             {/* FAQs Section */}
@@ -262,7 +161,7 @@ export default function FAQsSection() {
                                                 {faq.question}
                                             </span>
                                         </AccordionTrigger>
-                                        <AccordionContent className="text-gray-800 leading-relaxed pt-4 text-xl bg-white/60 rounded-lg p-4 mt-3 backdrop-blur-sm border border-green-100">
+                                        <AccordionContent className="text-gray-800 leading-relaxed pt-4 text-xl bg-white rounded-lg p-4 mt-3 border border-green-100">
                                             {faq.answer}
                                         </AccordionContent>
                                     </AccordionItem>
@@ -332,7 +231,7 @@ export default function FAQsSection() {
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
                     <motion.div
-                        className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-3xl mx-auto text-center"
+                        className="bg-white/20 rounded-2xl p-8 border border-white/30 shadow-lg hover:shadow-xl transition-shadow duration-300 max-w-3xl mx-auto text-center"
                         initial="hidden"
                         whileInView="visible"
                         viewport={optimizedViewport}

@@ -192,21 +192,31 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
 
             {/* OBJETIVOS DEL PROGRAMA */}
             <motion.section
-                className="pb-4 bg-white"
+                className="py-20 bg-white relative overflow-hidden"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
                 variants={containerVariants}
             >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+                {/* Imagen de fondo */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src={`/crops/${cultivo.slug}/objetivos-${cultivo.slug}.webp`}
+                        alt="Background objetivos"
+                        fill
+                        className="object-cover opacity-90"
+                    />
+                </div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
                     <motion.div
                         className="text-center mb-16"
                         variants={sectionVariants}
                     >
-                        <h2 className="text-5xl font-avenir-cyr-heavy text-primary-800 mb-4">
+                        <h2 className="text-5xl font-avenir-cyr-heavy text-white mb-4" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7), -1px -1px 4px rgba(0,0,0,0.5)' }}>
                             Objetivos del Programa
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-xl text-white max-w-3xl mx-auto font-semibold" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.7), -1px -1px 3px rgba(0,0,0,0.5)' }}>
                             Beneficios específicos del uso de productos en {cultivo.name}
                         </p>
                     </motion.div>
@@ -234,13 +244,9 @@ export default function CropDetail({ cultivo }: CultivoDetailProps) {
                 </div>
             </motion.section>
 
-            <div className="py-10">
-                <RootSeparator />
-            </div>
-
             {/* Productos Recomendados */}
             <motion.section
-                className="pb-40 pt-10 bg-white relative"
+                className="pb-40 pt-20 bg-white relative"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}

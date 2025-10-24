@@ -1109,7 +1109,11 @@ export const cultivosData = {
     backgroundImage: "/crops/arveja/arveja.jpg",
 
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Dotar al cultivo de cobre como nutriente para disminuir el riesgo de ataques de patógenos fúngicos y bacteriosis.",
+      "Disminuir los efectos de estrés abióticos.",
+      "Mejorar la fotosíntesis para asegurar mayor asimilación de azúcares y llenado de granos.",
+      "Aumentar cantidad y calidad de polen. Mejorar la cuaja de granos. Aumentar rendimiento por hectárea.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos."
     ],
 
     protocoloAplicacion: {
@@ -1162,8 +1166,13 @@ export const cultivosData = {
     slug: "zanahoria-consumo",
     backgroundImage: "/crops/zanahoria-consumo/zanahoria-consumo.jpg",
 
+
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Promover un sistema radicular fuerte y de crecimiento rápido",
+      "Potenciar la actividad fotosintética.",
+      "Reducir efectos de los diferentes estreses abióticos que sufre el cultivo.",
+      "Maximizar la eficiencia de aprovechamiento del nitrógeno y del potasio de las aplicaciones de fertilizantes durante el llenado de la raíz.",
+      "Mantener plena sanidad."
     ],
 
     protocoloAplicacion: {
@@ -1190,7 +1199,11 @@ export const cultivosData = {
     backgroundImage: "/crops/zanahoria-semilla/zanahoria-semilla.jpg",
 
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Promover un sistema radicular fuerte y de crecimiento rápido",
+      "Potenciar la actividad fotosintética.",
+      "Reducir efectos de los diferentes estreses abióticos que sufre el cultivo.",
+      "Maximizar la eficiencia de aprovechamiento del nitrógeno y del potasio de las aplicaciones de fertilizantes durante el llenado de la raíz.",
+      "Mantener plena sanidad."
     ],
 
     protocoloAplicacion: {
