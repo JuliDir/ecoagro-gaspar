@@ -156,6 +156,15 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
+      {
         id: 2,
         name: "BORDOCALD",
         color: "#9a3388",
@@ -346,6 +355,15 @@ export const cultivosData = {
         gradient: "from-green-400 to-emerald-600",
         icon: "/images/products/trikopper-box.png",
         bgIcon: "/icons/soy.svg",
+        category: "Fungicidas",
+      },
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
         category: "Fungicidas",
       },
     ],
@@ -917,15 +935,6 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        id: 2,
-        name: "BORDOCALD",
-        color: "#9a3388",
-        gradient: "from-fuchsia-400 to-purple-600",
-        icon: "/images/products/bordocald-box.png",
-        bgIcon: "/icons/corn.svg",
-        category: "Fungicidas",
-      },
-      {
         id: 1,
         name: "COBRESTABLE",
         color: "#0098da",
@@ -1020,12 +1029,12 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        id: 2,
-        name: "BORDOCALD",
-        color: "#9a3388",
-        gradient: "from-fuchsia-400 to-purple-600",
-        icon: "/images/products/bordocald-box.png",
-        bgIcon: "/icons/corn.svg",
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
         category: "Fungicidas",
       },
     ],
@@ -1051,15 +1060,6 @@ export const cultivosData = {
     ],
 
     productosRecomendados: [
-      {
-        id: 2,
-        name: "BORDOCALD",
-        color: "#9a3388",
-        gradient: "from-fuchsia-400 to-purple-600",
-        icon: "/images/products/bordocald-box.png",
-        bgIcon: "/icons/corn.svg",
-        category: "Fungicidas",
-      },
       {
         id: 1,
         name: "COBRESTABLE",
@@ -1091,6 +1091,15 @@ export const cultivosData = {
     ],
 
     productosRecomendados: [
+      {
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
+        category: "Fungicidas",
+      },
       {
         id: 2,
         name: "BORDOCALD",
@@ -1140,7 +1149,11 @@ export const cultivosData = {
     backgroundImage: "/crops/lenteja/lenteja.jpg",
 
     objetivosPrograma: [
-      "Información técnica próximamente disponible"
+      "Dotar al cultivo de cobre como nutriente para disminuir el riesgo de ataques de patógenos fúngicos y bacteriosis.",
+      "Disminuir los efectos de estrés abióticos.",
+      "Mejorar la fotosíntesis para asegurar mayor asimilación de azúcares y llenado de granos.",
+      "Aumentar cantidad y calidad de polen. Mejorar la cuaja de granos. Aumentar rendimiento por hectárea.",
+      "Sinergizar la acción de los fungicidas permitiendo mayor eficacia de los mismos."
     ],
 
     protocoloAplicacion: {
@@ -1182,12 +1195,12 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        id: 2,
-        name: "BORDOCALD",
-        color: "#9a3388",
-        gradient: "from-fuchsia-400 to-purple-600",
-        icon: "/images/products/bordocald-box.png",
-        bgIcon: "/icons/leaf.svg",
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
         category: "Fungicidas",
       },
     ],
@@ -1213,12 +1226,12 @@ export const cultivosData = {
 
     productosRecomendados: [
       {
-        id: 2,
-        name: "BORDOCALD",
-        color: "#9a3388",
-        gradient: "from-fuchsia-400 to-purple-600",
-        icon: "/images/products/bordocald-box.png",
-        bgIcon: "/icons/leaf.svg",
+        id: 1,
+        name: "COBRESTABLE",
+        color: "#0098da",
+        gradient: "from-sky-400 to-blue-600",
+        icon: "/images/products/cobrestable-box.png",
+        bgIcon: "/icons/wheat.svg",
         category: "Fungicidas",
       },
     ],
@@ -1244,15 +1257,6 @@ export const cultivosData = {
     ],
 
     productosRecomendados: [
-      {
-        id: 2,
-        name: "BORDOCALD",
-        color: "#9a3388",
-        gradient: "from-fuchsia-400 to-purple-600",
-        icon: "/images/products/bordocald-box.png",
-        bgIcon: "/icons/corn.svg",
-        category: "Fungicidas",
-      },
       {
         id: 1,
         name: "COBRESTABLE",
@@ -1315,15 +1319,6 @@ export const cultivosData = {
     ],
 
     productosRecomendados: [
-      {
-        id: 2,
-        name: "BORDOCALD",
-        color: "#9a3388",
-        gradient: "from-fuchsia-400 to-purple-600",
-        icon: "/images/products/bordocald-box.png",
-        bgIcon: "/icons/corn.svg",
-        category: "Fungicidas",
-      },
       {
         id: 1,
         name: "COBRESTABLE",

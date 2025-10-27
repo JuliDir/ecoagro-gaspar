@@ -1000,7 +1000,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       )}
 
       {/* Certificaciones para BORDOCALD, COBRESTABLE y TRIKOPPER 50 */}
-      {(product.name === "BORDOCALD" || product.name === "COBRESTABLE" || product.name === "TRIKOPPER 50") && (
+      {(product.name === "COBRESTABLE" || product.name === "TRIKOPPER 50") && (
         <motion.section
           className="pt-20 bg-white relative"
           initial="hidden"
@@ -1079,7 +1079,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 />
               </motion.div>
 
-              {/* Logo ECOCERT - Solo para BORDOCALD */}
+              {/* Logo ECOCERT 
+              
+              
+              
               {product.name === "BORDOCALD" && (
                 <motion.div variants={cardVariants} className="flex-shrink-0">
                   <Image
@@ -1091,8 +1094,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   />
                 </motion.div>
               )}
-
-              {/* Logo USDA Organic - Solo para BORDOCALD */}
               {product.name === "BORDOCALD" && (
                 <motion.div variants={cardVariants} className="flex-shrink-0">
                   <Image
@@ -1104,6 +1105,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   />
                 </motion.div>
               )}
+              - Solo para BORDOCALD */}
             </div>
           </div>
         </motion.section>
