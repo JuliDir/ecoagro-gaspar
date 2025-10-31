@@ -2,9 +2,7 @@
 
 import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
-import { Leaf, Handshake, Users, Award, Lightbulb } from "lucide-react";
 import TeamMembers from "./TeamMembers";
-import RootSeparator from "../ui/RootSeparator";
 
 // Variantes optimizadas con menor delay y duraciones más cortas
 const containerVariants = {
@@ -89,7 +87,7 @@ export default function AboutUs() {
               className="relative"
               variants={imageVariants}
             >
-              <div className="relative ml-auto max-w-150 h-96 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-112 bg-gradient-to-br from-primary-100 to-primary-50 rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src="/images/about-us/institucional.jpg"
                   alt="Instalaciones de Ecoagro Gaspar"
@@ -109,153 +107,91 @@ export default function AboutUs() {
         </div>
       </motion.section>
 
-      {/* Misión - Imagen izquierda, texto derecha */}
+      {/* Misión y Visión - Grid 2x2: Imagen arriba, texto abajo */}
       <motion.section
+        className="pb-20 bg-white"
         initial="hidden"
         whileInView="visible"
         viewport={optimizedViewport}
         variants={containerVariants}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-36">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Imagen */}
-            <motion.div
-              className="relative order-2 md:order-1"
-              variants={imageVariants}
-            >
-              <div className="relative max-w-150 h-96 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/about-us/mision.jpg"
-                  alt="Productos sostenibles y agricultura responsable"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                {/* Overlay sutil */}
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/30 to-transparent"></div>
-              </div>
-            </motion.div>
-
-            {/* Contenido textual */}
-            <motion.div
-              className="order-1 md:order-2"
-              variants={sectionVariants}
-            >
-              <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
-                Misión
-              </h2>
-              <p className="text-xl text-gray-700 leading-relaxed">
-                Brindamos soluciones fitosanitarias y nutricionales de alta tecnología, diseñadas para el manejo sustentable de enfermedades foliares. Nuestro objetivo es optimizar el rendimiento de los cultivos, reduciendo al mismo tiempo el impacto ambiental y contribuyendo a una agricultura más responsable.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Visión - Texto izquierda, imagen derecha */}
-      <motion.section
-        className="py-20 bg-white"
-        initial="hidden"
-        whileInView="visible"
-        viewport={optimizedViewport}
-        variants={containerVariants}
-      >
-        <div className="mx-auto px-4 sm:px-6 lg:px-36">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Contenido textual */}
-            <motion.div variants={sectionVariants}>
-              <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
-                Visión
-              </h2>
-              <p className="text-xl text-gray-700 leading-relaxed">
-                Aspiramos a ser referentes en el desarrollo de soluciones fitosanitarias y nutricionales sustentables, capaces de potenciar el control de enfermedades foliares y disminuir la aparición de resistencias, promoviendo una agricultura más eficiente, segura y con visión de largo plazo.
-              </p>
-            </motion.div>
-
-            {/* Imagen */}
-            <motion.div
-              className="relative"
-              variants={imageVariants}
-            >
-              <div className="relative ml-auto max-w-150 h-96 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/about-us/vision.jpg"
-                  alt="Futuro de la agricultura y tecnología innovadora"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                {/* Overlay sutil */}
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent"></div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
-
-
-      {/* Valores - Optimizado con animaciones más ligeras */}
-      <motion.section
-        className="pb-20 pt-10 bg-white"
-        initial="hidden"
-        whileInView="visible"
-        viewport={optimizedViewport}
-        variants={containerVariants}
-      >
-        <div className="mx-auto px-4 sm:px-6 lg:px-36">
-          <motion.div
-            className="text-center mb-16"
-            variants={sectionVariants}
-          >
-            <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary mb-4">Nuestros Valores</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Aplicamos la ciencia para lograr sustentabilidad con innovación, compromiso y transparencia.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Lightbulb,
-                title: "Innovación",
-                description: "Búsqueda constante de soluciones innovadoras y efectivas."
-              },
-              {
-                icon: Handshake,
-                title: "Compromiso",
-                description: "Dedicación total hacia el productor y el cuidado del medio ambiente"
-              },
-              {
-                icon: Users,
-                title: "Transparencia",
-                description: "Honestidad y claridad en todas nuestras relaciones comerciales"
-              }
-            ].map((value, index) => (
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Misión */}
+            <motion.div variants={cardVariants}>
+              {/* Imagen arriba */}
               <motion.div
-                key={index}
-                className="bg-primary-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-100 relative overflow-hidden"
-                variants={cardVariants}
-                whileHover={{
-                  y: -3,
-                  scale: 1.02,
-                  transition: { duration: 0.2 }
-                }}
+                className="relative mb-8"
+                variants={imageVariants}
               >
-                {/* Efecto de brillo sutil */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-
-                <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 mx-auto shadow-md relative z-10">
-                  <value.icon className="w-8 h-8 text-white" />
+                <div className="relative h-112 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/about-us/mision.jpg"
+                    alt="Productos sostenibles y agricultura responsable"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  {/* Overlay sutil */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/30 to-transparent"></div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 text-center mb-4 relative z-10">{value.title}</h3>
-                <p className="text-gray-700 text-center leading-relaxed relative z-10">{value.description}</p>
               </motion.div>
-            ))}
+
+              {/* Texto abajo */}
+              <motion.div variants={sectionVariants}>
+                <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
+                  Misión
+                </h2>
+                <p className="text-xl text-gray-700 leading-relaxed">
+                  Brindamos soluciones fitosanitarias y nutricionales de alta tecnología, diseñadas para el manejo sustentable de enfermedades foliares. Nuestro objetivo es optimizar el rendimiento de los cultivos, reduciendo al mismo tiempo el impacto ambiental y contribuyendo a una agricultura más responsable.
+                </p>
+              </motion.div>
+            </motion.div>
+
+            {/* Visión */}
+            <motion.div variants={cardVariants}>
+              {/* Imagen arriba */}
+              <motion.div
+                className="relative mb-8"
+                variants={imageVariants}
+              >
+                <div className="relative h-112 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/about-us/vision.jpg"
+                    alt="Futuro de la agricultura y tecnología innovadora"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  {/* Overlay sutil */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent"></div>
+                </div>
+              </motion.div>
+
+              {/* Texto abajo */}
+              <motion.div variants={sectionVariants}>
+                <h2 className="text-4xl md:text-5xl font-avenir-cyr-heavy text-primary leading-tight mb-6">
+                  Visión
+                </h2>
+                <p className="text-xl text-gray-700 leading-relaxed">
+                  Aspiramos a ser referentes en el desarrollo de soluciones fitosanitarias y nutricionales sustentables, capaces de potenciar el control de enfermedades foliares y disminuir la aparición de resistencias, promoviendo una agricultura más eficiente, segura y con visión de largo plazo.
+                </p>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </motion.section>
 
-      <RootSeparator />
+      {/* Separador con imagen de fondo */}
+      <div className="relative w-full h-64 md:h-142 overflow-hidden">
+        <Image
+          src="/images/bg-ciencia-sustentable.png"
+          alt="Ciencia y Sustentabilidad"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
 
       {/* Nuestro Equipo con QR - Sin animaciones complejas para mejor performance */}
       <motion.section
@@ -279,109 +215,6 @@ export default function AboutUs() {
           <TeamMembers />
         </div>
       </motion.section>
-
-      {/* Waves separator optimizado - Sin animaciones complejas */}
-      <div className="w-full overflow-hidden">
-        <svg className="w-full h-24 md:h-32" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">
-          {/* Primera fila de ondas - verde claro */}
-          <path
-            d="M0,60 Q150,45 300,50 T600,65 Q750,70 900,55 T1200,60 L1200,120 L0,120 Z"
-            fill="#7cb342"
-            className="opacity-90"
-          />
-          {/* Segunda fila de ondas - verde medio */}
-          <path
-            d="M0,75 Q100,60 200,65 Q350,70 500,75 Q650,80 800,70 Q950,60 1200,75 L1200,120 L0,120 Z"
-            fill="#4a7c59"
-            className="opacity-80"
-          />
-          {/* Tercera fila de ondas - verde oscuro */}
-          <path
-            d="M0,90 Q75,80 150,85 Q300,90 450,95 Q600,100 750,90 Q900,80 1200,90 L1200,120 L0,120 Z"
-            fill="#164A37"
-          />
-        </svg>
-      </div>
-
-      {/* Historia y Experiencia - Animaciones optimizadas */}
-      <motion.section
-        className="pt-20 pb-26 bg-primary-800 text-white"
-        initial="hidden"
-        whileInView="visible"
-        viewport={optimizedViewport}
-        variants={containerVariants}
-      >
-        <div className="mx-auto px-4 sm:px-6 lg:px-36">
-          <motion.div
-            className="text-center mb-10"
-            variants={sectionVariants}
-          >
-            <p className="text-xl text-primary-200 max-w-3xl mx-auto">
-              Décadas de dedicación al desarrollo de soluciones a base de cobre,
-              con respaldo técnico y compromiso con la excelencia.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Award,
-                number: "60+",
-                label: "Años de Experiencia",
-                description: "Medio siglo perfeccionando nuestras soluciones"
-              },
-              {
-                icon: Leaf,
-                number: "100%",
-                label: "Base de Cobre",
-                description: "Productos naturales y efectivos"
-              },
-              {
-                icon: Users,
-                number: "500+",
-                label: "Clientes Satisfechos",
-                description: "Productores que confían en nosotros"
-              }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                className="text-center"
-                variants={cardVariants}
-              >
-                <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <stat.icon className="w-10 h-10 text-primary-200" />
-                </div>
-                <div className="text-4xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-xl font-semibold text-primary-200 mb-3">{stat.label}</div>
-                <p className="text-white/80">{stat.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Bottom waves separator - Simplificado */}
-      <div className="w-full overflow-hidden bg-[#28292D]">
-        <svg className="w-full h-24 md:h-32 rotate-180" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="none">
-          {/* Primera fila de ondas - verde claro */}
-          <path
-            d="M0,60 Q150,45 300,50 T600,65 Q750,70 900,55 T1200,60 L1200,120 L0,120 Z"
-            fill="#7cb342"
-            className="opacity-90"
-          />
-          {/* Segunda fila de ondas - verde medio */}
-          <path
-            d="M0,75 Q100,60 200,65 Q350,70 500,75 Q650,80 800,70 Q950,60 1200,75 L1200,120 L0,120 Z"
-            fill="#4a7c59"
-            className="opacity-100"
-          />
-          {/* Tercera fila de ondas - verde oscuro */}
-          <path
-            d="M0,90 Q75,80 150,85 Q300,90 450,95 Q600,100 750,90 Q900,80 1200,90 L1200,120 L0,120 Z"
-            fill="#164A37"
-          />
-        </svg>
-      </div>
     </div>
   );
 }

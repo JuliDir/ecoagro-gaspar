@@ -85,10 +85,10 @@ export default function Contact() {
           whileInView="visible"
           viewport={optimizedViewport}
         >
-          <h2 className="text-4xl font-avenir-cyr-heavy mb-4 text-primary-500">
+          <h2 className="text-5xl font-avenir-cyr-heavy mb-4 text-primary-500">
             Contacto
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Estamos aquí para ayudarte. Contáctanos para cualquier consulta sobre
             nuestros servicios y productos.
           </p>
