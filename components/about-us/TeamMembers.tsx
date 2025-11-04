@@ -27,7 +27,7 @@ const TeamMembers = () => {
           whileHover={{ y: -5 }}
         >
           {/* Foto placeholder - Altura fija */}
-          <div className="relative w-full h-100 mx-auto mb-4 flex-shrink-0">
+          <div className="relative w-full h-74 mx-auto mb-4 flex-shrink-0">
             {member.image ? (
               <Image
                 src={member.image}
