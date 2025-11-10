@@ -82,7 +82,7 @@ export default function AllProducts() {
                     {showCoadyuvantes ? (
                         // Grid de Coadyuvantes - Solo imágenes
                         <motion.div
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-0"
+                            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-0"
                             variants={containerVariants}
                         >
                             {coadyuvantes.map((coadyuvante, index) => (

@@ -15,7 +15,7 @@ const TeamMembers = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:justify-items-center">
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:justify-items-center">
       {teamMembers.map((member, index) => (
         <motion.div
           key={index}
@@ -24,7 +24,7 @@ const TeamMembers = () => {
           whileHover={{ y: -5 }}
         >
           {/* Foto placeholder - Altura fija */}
-          <div className="relative w-full h-74 mx-auto mb-4 flex-shrink-0">
+          <div className="relative w-full h-64 mx-auto mb-4 flex-shrink-0">
             {member.image ? (
               <Image
                 src={member.image}
@@ -44,7 +44,7 @@ const TeamMembers = () => {
 
           {/* Información del miembro */}
           <div className="text-center flex-1 flex flex-col">
-            <h3 className="text-2xl font-bold text-primary-800 mb-2">{member.name}</h3>
+            <h3 className="text-xl font-bold text-primary-800 mb-2">{member.name}</h3>
             <p className="text-primary-600 font-semibold mb-3 text-lg">{member.position}</p>
 
             {/* Contacto */}
@@ -53,7 +53,7 @@ const TeamMembers = () => {
                 <div className="w-6 h-6 bg-primary-600 rounded-md flex items-center justify-center">
                   <Mail className="w-3 h-3 text-white" />
                 </div>
-                <span className="text-gray-600 text-lg">{member.email}</span>
+                <span className="text-gray-600 text-sm">{member.email}</span>
               </div>
               <div className="flex items-center justify-start space-x-2">
                 <div className="w-6 h-6 bg-primary-600 rounded-md flex items-center justify-center">
@@ -63,7 +63,7 @@ const TeamMembers = () => {
                   href={getWhatsAppUrl(member.phone)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 text-lg hover:text-primary-600 transition-colors duration-200 cursor-pointer"
+                  className="text-gray-600 text-sm hover:text-primary-600 transition-colors duration-200 cursor-pointer"
                 >
                   {member.phone}
                 </a>
