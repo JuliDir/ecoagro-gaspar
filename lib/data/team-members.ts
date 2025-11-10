@@ -11,7 +11,7 @@ export const teamMembers: TeamMember[] = [
     description: "Lidera la gestión administrativa de la empresa desde el Parque Industrial Las Heras, impulsando eficiencia y organización en cada proceso."
   },
   {
-    name: "Luis F. Gaspar",
+    name: "Ing. Agr. Luis F. Gaspar",
     position: "Director General",
     phone: "+54 9 341 5765476",
     email: "lgaspar@ecoagrogaspar.com.ar",
@@ -20,7 +20,7 @@ export const teamMembers: TeamMember[] = [
     description: "Responsable de la visión estratégica y la dirección general de Ecoagro Gaspar, con base en Mendoza."
   },
   {
-    name: "Carlos \"Puchi\" Aruani",
+    name: "Ing. Agr. Carlos \"Puchi\" Aruani",
     position: "Desarrollo y Ventas",
     phone: "+54 9 261 6997468",
     email: "caruani@ecoagrogaspar.com.ar",
@@ -29,7 +29,7 @@ export const teamMembers: TeamMember[] = [
     description: "Conduce el equipo comercial de la empresa, desarrollando relaciones comerciales sólidas y expandiendo el alcance de nuestros productos."
   },
   {
-    name: "Roberto \"Tweety\" Crinó",
+    name: "Ing. Agr. Roberto \"Tweety\" Crinó",
     position: "Desarrollo y Ventas",
     phone: "+54 9 261 5163987",
     email: "rcrino@ecoagrogaspar.com.ar",

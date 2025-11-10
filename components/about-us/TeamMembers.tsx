@@ -15,14 +15,11 @@ const TeamMembers = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:justify-items-center">
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:justify-items-center">
       {teamMembers.map((member, index) => (
         <motion.div
           key={index}
-          className={`bg-gradient-to-br from-primary-50 to-white rounded-2xl p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-primary-100 w-full flex flex-col ${
-            // Centrar la última card cuando hay 7 elementos (3 columnas)
-            teamMembers.length === 7 && index === 6 ? 'lg:col-start-2' : ''
-            }`}
+          className="bg-gradient-to-br from-primary-50 to-white rounded-2xl p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-primary-100 w-full flex flex-col"
           variants={cardVariants}
           whileHover={{ y: -5 }}
         >

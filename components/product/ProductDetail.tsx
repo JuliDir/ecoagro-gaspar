@@ -291,7 +291,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     const productSlug = productName.toLowerCase().replace(/\s+/g, '-');
     return {
       safetySheet: `/documents/${productSlug}/${productSlug}-hoja-seguridad.pdf`,
-      technicalSheet: `/documents/${productSlug}/${productSlug}-ficha-tecnica.pdf`,
+      technicalSheet: `/documents/${productSlug}/${productSlug}-informe-tecnico.pdf`,
       marvete: `/documents/${productSlug}/${productSlug}-marbete.jpeg`
     };
   };
@@ -1000,7 +1000,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
       )}
 
       {/* Certificaciones para BORDOCALD, COBRESTABLE y TRIKOPPER 50 */}
-      {(product.name === "COBRESTABLE" || product.name === "TRIKOPPER 50") && (
+      {(product.name === "COBRESTABLE" || product.name === "TRIKOPPER 50" || product.name === "BORDOCALD") && (
         <motion.section
           className="pt-20 bg-white relative"
           initial="hidden"
@@ -1011,17 +1011,16 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           {/* Texto certificación */}
           <div className="mx-auto px-4 sm:px-6 lg:px-36 mb-4">
             <motion.div className="text-center" variants={sectionVariants}>
-              <h2 className="text-gray-800 font-bold text-4xl mb-3 font-avenir-cyr-heavy" style={{ color: product.cssColor }}>Certificado Para Agricultura Orgánica</h2>
-
-              {product.name !== "COBRESTABLE" && (
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  Aprobado por entidades certificadoras internacionales
-                </p>
-              )}
+              <h2 className="text-gray-800 font-bold text-4xl mb-3 font-avenir-cyr-heavy" style={{ color: product.cssColor }}>
+                {product.name === "BORDOCALD"
+                  ? "CERTIFICADO PARA AGRICULTURA ORGÁNICA"
+                  : "APROBADO POR SENASA PARA AGRICULTURA ORGÁNICA"
+                }
+              </h2>
             </motion.div>
           </div>
 
-          {/* Logos de certificaciones - Sin restricción de ancho, pueden extenderse */}
+          {/* Logos de certificaciones */}
           <div className="w-full px-4">
             <div className="flex flex-wrap lg:flex-nowrap items-center justify-center gap-x-6 gap-y-8">
               {/* Logo SENASA */}
@@ -1046,16 +1045,18 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 />
               </motion.div>
 
-              {/* Logo OIA */}
-              <motion.div variants={cardVariants} className="flex-shrink-0">
-                <Image
-                  src="/images/products/oia-logo.png"
-                  alt="OIA"
-                  width={160}
-                  height={160}
-                  className="object-contain hover:scale-110 transition-transform duration-300"
-                />
-              </motion.div>
+              {/* Logo OIA - Solo para BORDOCALD */}
+              {product.name === "BORDOCALD" && (
+                <motion.div variants={cardVariants} className="flex-shrink-0">
+                  <Image
+                    src="/images/products/oia-logo.png"
+                    alt="OIA"
+                    width={160}
+                    height={160}
+                    className="object-contain hover:scale-110 transition-transform duration-300"
+                  />
+                </motion.div>
+              )}
 
               {/* Logo JAS */}
               <motion.div variants={cardVariants} className="flex-shrink-0">
@@ -1078,34 +1079,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   className="object-contain hover:scale-110 transition-transform duration-300"
                 />
               </motion.div>
-
-              {/* Logo ECOCERT 
-              
-              
-              
-              {product.name === "BORDOCALD" && (
-                <motion.div variants={cardVariants} className="flex-shrink-0">
-                  <Image
-                    src="/images/products/ecocert-logo.png"
-                    alt="ECOCERT"
-                    width={160}
-                    height={160}
-                    className="object-contain hover:scale-110 transition-transform duration-300"
-                  />
-                </motion.div>
-              )}
-              {product.name === "BORDOCALD" && (
-                <motion.div variants={cardVariants} className="flex-shrink-0">
-                  <Image
-                    src="/images/products/usda-organic-logo.png"
-                    alt="USDA Organic"
-                    width={160}
-                    height={160}
-                    className="object-contain hover:scale-110 transition-transform duration-300"
-                  />
-                </motion.div>
-              )}
-              - Solo para BORDOCALD */}
             </div>
           </div>
         </motion.section>
@@ -1161,21 +1134,41 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             {/* Ficha Técnica */}
             <motion.div
               variants={cardVariants}
-              className="bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 border border-gray-200 group opacity-60"
+              className={`bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 border border-gray-200 group ${
+                product.name === "BORDOCALD" || product.name === "COBRESTABLE"
+                  ? "hover:shadow-xl cursor-pointer"
+                  : "opacity-60"
+              }`}
+              onClick={() => {
+                if (product.name === "BORDOCALD" || product.name === "COBRESTABLE") {
+                  handleOpenInNewTab(documents.technicalSheet);
+                }
+              }}
             >
               <div className="text-center">
                 <div
-                  className="w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center transition-transform duration-300"
+                  className={`w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center transition-transform duration-300 ${
+                    product.name === "BORDOCALD" || product.name === "COBRESTABLE"
+                      ? "group-hover:scale-110"
+                      : ""
+                  }`}
                   style={{ backgroundColor: `${product.cssColor}15` }}
                 >
                   <FileText className="w-8 h-8" style={{ color: product.cssColor }} />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Ficha Técnica</h3>
                 <p className="text-gray-600 text-sm mb-4">Especificaciones técnicas y modo de aplicación</p>
-                <div className="flex items-center justify-center text-sm font-medium text-gray-500">
-                  <FileText className="w-4 h-4 mr-2" />
-                  Próximamente
-                </div>
+                {product.name === "BORDOCALD" || product.name === "COBRESTABLE" ? (
+                  <div className="flex items-center justify-center text-sm font-medium group-hover:text-blue-600 transition-colors">
+                    <Download className="w-4 h-4 mr-2" />
+                    Descargar PDF
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center text-sm font-medium text-gray-500">
+                    <FileText className="w-4 h-4 mr-2" />
+                    Próximamente
+                  </div>
+                )}
               </div>
             </motion.div>
 

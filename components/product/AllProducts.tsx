@@ -2,6 +2,7 @@
 
 import { motion, spring } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import { useSearchParams } from "next/navigation"
 import { products } from "@/lib/data/products"
 import ProductCard from "./ProductCard"
@@ -31,40 +32,90 @@ const itemVariants = {
     },
 }
 
+// Lista de coadyuvantes basada en la estructura de carpetas
+const coadyuvantes = [
+    { slug: 'antiespuma', name: 'Antiespuma' },
+    { slug: 'corrector-duo', name: 'Corrector Duo' },
+    { slug: 'corrector-duo-ph', name: 'Corrector Duo pH' },
+    { slug: 'efectos-csc', name: 'Efectos CSC' },
+    { slug: 'efecto-total', name: 'Efecto Total' },
+    { slug: 'maq-ld', name: 'MAQ LD' },
+    { slug: 'maq-uno', name: 'MAQ Uno' },
+    { slug: 'max-oil', name: 'Max Oil' },
+    { slug: 'max-oil-metilado', name: 'Max Oil Metilado' },
+    { slug: 'max-oil-siliconado', name: 'Max Oil Siliconado' },
+    { slug: 'nh-max', name: 'NH Max' },
+    { slug: 'nh-quat', name: 'NH Quat' },
+    { slug: 'one', name: 'One' },
+    { slug: 'one-sl', name: 'One SL' },
+    { slug: 'phos-k', name: 'Phos K' },
+    { slug: 'secuestrante-de-cationes', name: 'Secuestrante de Cationes' },
+    { slug: 'viento-control', name: 'Viento Control' },
+]
+
 export default function AllProducts() {
     const searchParams = useSearchParams()
     const category = searchParams.get('category')
-    
+
     // Filtrar productos según la categoría
     const filteredProducts = category ? products.filter(product => product.category === category) : products
-    
+
     // Verificar si es una categoría que debe mostrar "Próximamente"
-    const showComingSoon = category === 'Fertilizantes' || category === 'Coadyuvantes'
+    const showComingSoon = category === 'Fertilizantes'
+    const showCoadyuvantes = category === 'Coadyuvantes'
+
+    // Función para abrir folleto en nueva pestaña
+    const openFolleto = (slug: string) => {
+        window.open(`/coadyuvantes/${slug}/folleto.png`, '_blank')
+    }
     
     return (
         <div className="min-h-screen pt-15 bg-white">
             {/* Grid de productos o mensaje de próximamente */}
-            <motion.section 
-                className="py-24 bg-white relative" 
-                initial="hidden" 
-                animate="visible" 
+            <motion.section
+                className="py-20 bg-white relative"
+                initial="hidden"
+                animate="visible"
                 variants={containerVariants}
             >
                 <div className="mx-auto px-4 sm:px-6 lg:px-36 pb-16">
-                    {showComingSoon ? (
+                    {showCoadyuvantes ? (
+                        // Grid de Coadyuvantes - Solo imágenes
+                        <motion.div
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-0"
+                            variants={containerVariants}
+                        >
+                            {coadyuvantes.map((coadyuvante, index) => (
+                                <motion.div
+                                    key={coadyuvante.slug}
+                                    variants={itemVariants}
+                                    className="relative w-full h-64 cursor-pointer group"
+                                    onClick={() => openFolleto(coadyuvante.slug)}
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    <Image
+                                        src={`/coadyuvantes/${coadyuvante.slug}/logo.png`}
+                                        alt={coadyuvante.name}
+                                        fill
+                                        className="object-contain group-hover:opacity-80 transition-opacity duration-300"
+                                    />
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    ) : showComingSoon ? (
                         // Mensaje de Próximamente
-                        <motion.div 
+                        <motion.div
                             className="flex flex-col items-center justify-center min-h-[400px] text-center"
                             variants={itemVariants}
                         >
                             <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-12 max-w-2xl mx-auto shadow-lg border border-green-200">
                                 <motion.div
                                     className="text-6xl mb-6"
-                                    animate={{ 
+                                    animate={{
                                         rotate: [0, 10, -10, 0],
                                         scale: [1, 1.1, 1]
                                     }}
-                                    transition={{ 
+                                    transition={{
                                         duration: 2,
                                         repeat: Infinity,
                                         repeatDelay: 3
@@ -72,26 +123,26 @@ export default function AllProducts() {
                                 >
                                     🌱
                                 </motion.div>
-                                
+
                                 <h2 className="text-4xl font-bold text-[#164A37] mb-4">
                                     {category}
                                 </h2>
-                                
+
                                 <h3 className="text-2xl font-semibold text-green-700 mb-6">
                                     Próximamente
                                 </h3>
-                                
+
                                 <p className="text-green-600 text-lg leading-relaxed mb-8">
-                                    Estamos trabajando en ampliar nuestro catálogo de {category?.toLowerCase()}. 
-                                    Muy pronto tendrás acceso a una amplia gama de productos de alta calidad 
+                                    Estamos trabajando en ampliar nuestro catálogo de {category?.toLowerCase()}.
+                                    Muy pronto tendrás acceso a una amplia gama de productos de alta calidad
                                     para potenciar tus cultivos.
                                 </p>
-                                
+
                                 <div className="space-y-4">
                                     <p className="text-green-700 font-medium">
                                         ¿Necesitas estos productos ahora?
                                     </p>
-                                    
+
                                     <Link
                                         href="/#contacto"
                                         className="inline-block bg-[#164A37] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#0f3429] transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform"
@@ -103,8 +154,8 @@ export default function AllProducts() {
                         </motion.div>
                     ) : (
                         // Grid de productos normal
-                        <motion.div 
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" 
+                        <motion.div
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                             variants={containerVariants}
                         >
                             {filteredProducts.map((product, index) => (
