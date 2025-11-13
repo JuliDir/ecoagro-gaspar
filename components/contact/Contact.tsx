@@ -59,13 +59,9 @@ export default function Contact() {
 
   // Función para abrir Google Maps
   const openGoogleMaps = () => {
-    // Coordenadas de Ecoagro Gaspar
-    const latitude = -32.85;
-    const longitude = -68.8;
-    
-    // URL para abrir en Google Maps
-    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
-    
+    // URL de Google Maps de Ecoagro Gaspar
+    const googleMapsUrl = 'https://www.google.com/maps/place/32%C2%B048\'58.4%22S+68%C2%B047\'54.2%22W/@-32.816226,-68.798401,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-32.816226!4d-68.798401?entry=ttu&g_ep=EgoyMDI1MTExMC4wIKXMDSoASAFQAw%3D%3D';
+
     // Abrir en una nueva pestaña
     window.open(googleMapsUrl, '_blank');
   };
@@ -198,7 +194,7 @@ export default function Contact() {
                 title="Click para abrir en Google Maps"
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.8!2d-68.8!3d-32.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDUxJzAwLjAiUyA2OMKwNDgnMDAuMCJX!5e0!3m2!1sen!2sar!4v1672934123456!5m2!1sen!2sar"
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3347.3!2d-68.798401!3d-32.816226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzLCsDQ4JzU4LjQiUyA2OMKwNDcnNTQuMiJX!5e0!3m2!1ses!2sar!4v1699999999999!5m2!1ses!2sar"
                   width="100%"
                   height="100%"
                   style={{ border: 0, pointerEvents: 'none' }}

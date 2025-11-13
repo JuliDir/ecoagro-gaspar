@@ -1058,6 +1058,32 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 </motion.div>
               )}
 
+              {/* Logo ECOCERT - Solo para BORDOCALD */}
+              {product.name === "BORDOCALD" && (
+                <motion.div variants={cardVariants} className="flex-shrink-0">
+                  <Image
+                    src="/images/products/ecocert-logo.png"
+                    alt="ECOCERT"
+                    width={160}
+                    height={160}
+                    className="object-contain hover:scale-110 transition-transform duration-300"
+                  />
+                </motion.div>
+              )}
+
+              {/* Logo USDA Organic - Solo para BORDOCALD */}
+              {product.name === "BORDOCALD" && (
+                <motion.div variants={cardVariants} className="flex-shrink-0">
+                  <Image
+                    src="/images/products/usda-organic-logo.png"
+                    alt="USDA Organic"
+                    width={160}
+                    height={160}
+                    className="object-contain hover:scale-110 transition-transform duration-300"
+                  />
+                </motion.div>
+              )}
+
               {/* Logo JAS */}
               <motion.div variants={cardVariants} className="flex-shrink-0">
                 <Image
@@ -1135,12 +1161,12 @@ export default function ProductDetail({ product }: ProductDetailProps) {
             <motion.div
               variants={cardVariants}
               className={`bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 border border-gray-200 group ${
-                product.name === "BORDOCALD" || product.name === "COBRESTABLE"
+                product.name === "BORDOCALD" || product.name === "COBRESTABLE" || product.name === "TRIKOPPER 50"
                   ? "hover:shadow-xl cursor-pointer"
                   : "opacity-60"
               }`}
               onClick={() => {
-                if (product.name === "BORDOCALD" || product.name === "COBRESTABLE") {
+                if (product.name === "BORDOCALD" || product.name === "COBRESTABLE" || product.name === "TRIKOPPER 50") {
                   handleOpenInNewTab(documents.technicalSheet);
                 }
               }}
@@ -1148,7 +1174,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               <div className="text-center">
                 <div
                   className={`w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center transition-transform duration-300 ${
-                    product.name === "BORDOCALD" || product.name === "COBRESTABLE"
+                    product.name === "BORDOCALD" || product.name === "COBRESTABLE" || product.name === "TRIKOPPER 50"
                       ? "group-hover:scale-110"
                       : ""
                   }`}
@@ -1158,7 +1184,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Ficha Técnica</h3>
                 <p className="text-gray-600 text-sm mb-4">Especificaciones técnicas y modo de aplicación</p>
-                {product.name === "BORDOCALD" || product.name === "COBRESTABLE" ? (
+                {product.name === "BORDOCALD" || product.name === "COBRESTABLE" || product.name === "TRIKOPPER 50" ? (
                   <div className="flex items-center justify-center text-sm font-medium group-hover:text-blue-600 transition-colors">
                     <Download className="w-4 h-4 mr-2" />
                     Descargar PDF
