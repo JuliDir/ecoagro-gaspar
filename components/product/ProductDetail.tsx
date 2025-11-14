@@ -1058,6 +1058,28 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 </motion.div>
               )}
 
+              {/* Logo JAS */}
+              <motion.div variants={cardVariants} className="flex-shrink-0">
+                <Image
+                  src="/images/products/jas-logo.png"
+                  alt="JAS"
+                  width={160}
+                  height={160}
+                  className="object-contain hover:scale-110 transition-transform duration-300"
+                />
+              </motion.div>
+
+              {/* Logo UE */}
+              <motion.div variants={cardVariants} className="flex-shrink-0">
+                <Image
+                  src="/images/products/ue-logo.png"
+                  alt="Unión Europea"
+                  width={160}
+                  height={160}
+                  className="object-contain hover:scale-110 transition-transform duration-300"
+                />
+              </motion.div>
+
               {/* Logo ECOCERT - Solo para BORDOCALD */}
               {product.name === "BORDOCALD" && (
                 <motion.div variants={cardVariants} className="flex-shrink-0">
@@ -1083,28 +1105,6 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                   />
                 </motion.div>
               )}
-
-              {/* Logo JAS */}
-              <motion.div variants={cardVariants} className="flex-shrink-0">
-                <Image
-                  src="/images/products/jas-logo.png"
-                  alt="JAS"
-                  width={160}
-                  height={160}
-                  className="object-contain hover:scale-110 transition-transform duration-300"
-                />
-              </motion.div>
-
-              {/* Logo UE */}
-              <motion.div variants={cardVariants} className="flex-shrink-0">
-                <Image
-                  src="/images/products/ue-logo.png"
-                  alt="Unión Europea"
-                  width={160}
-                  height={160}
-                  className="object-contain hover:scale-110 transition-transform duration-300"
-                />
-              </motion.div>
             </div>
           </div>
         </motion.section>
