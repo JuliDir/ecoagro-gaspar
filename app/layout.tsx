@@ -6,7 +6,6 @@ import SmallFooter from "@/components/ui/SmallFooter";
 import PageLoader from "@/components/ui/PageLoader";
 import WhatsappButton from "@/components/ui/WhatsappButton";
 import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
-import WelcomePopup from "@/components/ui/WelcomePopup";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -53,7 +52,6 @@ export default function RootLayout({
         <SmallFooter />
         <WhatsappButton />
         <ScrollToTopButton />
-        <WelcomePopup />
       </body>
     </html>
   );
